@@ -1,5 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿/* dvnlib.App.cs
+ * u250630_code
+ * u250630_documentation
+ */
+
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -15,9 +18,9 @@ namespace dvnlib.Common
         public string Arguments { get; set; }
         public string WorkingDirectory { get; set; }
 
-        internal static DevnApp BuildDefault()
+        internal static App BuildDefault()
         {
-            return new DevnApp()
+            return new App()
             {
                 Name             = "Application name",
                 Description      = "Application description",
@@ -27,7 +30,7 @@ namespace dvnlib.Common
             };
         }
 
-        internal static void StartApplications(List<DevnApp> applications)
+        internal static void StartApplications(List<App> applications)
         {
             foreach (var app in applications)
             {
@@ -35,7 +38,7 @@ namespace dvnlib.Common
             }
         }
 
-        internal static void StartWindowsProcess(DevnApp app)
+        internal static void StartWindowsProcess(App app)
         {
             Console.WriteLine($"Starting application: {app.Name}");
             try

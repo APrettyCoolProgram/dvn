@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* dvnlib.Framework.cs
+ * u250630_code
+ * u250630_documentation
+ */
+
 using dvnlib.Du;
 
 namespace dvnlib

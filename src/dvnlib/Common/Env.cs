@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* dvnlib.Env.cs
+ * u250630_code
+ * u250630_documentation
+ */
+
 using dvnlib.Blueprint;
+using dvnlib.Common;
 using dvnlib.Du;
 
 namespace dvnlib
@@ -14,7 +15,7 @@ namespace dvnlib
         public string EnvironmentDescription { get; set; }
         public bool CompressData { get; set; }
         public Dictionary<string, string> SourceTarget { get; set; }
-        public List<DevnApp> Applications { get; set; }
+        public List<App> Applications { get; set; }
 
         /// <summary>Creates a new development environment configuration file based on the specified action.</summary>
         /// <param name="action">The name of the action to use as the basis for the configuration file.</param>
@@ -26,9 +27,9 @@ namespace dvnlib
 
             Console.WriteLine(UserMessage.EnvTemplate("create"));
 
-            DevnEnv defaultEnv = BuildDefault(fileName);
+            Env defaultEnv = BuildDefault(fileName);
 
-            DuJson.ExportToLocalFile<DevnEnv>(defaultEnv, $@"./AppData/{fileName}.devn");
+            DuJson.ExportToLocalFile<Env>(defaultEnv, $@"./AppData/{fileName}.devn");
 
             Console.WriteLine(UserMessage.EnvTemplate("created"));
         }
@@ -36,9 +37,9 @@ namespace dvnlib
         /// <summary>Creates a default instance of the <see cref="DevnEnv"/> class.</summary>
         /// <param name="fileName">The name of the environment file.</param>
         /// <returns>A new instance of the <see cref="DevnEnv"/> class initialized with default values.</returns>
-        internal static DevnEnv BuildDefault(string fileName)
+        internal static Env BuildDefault(string fileName)
         {
-            return new DevnEnv()
+            return new Env()
             {
                 EnvironmentName        = fileName,
                 EnvironmentDescription = "Environment Description",
@@ -49,7 +50,7 @@ namespace dvnlib
                 },
                 Applications =
                 [
-                    new DevnApp()
+                    new App()
                 ]
             };
         }
@@ -104,7 +105,7 @@ namespace dvnlib
         {
             Console.WriteLine($@"Importing environment file: {session.Command}.devn");
 
-            DevnEnv devEnv = DuJson.ImportFromLocalFile<DevnEnv>($@".\AppData\{session.Command}.devn");
+            Env devEnv = DuJson.ImportFromLocalFile<Env>($@".\AppData\{session.Command}.devn");
 
             Console.WriteLine($"Launching environment: {devEnv.EnvironmentDescription}");
 
@@ -119,7 +120,7 @@ namespace dvnlib
                 Console.WriteLine($"Compression disabled.");
             }
 
-            DevnApp.StartApplications(devEnv.Applications);
+            App.StartApplications(devEnv.Applications);
         }
     }
 }

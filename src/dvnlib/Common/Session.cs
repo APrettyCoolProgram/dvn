@@ -1,9 +1,14 @@
-﻿using dvnlib.Blueprint;
+﻿/* dvnlib.Session.cs
+ * u250630_code
+ * u250630_documentation
+ */
+
+using dvnlib.Blueprint;
 using dvnlib.Common;
 
 namespace dvnlib
 {
-    public class Session
+    internal class Session
     {
         public string Command { get; set; }
         public string Action { get; set; }
@@ -46,7 +51,7 @@ namespace dvnlib
                 Action        = Parse.GetAction(args),
                 Option        = Parse.GetOption(args),
                 Framework     = Framework.New(),
-                AvailableEnvs = DevnEnv.GetAvailable()
+                AvailableEnvs = Env.GetAvailable()
             };
 
             Framework.Validate(session.Framework.Paths);

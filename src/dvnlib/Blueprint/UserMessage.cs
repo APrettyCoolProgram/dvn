@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* dvnlib.Blueprint.UserMessage.cs
+ * u250630_code
+ * u250630_documentation
+ */
 
 namespace dvnlib.Blueprint
 {

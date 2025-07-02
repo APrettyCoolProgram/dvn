@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/* dvnlib.Parse.cs
+ * u250630_code
+ * u250630_documentation
+ */
+
 using dvnlib.Blueprint;
 
 namespace dvnlib
@@ -28,7 +28,7 @@ namespace dvnlib
             {
                 case "new":
                 {
-                    DevnEnv.New(session.Action);
+                    Env.New(session.Action);
                     break;
                 }
                 case "help":
@@ -38,12 +38,12 @@ namespace dvnlib
                 }
                 case "list":
                 {
-                    DevnEnv.ListAvailable();
+                    Env.ListAvailable();
                     break;
                 }
                 default:
                 {
-                    DevnEnv.Launch(session);
+                    Env.Launch(session);
                     break;
                 }
             }
