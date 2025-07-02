@@ -9,22 +9,10 @@ namespace dvnlib
 {
     internal class Parse
     {
-        internal static string GetCommand(string[] args) =>
-            args[0].ToLower().Trim();
-
-        internal static string GetAction(string[] args) =>
-            args.Length > 1
-            ? args[1].ToLower().Trim()
-            : string.Empty;
-
-        internal static string GetOption(string[] args) =>
-            args.Length > 2
-            ? args[2].ToLower().Trim()
-            : string.Empty;
 
         internal static void Command(Session session)
         {
-            switch (session.Command)
+            switch (session.Request)
             {
                 case "new":
                 {

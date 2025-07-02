@@ -91,21 +91,21 @@ namespace dvnlib
         {
             List<string> envFilePaths = Directory.GetFiles(@".\AppData", "*.devn", SearchOption.AllDirectories).ToList();
 
-            if (envFilePaths.Contains($@".\AppData\{session.Command}.devn"))
+            if (envFilePaths.Contains($@".\AppData\{session.Request}.devn"))
             {
                 Launcher(session);
             }
             else
             {
-                Session.Stop($@"File not found: .\AppData\{session.Command}.devn");
+                Session.Stop($@"File not found: .\AppData\{session.Request}.devn");
             }
         }
 
         internal static void Launcher(Session session)
         {
-            Console.WriteLine($@"Importing environment file: {session.Command}.devn");
+            Console.WriteLine($@"Importing environment file: {session.Request}.devn");
 
-            Env devEnv = DuJson.ImportFromLocalFile<Env>($@".\AppData\{session.Command}.devn");
+            Env devEnv = DuJson.ImportFromLocalFile<Env>($@".\AppData\{session.Request}.devn");
 
             Console.WriteLine($"Launching environment: {devEnv.EnvironmentDescription}");
 

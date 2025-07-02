@@ -8,18 +8,35 @@ using dvnlib.Common;
 
 namespace dvnlib
 {
-    internal class Session
+    /// <summary> Session logic for devn.</summary>
+    public class Session
     {
-        public string Command { get; set; }
+        /// <summary>The first command line argument.</summary>
+        /// <remarks>
+        ///     The <c>request</c> argument tells dvn what to do.
+        /// </remarks>
+        public string Request { get; set; }
+
+        /// <summary>The second command line argument.</summary>
+        /// <remarks>
+        /// </remarks>
         public string Action { get; set; }
+
+        /// <summary>The third command line argument.</summary>
+        /// <remarks>
+        /// </remarks>
         public string Option { get; set; }
-        public string AvailableEnvs { get; set; }
-        public Framework Framework { get; set; }
+
+
+        //public string AvailableEnvs { get; set; }
+
+
+        internal Framework Framework { get; set; }
 
         /// <summary>Start a new devn session.</summary>
         /// <param name="devnVer">The current version of devn.</param>
         /// <param name="args">The command line arguments that were passed at execution.</param>
-        internal static void Start(string devnVer, string[] args)
+        public static void Start(string devnVer, string[] args)
         {
             Console.WriteLine(UserMessage.DevnStart(devnVer));
 
@@ -47,14 +64,15 @@ namespace dvnlib
         {
             Session session = new Session
             {
-                Command       = Parse.GetCommand(args),
+                Request       = Parse.GetCommand(args),
                 Action        = Parse.GetAction(args),
                 Option        = Parse.GetOption(args),
-                Framework     = Framework.New(),
-                AvailableEnvs = Env.GetAvailable()
+                Framework     = Framework.New()
             };
 
             Framework.Validate(session.Framework.Paths);
+
+            //session.AvailableEnvs = Env.GetAvailable();
 
             Parse.Command(session);
         }
