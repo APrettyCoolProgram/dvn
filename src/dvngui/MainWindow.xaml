@@ -1,4 +1,10 @@
-﻿<Window
+﻿<!--
+    dvngui.MainWindow.asmx.cs
+    u250701_code
+    u250701_documentation
+-->
+
+<Window
     x:Class="dvngui.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

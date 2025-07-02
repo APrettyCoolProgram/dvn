@@ -1,4 +1,9 @@
-﻿using System.Text;
+﻿/* dvngui.MainWindow.asmx.cs
+ * u250701_code
+ * u250701_documentation
+ */
+
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
