@@ -1,6 +1,6 @@
 ﻿/* dvn
- * Front end interface for dvn.
- * v0.1.0 (b250702.1404)
+ * Command line interface for dvn.
+ * v0.9.0 (b250708.1237)
  *
  * https://github.com/APrettyCoolProgram/dvn
  * Copyright (c) A Pretty Cool Program. All rights reserved.
@@ -8,8 +8,8 @@
  */
 
 /* dvn.ProjectInfo.cs
- * u250702_code
- * u250702_documentation
+ * u250707_code
+ * u250707_documentation
  */
 
 namespace dvn

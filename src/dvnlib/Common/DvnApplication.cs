@@ -1,26 +1,26 @@
 ﻿/* dvnlib.App.cs
- * u250630_code
- * u250630_documentation
+ * u250707_code
+ * u250707_documentation
  */
 
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dvnlib.Common
 {
-    internal class App
+    internal class DvnApplication
     {
+        /// <summary>
+        /// Gets or sets the name associated with the object.
+        /// </summary>
         public string Name { get; set; }
         public string Description { get; set; }
         public string FileName { get; set; }
         public string Arguments { get; set; }
         public string WorkingDirectory { get; set; }
 
-        internal static App BuildDefault()
+        internal static DvnApplication BuildDefault()
         {
-            return new App()
+            return new DvnApplication()
             {
                 Name             = "Application name",
                 Description      = "Application description",
@@ -30,7 +30,7 @@ namespace dvnlib.Common
             };
         }
 
-        internal static void StartApplications(List<App> applications)
+        internal static void StartApplications(List<DvnApplication> applications)
         {
             foreach (var app in applications)
             {
@@ -38,7 +38,7 @@ namespace dvnlib.Common
             }
         }
 
-        internal static void StartWindowsProcess(App app)
+        internal static void StartWindowsProcess(DvnApplication app)
         {
             Console.WriteLine($"Starting application: {app.Name}");
             try

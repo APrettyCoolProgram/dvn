@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Compressor.cs
- * u250630_code
- * u250630_documentation
+ * u250707_code
+ * u250707_documentation
  */
 
 using System.IO.Compression;

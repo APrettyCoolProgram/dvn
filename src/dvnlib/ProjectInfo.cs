@@ -1,15 +1,15 @@
 ﻿/* dvnlib
- * Front end interface for dvn.
- * v0.0 (b0)
+ * Class library for dvn.
+ * v0.9.0 (b250708.1237)
  *
  * https://github.com/APrettyCoolProgram/dvn
  * Copyright (c) A Pretty Cool Program. All rights reserved.
  * Licensed under the Apache 2.0 license.
  */
 
-/* dvngui.ProjectInfo.cs
- * u250701_code
- * u250701_documentation
+/* dvnlib.ProjectInfo.cs
+ * u250707_code
+ * u250707_documentation
  */
 
 namespace dvnlib

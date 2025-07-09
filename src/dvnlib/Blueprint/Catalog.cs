@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Blueprint.Catalog.cs
- * u250630_code
- * u250630_documentation
+ * u250707_code
+ * u250707_documentation
  */
 
 using System;
@@ -15,7 +15,7 @@ namespace dvnlib.Blueprint
     {
         /// <summary>Creates a list of directory names that should be excluded from repository operations.</summary>
         /// <returns>A list of directories to be excluded from repository-related processes</returns>
-        internal static List<string> ExcludedRepoDirectories()
+        internal static List<string> bpl_ExcludedRepoDirectories()
         {
             return
             [
@@ -32,7 +32,7 @@ namespace dvnlib.Blueprint
 
         /// <summary>Creates a list of folder names that should be excluded from repository operations.</summary>
         /// <returns>A list of folders to be excluded from repository-related processes</returns>
-        internal static List<string> ExcludedRepoFiles()
+        internal static List<string> bpl_ExcludedRepoFiles()
         {
             return
             [

@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Session.cs
- * u250630_code
- * u250630_documentation
+ * u250708_code
+ * u250708_documentation
  */
 
 using dvnlib.Blueprint;
@@ -11,70 +11,60 @@ namespace dvnlib
     /// <summary> Session logic for devn.</summary>
     public class Session
     {
-        /// <summary>The first command line argument.</summary>
+        public string DvnVer { get; set; }
+
+        /// <summary>The executing assembly.</summary>
         /// <remarks>
-        ///     The <c>request</c> argument tells dvn what to do.
+        ///     dvnlib is designed to be used as a library by both console and GUI applications.<br/>
+        ///     The <see cref="ExeAsm"/> property determines if the session is running in a console<br/>
+        ///     application (e.g., dvn) or a GUI application (e.g., dvngui).<br/>
         /// </remarks>
-        public string Request { get; set; }
+        public string ExeAsm { get; set; }
 
-        /// <summary>The second command line argument.</summary>
-        /// <remarks>
-        /// </remarks>
-        public string Action { get; set; }
+        /// <summary>The dvn <see cref="Command.Command"/> components.</summary>
+        internal Command Command { get; set; }
 
-        /// <summary>The third command line argument.</summary>
-        /// <remarks>
-        /// </remarks>
-        public string Option { get; set; }
-
-
-        //public string AvailableEnvs { get; set; }
-
-
+        /// <summary>The dvn <see cref="Framework.Framework"/> components.</summary>
         internal Framework Framework { get; set; }
 
-        /// <summary>Start a new devn session.</summary>
-        /// <param name="devnVer">The current version of devn.</param>
-        /// <param name="args">The command line arguments that were passed at execution.</param>
-        public static void Start(string devnVer, string[] args)
+        /// <summary>Creates a new <see cref="Session"/> instance.</summary>
+        /// <param name="exeAsm">The <see cref="ExeAsm">executing assembly</see>.</param>
+        /// <param name="args">Command-line arguments.</param>
+        /// <returns>A new <see cref="Session"/> instance.</returns>
+        public static Session CreateNew(string dvnVer, string exeAsm, string[] args)
         {
-            Console.WriteLine(UserMessage.DevnStart(devnVer));
-
-            if (args == null || args.Length == 0)
+            return new Session
             {
-                Stop(UserMessage.MissingArgument);
-            }
-            else
-            {
-                Proceed(args);
-            }
+                DvnVer    = dvnVer,
+                ExeAsm    = exeAsm,
+                Command   = Command.Get(args),
+                Framework = Framework.CreateNew()
+            };
         }
 
-        /// <summary>Stop the devn session and exit the application.</summary>
-        /// <param name="message">The message to be displayed when devn stops.</param>
-        internal static void Stop(string message = "")
+        /// <summary>Starts a new dvn session.</summary>
+        /// <param name="dvnVer">The current version of dvn.</param>
+        /// <param name="exeAsm">The <see cref="ExeAsm">executing assembly</see>.</param>
+        /// <param name="args">Command-line arguments.</param>
+        public static void Start(string dvnVer, string exeAsm, string[] args)
         {
-            Console.WriteLine(UserMessage.ExitMsg(message));
+            UserDisplay.Message(exeAsm, UserMessage.bpm_StartDvn());
+
+            Session session = CreateNew(dvnVer, exeAsm,  args);
+
+            Framework.Validate(session.Framework);
+
+            Parse.Action(session);
+        }
+
+        /// <summary>Terminates the current dvn session.</summary>
+        /// <param name="exeAsm">The <see cref="ExeAsm">executing assembly</see>.</param>
+        /// <param name="message">The message to display to the user.</param>
+        public static void Stop(string exeAsm, string message = "")
+        {
+            UserDisplay.Message(exeAsm, UserMessage.bpm_ExitDvn(message));
 
             Environment.Exit(0);
-        }
-
-        /// <summary>Proceed with the devn session.</summary>
-        internal static void Proceed(string[] args)
-        {
-            Session session = new Session
-            {
-                Request       = Parse.GetCommand(args),
-                Action        = Parse.GetAction(args),
-                Option        = Parse.GetOption(args),
-                Framework     = Framework.New()
-            };
-
-            Framework.Validate(session.Framework.Paths);
-
-            //session.AvailableEnvs = Env.GetAvailable();
-
-            Parse.Command(session);
         }
     }
 }
