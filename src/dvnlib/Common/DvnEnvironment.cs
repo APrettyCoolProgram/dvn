@@ -1,98 +1,47 @@
-﻿/* dvnlib.Env.cs
- * u250707_code
- * u250707_documentation
+﻿/* dvnlib.DvnEnvironment.cs
+ * u250710_code
+ * u250710_documentation
  */
 
-using System.IO;
 using dvnlib.Blueprint;
 using dvnlib.Common;
 using dvnlib.Du;
+using dvnlib.Profile;
 
 namespace dvnlib
 {
     internal class DvnEnvironment
     {
-        /// <summary>The environment name.</summary>
-        public string Name { get; set; }
-
-        /// <summary>The environment description.</summary>
-        public string Description { get; set; }
-
-        /// <summary>Indicates if data should be compressed.</summary>
-        public bool CompressData { get; set; }
-
-        /// <summary>A dictionary mapping source paths to target paths.</summary>
-        public Dictionary<string, string> SourceTarget { get; set; }
-
-        /// <summary>A list of applications associated with the environment.</summary>
-        public List<DvnApplication> Applications { get; set; }
-
-        /// <summary>Creates a new development environment configuration file based on the specified action.</summary>
-        /// <remarks>
-        ///     If an environment name (<c><see cref="Command.Option">request</see></c>) is provided, it will be used<br/>
-        ///     as the file name for the new environment configuration file, otherwise the file will be named "default.dvn".
-        /// </remarks>
-        /// <param name="request">The name of the action to use as the basis for the configuration file.</param>
-        internal static void CreateNew(string exeAsm, string envName)
-        {
-            var fileName = string.IsNullOrEmpty(envName)
-                ? "default"
-                : envName;
-
-            UserDisplay.Message(exeAsm, UserMessage.bpm_EnvTemplate("create"));
-
-            DvnEnvironment defaultEnv = BuildDefault(fileName);
-
-            DuJson.ExportToLocalFile<DvnEnvironment>(defaultEnv, $@"./AppData/{fileName}.dvn");
-
-            UserDisplay.Message(exeAsm, UserMessage.bpm_EnvTemplate("created"));
-        }
-
-        /// <summary>Creates a default instance of the <see cref="DvnEnvironment"/> class.</summary>
-        /// <param name="fileName">The name of the environment file.</param>
-        /// <returns>A new instance of the <see cref="DevnEnv"/> class initialized with default values.</returns>
-        internal static DvnEnvironment BuildDefault(string fileName)
-        {
-            return new DvnEnvironment()
-            {
-                Name         = fileName,
-                Description  = "Environment description",
-                CompressData = false,
-                SourceTarget = new Dictionary<string, string>
-                {
-                    {"\\path\\to\\source", "\\path\\to\\target" }
-                },
-                Applications =
-                [
-                    new DvnApplication()
-                ]
-            };
-        }
-
         /// <summary>Lists all available development environments found in the application's data directory.</summary>
-        /// <param name="exeAsm"></param>
-        internal static void ListAvailable(string exeAsm, string path)
+        internal static void ListAvailable(string exeAsm, string manifestPath)
         {
-            string detailString = GetAvailable(exeAsm, path);
+            string availableEnvironments = GetAvailable(exeAsm, manifestPath);
 
-            if (string.IsNullOrWhiteSpace(detailString))
+            if (string.IsNullOrWhiteSpace(availableEnvironments))
             {
-                Session.Stop(exeAsm, UserMessage.bpm_DevEnvListHeader("No environments found."));
+                Session.Stop(exeAsm, UserMessage.AvailableEnvironmentsList("No environments found."));
             }
             else
-            {  
-                UserDisplay.Message(exeAsm, UserMessage.bpm_DevEnvListHeader(detailString));
+            {
+                UserDisplay.Message(exeAsm, UserMessage.AvailableEnvironmentsList(availableEnvironments));
             }
         }
 
+        /// <summary>
+        /// Retrieves a formatted string containing details of available files and their associated information.
+        /// </summary>
+        /// <remarks>This method combines file paths and their details into a single string. It is
+        /// intended for use in scenarios where a summary of available files and their metadata is required.</remarks>
+        /// <param name="exeAsm">The name of the executable assembly to be used as a reference for locating files.</param>
+        /// <param name="path">The directory path where the search for available files will be conducted.</param>
+        /// <returns>A string that represents the details of available files, formatted for display or further processing.</returns>
         internal static string GetAvailable(string exeAsm, string path)
         {
-            List<string> availableFilePaths    = GetAvailableFilePaths(exeAsm, path);
-            Dictionary<string, string> details = GetAvailableDetails(exeAsm, availableFilePaths);
+            List<string> availableFilePaths    = GetPaths(exeAsm, path);
+            Dictionary<string, string> details = GetDetails(exeAsm, availableFilePaths);
 
             return BuildAvailableDetailString(exeAsm, details);
         }
-
 
         /// <summary>
         /// Retrieves a list of available environment names from files with a specific extension in the given directory
@@ -101,10 +50,8 @@ namespace dvnlib
         /// <param name="path">The directory path to search for environment files. Must be a valid directory path.</param>
         /// <returns>A string containing the names of all environments found, each on a new line. Returns an empty string if no
         /// environment files are found.</returns>
-        internal static List<string> GetAvailableFilePaths(string exeAsm, string path)
+        internal static List<string> GetPaths(string exeAsm, string path)
         {
-            //UserDisplay.Message(exeAsm, "Getting list of available environments...");
-
             return Directory.GetFiles(path, "*.dvn", SearchOption.AllDirectories).ToList();
         }
 
@@ -115,10 +62,8 @@ namespace dvnlib
         /// <param name="path">The directory path to search for environment files. Must be a valid directory path.</param>
         /// <returns>A string containing the names of all environments found, each on a new line. Returns an empty string if no
         /// environment files are found.</returns>
-        internal static Dictionary<string, string> GetAvailableDetails(string exeAsm, List<string> availableFilePaths)
+        internal static Dictionary<string, string> GetDetails(string exeAsm, List<string> availableFilePaths)
         {
-            //UserDisplay.Message(exeAsm,"  Building environment details...");
-
             Dictionary<string, string> envDetail = [];
 
             foreach (var envFilePath in availableFilePaths)
@@ -128,23 +73,12 @@ namespace dvnlib
                     continue;
                 }
 
-                var deets = GetNameAndDescription(envFilePath);
+                var test = DuJson.ImportFromLocalFile<Profile.Manifest>(envFilePath);
 
-                envDetail[deets[0]] = deets[1];
+                envDetail[test.Name] = test.Description;
             }
 
             return envDetail;
-        }
-
-        internal static string[] GetNameAndDescription(string envFilePath)
-        {
-            DvnEnvironment devEnv = DuJson.ImportFromLocalFile<DvnEnvironment>(envFilePath);
-
-            return
-            [
-                devEnv.Name,
-                devEnv.Description
-            ];
         }
 
         /// <summary>
@@ -168,42 +102,38 @@ namespace dvnlib
             return dvnEnvironments;
         }
 
-        internal static void Launch(Session session)
+        internal static void Load(Session session)
         {
-            List<string> envFilePaths       = Directory.GetFiles(session.Framework.Path["Data"], "*.dvn", SearchOption.AllDirectories).ToList();
-
-            var t = $@"{session.Framework.Path["Data"]}\{session.Command.Request}.dvn";
-
-            if (envFilePaths.Contains($@"{session.Framework.Path["Data"]}\{session.Command.Request}.dvn"))
+            if (File.Exists($@"{session.Framework.DvnManifestPath}\{session.Argument.Command}.dvn"))
             {
-                Launcher(session);
+                Launch(session);
             }
             else
             {
-                Session.Stop(session.ExeAsm,$@"File not found: {{session.Framework.Path[""Data""]}}\{{session.Command.Action}}.dvn");
+                Profile.Manifest.CreateNew(session.ExeAsm, session.Framework.DvnManifestPath, session.Argument.Command);
+                Session.Stop(session.ExeAsm);
             }
+
         }
 
-        internal static void Launcher(Session session)
+        internal static void Launch(Session session)
         {
-            //UserDisplay.Message(session.ExeAsm, $@"Importing environment file: {session.Command.Action}.dvn");
+            Manifest manifest = DuJson.ImportFromLocalFile<Manifest>($@"{session.Framework.DvnManifestPath}\{session.Argument.Command}.dvn");
 
-            DvnEnvironment devEnv = DuJson.ImportFromLocalFile<DvnEnvironment>($@"{session.Framework.Path["Data"]}\{session.Command.Request}.dvn");
+            Console.WriteLine($"{Environment.NewLine}  Launching environment: {manifest.Description}");
 
-            Console.WriteLine($"{Environment.NewLine}Launching environment: {devEnv.Description}");
-
-            if (devEnv.CompressData || session.Command.Option.Contains("-c"))
+            if (manifest.BackupData || session.Argument.Option.Contains("-b"))
             {
-                UserDisplay.Message(session.ExeAsm, "Compression enabled...");
-                Framework.CopyRepo(devEnv.SourceTarget.First().Key, session.Framework.Path);
-                Compressor.CompressData(devEnv.SourceTarget);
+                UserDisplay.Message(session.ExeAsm, "  Backup enabled...");
+                Framework.CopyRepo(manifest.BackupSources, manifest.BackupTarget, session.Framework.StagePath);
+                Backup.BackupData(session.Framework.StagePath, manifest.BackupTarget);
             }
             else
             {
-                UserDisplay.Message(session.ExeAsm, "Compression disabled...");
+                UserDisplay.Message(session.ExeAsm, "  Backup disabled...");
             }
 
-            DvnApplication.StartApplications(devEnv.Applications);
+            Profile.Component.Application.StartApplications(manifest.Application);
         }
     }
 }

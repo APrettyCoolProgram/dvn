@@ -1,16 +1,16 @@
 ﻿/* dvnlib.Parse.cs
- * u250707_code
- * u250707_documentation
+ * u250710_code
+ * u250710_documentation
  */
 
 using dvnlib.Blueprint;
 
 namespace dvnlib
 {
-    /// <summary>Parses the <see cref="Command.Command"/> components.</summary>
+    /// <summary>Parses the <see cref="Argument.Argument"/> components.</summary>
     internal class Parse
     {
-        /// <summary>Parses the <see cref="Command.Request"/> component.</summary>
+        /// <summary>Parses the <see cref="Argument.Command"/> component.</summary>
         /// <remarks>
         ///     Current valid actions are:
         ///     <list type="bullet">
@@ -23,11 +23,11 @@ namespace dvnlib
         /// <param name="session">The current dvn <see cref="Session.Session"/> instance.</param>
         internal static void Action(Session session)
         {
-            switch (session.Command.Request)
+            switch (session.Argument.Command)
             {
                 case "new":
                 {
-                    DvnEnvironment.CreateNew(session.ExeAsm, session.Command.Option[0]);
+                    Profile.Manifest.CreateNew(session.ExeAsm, session.Framework.DvnManifestPath, session.Argument.Option[0]);
                     break;
                 }
                 case "help":
@@ -35,14 +35,19 @@ namespace dvnlib
                     Console.WriteLine(UserMessage.MsgDvnHelp);
                     break;
                 }
+                case "info":
+                {
+                    Console.WriteLine(UserMessage.DvnInfo(session.DvnVer));
+                    break;
+                }
                 case "list":
                 {
-                    DvnEnvironment.ListAvailable(session.ExeAsm, session.Framework.Path["Data"]);
+                    DvnEnvironment.ListAvailable(session.ExeAsm, session.Framework.DvnManifestPath);
                     break;
                 }
                 default:
                 {
-                    DvnEnvironment.Launch(session);
+                    DvnEnvironment.Load(session);
                     break;
                 }
             }

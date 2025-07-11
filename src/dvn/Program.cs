@@ -1,39 +1,37 @@
 ﻿/* dvn.Program.cs
- * u250708_code
- * u250708_documentation
+ * u250710_code
+ * u250710_documentation
  */
 
 using System.Reflection;
 using dvnlib;
 using dvnlib.Blueprint;
-using dvnlib.Common;
 
 namespace dvn
 {
     /// <summary>Entry class for dvn.</summary>
     internal static class Program
     {
+        internal static string MsgMissingArgument =>
+            $"{Environment.NewLine}" +
+            "  dvn ERROR - No argument passed";
+
         /// <summary>Entry point for devn.</summary>
         /// <param name="args">The command line arguments passed to dvn at execution.</param>
         internal static void Main(string[] args)
         {
             Console.Clear();
 
-            string dvnVer = Assembly.GetExecutingAssembly()
-                                     .GetName().Version
-                                     .ToString();
-
-            string exeAsm = Assembly.GetExecutingAssembly()
-                                    .GetName().Name;
+            string dvnVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string exeAsm     = Assembly.GetExecutingAssembly().GetName().Name;
 
             if (args == null || args.Length == 0)
             {
-
-                Session.Stop(exeAsm, UserMessage.bpm_MissingArgument(dvnVer));
+                Session.Stop(exeAsm, MsgMissingArgument);
             }
             else
             {
-                Session.Start(dvnVer, exeAsm, args);
+                Session.Start(exeAsm, dvnVersion, args);
             }
         }
     }

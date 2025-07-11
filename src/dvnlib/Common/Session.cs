@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Session.cs
- * u250708_code
- * u250708_documentation
+ * u250710_code
+ * u250710_documentation
  */
 
 using dvnlib.Blueprint;
@@ -21,8 +21,8 @@ namespace dvnlib
         /// </remarks>
         public string ExeAsm { get; set; }
 
-        /// <summary>The dvn <see cref="Command.Command"/> components.</summary>
-        internal Command Command { get; set; }
+        /// <summary>The dvn <see cref="Argument.Argument"/> components.</summary>
+        internal Argument Argument { get; set; }
 
         /// <summary>The dvn <see cref="Framework.Framework"/> components.</summary>
         internal Framework Framework { get; set; }
@@ -37,18 +37,18 @@ namespace dvnlib
             {
                 DvnVer    = dvnVer,
                 ExeAsm    = exeAsm,
-                Command   = Command.Get(args),
+                Argument  = Argument.Get(args),
                 Framework = Framework.CreateNew()
             };
         }
 
         /// <summary>Starts a new dvn session.</summary>
-        /// <param name="dvnVer">The current version of dvn.</param>
         /// <param name="exeAsm">The <see cref="ExeAsm">executing assembly</see>.</param>
+        /// <param name="dvnVer">The current version of dvn.</param>
         /// <param name="args">Command-line arguments.</param>
-        public static void Start(string dvnVer, string exeAsm, string[] args)
+        public static void Start(string exeAsm, string dvnVer, string[] args)
         {
-            UserDisplay.Message(exeAsm, UserMessage.bpm_StartDvn());
+            UserDisplay.Message(exeAsm, UserMessage.StartDvn);
 
             Session session = CreateNew(dvnVer, exeAsm,  args);
 
@@ -62,7 +62,7 @@ namespace dvnlib
         /// <param name="message">The message to display to the user.</param>
         public static void Stop(string exeAsm, string message = "")
         {
-            UserDisplay.Message(exeAsm, UserMessage.bpm_ExitDvn(message));
+            UserDisplay.Message(exeAsm, UserMessage.ExitDvn(message));
 
             Environment.Exit(0);
         }

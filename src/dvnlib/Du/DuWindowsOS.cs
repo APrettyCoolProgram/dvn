@@ -12,13 +12,13 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using dvnlib.Common;
+using dvnlib.Profile.Component;
 
 namespace dvnlib.Du
 {
     public class DuWindowsOS
     {
-        internal static void StartWindowsProcess(DvnApplication app)
+        internal static void StartWindowsProcess(Application app)
         {
             Console.WriteLine($"Starting application: {app.Name}");
             try
@@ -28,7 +28,7 @@ namespace dvnlib.Du
                     StartInfo = new ProcessStartInfo
                     {
                         FileName         = app.FileName,
-                        Arguments        = app.Arguments,
+                        Arguments        = app.Argument,
                         WorkingDirectory = app.WorkingDirectory,
                         UseShellExecute  = true,
                         CreateNoWindow   = false

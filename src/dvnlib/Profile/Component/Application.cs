@@ -1,13 +1,13 @@
-﻿/* dvnlib.App.cs
- * u250707_code
- * u250707_documentation
+﻿/* dvnlib.Profile.Component.Application.cs
+ * u250710_code
+ * u250710_documentation
  */
 
 using System.Diagnostics;
 
-namespace dvnlib.Common
+namespace dvnlib.Profile.Component
 {
-    internal class DvnApplication
+    internal class Application
     {
         /// <summary>
         /// Gets or sets the name associated with the object.
@@ -15,22 +15,22 @@ namespace dvnlib.Common
         public string Name { get; set; }
         public string Description { get; set; }
         public string FileName { get; set; }
-        public string Arguments { get; set; }
+        public string Argument { get; set; }
         public string WorkingDirectory { get; set; }
 
-        internal static DvnApplication BuildDefault()
+        internal static Application BuildDefault()
         {
-            return new DvnApplication()
+            return new Application()
             {
                 Name             = "Application name",
                 Description      = "Application description",
                 FileName         = "filename",
-                Arguments        = "-arg1 -arg2",
+                Argument         = "-arg1 -arg2",
                 WorkingDirectory = "\\path\\to\\application"
             };
         }
 
-        internal static void StartApplications(List<DvnApplication> applications)
+        internal static void StartApplications(List<Application> applications)
         {
             foreach (var app in applications)
             {
@@ -38,17 +38,17 @@ namespace dvnlib.Common
             }
         }
 
-        internal static void StartWindowsProcess(DvnApplication app)
+        internal static void StartWindowsProcess(Application app)
         {
             Console.WriteLine($"Starting application: {app.Name}");
             try
             {
-                Process process = new Process
+                var process = new Process
                 {
                     StartInfo = new ProcessStartInfo
                     {
                         FileName         = app.FileName,
-                        Arguments        = app.Arguments,
+                        Arguments        = app.Argument,
                         WorkingDirectory = app.WorkingDirectory,
                         UseShellExecute  = true,
                         CreateNoWindow   = false
