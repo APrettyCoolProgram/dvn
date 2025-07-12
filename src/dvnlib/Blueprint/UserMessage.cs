@@ -1,5 +1,5 @@
 ﻿/* dvnlib.Blueprint.UserMessage.cs
- * u250710_code
+ * u250712_code
  * u250710_documentation
  */
 
@@ -55,7 +55,6 @@ namespace dvnlib.Blueprint
             $"  You will need to edit the \"{name}.dvn\" template manually.{Environment.NewLine}" +
             Environment.NewLine +
             $"  For more information, please refer to the dvn documentation.";
-        
 
         public static string AvailableEnvironmentsList(string envs) =>
             Environment.NewLine +
@@ -64,6 +63,7 @@ namespace dvnlib.Blueprint
             $"  {envs}";
 
         public static string ExitDvn(string message = "") =>
+            Environment.NewLine +
             $"{message}{Environment.NewLine}" +
             "  Exiting dvn..." +
             Environment.NewLine;

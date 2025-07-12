@@ -113,7 +113,6 @@ namespace dvnlib
                 Profile.Manifest.CreateNew(session.ExeAsm, session.Framework.DvnManifestPath, session.Argument.Command);
                 Session.Stop(session.ExeAsm);
             }
-
         }
 
         internal static void Launch(Session session)
