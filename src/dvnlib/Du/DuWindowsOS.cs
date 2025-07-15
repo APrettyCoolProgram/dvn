@@ -28,7 +28,7 @@ namespace dvnlib.Du
                     StartInfo = new ProcessStartInfo
                     {
                         FileName         = app.FileName,
-                        Arguments        = app.Argument,
+                        Arguments        = app.Arguments,
                         WorkingDirectory = app.WorkingDirectory,
                         UseShellExecute  = true,
                         CreateNoWindow   = false

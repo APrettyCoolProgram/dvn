@@ -11,7 +11,8 @@ namespace dvnlib
     internal class Backup
     {
         /// <summary>Compresses repository data.</summary>
-        /// <param name="sourcePath">The repository source, and compressed location.</param>
+        /// <param name="sourcePath">The source path containing the repositories to back up.</param>
+        /// <param name="targetPath">The target path where the backups will be stored.</param>
         internal static void BackupData(string sourcePath, string targetPath)
         {
             foreach (var subDirectory in Directory.GetDirectories(sourcePath))

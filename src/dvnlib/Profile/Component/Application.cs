@@ -15,7 +15,7 @@ namespace dvnlib.Profile.Component
         public string Name { get; set; }
         public string Description { get; set; }
         public string FileName { get; set; }
-        public string Argument { get; set; }
+        public string Arguments { get; set; }
         public string WorkingDirectory { get; set; }
 
         internal static Application BuildDefault()
@@ -25,7 +25,7 @@ namespace dvnlib.Profile.Component
                 Name             = "Application name",
                 Description      = "Application description",
                 FileName         = "filename",
-                Argument         = "-arg1 -arg2",
+                Arguments        = "-arg1 -arg2",
                 WorkingDirectory = "\\path\\to\\application"
             };
         }
@@ -48,7 +48,7 @@ namespace dvnlib.Profile.Component
                     StartInfo = new ProcessStartInfo
                     {
                         FileName         = app.FileName,
-                        Arguments        = app.Argument,
+                        Arguments        = app.Arguments,
                         WorkingDirectory = app.WorkingDirectory,
                         UseShellExecute  = true,
                         CreateNoWindow   = false
