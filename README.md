@@ -123,7 +123,7 @@ The **Description** component is the description of the development environment,
 
 For example:
 
-```bash
+```text
 ~$ dvn list
 
 =========
