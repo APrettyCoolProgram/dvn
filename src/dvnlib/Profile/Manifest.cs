@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Env.cs
- * u250710_code
- * u250710_documentation
+ * u250715_code
+ * u250715_documentation
  */
 
 using dvnlib.Blueprint;
@@ -90,7 +90,6 @@ namespace dvnlib.Profile
             return BuildAvailableDetailString(exeAsm, details);
         }
 
-
         /// <summary>
         /// Retrieves a list of available environment names from files with a specific extension in the given directory
         /// and its subdirectories.
@@ -114,8 +113,6 @@ namespace dvnlib.Profile
         /// environment files are found.</returns>
         internal static Dictionary<string, string> GetAvailableDetails(string exeAsm, List<string> availableFilePaths)
         {
-            //UserDisplay.Message(exeAsm,"  Building environment details...");
-
             Dictionary<string, string> envDetail = [];
 
             foreach (var envFilePath in availableFilePaths)
@@ -163,44 +160,6 @@ namespace dvnlib.Profile
             }
 
             return dvnEnvironments;
-        }
-
-        internal static void Launch(Session session)
-        {
-            ////////List<string> envFilePaths       = Directory.GetFiles(session.Framework.Patherwt["Data"], "*.dvn", SearchOption.AllDirectories).ToList();
-
-            ////////var t = $@"{session.Framework.Patherwt["Data"]}\{session.Command.Request}.dvn";
-
-            ////////if (envFilePaths.Contains($@"{session.Framework.Patherwt["Data"]}\{session.Command.Request}.dvn"))
-            ////////{
-            ////////    Launcher(session);
-            ////////}
-            ////////else
-            ////////{
-            ////////    Session.Stop(session.ExeAsm,$@"File not found: {{session.Framework.Path[""Data""]}}\{{session.Command.Action}}.dvn");
-            ////////}
-        }
-
-        internal static void Launcher(Session session)
-        {
-            //////////UserDisplay.Message(session.ExeAsm, $@"Importing environment file: {session.Command.Action}.dvn");
-
-            ////////Manifest devEnv = DuJson.ImportFromLocalFile<Manifest>($@"{session.Framework.Patherwt["Data"]}\{session.Command.Request}.dvn");
-
-            ////////Console.WriteLine($"{Environment.NewLine}Launching environment: {devEnv.Description}");
-
-            ////////if (devEnv.CompressData || session.Command.Option.Contains("-c"))
-            ////////{
-            ////////    UserDisplay.Message(session.ExeAsm, "Compression enabled...");
-            ////////    Framework.CopyRepo(devEnv.SourceTarget.First().Key, session.Framework.Patherwt);
-            ////////    Compressor.CompressData(devEnv.SourceTarget);
-            ////////}
-            ////////else
-            ////////{
-            ////////    UserDisplay.Message(session.ExeAsm, "Compression disabled...");
-            ////////}
-
-            ////////Application.StartApplications(devEnv.Applications);
         }
     }
 }

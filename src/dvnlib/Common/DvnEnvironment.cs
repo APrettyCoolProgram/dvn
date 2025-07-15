@@ -1,6 +1,6 @@
 ﻿/* dvnlib.DvnEnvironment.cs
- * u250710_code
- * u250710_documentation
+ * u250715_code
+ * u250715_documentation
  */
 
 using dvnlib.Blueprint;
@@ -90,8 +90,6 @@ namespace dvnlib
         /// environment files are found.</returns>
         internal static string BuildAvailableDetailString(string exeAsm, Dictionary<string, string> envDetail)
         {
-            ///UserDisplay.Message(exeAsm, "Building string...");
-
             var dvnEnvironments = string.Empty;
 
             foreach (var devnEnvironment in envDetail)

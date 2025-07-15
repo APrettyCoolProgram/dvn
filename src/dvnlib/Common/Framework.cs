@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Framework.cs
- * u250710_code
- * u250710_documentation
+ * u250715_code
+ * u250715_documentation
  */
 
 using System.Reflection;
@@ -11,15 +11,11 @@ namespace dvnlib
     /// <summary>The dvn framework components.</summary>
     internal class Framework
     {
-        /// <summary>The dvn framework paths.</summary>
-        //public Dictionary<string, string> Patherwt { get; set; }
-
         public string DvnDataPath { get; set; }
         public string DvnManifestPath { get; set; }
         public string TemporaryDataPath { get; set; }
         public string TrashPath { get; set; }
         public string ApplicationPath { get; set; }
-        //public string Data { get; set; }
         public string EncryptedDataPath { get; set; }
         public string BinPath { get; set; }
         public string RepositoryPath { get; set; }
@@ -40,7 +36,6 @@ namespace dvnlib
                 TemporaryDataPath  = @".\.temp",
                 TrashPath          = @".\.trash",
                 ApplicationPath    = @".\app",
-                //Data             = @".\data",
                 EncryptedDataPath  = @".\data\enc",
                 BinPath            = @".\data\bin",
                 RepositoryPath     = @".\data\repo",

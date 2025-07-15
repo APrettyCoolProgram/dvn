@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Blueprint.UserMessage.cs
  * u250712_code
- * u250710_documentation
+ * u250715_documentation
  */
 
 namespace dvnlib.Blueprint

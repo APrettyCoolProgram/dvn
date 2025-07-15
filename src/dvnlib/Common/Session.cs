@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Session.cs
- * u250710_code
- * u250710_documentation
+ * u250715_code
+ * u250715_documentation
  */
 
 using dvnlib.Blueprint;
@@ -27,21 +27,6 @@ namespace dvnlib
         /// <summary>The dvn <see cref="Framework.Framework"/> components.</summary>
         internal Framework Framework { get; set; }
 
-        /// <summary>Creates a new <see cref="Session"/> instance.</summary>
-        /// <param name="exeAsm">The <see cref="ExeAsm">executing assembly</see>.</param>
-        /// <param name="args">Command-line arguments.</param>
-        /// <returns>A new <see cref="Session"/> instance.</returns>
-        public static Session CreateNew(string dvnVer, string exeAsm, string[] args)
-        {
-            return new Session
-            {
-                DvnVer    = dvnVer,
-                ExeAsm    = exeAsm,
-                Argument  = Argument.Get(args),
-                Framework = Framework.CreateNew()
-            };
-        }
-
         /// <summary>Starts a new dvn session.</summary>
         /// <param name="exeAsm">The <see cref="ExeAsm">executing assembly</see>.</param>
         /// <param name="dvnVer">The current version of dvn.</param>
@@ -55,6 +40,21 @@ namespace dvnlib
             Framework.Validate(session.Framework);
 
             Parse.Action(session);
+        }
+
+        /// <summary>Creates a new <see cref="Session"/> instance.</summary>
+        /// <param name="exeAsm">The <see cref="ExeAsm">executing assembly</see>.</param>
+        /// <param name="args">Command-line arguments.</param>
+        /// <returns>A new <see cref="Session"/> instance.</returns>
+        public static Session CreateNew(string dvnVer, string exeAsm, string[] args)
+        {
+            return new Session
+            {
+                DvnVer    = dvnVer,
+                ExeAsm    = exeAsm,
+                Argument  = Argument.Get(args),
+                Framework = Framework.CreateNew()
+            };
         }
 
         /// <summary>Terminates the current dvn session.</summary>
