@@ -1,6 +1,8 @@
-***THIS DOCUMENTATION IS A WORK IN PROGRESS***
+<!-- u250715 -->
 
 <div align="center">
+
+  ***THIS DOCUMENTATION IS A WORK IN PROGRESS***
 
   ![Release](https://img.shields.io/badge/release-0.9--development+rc.1-teal)&nbsp;&nbsp;
   ![License](https://img.shields.io/badge/license-apache-blue)
