@@ -1,34 +1,56 @@
 ***THIS DOCUMENTATION IS A WORK IN PROGRESS***
 
+<div align="center">
+
+  ![Release](https://img.shields.io/badge/release-0.9-development+rc1)&nbsp;&nbsp;
+  ![License](https://img.shields.io/badge/license-apache-blue)
+
+</div>
+
 # dvn
 
-**dvn** is a command-line utility that helps bring up a development environment.
+## What
 
-For example, let's say you are working on a project named "MyProject" that needs the following:
+**dvn** is a command-line utility that helps start up a development environment.
 
-* A Visual Studio solution
-* A Visual Studio Code workspace
+## Why
+
+For example, let's say you are working on a project named "MyProject", and that project requires
+
+* A Visual Studio 2022 solution named `"MyProject"`
+* A Visual Studio Code workspace named `"MyProject-Documentation"`
+* A Visual Studio Code workspace named `"Other-Documentation"`
 * GitHub Desktop
-* A browser opened to API documentation
-* A specific WSL session
 
-In addition:
+In addition, you want to backup a bunch of data before you start a development session.
 
-* You want to backup the current development data before modifying anything
-* Something else
-* Something else.
+You *could* do all of the above steps manually.
 
-When you type `dvn myproject` on the command line:
+Or you could let `dvn` do it for you.
 
-* All current data will be backed up
+## How, Part One
+
+When you type `dvn myproject`:
+
+* Data will be backed up as a .zip file
 * Visual Studio solutions and workspaces will start
 * Other applications will start
-* Virtual machines will start
+
+## How, Part Two
+
+dvn uses manifest files to tell it what to do.
+
+When dvn starts, it loads a [manifest file](#the-manifest-file) that tells it:
+
+* If it should backup data, and if so what data and where to
+* What applications to start
 
 # Commands
 
-* `~$ dvn %environment%` 
-Load the `%environment%.dvn` file, or create a template if one does not exist.
+dvn recognizes the following commands:
+
+* `~$ dvn %environment%`  
+This is the main dvn command, and tells dvn to load the `%environment%.dvn` manifest file. If a `%environment%.dvn` manifest file does not exist, a default manifest template is created.
 
 * `~$ dvn help`  
 Show the help information
@@ -39,7 +61,7 @@ Show information about dvn
 * `~$ dvn list`  
 List the available environments
 
-# Template file
+# The Manifest file
 
 ```json
 {
