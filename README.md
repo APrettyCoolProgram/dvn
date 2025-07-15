@@ -1,21 +1,8 @@
+***THIS DOCUMENTATION IS A WORK IN PROGRESS***
+
 # dvn
 
 **dvn** is a command-line utility that helps bring up a development environment.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 For example, let's say you are working on a project named "MyProject" that needs the following:
 
@@ -40,40 +27,38 @@ When you type `dvn myproject` on the command line:
 
 # Commands
 
-* `~$ dvn`
+* `~$ dvn %environment%` 
+Load the `%environment%.dvn` file, or create a template if one does not exist.
+
 * `~$ dvn help`  
 Show the help information
+
+* `~$ dvn info`  
+Show information about dvn
 
 * `~$ dvn list`  
 List the available environments
 
-* `~$ dvn new`  
-Create a new environment template file
-
-* `~$ dvn %environment%`  
-Start the specified environment
-
 # Template file
-
-The `~$ dvn new` command creates a new `default.devn` file in `\AppData\`
 
 ```json
 {
-  "DevEnvName": "Environment Name",
-  "Applications": [
+  "Name": "web",
+  "Description": "Environment description",
+  "BackupData": true,
+  "BackupSources": [
+    "path\\to\\\source01",
+	"path\\to\\\source02",
+	"path\\to\\\source03"
+  ],
+  "BackupTarget": ""path\\to\\\target"
+  "Application": [
     {
-      "Name": "Application name",
-      "Description": "Application description",
-      "FileName": "filename",
-      "Arguments": "-arg1 -arg2",
-      "WorkingDirectory": "\\path\\to\\application"
-    },
-    {
-      "Name": "Application name",
-      "Description": "Application description",
-      "FileName": "filename",
-      "Arguments": "-arg1 -arg2",
-      "WorkingDirectory": "\\path\\to\\application"
+      "Name": "GitHub Desktop",
+      "Description": "GitHub Desktop",
+      "FileName": "GitHubDesktop.exe",
+      "Arguments": null,
+      "WorkingDirectory": "C:\\Users\\Chris.Banwarth\\AppData\\Local\\GitHubDesktop"
     }
   ]
 }
