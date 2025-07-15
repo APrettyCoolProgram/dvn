@@ -17,7 +17,7 @@
 
 ## Why
 
-For example, let's say you are working on a project named "MyProject", and that project requires
+Let's say you are working on a project named "MyProject", and that project requires
 
 * A Visual Studio 2022 solution named "*MyProject*"
 * A Visual Studio Code workspace named "*MyProject-Documentation*"
@@ -73,10 +73,6 @@ List the available environments
 * `-b`  
 Force data to be backed up.  
 
-## Examples
-
-To load an environment, and force data to be backed up: `~$ dvn %environment% -b`
-
 # The Manifest file
 
 The default manifest looks like this:
@@ -109,21 +105,9 @@ Keep in mind that and `\` characters need to be escaped as `\\`.
 
 ## Name
 
-The **Name** component is the name of the development environment, and is displayed when using the `~$ dvn list` command.
+The **Name** component is the name of the development environment.
 
-For example:
-
-```bash
-~$ dvn list
-
-=========
-   dvn
-=========
-
-  Available environments:
-
-  Environment name - Environment description
-```
+This value should match the file name (e.g., ***MyEnvironment***.dvn).
 
 If **dvn** creates a new manifest file, it will set `Name` to the `command` that was passed.
 
@@ -132,11 +116,6 @@ For example, `~$ dvn MyEnvironment` will create a MyEnvironment.dvn file with th
 ```json
     "Name": "MyEnvironment",
 ```
-
-Also:
-
-* You can manually change the `Name` component to whatever you would like displayed when listing the available environments.
-* While the `Name` component will initially match the file name, they don't need to match.
 
 ## Description
 
@@ -153,10 +132,10 @@ For example:
 
   Available environments:
 
-  Environment name - Environment description
+  MyEnvironment - The development environment for my project!
 ```
 
-If **dvn** creates a new manifest file, it will set `Description` to the "Environment description` that was passed.
+If **dvn** creates a new manifest file, it will set `Description` to the "Environment description".
 
 It is recommended that you manually change the `Description` to accurately describe the environment.
 
