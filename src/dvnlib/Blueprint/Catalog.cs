@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Blueprint.Catalog.cs
- * u250715_code
- * u250715_documentation
+ * u250716_code
+ * u250716_documentation
  */
 
 namespace dvnlib.Blueprint
@@ -9,7 +9,7 @@ namespace dvnlib.Blueprint
     {
         /// <summary>A list of folder names that should be excluded from repository operations.</summary>
         /// <returns>A list of folders to be excluded from repository-related processes</returns>
-        internal static List<string> ExcludedRepoFiles() =>
+        internal static List<string> ExcludeFiles() =>
         [
             ".DS_Store",
             "Thumbs.db",
@@ -22,7 +22,7 @@ namespace dvnlib.Blueprint
 
         /// <summary>Creates a list of directory names that should be excluded from repository operations.</summary>
         /// <returns>A list of directories to be excluded from repository-related processes</returns>
-        internal static List<string> ExcludedRepoDirectories() =>
+        internal static List<string> ExcludedDirs() =>
         [
             "node_modules",
             "bin",

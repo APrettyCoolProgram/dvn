@@ -1,32 +1,28 @@
 ﻿/* dvnlib.Compressor.cs
- * u250715_code
- * u250715_documentation
+ * u250716_code
+ * u250716_documentation
  */
 
 using System.IO.Compression;
 
 namespace dvnlib
 {
-    /// <summary>Compression</summary>
+    /// <summary>Backup logic.</summary>
     internal class Backup
     {
-        /// <summary>Compresses repository data.</summary>
-        /// <param name="sourcePath">The source path containing the repositories to back up.</param>
-        /// <param name="targetPath">The target path where the backups will be stored.</param>
-        internal static void BackupData(string sourcePath, string targetPath)
+        /// <summary>Backup repository data.</summary>
+        /// <param name="source">The source path containing the repositories to back up.</param>
+        /// <param name="target">The target path where the backups will be stored.</param>
+        internal static void BackupData(string source, string target)
         {
-            foreach (var subDirectory in Directory.GetDirectories(sourcePath))
+            Console.WriteLine($"  Backing up data...");
+
+            foreach (var subDirectory in Directory.GetDirectories(source))
             {
-                var repo       = Path.GetFileName(subDirectory);
-                var timestamp  = DateTime.Now.ToString("yyyyMMdd-HHmmss");
-                var target     = Path.Combine(targetPath, $"{repo}_{timestamp}.zip");
-
-                Console.WriteLine($"    Backing up [{subDirectory}] => [{target}]...");
-
-                ZipFile.CreateFromDirectory(subDirectory, target);
+                string backupLocation = Path.Combine(target, $"{Path.GetFileName(subDirectory)}_{DateTime.Now:yyyyMMdd-HHmmss}.zip");
+                Console.WriteLine($"  Backing up: {subDirectory}...");
+                ZipFile.CreateFromDirectory(subDirectory, backupLocation);
             }
-
-            Console.WriteLine($"  Backup complete!");
         }
     }
 }

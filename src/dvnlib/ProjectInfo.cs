@@ -1,6 +1,6 @@
 ﻿/* dvnlib
  * Class library for dvn and dvngui.
- * v0.9.0 (b250715.1205)
+ * v0.9.0 (b250716.1455)
  *
  * https://github.com/APrettyCoolProgram/dvn
  * Copyright (c) A Pretty Cool Program. All rights reserved.

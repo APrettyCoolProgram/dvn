@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Profile.Component.Application.cs
- * u250715_code
- * u250715_documentation
+ * u250716_code
+ * u250716_documentation
  */
 
 using System.Diagnostics;
@@ -34,15 +34,8 @@ namespace dvnlib.Profile.Component
         {
             foreach (var app in applications)
             {
-                StartWindowsProcess(app);
-            }
-        }
+                Console.WriteLine($"  Starting application: {app.Name}");
 
-        internal static void StartWindowsProcess(Application app)
-        {
-            Console.WriteLine($"Starting application: {app.Name}");
-            try
-            {
                 var process = new Process
                 {
                     StartInfo = new ProcessStartInfo
@@ -54,11 +47,8 @@ namespace dvnlib.Profile.Component
                         CreateNoWindow   = false
                     }
                 };
+
                 process.Start();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error starting process: {ex.Message}");
             }
         }
     }

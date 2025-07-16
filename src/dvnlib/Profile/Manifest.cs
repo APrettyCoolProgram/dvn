@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Env.cs
- * u250715_code
- * u250715_documentation
+ * u250716_code
+ * u250716_documentation
  */
 
 using dvnlib.Blueprint;
@@ -34,13 +34,11 @@ namespace dvnlib.Profile
         ///     as the file name for the new environment configuration file, otherwise the file will be named "default.dvn".
         /// </remarks>
         /// <param name="request">The name of the action to use as the basis for the configuration file.</param>
-        internal static void CreateNew(string exeAsm, string manifestPath, string envName)
+        internal static void New(string asm, string path, string env)
         {
-            Manifest defaultEnv = BuildDefault(envName);
-
-            DuJson.ExportToLocalFile<Manifest>(defaultEnv, $@"{manifestPath}\{envName}.dvn");
-
-            UserDisplay.Message(exeAsm, UserMessage.CreateManifestTemplate(envName));
+            Manifest defaultEnv = BuildDefault(env);
+            DuJson.ExportToLocalFile<Manifest>(defaultEnv, $@"{path}\{env}.dvn");
+            UserDisplay.Message(asm, UserMessage.CreateManifest(env));
         }
 
         /// <summary>Creates a default instance of the <see cref="Manifest"/> class.</summary>
@@ -50,116 +48,20 @@ namespace dvnlib.Profile
         {
             return new Manifest()
             {
-                Name         = fileName,
-                Description  = "Environment description",
-                BackupData = false,
+                Name          = fileName,
+                Description   = "Environment description",
+                BackupData    = false,
                 BackupSources =
                 [
                     "\\Path\\To\\Source1",
                     "\\Path\\To\\Source2"
                 ],
                 BackupTarget = "\\Path\\To\\Backup",
-                Application =
+                Application  =
                 [
                     new Component.Application()
                 ]
             };
-        }
-
-        /// <summary>Lists all available development environments found in the application's data directory.</summary>
-        /// <param name="exeAsm"></param>
-        internal static void ListAvailable(string exeAsm, string path)
-        {
-            string detailString = GetAvailable(exeAsm, path);
-
-            if (string.IsNullOrWhiteSpace(detailString))
-            {
-                Session.Stop(exeAsm, UserMessage.AvailableEnvironmentsList("No environments found."));
-            }
-            else
-            {
-                UserDisplay.Message(exeAsm, UserMessage.AvailableEnvironmentsList(detailString));
-            }
-        }
-
-        internal static string GetAvailable(string exeAsm, string path)
-        {
-            List<string> availableFilePaths    = GetAvailableFilePaths(exeAsm, path);
-            Dictionary<string, string> details = GetAvailableDetails(exeAsm, availableFilePaths);
-
-            return BuildAvailableDetailString(exeAsm, details);
-        }
-
-        /// <summary>
-        /// Retrieves a list of available environment names from files with a specific extension in the given directory
-        /// and its subdirectories.
-        /// </summary>
-        /// <param name="path">The directory path to search for environment files. Must be a valid directory path.</param>
-        /// <returns>A string containing the names of all environments found, each on a new line. Returns an empty string if no
-        /// environment files are found.</returns>
-        internal static List<string> GetAvailableFilePaths(string exeAsm, string path)
-        {
-            //UserDisplay.Message(exeAsm, "Getting list of available environments...");
-
-            return Directory.GetFiles(path, "*.dvn", SearchOption.AllDirectories).ToList();
-        }
-
-        /// <summary>
-        /// Retrieves a list of available environment names from files with a specific extension in the given directory
-        /// and its subdirectories.
-        /// </summary>
-        /// <param name="path">The directory path to search for environment files. Must be a valid directory path.</param>
-        /// <returns>A string containing the names of all environments found, each on a new line. Returns an empty string if no
-        /// environment files are found.</returns>
-        internal static Dictionary<string, string> GetAvailableDetails(string exeAsm, List<string> availableFilePaths)
-        {
-            Dictionary<string, string> envDetail = [];
-
-            foreach (var envFilePath in availableFilePaths)
-            {
-                if (envFilePath.Contains("default.dvn"))
-                {
-                    continue;
-                }
-
-                var deets = GetNameAndDescription(envFilePath);
-
-                envDetail[deets[0]] = deets[1];
-            }
-
-            return envDetail;
-        }
-
-        internal static string[] GetNameAndDescription(string envFilePath)
-        {
-            Manifest devEnv = DuJson.ImportFromLocalFile<Manifest>(envFilePath);
-
-            return
-            [
-                devEnv.Name,
-                devEnv.Description
-            ];
-        }
-
-        /// <summary>
-        /// Retrieves a list of available environment names from files with a specific extension in the given directory
-        /// and its subdirectories.
-        /// </summary>
-        /// <param name="path">The directory path to search for environment files. Must be a valid directory path.</param>
-        /// <returns>A string containing the names of all environments found, each on a new line. Returns an empty string if no
-        /// environment files are found.</returns>
-        internal static string BuildAvailableDetailString(string exeAsm, Dictionary<string, string> envDetail)
-        {
-            ///UserDisplay.Message(exeAsm, "Building string...");
-
-            var dvnEnvironments = string.Empty;
-
-            foreach (var devnEnvironment in envDetail)
-            {
-                dvnEnvironments += $"  {devnEnvironment.Key} - {devnEnvironment.Value}{Environment.NewLine}";
-            }
-
-            return dvnEnvironments;
         }
     }
 }

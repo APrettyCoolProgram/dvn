@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Framework.cs
- * u250715_code
- * u250715_documentation
+ * u250716_code
+ * u250716_documentation
  */
 
 using System.Reflection;
@@ -11,18 +11,17 @@ namespace dvnlib
     /// <summary>The dvn framework components.</summary>
     internal class Framework
     {
-        public string DvnDataPath { get; set; }
-        public string DvnManifestPath { get; set; }
-        public string TemporaryDataPath { get; set; }
-        public string TrashPath { get; set; }
-        public string ApplicationPath { get; set; }
-        public string EncryptedDataPath { get; set; }
-        public string BinPath { get; set; }
-        public string RepositoryPath { get; set; }
-        public string StagePath { get; set; }
-        public string TestingPath { get; set; }
-        public string VirtualMachinePath { get; set; }
-        public string WinLinSubSysPath { get; set; }
+        public string Manifests { get; set; }
+        public string Tmp { get; set; }
+        public string Trash { get; set; }
+        public string Apps { get; set; }
+        public string Encrypted{ get; set; }
+        public string Bins { get; set; }
+        public string Repos { get; set; }
+        public string Stageing { get; set; }
+        public string Testing { get; set; }
+        public string Vms { get; set; }
+        public string Wsl { get; set; }
 
 
         /// <summary> Creates a new instance of the <see cref="Framework"/> class with default paths initialized. </summary>
@@ -31,52 +30,44 @@ namespace dvnlib
         {
             return new Framework()
             {
-                DvnDataPath        = @".\.dvn",
-                DvnManifestPath    = @".\.dvn\manifest",
-                TemporaryDataPath  = @".\.temp",
-                TrashPath          = @".\.trash",
-                ApplicationPath    = @".\app",
-                EncryptedDataPath  = @".\data\enc",
-                BinPath            = @".\data\bin",
-                RepositoryPath     = @".\data\repo",
-                StagePath          = @".\data\stage",
-                TestingPath        = @".\data\test",
-                VirtualMachinePath = @".\vm",
-                WinLinSubSysPath   = @".\wsl"
+                Manifests = @".\.dvn\manifest",
+                Tmp       = @".\.temp",
+                Trash     = @".\.trash",
+                Apps      = @".\app",
+                Encrypted = @".\data\enc",
+                Bins      = @".\data\bin",
+                Repos     = @".\data\repo",
+                Stageing  = @".\data\stage",
+                Testing   = @".\data\test",
+                Vms       = @".\vm",
+                Wsl       = @".\wsl"
             };
          }
 
         /// <summary>Validate the dvn framework.</summary>
-        /// <param name="dvnFramework"> The <see cref="Framework.Framework"> to validate.</param>
-        internal static void Validate(Framework dvnFramework)
+        /// <param name="framework"> The <see cref="Framework.Framework"> to validate.</param>
+        internal static void Validate(Framework framework)
         {
-            foreach (PropertyInfo frameworkPath in dvnFramework.GetType().GetProperties())
+            foreach (PropertyInfo path in framework.GetType().GetProperties())
             {
-                var pathName = frameworkPath.GetValue(dvnFramework);
+                var name = path.GetValue(framework);
 
-                if (!Directory.Exists(pathName.ToString()))
+                if (!Directory.Exists(name.ToString()))
                 {
-                    Directory.CreateDirectory(pathName.ToString());
+                    Directory.CreateDirectory(name.ToString());
                 }
             }
         }
 
-        /// <summary>
-        /// Copies the contents of a source repository to a staging directory, excluding specified files and
-        /// directories.
-        /// </summary>
-        /// <remarks>This method resets the staging directory before copying the repository contents.
-        /// Files and directories excluded from the copy operation are determined by the repository's catalog
-        /// configuration.</remarks>
+        /// <summary>Copies the contents of a source repository to a staging directory.</summary>
         /// <param name="source">The path to the source repository to copy.</param>
-        /// <param name="paths">A dictionary containing paths used during the operation. The key "Staging" must be present and specify the
-        /// target directory where the repository will be copied.</param>
-        internal static void CopyRepo(List<string> sources, string target, string staging)
+        /// <param name="paths">A dictionary containing paths used during the operation.</param>
+        internal static void CopyRepo(List<string> sources, string staging)
         {
             DuDirectory.Reset(staging);
 
-            List<string> excludeFiles = Blueprint.Catalog.ExcludedRepoFiles();
-            List<string> excludeDirs  = Blueprint.Catalog.ExcludedRepoDirectories();
+            List<string> excludeFiles = Blueprint.Catalog.ExcludeFiles();
+            List<string> excludeDirs  = Blueprint.Catalog.ExcludedDirs();
 
             foreach (var source in sources)
             {
