@@ -4,6 +4,9 @@
 
    ![](./.github/repo-resource/image/logo/dvn-logo.png)
 
+  [![.NET](https://img.shields.io/badge/.NET-9-512BD4?)](#)&nbsp;&nbsp;
+  [![C#](https://custom-icon-badges.demolab.com/badge/C%23-%23239120.svg?logo=cshrp&logoColor=white)](#)&nbsp;&nbsp;
+  [![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#)&nbsp;&nbsp;
   ![Release](https://img.shields.io/badge/release-1.0-teal)&nbsp;&nbsp;
   ![License](https://img.shields.io/badge/license-apache-blue)
 
