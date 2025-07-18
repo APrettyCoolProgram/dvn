@@ -2,7 +2,8 @@
 
 <div align="center">
 
-  ***THIS DOCUMENTATION IS A WORK IN PROGRESS***
+   ![](./.github/repo-resource/image/logo/dvn-logo.png)
+
 
   ![Release](https://img.shields.io/badge/release-0.9--development+rc.1-teal)&nbsp;&nbsp;
   ![License](https://img.shields.io/badge/license-apache-blue)
