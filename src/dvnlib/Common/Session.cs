@@ -1,74 +1,104 @@
 ﻿/* dvnlib.Session.cs
- * u250716_code
- * u250716_documentation
+ * u250717_code
+ * u250717_documentation
  */
 
 using dvnlib.Blueprint;
 using dvnlib.Common;
+using dvnlib.Framework;
 
 namespace dvnlib
 {
-    /// <summary> Session logic for devn.</summary>
+    /// <summary>Session logic.</summary>
+    /// <remarks>
+    ///     A "<c>session</c>" is a single instance of dvn.<br/>
+    ///     When dvn is executed, a <i><see cref="Session"/> instance</i> is created, which contains all the necessary<br/>
+    ///     components that dvn needs to do its job.
+    /// </remarks>
     public class Session
     {
-        public string Ver { get; set; }
+        /// <summary>The dvn <see cref="DvnApp"/> component.</summary>
+        internal DvnApp DvnApps { get; set; }
 
-        /// <summary>The executing assembly.</summary>
-        /// <remarks>
-        ///     dvnlib is designed to be used as a library by both console and GUI applications.<br/>
-        ///     The <see cref="Asm"/> property determines if the session is running in a console<br/>
-        ///     application (e.g., dvn) or a GUI application (e.g., dvngui).<br/>
-        /// </remarks>
-        public string Asm { get; set; }
+        /// <summary>The dvn <see cref="Arguments.Arguments">arguments</see> component.</summary>
+        internal Arguments Arguments { get; set; }
 
-        /// <summary>The dvn <see cref="Argument.Argument"/> components.</summary>
-        internal Argument Argument { get; set; }
+        /// <summary>The dvn <see cref="FolderFramework.FolderFramework">framework</see> components.</summary>
+        internal FolderFramework FolderFramework { get; set; }
 
-        /// <summary>The dvn <see cref="Framework.Framework"/> components.</summary>
-        internal Framework Framework { get; set; }
+        /// <summary>The dvn <see cref="FileFramework.FileFramework">framework</see> components.</summary>
+        internal FileFramework FileFramework { get; set; }
+
+        /// <summary>The environment details.</summary>
+        internal Dictionary<string, string> EnvironmentDetails { get; set; }
 
         /// <summary>Starts a new dvn session.</summary>
-        /// <param name="asm">The <see cref="Asm">executing assembly</see>.</param>
-        /// <param name="ver">The current version of dvn.</param>
-        /// <param name="args">Command-line arguments.</param>
-        public static void Start(string asm, string ver, string[] args)
+        /// <param name="exeAsmName">The <see cref="ExeAsmName">executing assembly name</see>.</param>
+        /// <param name="exeAsmVersion">The <see cref="ExeAsmVersion">executing assembly version</see>.</param>
+        /// <param name="dvnArguments">The dvn <see cref="Arguments.Arguments">arguments</see>.</param>
+        public static void Initialize(string exeAsmName, string exeAsmVersion, string[] dvnArguments)
         {
             Console.Clear();
-            UserDisplay.Message(asm, UserMessage.StartDvn);
 
-            if (args == null || args.Length == 0)
+            UserDisplay.Message(exeAsmName, UserMessage.InitializeDvn);
+
+            if (dvnArguments == null || dvnArguments.Length == 0)
             {
-                Stop(asm, UserMessage.MissingArgument);
+                Stop(exeAsmName, UserMessage.MissingArgument);
             }
             else
             {
-                Session session = New(ver, asm, args);
-                Framework.Validate(session.Framework);
-                Parse.Action(session);
+                Start(exeAsmName, exeAsmVersion, dvnArguments);
             }
         }
 
         /// <summary>Creates a new <see cref="Session"/> instance.</summary>
-        /// <param name="exeAsmName">The <see cref="Asm">executing assembly</see>.</param>
-        /// <param name="args">Command-line arguments.</param>
+        /// <param name="exeAsmName">The <see cref="ExeAsmName">executing assembly name</see>.</param>
+        /// <param name="exeAsmVersion">The <see cref="ExeAsmVersion">executing assembly version</see>.</param>
+        /// <param name="dvnArguments">The dvn <see cref="Arguments.Arguments">arguments</see>.</param>
         /// <returns>A new <see cref="Session"/> instance.</returns>
-        public static Session New(string dvnVersion, string exeAsmName, string[] args)
+        internal static Session New(string exeAsmName, string exeAsmVersion, string[] dvnArguments)
         {
-            return new Session
+            var session = new Session
             {
-                Ver       = dvnVersion,
-                Asm       = exeAsmName,
-                Argument  = Argument.Get(args),
-                Framework = Framework.CreateNew()
+                Arguments       = Arguments.GetArguments(dvnArguments),
+                FolderFramework = new FolderFramework()
             };
+
+            session.FileFramework = FileFramework.New(session.FolderFramework);
+            session.DvnApps        = DvnApp.Load(exeAsmName, exeAsmVersion, session.FileFramework.DvnConfig);
+
+            //if (Directory.Exists(session.FolderFramework.Manifests))
+            //{
+            //    session.EnvironmentDetails = DvnEnvironment.GetEnvironmentDetails(session.FolderFramework.Manifests);
+            //}
+
+            return session;
         }
 
-        /// <summary>Terminates the current dvn session.</summary>
-        /// <param name="asm">The <see cref="Asm">executing assembly</see>.</param>
-        /// <param name="msg">The message to display to the user.</param>
-        public static void Stop(string asm, string msg = "")
+        /// <summary>Starts a new dvn session.</summary>
+        /// <param name="exeAsmName">The <see cref="ExeAsmName">executing assembly name</see>.</param>
+        /// <param name="exeAsmVersion">The <see cref="ExeAsmVersion">executing assembly version</see>.</param>
+        /// <param name="dvnArguments">The dvn <see cref="Arguments.Arguments">arguments</see>.</param>
+        internal static void Start(string exeAsmName, string exeAsmVersion, string[] dvnArguments)
         {
-            UserDisplay.Message(asm, UserMessage.ExitDvn(msg));
+            Session session = New(exeAsmName, exeAsmVersion, dvnArguments);
+
+            FolderFramework.Validate(session.FolderFramework);
+
+            session.EnvironmentDetails = DvnEnvironment.GetEnvironmentDetails(session.FolderFramework.Manifests);
+
+            FileFramework.Validate(session.FileFramework);
+
+            Parse.Action(session);
+        }
+
+        /// <summary>Stops the current dvn session.</summary>
+        /// <param name="exeAsmName">The <see cref="ExeAsmName">executing assembly name</see>.</param>
+        /// <param name="exitMessage">The message to display to the user when dvn exits.</param>
+        internal static void Stop(string exeAsmName, string exitMessage = "")
+        {
+            UserDisplay.Message(exeAsmName, UserMessage.ExitDvn(exitMessage));
             Environment.Exit(0);
         }
     }

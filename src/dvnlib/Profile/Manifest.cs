@@ -1,6 +1,6 @@
 ﻿/* dvnlib.Env.cs
- * u250716_code
- * u250716_documentation
+ * u250717_code
+ * u250717_documentation
  */
 
 using dvnlib.Blueprint;
@@ -30,14 +30,14 @@ namespace dvnlib.Profile
 
         /// <summary>Creates a new development environment configuration file based on the specified action.</summary>
         /// <remarks>
-        ///     If an environment name (<c><see cref="Argument.Option">request</see></c>) is provided, it will be used<br/>
+        ///     If an environment name (<c><see cref="Arguments.Options">request</see></c>) is provided, it will be used<br/>
         ///     as the file name for the new environment configuration file, otherwise the file will be named "default.dvn".
         /// </remarks>
         /// <param name="request">The name of the action to use as the basis for the configuration file.</param>
         internal static void New(string asm, string path, string env)
         {
             Manifest defaultEnv = BuildDefault(env);
-            DuJson.ExportToLocalFile<Manifest>(defaultEnv, $@"{path}\{env}.dvn");
+            DuJson.ExportToLocalFile<Manifest>(defaultEnv, $@"{path}\{env}.manifest");
             UserDisplay.Message(asm, UserMessage.CreateManifest(env));
         }
 

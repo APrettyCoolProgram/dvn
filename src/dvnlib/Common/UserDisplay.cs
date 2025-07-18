@@ -1,6 +1,6 @@
 ﻿/* dvnlib.UserDisplay.cs
- * u250716_code
- * u250716_documentation
+ * u250717_code
+ * u250717_documentation
  */
 
 namespace dvnlib.Common
@@ -20,9 +20,11 @@ namespace dvnlib.Common
                     break;
 
                 case "dvngui":
+                    // GUI logic will go here.
                     break;
 
                 default:
+                    // Oops!
                     break;
             }
         }

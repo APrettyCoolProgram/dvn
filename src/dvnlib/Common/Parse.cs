@@ -1,31 +1,31 @@
 ﻿/* dvnlib.Parse.cs
- * u250716_code
- * u250716_documentation
+ * u250717_code
+ * u250717_documentation
  */
 
 using dvnlib.Blueprint;
 
 namespace dvnlib
 {
-    /// <summary>Parses the <see cref="Argument.Argument"/> components.</summary>
+    /// <summary>Parses the <see cref="Arguments.Arguments"/> components.</summary>
     internal class Parse
     {
-        /// <summary>Parses the <see cref="Argument.Command"/> component.</summary>
+        /// <summary>Parses the <see cref="Arguments.Command"/> component.</summary>
         /// <param name="session">The current dvn <see cref="Session.Session"/> instance.</param>
         internal static void Action(Session session)
         {
-            switch (session.Argument.Command)
+            switch (session.Arguments.Command)
             {
                 case "help":
                     Console.WriteLine(UserMessage.Help);
                     break;
 
                 case "info":
-                    Console.WriteLine(UserMessage.Info(session.Ver));
+                    Console.WriteLine(UserMessage.Info(session.DvnApps.ExeAsmVersion));
                     break;
 
                 case "list":
-                    DvnEnvironment.ListEnvs(session.Asm, session.Framework.Manifests);
+                    DvnEnvironment.DisplayEnvironments(session.DvnApps.ExeAsmName, session.EnvironmentDetails);
                     break;
 
                 default:
