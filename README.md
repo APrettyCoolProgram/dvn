@@ -62,7 +62,29 @@ A default manifest looks like this:
 }
 ```
 
-> Keep in mind that and `\` characters need to be escaped as `\\`!
+## Manifest components
+
+### Name
+
+The **Name** component is the name of the development environment.
+
+This value should match the file name (e.g., ***MyEnvironment***.dvn).
+
+If **dvn** creates a new manifest file, it will set `Name` to the `command` that was passed.
+
+For example, `~$ dvn MyEnvironment` will create a MyEnvironment.dvn file with the following:
+
+```json
+    "Name": "MyEnvironment",
+```
+
+
+
+
+
+
+> **REMINDER!**  
+> Any `\` characters need to be escaped as `\\`!
 
 
 
@@ -95,25 +117,12 @@ List the available environments
 * `-b`  
 Force data to be backed up.  
 
-# The Manifest file
 
 
 ### File path syntax
 
 
-## Name
 
-The **Name** component is the name of the development environment.
-
-This value should match the file name (e.g., ***MyEnvironment***.dvn).
-
-If **dvn** creates a new manifest file, it will set `Name` to the `command` that was passed.
-
-For example, `~$ dvn MyEnvironment` will create a MyEnvironment.dvn file with the following:
-
-```json
-    "Name": "MyEnvironment",
-```
 
 ## Description
 
