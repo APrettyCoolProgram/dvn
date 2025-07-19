@@ -1,8 +1,12 @@
-﻿using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace dvnlib.Du
+namespace dvn.Du
 {
-    public static class DuDictionary
+    internal class DuDictionary
     {
         public static string ConvertToString(Dictionary<string, string> dictionary, string prefix, string suffix)
         {

@@ -6,6 +6,8 @@
 /* Properties for this class be found in .\Properties\DvnArgument.Properties.cs.
  */
 
+using dvn.Blueprint;
+
 namespace dvn.App
 {
     internal partial class DvnArguments
@@ -28,6 +30,28 @@ namespace dvn.App
                           ? []
                           : [.. dvnArguments[1..].Select(arg => arg.ToLower().Trim())]
             };
+        }
+
+        internal static void Parse(DvnSession dvnSession)
+        {
+            switch (dvnSession.Arguments.Command)
+            {
+                case "help":
+                    Console.WriteLine(UserMessage.Help);
+                    break;
+
+                case "info":
+                    Console.WriteLine(UserMessage.Info());
+                    break;
+
+                case "list":
+                    DvnEnvironment.DisplayAvailable(dvnSession.EnvironmentList);
+                    break;
+
+                default:
+                    DvnEnvironment.Load(dvnSession);
+                    break;
+            }
         }
     }
 }

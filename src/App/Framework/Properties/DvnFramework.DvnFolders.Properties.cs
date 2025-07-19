@@ -5,7 +5,7 @@
 
 using System.Reflection;
 
-namespace dvn.App
+namespace dvn.App.Framework
 {
     internal class DvnFolders
     {

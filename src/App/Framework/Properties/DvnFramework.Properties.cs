@@ -5,7 +5,7 @@
 
 using System.Reflection;
 
-namespace dvn.App
+namespace dvn.App.Framework
 {
     /// <summary>Logic for the dvn framework.</summary>
     internal partial class DvnFramework

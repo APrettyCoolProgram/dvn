@@ -12,7 +12,7 @@
 using System.Data;
 using System.Reflection;
 
-namespace dvn.App
+namespace dvn.App.Framework
 {
     internal partial class DvnFramework
     {
@@ -21,8 +21,8 @@ namespace dvn.App
             DvnFolders dvnFolders = InitializeFolders();
             DvnFiles dvnFiles     = InitializeFiles(dvnFolders);
 
-            ValidateFiles(dvnFiles);
             ValidateFolders(dvnFolders);
+            ValidateFiles(dvnFiles);
 
             return new DvnFramework
             {
@@ -66,11 +66,12 @@ namespace dvn.App
         /// <param name="folderFramework"> The <see cref="FolderFramework.FolderFramework"/> to validate.</param>
         internal static void ValidateFolders(DvnFolders folders)
         {
-            foreach (PropertyInfo folder in folders.GetType().GetProperties())
+            foreach (PropertyInfo property in typeof(DvnFolders).GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic))
             {
-                if (!Directory.Exists(folder.GetValue(folders).ToString()))
+                var value = property.GetValue(folders) as string;
+                if (!string.IsNullOrWhiteSpace(value) && !Directory.Exists(value))
                 {
-                    Directory.CreateDirectory(folder.GetValue(folders).ToString());
+                    Directory.CreateDirectory(value);
                 }
             }
         }

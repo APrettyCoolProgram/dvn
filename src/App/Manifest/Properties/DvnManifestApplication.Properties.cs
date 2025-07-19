@@ -3,9 +3,6 @@
  * u250719_documentation
  */
 
-/* Properties for this class be found in dvn.App.DvnManifest.Properties.cs.
- */
-
 namespace dvn.App.Manifest
 {
     internal partial class DvnManifestApplication

@@ -1,20 +1,12 @@
-﻿/* DuDirectory.cs
- * Does stuff with directories.
- * b250701
- * A Pretty Cool Program
- * https://gist.github.com/APrettyCoolProgram/6f8cb8e700fdccc39bf5314aefec8703
- */
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace dvnlib.Du
+namespace dvn.Du
 {
-    /// <summary>Does things with directories.</summary>
-    public class DuDirectory
+    internal class DuDirectory
     {
         /// <summary>If the directory does not exist, create it.</summary>
         /// <param name="path">The directory path.</param>

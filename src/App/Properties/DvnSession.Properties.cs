@@ -3,6 +3,8 @@
  * u250719_documentation
  */
 
+using dvn.App.Framework;
+
 namespace dvn.App
 {
     internal partial class DvnSession

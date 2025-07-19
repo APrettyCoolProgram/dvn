@@ -6,6 +6,7 @@
 /* Properties for this class be found in .\Properties\DvnSession.Properties.cs
  */
 
+using dvn.App.Framework;
 using dvn.Blueprint;
 
 namespace dvn.App
@@ -36,19 +37,27 @@ namespace dvn.App
             else
             {
                 Console.WriteLine(UserMessage.MissingArguments);
-            }
+            }   
         }
 
         internal static void InitializeSession(string[] dvnArguments)
         {
-            DvnSession session = new DvnSession
+            DvnSession dvnSession = new DvnSession
             {
                 Arguments = DvnArguments.GetArguments(dvnArguments),
                 Framework = DvnFramework.Initialize()
             };
 
-            session.Configuration   = DvnConfiguration.Load(session.Framework.Files.DvnConfig);
-            session.EnvironmentList = DvnEnvironment.GetNameAndDescription(session.Framework.Folders.Manifests);
+            dvnSession.Configuration   = DvnConfiguration.Load(dvnSession.Framework.Files.DvnConfig);
+            dvnSession.EnvironmentList = DvnEnvironment.GetNameAndDescription(dvnSession.Framework.Folders.Manifests);
+
+            DvnArguments.Parse(dvnSession);
+        }
+
+        internal static void Stop(string exitMessage = "")
+        {
+            Console.WriteLine(UserMessage.ExitDvn(exitMessage));
+            Environment.Exit(0);
         }
     }
 }

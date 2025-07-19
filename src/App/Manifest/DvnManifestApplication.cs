@@ -3,7 +3,7 @@
  * u250719_documentation
  */
 
-/* Properties for this class be found in dvn.App.DvnManifestApplication.Properties.cs.
+/* Properties for this class be found in .\Properties\DvnManifestApplication.Properties.cs.
  */
 
 namespace dvn.App.Manifest

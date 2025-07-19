@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "dvn": {
+      "commandName": "Project",
+      "commandLineArgs": "test"
+    }
+  }
+}

@@ -18,17 +18,6 @@ namespace dvnlib
         /// <summary>Lists all available development environments found in the application's data directory.</summary>
         internal static void DisplayAvailable(string exeAsmName, Dictionary<string, string> availableEnvironments)
         {
-            //string environmentList = GetEnvironmentList(exeAsmName, manifestPath);
-
-            if (availableEnvironments.Count == 0)
-            {
-                Session.Stop(exeAsmName, UserMessage.EnvList("No environments found."));
-            }
-            else
-            {
-                string availableList = DuDictionary.ConvertToString(availableEnvironments, "    ", "");
-                UserDisplay.Message(exeAsmName, UserMessage.EnvList(availableList));
-            }
         }
 
         /// <summary>Get a list of available environment names and descriptions.</summary>

@@ -24,7 +24,7 @@ namespace dvn.App.Manifest
         public string BackupLocation { get; set; }
 
         /// <summary>A list of applications associated with the environment.</summary>
-        public List<Manifest.DvnManifestApplication> ManifestApplication { get; set; }
+        public List<App.Manifest.DvnManifestApplication> ManifestApplications { get; set; }
 
     }
 }
