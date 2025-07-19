@@ -3,9 +3,7 @@
  * u250719_documentation
  */
 
-/* Properties for this class be found in:
- *      dvn.App.DvnSession.Properties.cs
- *      dvn.App.DvnSession.Applicaiton.Properties.cs
+/* Properties for this class be found in .\Properties\DvnSession.Properties.cs
  */
 
 using dvn.Blueprint;

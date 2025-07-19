@@ -4,9 +4,9 @@
  */
 
 /* Properties for this class be found in:
- *      dvn.App.DvnFramework.Properties.cs
- *      dvn.App.DvnFramework.DvnFiles.Properties.cs
- *      dvn.App.DvnFramework.DvnFolders.Properties.cs
+ *      .\Properties\DvnFramework.Properties.cs
+ *      .\Properties\DvnFramework.DvnFiles.Properties.cs
+ *      .\Properties\DvnFramework.DvnFolders.Properties.cs
  */
 
 using System.Data;
