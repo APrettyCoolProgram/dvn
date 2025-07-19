@@ -32,7 +32,27 @@ When you type `dvn myproject` on a command line:
 * Your Visual Studio solutions and workspaces will start
 * GitHub Desktop will start
 
+# Installing
+
+Installing `dvn` is simple:
+
+1. Download the [latest release]()
+2. Extract the contents of the downloaded file to a folder of your choice
+3. Open a terminal in the that folder
+4. Type `~$ dvn`
+
+
+
+
+
 # Configuration
+
+Configuring `dvn` requires modifying the following files:
+
+* **devApp.config**
+
+
+
 
 The information `dvn` needs to do what it does is contained in [*manifest files*](#the-manifest-file).
 
