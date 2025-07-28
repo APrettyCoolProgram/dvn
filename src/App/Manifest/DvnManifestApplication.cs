@@ -1,15 +1,16 @@
 ﻿/* dvn.App.DvnManifestApplication.cs
- * u250719_code
- * u250719_documentation
- */
-
-/* Properties for this class be found in .\Properties\DvnManifestApplication.Properties.cs.
+ * u250722_code
+ * u250722_documentation
  */
 
 namespace dvn.App.Manifest
 {
-    internal partial class DvnManifestApplication
+    internal class DvnManifestApplication
     {
-
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string FileName { get; set; }
+        public string Arguments { get; set; }
+        public string WorkingDirectory { get; set; }
     }
 }

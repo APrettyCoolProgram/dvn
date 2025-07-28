@@ -1,26 +1,36 @@
 ﻿/* dvn.App.DvnConfiguration.cs
- * u250719_code
- * u250719_documentation
- */
-
-/* Properties for this class be found in .\Properties\DvnConfiguration.Properties.cs.
+ * u250722_code
+ * u250722_documentation
  */
 
 namespace dvn.App
 {
-    internal partial class DvnConfiguration
+    /// <summary>The dvn configuration settings.</summary>
+    internal class DvnConfiguration
     {
-        internal static DvnConfiguration Load(string dvnConfigPath)
+        /// <summary>The list of files that are excluded when copying.</summary>
+        internal List<string> ExcludedFiles { get; set; }
+
+        /// <summary>The list of folder that are excluded when copying.</summary>
+        internal List<string> ExcludedFolders { get; set; }
+
+        /// <summary>Loads the dvn configuration.</summary>
+        /// <remarks>If the specified configuration file does not exist, a new configuration file is created.</remarks>
+        /// <param name="configPath">The dvn configuration file path.</param>
+        /// <returns>A <c>DvnConfiguration</c> object.</returns>
+        internal static DvnConfiguration Load(string configPath)
         {
-            if (!File.Exists(dvnConfigPath))
+            if (!File.Exists(configPath))
             {
-                CreateNew(dvnConfigPath);
+                Create(configPath);
             }
 
-            return Du.DuJson.ImportFromLocalFile<DvnConfiguration>(dvnConfigPath);
+            return Du.DuJson.ImportFromLocalFile<DvnConfiguration>(configPath);
         }
 
-        internal static void CreateNew(string dvnConfigPath)
+        /// <summary>Create a new DVN configuration file.</summary>
+        /// <param name="configPath">The dvn configuration file path.</param>
+        internal static void Create(string configPath)
         {
             var config = new DvnConfiguration
             {
@@ -28,7 +38,7 @@ namespace dvn.App
                 ExcludedFolders = Blueprint.Catalog.IgnoredFolders()
             };
 
-            Du.DuJson.ExportToLocalFile<DvnConfiguration>(config, $@"{dvnConfigPath}");
+            Du.DuJson.ExportToLocalFile<DvnConfiguration>(config, $@"{configPath}");
         }
     }
 }

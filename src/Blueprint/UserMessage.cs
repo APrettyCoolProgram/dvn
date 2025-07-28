@@ -1,6 +1,6 @@
 ﻿/* dvn.Blueprint.UserMessage.cs
- * u250719_code
- * u250719_documentation
+ * u250722_code
+ * u250722_documentation
  */
 
 using System.Reflection;
@@ -27,18 +27,17 @@ namespace dvn.Blueprint
         internal static string ExitDvn(string exitMessage = "") =>
             $"""
               {exitMessage}
-              
+
               Exiting dvn...
             """;
 
         public static string CreateManifest(string environmentName) =>
             $"""
-              A template for \"{environmentName}\" did not exist, so it was created.
-            
-              You will need to edit the \"{environmentName}.manifest\" file manually.
+               A "{environmentName}.manifest" did not exist, so it was created.
 
-              For more information, please refer to the dvn documentation.
-              {ExitDvn()}
+               You will need to edit the "{environmentName}.manifest" file manually.
+
+               For more information, please refer to the dvn documentation.
              """;
 
         public static string Help =>

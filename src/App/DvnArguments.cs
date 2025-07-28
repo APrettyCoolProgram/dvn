@@ -1,40 +1,55 @@
 ﻿/* dvn.App.DvnArgument.cs
- * u250719_code
- * u250719_documentation
- */
-
-/* Properties for this class be found in .\Properties\DvnArgument.Properties.cs.
+ * u250722_code
+ * u250722_documentation
  */
 
 using dvn.Blueprint;
 
 namespace dvn.App
 {
-    internal partial class DvnArguments
+    /// <summary>The arguments that are passed dvn at execution via the command-line.</summary>
+    internal class DvnArguments
     {
+        /// <summary>The dvn <c>command</c>.</summary>
+        /// <remarks>There can only be one command, and it's always the first argument.<br/></remarks>
+        internal string Command { get; set; }
+
+        /// <summary>The dvn <c>options</c>.</summary>
+        /// <remarks>
+        ///     There can be any number of options, only those that are valid will be processed.<br/>
+        ///     <br/>
+        ///     Options must:
+        ///     <list type="bullet">
+        ///         <item>Be a single character</item>
+        ///         <item>Start with the "<c>-</c>" (dash) character</item>
+        ///         <item>Be separated by a space</item>
+        ///     </list>
+        /// </remarks>
+        internal List<string> Options { get; set; }
+
         /// <summary>Determines if arguments were passed via the command line.</summary>
-        /// <param name="dvnArguments">The command line <see cref="DvnArguments">arguments</see> passed to dvn at execution.</param>
+        /// <param name="arguments">The command line <see cref="DvnArguments">arguments</see> passed to dvn at execution.</param>
         /// <returns><c>true</c> if arguments were passed, <c>false</c> if not.</returns>
-        internal static bool DoExist(string[] dvnArguments) => 
-            dvnArguments != null && dvnArguments.Length != 0;
+        internal static bool DoExist(string[] arguments) => 
+            arguments != null && arguments.Length != 0;
 
         /// <summary>Get the dvn <see cref="Command">command</see> and <see cref="Options">option(s)</see>.</summary>
-        /// <param name="dvnArguments">The dvn arguments.</param>
+        /// <param name="arguments">The dvn arguments.</param>
         /// <returns>An <see cref="Argument"/> instance.</returns>
-        internal static DvnArguments GetArguments(string[] dvnArguments)
+        internal static DvnArguments GetArguments(string[] arguments)
         {
             return new DvnArguments()
             {
-                Command = dvnArguments[0].ToLower().Trim(),
-                Options = dvnArguments.Length < 2
+                Command = arguments[0].ToLower().Trim(),
+                Options = arguments.Length < 2
                           ? []
-                          : [.. dvnArguments[1..].Select(arg => arg.ToLower().Trim())]
+                          : [.. arguments[1..].Select(arg => arg.ToLower().Trim())]
             };
         }
 
-        internal static void Parse(DvnSession dvnSession)
+        internal static void Parse(DvnSession session)
         {
-            switch (dvnSession.Arguments.Command)
+            switch (session.Arguments.Command)
             {
                 case "help":
                     Console.WriteLine(UserMessage.Help);
@@ -45,11 +60,11 @@ namespace dvn.App
                     break;
 
                 case "list":
-                    DvnEnvironment.DisplayAvailable(dvnSession.EnvironmentList);
+                    DvnEnvironment.DisplayAvailable(session.EnvironmentList);
                     break;
 
                 default:
-                    DvnEnvironment.Load(dvnSession);
+                    DvnEnvironment.Load(session);
                     break;
             }
         }

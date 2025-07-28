@@ -1,6 +1,6 @@
 ﻿/* dvn
  * A command line utility for managing development environments.
- * v1.0.0.0 (b2507179)
+ * v1.0.0.0 (b250722)
  *
  * https://github.com/APrettyCoolProgram/dvn
  * Copyright (c) A Pretty Cool Program. All rights reserved.
