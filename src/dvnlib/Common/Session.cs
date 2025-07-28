@@ -66,12 +66,7 @@ namespace dvnlib
             };
 
             session.FileFramework = FileFramework.New(session.FolderFramework);
-            session.DvnApps        = DvnApp.Load(exeAsmName, exeAsmVersion, session.FileFramework.DvnConfig);
-
-            //if (Directory.Exists(session.FolderFramework.Manifests))
-            //{
-            //    session.EnvironmentDetails = DvnEnvironment.GetEnvironmentDetails(session.FolderFramework.Manifests);
-            //}
+            session.DvnApps       = DvnApp.Load(exeAsmName, exeAsmVersion, session.FileFramework.DvnConfig);
 
             return session;
         }

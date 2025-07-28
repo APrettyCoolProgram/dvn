@@ -15,7 +15,6 @@ namespace dvnlib.Blueprint
 
             """;
 
-
         public static string MissingArgument =>
             $"""
               ERROR: No argument passed.
