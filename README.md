@@ -2,48 +2,112 @@
 
 <div align="center">
 
-  ***THIS DOCUMENTATION IS A WORK IN PROGRESS***
+  ![](./.github/repo-resource/image/logo/dvn-logo.png)
 
-  ![Release](https://img.shields.io/badge/release-0.9--development+rc.1-teal)&nbsp;&nbsp;
+  ![Release](https://img.shields.io/badge/release-1.0-teal)&nbsp;&nbsp;
+  [![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#)&nbsp;&nbsp;
+  [![.NET](https://img.shields.io/badge/.NET-9-512BD4?)](#)&nbsp;&nbsp;
+  [![C#](https://custom-icon-badges.demolab.com/badge/C%23-%23239120.svg?logo=cshrp&logoColor=white)](#)&nbsp;&nbsp;
   ![License](https://img.shields.io/badge/license-apache-blue)
 
 </div>
 
-# dvn
+# About `dvn`
 
-## What
+`dvn` is a command-line utility that starts the components of a development environment.
 
-**dvn** is a command-line utility that helps start up a development environment.
-
-## Why
-
-Let's say you are working on a project named "MyProject", and that project requires
+Let's say you are working on a project named "MyProject", and that project requires:
 
 * A Visual Studio 2022 solution named "*MyProject*"
 * A Visual Studio Code workspace named "*MyProject-Documentation*"
 * A Visual Studio Code workspace named "*Other-Documentation*"
 * GitHub Desktop
+* Specific data to be backed up
 
-In addition, you want to backup specific data before you start a development session.
+You *could* do all of the above steps manually, *or* you could let `dvn` do it for you.
 
-You *could* do all of the above steps manually, ***or*** you could let **dvn** do it for you.
+When you type `dvn myproject` on a command line:
 
-## How, Part One
+* Data will be backed up
+* Your Visual Studio solutions and workspaces will start
+* GitHub Desktop will start
 
-When you type `dvn myproject`:
+# Installing
 
-* Data will be backed up as a .zip file
-* Visual Studio solutions and workspaces will start
-* Other applications will start
+Installing `dvn` is simple:
 
-## How, Part Two
+1. Download the [latest release]()
+2. Extract the contents of the downloaded file to a folder of your choice
+3. Open a terminal in the that folder
+4. Type `~$ dvn`
 
-**dvn** uses [*manifest files*](#the-manifest-file) to tell it what to do.
+
+
+
+
+# Configuration
+
+Configuring `dvn` requires modifying the following files:
+
+* **devApp.config**
+
+
+
+
+The information `dvn` needs to do what it does is contained in [*manifest files*](#the-manifest-file).
 
 When **dvn** starts, it loads a manifest file that tells it:
 
-* If it should backup data, and if so what data and where to
-* What applications to start
+A default manifest looks like this:
+
+```json
+{
+  "Name": "Environment name",
+  "Description": "Environment description",
+  "BackupData": false,
+  "BackupSources": [
+    "\\Path\\To\\Source1",
+    "\\Path\\To\\Source2"
+  ],
+  "BackupTarget": "\\Path\\To\\Backup",
+  "Application": [
+    {
+      "Name": null,
+      "Description": null,
+      "FileName": null,
+      "Argument": null,
+      "WorkingDirectory": null
+    }
+  ]
+}
+```
+
+## Manifest components
+
+### Name
+
+The **Name** component is the name of the development environment.
+
+This value should match the file name (e.g., ***MyEnvironment***.dvn).
+
+If **dvn** creates a new manifest file, it will set `Name` to the `command` that was passed.
+
+For example, `~$ dvn MyEnvironment` will create a MyEnvironment.dvn file with the following:
+
+```json
+    "Name": "MyEnvironment",
+```
+
+
+
+
+
+
+> **REMINDER!**  
+> Any `\` characters need to be escaped as `\\`!
+
+
+
 
 # Usage
 
@@ -73,49 +137,12 @@ List the available environments
 * `-b`  
 Force data to be backed up.  
 
-# The Manifest file
 
-The default manifest looks like this:
-
-```json
-{
-  "Name": "Environment name",
-  "Description": "Environment description",
-  "BackupData": false,
-  "BackupSources": [
-    "\\Path\\To\\Source1",
-    "\\Path\\To\\Source2"
-  ],
-  "BackupTarget": "\\Path\\To\\Backup",
-  "Application": [
-    {
-      "Name": null,
-      "Description": null,
-      "FileName": null,
-      "Argument": null,
-      "WorkingDirectory": null
-    }
-  ]
-}
-```
 
 ### File path syntax
 
-Keep in mind that and `\` characters need to be escaped as `\\`.
 
-## Name
 
-The **Name** component is the name of the development environment.
-
-This value should match the file name (e.g., ***MyEnvironment***.dvn).
-
-If **dvn** creates a new manifest file, it will set `Name` to the `command` that was passed.
-
-For example, `~$ dvn MyEnvironment` will create a MyEnvironment.dvn file with the following:
-
-```json
-    "Name": "MyEnvironment",
-```
 
 ## Description
 
