@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36221.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dvn", "dvn.csproj", "{93848840-6665-4D75-ADD9-EE0E5BDB63A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dvnlib", "..\dvnlib\dvnlib.csproj", "{C72F889D-1DE3-260F-EEDD-43449BC3AC1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{93848840-6665-4D75-ADD9-EE0E5BDB63A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93848840-6665-4D75-ADD9-EE0E5BDB63A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93848840-6665-4D75-ADD9-EE0E5BDB63A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93848840-6665-4D75-ADD9-EE0E5BDB63A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C72F889D-1DE3-260F-EEDD-43449BC3AC1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C72F889D-1DE3-260F-EEDD-43449BC3AC1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C72F889D-1DE3-260F-EEDD-43449BC3AC1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C72F889D-1DE3-260F-EEDD-43449BC3AC1A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9051A888-B031-4523-9D74-4DCADD43405F}
+	EndGlobalSection
+EndGlobal
