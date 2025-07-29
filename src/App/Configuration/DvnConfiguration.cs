@@ -1,9 +1,9 @@
-﻿/* dvn.App.DvnConfiguration.cs
- * u250722_code
- * u250722_documentation
+﻿/* dvn.App.Configuration.DvnConfiguration.cs
+ * u250729_code
+ * u250729_documentation
  */
 
-namespace dvn.App
+namespace dvn.App.Configuration
 {
     /// <summary>The dvn configuration settings.</summary>
     internal class DvnConfiguration
@@ -38,7 +38,7 @@ namespace dvn.App
                 ExcludedFolders = Blueprint.Catalog.IgnoredFolders()
             };
 
-            Du.DuJson.ExportToLocalFile<DvnConfiguration>(config, $@"{configPath}");
+            Du.DuJson.ExportToLocalFile(config, $@"{configPath}");
         }
     }
 }

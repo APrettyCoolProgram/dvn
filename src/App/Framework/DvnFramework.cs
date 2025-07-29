@@ -1,7 +1,10 @@
-﻿/* dvn.App.DvnFramework.cs
- * u250722_code
- * u250722_documentation
+﻿/* dvn.App.Framework.DvnFramework.cs
+ * u250729_code
+ * u250729_documentation
  */
+
+using dvn.App.Session;
+using dvn.Blueprint;
 
 namespace dvn.App.Framework
 {
@@ -12,19 +15,57 @@ namespace dvn.App.Framework
 
         internal DvnFile File { get; set; }
 
-        internal static DvnFramework Initialize()
-        {
-            DvnFolder dvnFolders = DvnFolder.Initialize();
-            DvnFile dvnFiles     = DvnFile.Initialize(dvnFolders);
 
-            DvnFolder.Validate(dvnFolders);
-            DvnFile.Validate(dvnFiles);
+        internal static void Verify()
+        {
+            if (!Directory.Exists(@".\.dvn"))
+            {
+                Console.WriteLine(UserMessage.WelcomeToDvn);
+
+                DvnFramework fwk = GetFramework();
+
+                Validate(fwk);
+
+                DvnSession.Stop();
+
+                //Console.WriteLine(UserMessage.WelcomeToDvn);
+
+                //Initialize();
+            }
+        }
+
+        //internal static void Initialize()
+        //{
+        //    DvnFramework fwk = GetFramework();
+
+        //    Validate(fwk);
+        //}
+
+        //internal static DvnFramework Load()
+        //{
+        //    DvnFramework fwk = GetFramework();
+
+        //    Validate(fwk);
+
+        //    return fwk;
+        //}
+
+        internal static DvnFramework GetFramework()
+        {
+            DvnFolder dvnFolders = DvnFolder.BuildList();
+            DvnFile dvnFiles     = DvnFile.BuildList(dvnFolders);
 
             return new DvnFramework
             {
                 Folder = dvnFolders,
                 File   = dvnFiles
             };
+        }
+
+        internal static void Validate(DvnFramework fwk)
+        {
+            DvnFolder.Validate(fwk.Folder);
+            DvnFile.Validate(fwk.File);
         }
     }
 }

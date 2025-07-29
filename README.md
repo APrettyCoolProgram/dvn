@@ -41,9 +41,7 @@ Installing `dvn` is simple:
 3. Open a terminal in the that folder
 4. Type `~$ dvn`
 
-
-
-
+Since this is the first time you are executing dvn, the *framework* needs to be created.
 
 # Configuration
 

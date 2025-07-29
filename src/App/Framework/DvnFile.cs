@@ -1,7 +1,9 @@
-﻿/* dvn.App.DvnFile.cs
- * u250722_code
- * u250722_documentation
+﻿/* dvn.App.Framework.DvnFile.cs
+ * u250729_code
+ * u250729_documentation
  */
+
+using dvn.App.Configuration;
 
 namespace dvn.App.Framework
 {
@@ -21,7 +23,7 @@ namespace dvn.App.Framework
         /// <summary>Initializes a new instance of the <see cref="DvnFile"/> class.</summary>
         /// <param name="dvnFolder">The folder containing configuration files.</param>
         /// <returns>A <see cref="DvnFile"/> object.</returns>
-        internal static DvnFile Initialize(DvnFolder dvnFolder)
+        internal static DvnFile BuildList(DvnFolder dvnFolder)
         {
             return new DvnFile
             {

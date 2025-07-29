@@ -1,6 +1,6 @@
-﻿/* dvn.App.DvnEnvironment.cs
- * u250722_code
- * u250722_documentation
+﻿/* dvn.App.DevelopmentEnvironment.DvnEnvironment.cs
+ * u250729_code
+ * u250729_documentation
  */
 
 using System.Diagnostics;
@@ -8,8 +8,9 @@ using dvn.Blueprint;
 using dvn.App.Framework;
 using dvn.App.Manifest;
 using dvn.Du;
+using dvn.App.Session;
 
-namespace dvn.App
+namespace dvn.App.DevelopmentEnvironment
 {
     /// <summary> Logic for managing and interacting with DVN environments.</summary>
     internal class DvnEnvironment
@@ -61,7 +62,7 @@ namespace dvn.App
             // This is easier to read than using "session.Arguments.Command"
             string manifestName = session.Arguments.Command; // Trim?
 
-            if (File.Exists($@"{session.Framework.Folder.Manifests}\{manifestName}.dvn"))
+            if (File.Exists($@"{session.Framework.Folder.Manifests}\{manifestName}.dvn.manifest"))
             {
                 //Launch(dvnSession);
             }
@@ -80,7 +81,7 @@ namespace dvn.App
             // This is easier to read/more accurate than using "session.Arguments.Command"
             string manifestName = session.Arguments.Command; // Trim?
 
-            DvnManifest manifest = DuJson.ImportFromLocalFile<DvnManifest>($@"{session.Framework.Folder.Manifests}\{manifestName}.dvn");
+            DvnManifest manifest = DuJson.ImportFromLocalFile<DvnManifest>($@"{session.Framework.Folder.Manifests}\{manifestName}.dvn.manifest");
 
             Console.WriteLine($"{Environment.NewLine}  Launching environment: {manifest.EnvironmentDescription}");
 

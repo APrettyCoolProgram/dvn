@@ -1,10 +1,11 @@
 ﻿/* dvn.Blueprint.Catalog.cs
- * u250722_code
- * u250722_documentation
+ * u250729_code
+ * u250729_documentation
  */
 
 namespace dvn.Blueprint
 {
+    /// <summary>Provides predefined data structures.</summary>
     internal class Catalog
     {
         /// <summary>A list of repository files that should be ignored when copying.</summary>

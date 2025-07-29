@@ -1,6 +1,6 @@
-﻿/* dvn.App.DvnFramework.cs
- * u250722_code
- * u250722_documentation
+﻿/* dvn.App.Framework.DvnFramework.cs
+ * u250729_code
+ * u250729_documentation
  */
 
 using System.Reflection;
@@ -37,7 +37,7 @@ namespace dvn.App.Framework
         internal string Repositories { get; set; }
 
         /// <summary>Creates a new instance of the <see cref="DvnFolder"/> class.</summary>
-        internal static DvnFolder Initialize()
+        internal static DvnFolder BuildList()
         {
             return new DvnFolder
             {

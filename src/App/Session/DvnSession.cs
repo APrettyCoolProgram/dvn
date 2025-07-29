@@ -1,12 +1,15 @@
-﻿/* dvn.App.DvnSession.cs
- * u250722_code
- * u250722_documentation
+﻿/* dvn.App.Session.DvnSession.cs
+ * u250729_code
+ * u250729_documentation
  */
 
+using dvn.App.CommandLine;
+using dvn.App.Configuration;
+using dvn.App.DevelopmentEnvironment;
 using dvn.App.Framework;
 using dvn.Blueprint;
 
-namespace dvn.App
+namespace dvn.App.Session
 {
     /// <summary>Session logic.</summary>
     /// <remarks>
@@ -45,6 +48,8 @@ namespace dvn.App
 
             Console.WriteLine(UserMessage.StartDvn);
 
+            DvnFramework.Verify();
+
             if (DvnArguments.DoExist(dvnArguments))
             {
                 InitializeSession(dvnArguments);
@@ -52,15 +57,15 @@ namespace dvn.App
             else
             {
                 Console.WriteLine(UserMessage.MissingArguments);
-            }   
+            }
         }
 
         internal static void InitializeSession(string[] dvnArguments)
         {
-            DvnSession dvnSession = new DvnSession
+            var dvnSession = new DvnSession
             {
-                Arguments = DvnArguments.GetArguments(dvnArguments),
-                Framework = DvnFramework.Initialize()
+                Arguments = DvnArguments.GetFromCommandLine(dvnArguments),
+                Framework = DvnFramework.GetFramework()
             };
 
             dvnSession.Configuration   = DvnConfiguration.Load(dvnSession.Framework.File.DvnConfigFileFullPath);

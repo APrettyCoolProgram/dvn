@@ -1,13 +1,16 @@
-﻿/* dvn.App.DvnArgument.cs
- * u250722_code
- * u250722_documentation
+﻿/* dvn.App.CommandLine.DvnArgument.cs
+ * u250729_code
+ * u250729_documentation
  */
 
+using dvn.App.DevelopmentEnvironment;
+using dvn.App.Framework;
+using dvn.App.Session;
 using dvn.Blueprint;
 
-namespace dvn.App
+namespace dvn.App.CommandLine
 {
-    /// <summary>The arguments that are passed dvn at execution via the command-line.</summary>
+    /// <summary>Logic for arguments that are passed to dvn at execution via the command-line.</summary>
     internal class DvnArguments
     {
         /// <summary>The dvn <c>command</c>.</summary>
@@ -36,7 +39,7 @@ namespace dvn.App
         /// <summary>Get the dvn <see cref="Command">command</see> and <see cref="Options">option(s)</see>.</summary>
         /// <param name="arguments">The dvn arguments.</param>
         /// <returns>An <see cref="Argument"/> instance.</returns>
-        internal static DvnArguments GetArguments(string[] arguments)
+        internal static DvnArguments GetFromCommandLine(string[] arguments)
         {
             return new DvnArguments()
             {
@@ -47,6 +50,8 @@ namespace dvn.App
             };
         }
 
+        /// <summary>Parses the <see cref="Command"/> argument, and executes an action.</summary>
+        /// <param name="session">The session instance.</param>
         internal static void Parse(DvnSession session)
         {
             switch (session.Arguments.Command)
@@ -55,8 +60,8 @@ namespace dvn.App
                     Console.WriteLine(UserMessage.Help);
                     break;
 
-                case "info":
-                    Console.WriteLine(UserMessage.Info());
+                case "about":
+                    Console.WriteLine(UserMessage.About);
                     break;
 
                 case "list":

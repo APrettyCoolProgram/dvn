@@ -1,6 +1,6 @@
-﻿/* dvn.App.DvnManifest.cs
- * u250722_code
- * u250722_documentation
+﻿/* dvn.App.Manifest.DvnManifest.cs
+ * u250729_code
+ * u250729_documentation
  */
 
 using dvn.Blueprint;
@@ -49,7 +49,7 @@ namespace dvn.App.Manifest
                 ]
             };
 
-            DuJson.ExportToLocalFile<DvnManifest>(dvnManifest, $@"{manifestPath}\{fileName}.manifest");
+            DuJson.ExportToLocalFile<DvnManifest>(dvnManifest, $@"{manifestPath}\{fileName}.dvn.manifest");
 
             Console.WriteLine(UserMessage.CreateManifest(fileName));
 

@@ -1,6 +1,6 @@
-﻿/* dvn.App.DvnManifestApplication.cs
- * u250722_code
- * u250722_documentation
+﻿/* dvn.App.Manifest.DvnManifestApplication.cs
+ * u250729_code
+ * u250729_documentation
  */
 
 namespace dvn.App.Manifest
