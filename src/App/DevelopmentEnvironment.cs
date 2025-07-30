@@ -105,6 +105,13 @@ internal static class DevelopmentEnvironment
     {
         foreach (DvnManifestApplication app in applications)
         {
+            if (string.IsNullOrEmpty(app.FileName))
+            {
+                Console.WriteLine($"  There aren't any applications defined.");
+
+                Session.Stop(UserMessage.msg_ExitDvn());
+            }
+
             Console.WriteLine($"  Starting application: {app.Name}");
 
             var process = new Process

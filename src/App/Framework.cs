@@ -85,13 +85,11 @@ internal class Framework
     /// <param name="folders">A dictionary containing dvn file paths.</param>
     /// <returns>A <see cref="Dictionary{TKey, TValue}"/> of file identifiers/paths.</returns>
 
-    internal static Dictionary<string, string> BuildFileDictionary(Dictionary<string, string> folders)
-    {
-        return new Dictionary<string, string>
+    internal static Dictionary<string, string> BuildFileDictionary(Dictionary<string, string> folders) =>
+        new Dictionary<string, string>
         {
             { "ConfigFile", $@"{folders["Configs"]}\dvn.config" }
         };
-    }
 
     /// <summary>Validates the dvn framework.</summary>
     /// <param name="dvnFramework">The framework details to validate.</param>

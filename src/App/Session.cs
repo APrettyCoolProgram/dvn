@@ -63,7 +63,7 @@ internal class Session
     {
         var dvnSession = new Session
         {
-            CommandLine = CommandLine.GetArguments(passedArguments),
+            CommandLine = CommandLine.GetComponents(passedArguments),
             Framework   = Framework.BuildNew()
         };
 
@@ -76,7 +76,7 @@ internal class Session
     }
 
     /// <summary>Terminates the application with an optional exit message.</summary>
-    /// <param name="exitMessage">The message to display before the application exits. If not specified, no message is displayed.</param>
+    /// <param name="exitMessage">The message to display before the application exits.</param>
     internal static void Stop(string exitMessage = "")
     {
         Console.WriteLine(exitMessage);

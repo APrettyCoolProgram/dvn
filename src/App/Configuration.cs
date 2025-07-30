@@ -3,6 +3,9 @@
  * u250730_documentation
  */
 
+using System.Text.Json;
+using System.Text.Json.Nodes;
+
 namespace dvn.App;
 
 /// <summary>Logic for dvn configuration settings.</summary>
@@ -17,13 +20,13 @@ namespace dvn.App;
 internal class Configuration
 {
     /// <summary>The file extension used for manifest files.</summary>
-    internal string ManifestExtension { get; set; }
+    public string ManifestExtension { get; set; }
 
     /// <summary>The list of files that are excluded when backing up data.</summary>
-    internal List<string> ExcludedFiles { get; set; }
+    public List<string> ExcludedFiles { get; set; }
 
     /// <summary>The list of folder that are excluded when backing up data.</summary>
-    internal List<string> ExcludedFolders { get; set; }
+    public List<string> ExcludedFolders { get; set; }
 
     /// <summary>Loads the dvn configuration from a local file.</summary>
     /// <remarks>
@@ -46,13 +49,13 @@ internal class Configuration
     /// <param name="dvnConfigPath">The file path where the dvn configuration will be created.</param>
     internal static void CreateNew(string dvnConfigPath)
     {
-        var config = new Configuration
+        var config = new Configuration()
         {
             ManifestExtension = ".dvn.manifest",
             ExcludedFiles     = Blueprint.Catalog.IgnoredFiles(),
             ExcludedFolders   = Blueprint.Catalog.IgnoredFolders()
         };
 
-        Du.DuJson.ExportToFile(config, $@"{dvnConfigPath}");
+        Du.DuJson.ExportToFile<Configuration>(config, $@"{dvnConfigPath}");
     }
 }

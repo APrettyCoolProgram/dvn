@@ -32,14 +32,12 @@ internal class CommandLine
     /// <summary>Parses the specified command-line arguments into a <see cref="CommandLine"/> object.</summary>
     /// <param name="passedArguments">The arguments passed via the command-line.</param>
     /// <returns>A <see cref="CommandLine"/> object containing the parsed command and, potentially, options.</returns>
-    internal static CommandLine GetComponents(string[] passedArguments)
-    {
-        return new CommandLine()
+    internal static CommandLine GetComponents(string[] passedArguments) =>
+        new CommandLine()
         {
             Command = passedArguments[0].ToLower().Trim(),
             Options = passedArguments.Length < 2
                       ? []
                       : [.. passedArguments[1..].Select(arg => arg.ToLower().Trim())]
         };
-    }
 }

@@ -1,7 +1,8 @@
 {
   "profiles": {
     "dvn": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "myenv"
     }
   }
 }

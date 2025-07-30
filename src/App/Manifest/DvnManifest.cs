@@ -32,7 +32,7 @@ internal class DvnManifest
     /// <returns>A new instance of the <see cref="DevnEnv"/> class initialized with default values.</returns>
     internal static void CreateNew(string manifestFolder, string manifestName, string manifestExtension)
     {
-        var dvnManifest = new Manifest.DvnManifest()
+        var dvnManifest = new DvnManifest()
         {
             EnvironmentName        = manifestName,
             EnvironmentDescription = "Environment description",

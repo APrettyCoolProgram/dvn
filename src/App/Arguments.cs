@@ -26,7 +26,8 @@ internal static class Arguments
     /// <summary>Determines whether any arguments were passed via the command-line.</summary>
     /// <param name="passedArguments">The arguments, if any, that were passed via the command-line.</param>
     /// <returns><see langword="true"/> if one or more arguments were provided; otherwise, <see langword="false"/>.</returns>
-    internal static bool DoExist(string[] passedArguments) => passedArguments != null && passedArguments.Length != 0;
+    internal static bool DoExist(string[] passedArguments) =>
+        passedArguments != null && passedArguments.Length != 0;
 
     /// <summary>Parses the command component of the arguments passed via the command-line.</summary>
     /// <remarks>
