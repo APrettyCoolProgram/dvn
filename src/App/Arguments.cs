@@ -13,10 +13,15 @@ namespace dvn.App;
 ///     <br/>
 ///     Valid commands:
 ///     <list type="bullet">
-///         <item><c>%environment%</c> - Starts the <c>%environment%</c> environment, or creates a new <c>%environment%.dvn.manifest</c> file.</item>
+///         <item><c>%environment%</c> - Starts the <c>%environment%</c> environment,<br/>
+///               or creates a new <c>%environment%.dvn.manifest</c> file.</item>
 ///         <item><c>about</c> - Displays information about dvn.</item>
 ///         <item><c>help</c>  - Displays help information.</item>
 ///         <item><c>list</c>  - Lists all available development environments.</item>
+///     </list>
+///     Valid options:
+///     <list type="bullet">
+///         <item><c>-b</c> - Force the data backup functionality (potentially overriding the manifest file setting).</item>
 ///     </list>
 /// </remarks>
 internal static class Arguments
