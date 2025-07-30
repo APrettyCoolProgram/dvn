@@ -25,9 +25,10 @@ internal class Framework
 
     /// <summary>Verifies that the dvn framework exists.</summary>
     /// <remarks>If the dvn framework does not exist, it will be created.</remarks>
-    internal static void VerifyExists()
+    /// <param name="frameworkBase">The base path for the dvn framework.</param>
+    internal static void VerifyExists(string frameworkBase)
     {
-        if (!Directory.Exists(@".\.dvn"))
+        if (!Directory.Exists(frameworkBase))
         {
             Console.WriteLine(UserMessage.msg_WelcomeToDvn);
 
@@ -100,7 +101,6 @@ internal class Framework
         ValidateFiles(dvnFramework.Files);
     }
 
-
     /// <summary>Validates required files exist.</summary>
     /// <remarks>If the file does not exist, it is created.</remarks>
     /// <param name="files">The <see cref="Framework.Files"/> object containing file details.</param>
@@ -111,7 +111,6 @@ internal class Framework
             Configuration.CreateNew(files["ConfigFile"]);
         }
     }
-
 
     /// <summary>Validates required folders exist.</summary>
     /// <remarks>If the folder does not exist, it is created.</remarks>

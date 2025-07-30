@@ -37,6 +37,7 @@ internal class Session
     internal Dictionary<string, string> AvailableEnvironments { get; set; }
 
     /// <summary>Starts a new dvn session.</summary>
+    /// <remarks>The <c>".\.dvn"</c> folder is hard-coded here, since the dvn framework hasn't been initialized yet.</remarks>
     /// <param name="passedArguments">The dvn <see cref="CommandLine.CommandLine"/> arguments passed to dvn.</param>
     internal static void Start(string[] passedArguments)
     {
@@ -44,7 +45,7 @@ internal class Session
 
         Console.WriteLine(UserMessage.msg_StartDvn);
 
-        Framework.VerifyExists();
+        Framework.VerifyExists(@".\.dvn");
 
         if (Arguments.DoExist(passedArguments))
         {
