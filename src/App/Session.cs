@@ -67,7 +67,7 @@ internal class Session
         };
 
         dvnSession.Configuration         = Configuration.LoadFromFile(dvnSession.Framework.Files["ConfigFile"]);
-        dvnSession.AvailableEnvironments = DevelopmentEnvironment.GetAvailableEnvironmentDetails(dvnSession.Framework.Folders["Manifests"]);
+        dvnSession.AvailableEnvironments = DevelopmentEnvironment.GetEnvironmentDetails(dvnSession.Framework.Folders["Manifests"], dvnSession.Configuration.ManifestExtension);
 
         Framework.Validate(dvnSession.Framework);
 

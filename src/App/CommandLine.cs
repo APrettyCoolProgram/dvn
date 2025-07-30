@@ -14,7 +14,7 @@ internal class CommandLine
 {
     /// <summary>The dvn <c>command</c>.</summary>
     /// <remarks>There can only be one command, and it's always the first argument.<br/></remarks>
-    internal required string Command { get; set; }
+    internal string Command { get; set; }
 
     /// <summary>The dvn <c>options</c>.</summary>
     /// <remarks>
@@ -27,11 +27,11 @@ internal class CommandLine
     ///         <item>Be separated by a space</item>
     ///     </list>
     /// </remarks>
-    internal required List<string> Options { get; set; }
+    internal List<string> Options { get; set; }
 
     /// <summary>Parses the specified command-line arguments into a <see cref="CommandLine"/> object.</summary>
     /// <param name="passedArguments">The arguments passed via the command-line.</param>
-    /// <returns>A <see cref="CommandLine"/> object containing the parsed command, and potentially, options.</returns>
+    /// <returns>A <see cref="CommandLine"/> object containing the parsed command and, potentially, options.</returns>
     internal static CommandLine GetComponents(string[] passedArguments)
     {
         return new CommandLine()

@@ -10,10 +10,10 @@ using dvn.Du;
 
 namespace dvn.App;
 
-/// <summary> Logic for managing and interacting with DVN environments.</summary>
+/// <summary>Logic for development environments.</summary>
 internal static class DevelopmentEnvironment
 {
-    /// <summary>Get a list of environment details.</summary>
+    /// <summary>Get the details for the available development environments.</summary>
     /// <remarks>
     ///     The details we are interested in are:
     ///     <list type="bullet">
@@ -23,19 +23,20 @@ internal static class DevelopmentEnvironment
     /// </remarks>
     /// <param name="manifestFolder">The folder that contains the dvn manifest files.</param>
     /// <returns>The names and descriptions of available environments.</returns>
-    internal static Dictionary<string, string> GetAvailableEnvironmentDetails(string manifestFolder)
+    internal static Dictionary<string, string> GetEnvironmentDetails(string manifestFolder, string manifestExtension)
     {
-        var manifestFiles = Directory.GetFiles(manifestFolder, "*.manifest", SearchOption.AllDirectories);
-        Dictionary<string, string> availableEnvironmentDetails = [];
+        var manifestFiles = Directory.GetFiles(manifestFolder, $"*{manifestExtension}", SearchOption.AllDirectories);
+
+        Dictionary<string, string> environmentDetails = [];
 
         foreach (var manifestFile in manifestFiles)
         {
             DvnManifest manifest = DuJson.ImportFromFile<DvnManifest>(manifestFile);
 
-            availableEnvironmentDetails[manifest.EnvironmentName] = manifest.EnvironmentDescription;
+            environmentDetails[manifest.EnvironmentName] = manifest.EnvironmentDescription;
         }
 
-        return availableEnvironmentDetails;
+        return environmentDetails;
     }
 
     /// <summary>Display a list of available environments to the console.</summary>
@@ -52,9 +53,9 @@ internal static class DevelopmentEnvironment
         }
     }
 
-    /// <summary>Loads an environment manifest file.</summary>
-    /// <remarks>If the specified manifest file does not exist, a new manifest file is created.</remarks>
-    /// <param name="dvnSession">The session instance.</param>
+    ///// <summary>Loads an environment manifest file.</summary>
+    ///// <remarks>If the specified manifest file does not exist, a new manifest file is created.</remarks>
+    ///// <param name="dvnSession">The session instance.</param>
     internal static void LoadFromManifest(Session dvnSession)
     {
         if (File.Exists($@"{dvnSession.Framework.Folders["Manifests"]}\{dvnSession.CommandLine.Command}{dvnSession.Configuration.ManifestExtension}"))
@@ -71,7 +72,7 @@ internal static class DevelopmentEnvironment
         }
     }
 
-    /// <summary>Launches the environment specified by the manifest, performing backup operations if enabled.</summary>
+    /// <summary>Launches an environment.</summary>
     /// <param name="manifestFolder">The folder path where the manifest file is located.</param>
     /// <param name="manifestName">The name of the manifest file without extension.</param>
     /// <param name="manifestExtension">The file extension of the manifest.</param>
@@ -98,15 +99,8 @@ internal static class DevelopmentEnvironment
     }
 
     /// <summary>Starts a list of applications.</summary>
-    /// <remarks>
-    ///     This method iterates over the provided list of applications and starts each one using the specified file name,
-    ///     arguments, and working directory. The applications are started with shell execution enabled and without creating a
-    ///     new window.<br/>
-    ///     <br/>
-    ///     Currently this functionality only works on Windows systems.
-    /// </remarks>
-    /// <param name="applications">A list of <see cref="DvnManifestApplication"/> objects, each representing an application to be started. The
-    /// list must not be null, and each application must have a valid file name.</param>
+    /// <remarks>Currently this functionality only works on Windows systems.</remarks>
+    /// <param name="applications">A list of <see cref="DvnManifestApplication"/> objects, each representing an application to be started..</param>
     internal static void StartApplications(List<DvnManifestApplication> applications)
     {
         foreach (DvnManifestApplication app in applications)
