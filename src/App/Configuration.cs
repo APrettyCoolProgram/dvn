@@ -5,10 +5,10 @@
 
 namespace dvn.App;
 
-/// <summary>The dvn configuration settings.</summary>
+/// <summary>Logic for dvn configuration settings.</summary>
 internal class Configuration
 {
-    /// <summary>Gets or sets the file extension used for manifest files.</summary>
+    /// <summary>The file extension used for manifest files.</summary>
     internal string ManifestExtension { get; set; }
 
     /// <summary>The list of files that are excluded when copying.</summary>
@@ -18,7 +18,7 @@ internal class Configuration
     internal List<string> ExcludedFolders { get; set; }
 
     /// <summary>Loads the dvn configuration from a local file.</summary>
-    /// <remarks>If the specified configuration file does not exist, a new configuration file is created.</remarks>
+    /// <remarks>If the specified configuration file does not exist, a new configuration file is created with default values.</remarks>
     /// <param name="dvnConfigPath">The dvn configuration file path.</param>
     /// <returns>A <c>DvnConfiguration</c> object.</returns>
     internal static Configuration LoadFromFile(string dvnConfigPath)

@@ -5,7 +5,11 @@
 
 namespace dvn.App;
 
-/// <summary>Logic for arguments that are passed to dvn at execution via the command-line.</summary>
+/// <summary>Logic for command-line stuff.</summary> /// <remarks>
+///     The dvn syntax is: <c>dvn &lt;command&gt; [-option01 -option02 ...]</c><br/>
+///     <br/>
+///     Example: <c>dvn %myEnvironment% -b</c><br/>
+/// </remarks>
 internal class CommandLine
 {
     /// <summary>The dvn <c>command</c>.</summary>
@@ -25,14 +29,9 @@ internal class CommandLine
     /// </remarks>
     internal required List<string> Options { get; set; }
 
-    /// <summary>
-    /// Parses the specified command-line arguments into a <see cref="CommandLine"/> object.
-    /// </summary>
-    /// <param name="passedArguments">An array of strings representing the command-line arguments. The first element is expected to be the command,
-    /// and any subsequent elements are treated as options.</param>
-    /// <returns>A <see cref="CommandLine"/> object containing the parsed command and options. The command is the first argument
-    /// converted to lowercase and trimmed. Options are any additional arguments, also converted to lowercase and
-    /// trimmed. If no options are provided, the options list will be empty.</returns>
+    /// <summary>Parses the specified command-line arguments into a <see cref="CommandLine"/> object.</summary>
+    /// <param name="passedArguments">The arguments passed via the command-line.</param>
+    /// <returns>A <see cref="CommandLine"/> object containing the parsed command, and potentially, options.</returns>
     internal static CommandLine GetComponents(string[] passedArguments)
     {
         return new CommandLine()
