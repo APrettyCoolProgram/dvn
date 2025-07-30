@@ -1,21 +1,16 @@
 ﻿/* dvn.Program.cs
- * u250729_code
- * u250729_documentation
+ * u250730_code
+ * u250730_documentation
  */
 
-using dvn.App.CommandLine;
-using dvn.App.Session;
+using dvn.App;
 
-namespace dvn
+namespace dvn;
+
+/// <summary>Entry class for dvn.</summary>
+internal static class Program
 {
-    /// <summary>Entry class for dvn.</summary>
-    internal static class Program
-    {
-        /// <summary>Entry point for dvn.</summary>
-        /// <param name="dvnArguments">The command line <see cref="DvnArguments">arguments</see> passed to dvn at execution.</param>
-        internal static void Main(string[] dvnArguments)
-        {
-            DvnSession.Start(dvnArguments);
-        }
-    }
+    /// <summary>Entry point for dvn.</summary>
+    /// <param name="dvnArguments">The command line <see cref="CommandLine">arguments</see> passed to dvn at execution.</param>
+    internal static void Main(string[] dvnArguments) => Session.Start(dvnArguments);
 }

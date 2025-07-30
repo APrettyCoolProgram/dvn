@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Text;
 
-namespace dvn.Du
+namespace dvn.Du;
+
+internal static class DuDictionary
 {
-    internal class DuDictionary
+    public static string ConvertToString(Dictionary<string, string> dictionary, string prefix, string suffix)
     {
-        public static string ConvertToString(Dictionary<string, string> dictionary, string prefix, string suffix)
+        var convertedString = new StringBuilder();
+
+        foreach (KeyValuePair<string, string> keyValuePair in dictionary)
         {
-            StringBuilder convertedString = new StringBuilder();
-
-            foreach (var keyValuePair in dictionary)
-            {
-                convertedString.AppendLine($"{prefix}{keyValuePair.Key}: {keyValuePair.Value}{suffix}");
-            }
-
-            return convertedString.ToString();
+            _=convertedString.AppendLine($"{prefix}{keyValuePair.Key}: {keyValuePair.Value}{suffix}");
         }
+
+        return convertedString.ToString();
     }
 }
