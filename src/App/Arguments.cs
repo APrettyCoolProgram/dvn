@@ -6,40 +6,47 @@
 using dvn.Blueprint;
 
 namespace dvn.App;
-internal class Arguments
+
+/// <summary>Methods for handling and processing command-line arguments.</summary>
+/// <remarks>
+///     The dvn syntax is: <c>dvn &lt;command&gt; [-option01 -option02 ...]</c><br/>
+///     <br/>
+///     Valid commands:
+///     <list type="bullet">
+///         <item><c>%environment%</c> - Starts the <c>%environment%</c> environment, or creates a new <c>%environment%.dvn.manifest</c> file.</item>
+///         <item><c>about</c> - Displays information about dvn.</item>
+///         <item><c>help</c>  - Displays help information.</item>
+///         <item><c>list</c>  - Lists all available development environments.</item>
+///     </list>
+/// </remarks>
+internal static class Arguments
 {
-    /// <summary>Determines if arguments were passed via the command line.</summary>
-    /// <param name="arguments">The command line <see cref="CommandLine">arguments</see> passed to dvn at execution.</param>
-    /// <returns><c>true</c> if arguments were passed, <c>false</c> if not.</returns>
-    internal static bool DoExist(string[] arguments) =>
-        arguments != null && arguments.Length != 0;
+    /// <summary>Determines whether any arguments were passed via the command line.</summary>
+    /// <param name="passedArguments">The arguments, if any, that were passed via the command line.</param>
+    /// <returns><see langword="true"/> if one or more arguments were provided; otherwise, <see langword="false"/>.</returns>
+    internal static bool DoExist(string[] passedArguments) => passedArguments != null && passedArguments.Length != 0;
 
-    /// <summary>Get the dvn <see cref="Command">command</see> and <see cref="Options">option(s)</see>.</summary>
-    /// <param name="dvnArguments">The dvn arguments.</param>
-    /// <returns>An <see cref="Arguments"/> instance.</returns>
-    internal static CommandLine GetFromCommandLine(string[] dvnArguments)
-    {
-        return new CommandLine()
-        {
-            Command = dvnArguments[0].ToLower().Trim(),
-            Options = dvnArguments.Length < 2
-                      ? []
-                      : [.. dvnArguments[1..].Select(arg => arg.ToLower().Trim())]
-        };
-    }
-
-    /// <summary>Parses the <see cref="Command"/> argument, and executes an action.</summary>
-    /// <param name="dvnSession">The session instance.</param>
+    /// <summary>Parses the command component of the arguments passed via the command line.</summary>
+    /// <remarks>
+    ///     The only commands that are recoginzed are those with case statements.<br/>
+    ///     <br/>
+    ///     Entering a command that does not match any of the case statements will either:
+    ///     <list type="bullet">
+    ///         <item>Start the <c>&lt;command&gt;</c> environment, if a <c>&lt;command&gt;.dvn.manifest</c> file exists.</item>
+    ///         <item>Create a new, default <c>&lt;command&gt;.dvn.manifest</c> file, if one does not exist.</item>
+    ///     </list>
+    /// </remarks>
+    /// <param name="dvnSession">The <see cref="App.Session"/> instance.</param>
     internal static void ParseCommand(Session dvnSession)
     {
         switch (dvnSession.CommandLine.Command)
         {
-            case "help":
-                Console.WriteLine(UserMessage.msg_Help);
-                break;
-
             case "about":
                 Console.WriteLine(UserMessage.msg_About);
+                break;
+
+            case "help":
+                Console.WriteLine(UserMessage.msg_Help);
                 break;
 
             case "list":

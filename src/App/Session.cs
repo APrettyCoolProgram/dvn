@@ -62,7 +62,7 @@ internal class Session
     {
         var dvnSession = new Session
         {
-            CommandLine = Arguments.GetFromCommandLine(passedArguments),
+            CommandLine = CommandLine.GetArguments(passedArguments),
             Framework   = Framework.BuildNew()
         };
 

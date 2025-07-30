@@ -24,4 +24,23 @@ internal class CommandLine
     ///     </list>
     /// </remarks>
     internal required List<string> Options { get; set; }
+
+    /// <summary>
+    /// Parses the specified command-line arguments into a <see cref="CommandLine"/> object.
+    /// </summary>
+    /// <param name="passedArguments">An array of strings representing the command-line arguments. The first element is expected to be the command,
+    /// and any subsequent elements are treated as options.</param>
+    /// <returns>A <see cref="CommandLine"/> object containing the parsed command and options. The command is the first argument
+    /// converted to lowercase and trimmed. Options are any additional arguments, also converted to lowercase and
+    /// trimmed. If no options are provided, the options list will be empty.</returns>
+    internal static CommandLine GetComponents(string[] passedArguments)
+    {
+        return new CommandLine()
+        {
+            Command = passedArguments[0].ToLower().Trim(),
+            Options = passedArguments.Length < 2
+                      ? []
+                      : [.. passedArguments[1..].Select(arg => arg.ToLower().Trim())]
+        };
+    }
 }
