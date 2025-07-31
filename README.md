@@ -98,6 +98,19 @@ For example, to start/create the `MyCoolProject` environment, you would type
 > dvn MyCoolProject
 ```
 
+```console
+dvn MyCoolProject
+```
+```ps
+dvn MyCoolProject
+```
+```cmd
+dvn MyCoolProject
+```
+```csharp
+dvn MyCoolProject
+```
+
 Other commands include:
 
 * `about` - Displays information about dvn  
