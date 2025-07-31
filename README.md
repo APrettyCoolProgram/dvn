@@ -144,25 +144,28 @@ When a new manifest file is created, it looks like this:
 
 ## Manifest components
 
+> **REMINDER!**  
+> Any `\` characters need to be escaped as `\\`!
+
 Manifest files contain the following components:
 
 * `EnvironmentName`  
-The name of the environment (e.g., "myproj")
+The name of the environment (e.g., "myproj").
 
 * EnvironmentDescription`  
-The description of the environment (e.g., "My project environment")
+The description of the environment (e.g., "My project environment").
 
 * `BackupEnabled`  
-Determines if the data backup functionality is *enabled* ("true"), or *disabled* ("false")
+Determines if the data backup functionality is *enabled* ("true"), or *disabled* ("false").
 
 * `BackupSources`  
-Paths that will be backed up, if the data backup functionality is enabled
+Absolute paths to data that will be backed up, if the data backup functionality is enabled.  
 
 * `BackupLocation`  
-The location where backups are created
+The absolute path  where backups are created.
 
 * `ManifestApplications`  
-Application data, which contains:
+Each application that will be launched by **dvn** has it's own block with the following data:
 
   *  `Name`  
   The name of the application
@@ -179,15 +182,13 @@ Application data, which contains:
   * `WorkingDirectory`  
   The application working directory
 
-The manifest file can contain any number of `ManifestApplications` blocks.
-
 A completed manifest file looks like this:
 
 ```json
 {
   "EnvironmentName": "myproj",
   "EnvironmentDescription": "My project environment",
-  "BackupEnabled": false,
+  "BackupEnabled": true,
   "BackupSources": [
     "C:\\repositories\\MyRepository",
     "C:\\data\\reports"
@@ -200,93 +201,28 @@ A completed manifest file looks like this:
       "FileName": "GitHubDesktop.exe",
       "Arguments": null,
       "WorkingDirectory": "C:\\Users\\JaneSmith\\AppData\\Local\\GitHubDesktop"
-    }
+    },
+    {
+    "Name": "Visual Studio Code",
+    "Description": "Visual Studio Code IDE",
+    "FileName": "Code.exe",
+    "Arguments": "Project-documentation.code-workspace | exit /b",
+    "WorkingDirectory": "\\path\\to\\VisualStudio"
+}
   ]
 }
 ```
 
-> **REMINDER!**  
-> Any `\` characters need to be escaped as `\\`!
+The above manifest file will:
 
+1. Start the "**myproj**" development environment
+2. Backup the "**C:\repositories\MyRepository**" and "**C:\data\reports**" to "**C:\backups**"
+3. Start the "**GitHub Desktop**" application
+4. Start "**Visual Studio Code**", using the "**Project-Documentation**" workspace
 
+# Configuring **dvn**
 
-
-
-
-
-
-
-
-# Usage
-
-To use **dvn**, type: `dvn <command> [-options]`
-
-
-## Commands
-
-**dvn** recognizes the following commands:
-
-* `~$ dvn %environment%`  
-Load the `%environment%.dvn` manifest file, or create a default manifest template if one does not exist.
-
-* `~$ dvn help`  
-Show the **dvn** help information
-
-* `~$ dvn info`  
-Show information about **dvn**
-
-* `~$ dvn list`  
-List the available environments
-
-## Options
-
-**dvn** recognizes the following options:
-
-* `-b`  
-Force data to be backed up.  
-
-
-
-### File path syntax
-
-
-
-
-## Description
-
-The **Description** component is the description of the development environment, and is displayed when using the `~$ dvn list` command.
-
-For example:
-
-```text
-~$ dvn list
-
-=========
-   dvn
-=========
-
-  Available environments:
-
-  MyEnvironment - The development environment for my project!
-```
-
-If **dvn** creates a new manifest file, it will set `Description` to the "Environment description".
-
-It is recommended that you manually change the `Description` to accurately describe the environment.
-
-## BackupData
-
-The `BackupData` component determines if specified data is to be backed up prior to starting an environment.
-
-Since this process can take some time, the default setting is `false`, with the option of using the [`-b`](#options) option to force the backup of data.
-
-## BackupSources
-
-You can backup any folder by placing its path in the `BackupSources` list.
-
-BackupSources are compressed into timestamped .zip files, and placed in the [`BackupTarget`](#backuptarget) location.
-
-### Ignored data
+## Ignored data
 
 While any directory can be backed up, this feature is intended to be used to backup source code repositories. As such, the following data is ignored so file sizes are kept to a minimum:
 
