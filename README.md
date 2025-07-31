@@ -91,7 +91,6 @@ For example, you can get a list of valid commands by typing
 > dvn help
 ```
 
-
 ## **dvn** *options*
 
 **dvn** also accepts `options`, which are...optional
@@ -105,7 +104,7 @@ Options:
 For example, you can force the data for the myproj environment to be backed up by typing
 
 ```csharp
-dvn myproj -b
+> dvn myproj -b
 ```
 
 The available options are:
