@@ -61,7 +61,7 @@ Now you can start using **dvn**
 
 This is the **dvn** syntax:
 
-```shell
+```console
 > dvn <command> [-option01 -option02 ...]
 ```
 
