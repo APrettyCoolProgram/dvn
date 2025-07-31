@@ -87,7 +87,7 @@ Other commands include:
 
 For example, you can get a list of valid commands by typing
 
-```bash
+```console
 > dvn help
 ```
 
@@ -103,8 +103,32 @@ Options:
 
 For example, you can force the data for the MyCoolProject environment to be backed up by typing
 
+```
+dvn MyCoolProject -b
+```
+
+```text
+dvn MyCoolProject -b
+```
+
 ```bash
-$ dvn MyCoolProject -b
+dvn MyCoolProject -b
+```
+
+```console
+dvn MyCoolProject -b
+```
+
+```ps
+dvn MyCoolProject -b
+```
+
+```dos
+dvn MyCoolProject -b
+```
+
+```
+dvn MyCoolProject -b
 ```
 
 The available options are:
