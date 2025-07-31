@@ -120,7 +120,7 @@ $ dvn MyCoolProject
 ```cmd
 $ dvn MyCoolProject
 ```
-```csharp
+```shellscript
 $ dvn MyCoolProject
 ```
 
