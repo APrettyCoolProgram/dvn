@@ -61,7 +61,7 @@ Now you can start using **dvn**
 
 This is the **dvn** syntax:
 
-```bat
+```shell
 > dvn <command> [-option01 -option02 ...]
 ```
 
