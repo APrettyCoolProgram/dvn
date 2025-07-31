@@ -103,43 +103,39 @@ To get a list of valid options, type
 > dvn help
 ```
 
+# Manifest files
+
+When you start an environment by typing
+
+```csharp
+> dvn myproj
+```
+
+**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
+
+If the file does not exist, it is created using the default settings, which you will need to modify.
 
 
+## The default manifest
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
-The information **dvn** needs to do what it does is contained in [*manifest files*](#the-manifest-file).
-
-When **dvn** starts, it loads a manifest file that tells it:
-
-A default manifest looks like this:
+When a new manifest file is created, it looks like this:
 
 ```json
 {
-  "Name": "Environment name",
-  "Description": "Environment description",
-  "BackupData": false,
+  "EnvironmentName": "myproj",
+  "EnvironmentDescription": "Environment description",
+  "BackupEnabled": false,
   "BackupSources": [
     "\\Path\\To\\Source1",
     "\\Path\\To\\Source2"
   ],
-  "BackupTarget": "\\Path\\To\\Backup",
-  "Application": [
+  "BackupLocation": "\\Path\\To\\Backup",
+  "ManifestApplications": [
     {
       "Name": null,
       "Description": null,
       "FileName": null,
-      "Argument": null,
+      "Arguments": null,
       "WorkingDirectory": null
     }
   ]
@@ -148,27 +144,75 @@ A default manifest looks like this:
 
 ## Manifest components
 
-### Name
+Manifest files contain the following components:
 
-The **Name** component is the name of the development environment.
+* `EnvironmentName`  
+The name of the environment (e.g., "myproj")
 
-This value should match the file name (e.g., ***MyEnvironment***.dvn).
+* EnvironmentDescription`  
+The description of the environment (e.g., "My project environment")
 
-If **dvn** creates a new manifest file, it will set `Name` to the `command` that was passed.
+* `BackupEnabled`  
+Determines if the data backup functionality is *enabled* ("true"), or *disabled* ("false")
 
-For example, `~$ dvn MyEnvironment` will create a MyEnvironment.dvn file with the following:
+* `BackupSources`  
+Paths that will be backed up, if the data backup functionality is enabled
+
+* `BackupLocation`  
+The location where backups are created
+
+* `ManifestApplications`  
+Application data, which contains:
+
+  *  `Name`  
+  The name of the application
+
+  * `Description`  
+  Description of the application
+
+  * `FileName`  
+  The application file name
+
+  * `Arguments`  
+  Any command-line arguments
+
+  * `WorkingDirectory`  
+  The application working directory
+
+The manifest file can contain any number of `ManifestApplications` blocks.
+
+A completed manifest file looks like this:
 
 ```json
-    "Name": "MyEnvironment",
+{
+  "EnvironmentName": "myproj",
+  "EnvironmentDescription": "My project environment",
+  "BackupEnabled": false,
+  "BackupSources": [
+    "C:\\repositories\\MyRepository",
+    "C:\\data\\reports"
+  ],
+  "BackupLocation": "C:\\backups",
+  "ManifestApplications": [
+    {
+      "Name": "GitHub Desktop",
+      "Description": "GitHub Desktop",
+      "FileName": "GitHubDesktop.exe",
+      "Arguments": null,
+      "WorkingDirectory": "C:\\Users\\JaneSmith\\AppData\\Local\\GitHubDesktop"
+    }
+  ]
+}
 ```
-
-
-
-
-
 
 > **REMINDER!**  
 > Any `\` characters need to be escaped as `\\`!
+
+
+
+
+
+
 
 
 
