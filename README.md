@@ -61,19 +61,7 @@ Now you can start using **dvn**
 
 This is the **dvn** syntax:
 
-```console
-> dvn <command> [-option01 -option02 ...]
-```
-
-```ps
-> dvn <command> [-option01 -option02 ...]
-```
-
-```cmd
-> dvn <command> [-option01 -option02 ...]
-```
-
-```csharp
+```bat
 > dvn <command> [-option01 -option02 ...]
 ```
 
@@ -85,43 +73,8 @@ In general, you'll use the `%environment-name%` command, which will start the sp
 
 For example, to start/create the `myproj` environment, you would type
 
-```console
-> dvn myproj
-```
-```ps
-> dvn myproj
-```
-```cmd
-> dvn myproj
-```
 ```csharp
 > dvn myproj
-```
-
-```console
-dvn myproj
-```
-```ps
-dvn myproj
-```
-```cmd
-dvn myproj
-```
-```csharp
-dvn myproj
-```
-
-```console
-$ dvn myproj
-```
-```ps
-$ dvn myproj
-```
-```cmd
-$ dvn myproj
-```
-```shellscript
-$ dvn myproj
 ```
 
 Other commands include:
@@ -134,16 +87,7 @@ Other commands include:
 
 For example, you can get a list of valid commands by typing
 
-```console
-> dvn help
-```
-```ps
-> dvn help
-```
-```cmd
-> dvn help
-```
-```csharp
+```bat
 > dvn help
 ```
 
