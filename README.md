@@ -55,8 +55,6 @@ Using the terminal window you opened, type: `~$ dvn`
 
 Since this is the first time you are executing **dvn**, you will see a message letting you know that the *framework* - the files and folders **dvn** needs - will be created.
 
-Now you can start using **dvn**
-
 # Using **dvn**
 
 This is the **dvn** syntax:
@@ -65,7 +63,7 @@ This is the **dvn** syntax:
 > dvn <command> [-option01 -option02 ...]
 ```
 
-## **dvn** *commands*
+## Commands
 
 **dvn** *requires* that you pass a valid `command`.
 
@@ -77,21 +75,13 @@ For example, to start/create the `myproj` environment, you would type
 > dvn myproj
 ```
 
-Other commands include:
-
-* `about` - Displays information about dvn  
-
-* `help`  - Displays the dvn help information  
-
-* `list`  - Lists available development environments  
-
-For example, you can get a list of valid commands by typing
+To get a list of valid commands, type
 
 ```csharp
 > dvn help
 ```
 
-## **dvn** *options*
+## Options
 
 **dvn** also accepts `options`, which are...optional
 
@@ -101,15 +91,17 @@ Options:
 * Start with the `-` (dash) character
 * Are separated by a space
 
-For example, you can force the data for the myproj environment to be backed up by typing
+For example, you can force the data for the `myproj` environment to be backed up by typing
 
 ```csharp
 > dvn myproj -b
 ```
 
-The available options are:
+To get a list of valid options, type
 
-* `-b` - Force the data backup process for an environment
+```csharp
+> dvn help
+```
 
 
 
