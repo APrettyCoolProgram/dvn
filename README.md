@@ -61,7 +61,7 @@ Now you can start using **dvn**
 
 This is the **dvn** syntax:
 
-```ps
+```csharp
 > dvn <command> [-option01 -option02 ...]
 ```
 
