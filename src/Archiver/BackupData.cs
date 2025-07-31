@@ -1,6 +1,6 @@
 ﻿/* dvn.Archiver.BackupData.cs
- * u250730_code
- * u250730_documentation
+ * u250731_code
+ * u250731_documentation
  */
 
 using System.IO.Compression;
@@ -35,12 +35,13 @@ internal static class BackupData
     /// <param name="staging">The staging location.</param>
     internal static void BackupFolders(List<string> backupSources, string target, string staging, List<string> excludeFiles, List<string> excludeDirs)
     {
-        Console.WriteLine($"  Backup enabled.");
+        //Console.WriteLine($"  Backup enabled.");
 
         CopyToStaging(backupSources, staging, excludeFiles, excludeDirs);
 
         foreach (var subDirectory in Directory.GetDirectories(staging))
         {
+            Console.WriteLine($"  Backing up {subDirectory}...please wait...");
             var subDirectoryName = Path.GetFileName(subDirectory);
             var dateTimeStamp    = DateTime.Now.ToString("yyyyMMdd-HHmmss");
             var backupLocation   = Path.Combine(target, $"{subDirectoryName}_{dateTimeStamp}.zip");

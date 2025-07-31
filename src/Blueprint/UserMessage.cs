@@ -1,6 +1,6 @@
 ﻿/* dvn.Blueprint.UserMessage.cs
- * u250730_code
- * u250730_documentation
+ * u250731_code
+ * u250731_documentation
  */
 
 using System.Reflection;
@@ -57,14 +57,15 @@ internal static class UserMessage
 
         """;
 
+    // TODO pass extension
     /// <summary>The message that is displayed when creating a new dvn manifest.</summary>
     /// <param name="environmentName">The name of the environment.</param>
     /// <returns>The new manifest message.</returns>
     public static string msg_CreateManifest(string environmentName) =>
         $"""
-           A "{environmentName}.manifest" did not exist, so it was created.
+           A "{environmentName}.dvn.manifest" did not exist, so it was created.
 
-           You will need to edit the "{environmentName}.manifest" file manually.
+           You will need to edit the "{environmentName}.dvn.manifest" file manually.
 
            For more detailed information, please refer to the dvn documentation:
                https://github.com/APrettyCoolProgram/dvn

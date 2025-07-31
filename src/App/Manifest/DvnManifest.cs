@@ -1,6 +1,6 @@
 ﻿/* dvn.App.Manifest.DvnManifest.cs
- * u250730_code
- * u250730_documentation
+ * u250731_code
+ * u250731_documentation
  */
 
 using dvn.Blueprint;
