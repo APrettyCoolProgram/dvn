@@ -104,6 +104,16 @@ For example, you can get a list of valid commands by typing
 ```console
 > dvn help
 ```
+```ps
+> dvn help
+```
+```cmd
+> dvn help
+```
+```csharp
+> dvn help
+```
+
 
 ## **dvn** *options*
 
