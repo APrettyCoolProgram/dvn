@@ -61,6 +61,10 @@ Now you can start using **dvn**
 
 This is the **dvn** syntax:
 
+```console
+> dvn <command> [-option01 -option02 ...]
+```
+
 ```ps
 > dvn <command> [-option01 -option02 ...]
 ```
@@ -81,6 +85,9 @@ In general, you'll use the `%environment-name%` command, which will start the sp
 
 For example, to start/create the `MyCoolProject` environment, you would type
 
+```console
+> dvn MyCoolProject
+```
 ```ps
 > dvn MyCoolProject
 ```
@@ -128,6 +135,9 @@ Options:
 For example, you can force the data for the MyCoolProject environment to be backed up by typing
 
 
+```console
+dvn MyCoolProject -b
+```
 ```ps
 dvn MyCoolProject -b
 ```
