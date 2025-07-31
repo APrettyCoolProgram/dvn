@@ -83,45 +83,45 @@ This is the **dvn** syntax:
 
 In general, you'll use the `%environment-name%` command, which will start the specified development environment (or create a blank [manifest file](), if one doesn't exist).
 
-For example, to start/create the `MyCoolProject` environment, you would type
+For example, to start/create the `myproj` environment, you would type
 
 ```console
-> dvn MyCoolProject
+> dvn myproj
 ```
 ```ps
-> dvn MyCoolProject
+> dvn myproj
 ```
 ```cmd
-> dvn MyCoolProject
+> dvn myproj
 ```
 ```csharp
-> dvn MyCoolProject
+> dvn myproj
 ```
 
 ```console
-dvn MyCoolProject
+dvn myproj
 ```
 ```ps
-dvn MyCoolProject
+dvn myproj
 ```
 ```cmd
-dvn MyCoolProject
+dvn myproj
 ```
 ```csharp
-dvn MyCoolProject
+dvn myproj
 ```
 
 ```console
-$ dvn MyCoolProject
+$ dvn myproj
 ```
 ```ps
-$ dvn MyCoolProject
+$ dvn myproj
 ```
 ```cmd
-$ dvn MyCoolProject
+$ dvn myproj
 ```
 ```shellscript
-$ dvn MyCoolProject
+$ dvn myproj
 ```
 
 Other commands include:
@@ -158,22 +158,22 @@ Options:
 * Start with the `-` (dash) character
 * Are separated by a space
 
-For example, you can force the data for the MyCoolProject environment to be backed up by typing
+For example, you can force the data for the myproj environment to be backed up by typing
 
 
 ```console
-dvn MyCoolProject -b
+dvn myproj -b
 ```
 ```ps
-dvn MyCoolProject -b
+dvn myproj -b
 ```
 
 ```cmd
-dvn MyCoolProject -b
+dvn myproj -b
 ```
 
 ```csharp
-dvn MyCoolProject -b
+dvn myproj -b
 ```
 
 The available options are:
