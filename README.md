@@ -65,6 +65,34 @@ This is the **dvn** syntax:
 > dvn <command> [-option01 -option02 ...]
 ```
 
+```console
+> dvn <command> [-option01 -option02 ...]
+```
+
+```ps
+> dvn <command> [-option01 -option02 ...]
+```
+
+```dos
+> dvn <command> [-option01 -option02 ...]
+```
+
+```cmd
+> dvn <command> [-option01 -option02 ...]
+```
+
+```bat
+> dvn <command> [-option01 -option02 ...]
+```
+
+```text
+> dvn <command> [-option01 -option02 ...]
+```
+
+```csharp
+> dvn <command> [-option01 -option02 ...]
+```
+
 ## **dvn** *commands*
 
 **dvn** *requires* that you pass a valid `command`.
