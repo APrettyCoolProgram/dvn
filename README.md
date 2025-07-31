@@ -61,13 +61,6 @@ Now you can start using **dvn**
 
 This is the **dvn** syntax:
 
-```bash
-> dvn <command> [-option01 -option02 ...]
-```
-
-```console
-> dvn <command> [-option01 -option02 ...]
-```
 
 ```ps
 > dvn <command> [-option01 -option02 ...]
@@ -82,10 +75,6 @@ This is the **dvn** syntax:
 ```
 
 ```bat
-> dvn <command> [-option01 -option02 ...]
-```
-
-```text
 > dvn <command> [-option01 -option02 ...]
 ```
 
