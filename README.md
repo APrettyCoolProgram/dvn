@@ -16,7 +16,7 @@
 
 **dvn** is a command-line utility for managing development environments.
 
-Let's say you are working on a project named "MyProject", and that project requires:
+Let's say you are working something called "MyProject", which requires:
 
 * A Visual Studio 2022 solution named "*MyProject*"
 * A Visual Studio Code workspace named "*MyProject-Documentation*"
@@ -26,7 +26,7 @@ Let's say you are working on a project named "MyProject", and that project requi
 
 You *could* do all of the above steps manually, *or* you could let **dvn** do it for you.
 
-When you type "`dvn myproject`" on a command line:
+Typing `dvn myproject` will:
 
 * Data will be backed up
 * Your Visual Studio solutions and workspaces will start
@@ -47,6 +47,8 @@ When you type "`dvn myproject`" on a command line:
 2. Extract the contents of the downloaded file to a folder of your choice
 3. Open a terminal in the that folder
 
+You'll notice that the folder contains a single item: `dvn.exe`
+
 ## Creating the **dvn** framework
 
 Using the terminal window you opened, type: `~$ dvn`
@@ -57,20 +59,57 @@ Now you can start using **dvn**
 
 # Using **dvn**
 
-Once **dvn** is [installed](), use the following syntax to do stuff: `dvn <command> [-option01 -option02 ...]`
+This is the **dvn** syntax:
 
-For example, typing `dvn help` will display the help screen.
+```bash
+> dvn <command> [-option01 -option02 ...]
+```
 
-## **dvn** Commands
+## **dvn** *commands*
 
-**dvn** recognizes the following commands:
+**dvn** *requires* that you pass a valid `command`.
 
-* `dvn about` - Displays information about dvn  
+In general, you'll use the `%environment-name%` command, which will start the specified development environment (or create a blank [manifest file](), if one doesn't exist).
 
-* `dvn help`  - Displays the dvn help information  
+For example, to start/create the `MyCoolProject` environment, you would type
 
-* `dvn list`  - Lists available development environments
+```bash
+> dvn MyCoolProject
+```
 
+Other commands include:
+
+* `about` - Displays information about dvn  
+
+* `help`  - Displays the dvn help information  
+
+* `list`  - Lists available development environments  
+
+For example, you can get a list of valid commands by typing
+
+```bash
+> dvn help
+```
+
+## **dvn** *options*
+
+**dvn** also accepts `options`, which are...optional
+
+Options:
+
+* Must be a single character
+* Start with the `-` (dash) character
+* Are separated by a space
+
+For example, you can force the data for the MyCoolProject environment to be backed up by typing
+
+```bash
+$ dvn MyCoolProject -b
+```
+
+The available options are:
+
+* `-b` - Force the data backup process for an environment
 
 
 
