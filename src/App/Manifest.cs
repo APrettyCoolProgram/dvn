@@ -6,9 +6,9 @@
 using dvn.Blueprint;
 using dvn.Du;
 
-namespace dvn.App.Manifest;
+namespace dvn.App;
 
-internal class DvnManifest
+internal class Manifest
 {
     /// <summary>The environment name.</summary>
     public string EnvironmentName { get; set; }
@@ -25,14 +25,14 @@ internal class DvnManifest
     public string BackupLocation { get; set; }
 
     /// <summary>A list of applications associated with the environment.</summary>
-    public List<DvnManifestApplication> ManifestApplications { get; set; }
+    public List<ManifestApplication> ManifestApplications { get; set; }
 
-    /// <summary>Creates a default instance of the <see cref="App.DvnManifest"/> class.</summary>
+    /// <summary>Creates a default instance of the <see cref="Manifest"/> class.</summary>
     /// <param name="fileName">The name of the environment file.</param>
     /// <returns>A new instance of the <see cref="DevnEnv"/> class initialized with default values.</returns>
     internal static void CreateNew(string manifestFolder, string manifestName, string manifestExtension)
     {
-        var dvnManifest = new DvnManifest()
+        var dvnManifest = new Manifest()
         {
             EnvironmentName        = manifestName,
             EnvironmentDescription = "Environment description",
@@ -45,11 +45,11 @@ internal class DvnManifest
             BackupLocation = "\\Path\\To\\Backup",
             ManifestApplications  =
             [
-                new DvnManifestApplication()
+                new ManifestApplication()
             ]
         };
 
-        DuJson.ExportToFile<DvnManifest>(dvnManifest, $@"{manifestFolder}\{manifestName}{manifestExtension}");
+        DuJson.ExportToFile(dvnManifest, $@"{manifestFolder}\{manifestName}{manifestExtension}");
 
         Console.WriteLine(UserMessage.msg_CreateManifest(manifestName));
 

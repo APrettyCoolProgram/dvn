@@ -4,7 +4,6 @@
  */
 
 using System.Diagnostics;
-using dvn.App.Manifest;
 using dvn.Blueprint;
 using dvn.Du;
 
@@ -17,8 +16,8 @@ internal static class DevelopmentEnvironment
     /// <remarks>
     ///     The details we are interested in are:
     ///     <list type="bullet">
-    ///         <item>The environment <see cref="DvnManifest.EnvironmentName">name</see></item>
-    ///         <item>The environment <see cref="DvnManifest.EnvironmentDescription">description</see></item>
+    ///         <item>The environment <see cref="Manifest.EnvironmentName">name</see></item>
+    ///         <item>The environment <see cref="Manifest.EnvironmentDescription">description</see></item>
     ///     </list>
     /// </remarks>
     /// <param name="manifestFolder">The folder that contains the dvn manifest files.</param>
@@ -31,7 +30,7 @@ internal static class DevelopmentEnvironment
 
         foreach (var manifestFile in manifestFiles)
         {
-            DvnManifest manifest = DuJson.ImportFromFile<DvnManifest>(manifestFile);
+            Manifest manifest = DuJson.ImportFromFile<Manifest>(manifestFile);
 
             environmentDetails[manifest.EnvironmentName] = manifest.EnvironmentDescription;
         }
@@ -66,7 +65,7 @@ internal static class DevelopmentEnvironment
         }
         else
         {
-            DvnManifest.CreateNew(dvnSession.Framework.Folders["Manifests"], dvnSession.CommandLine.Command, dvnSession.Configuration.ManifestExtension);
+            Manifest.CreateNew(dvnSession.Framework.Folders["Manifests"], dvnSession.CommandLine.Command, dvnSession.Configuration.ManifestExtension);
 
             Session.Stop();
         }
@@ -82,7 +81,7 @@ internal static class DevelopmentEnvironment
     /// <param name="excludedFolders">A list of folder names to exclude from backup operations.</param>
     internal static void Launch(string manifestFolder, string manifestName, string manifestExtension, string stagingPath, List<string> dvnOptions, List<string> excludedFiles, List<string> excludedFolders)
     {
-        DvnManifest dvnManifest = DuJson.ImportFromFile<DvnManifest>($@"{manifestFolder}\{manifestName}{manifestExtension}");
+        Manifest dvnManifest = DuJson.ImportFromFile<Manifest>($@"{manifestFolder}\{manifestName}{manifestExtension}");
 
         Console.WriteLine($"{Environment.NewLine}  Launching environment: {dvnManifest.EnvironmentDescription}");
 
@@ -100,10 +99,10 @@ internal static class DevelopmentEnvironment
 
     /// <summary>Starts a list of applications.</summary>
     /// <remarks>Currently this functionality only works on Windows systems.</remarks>
-    /// <param name="applications">A list of <see cref="DvnManifestApplication"/> objects, each representing an application to be started..</param>
-    internal static void StartApplications(List<DvnManifestApplication> applications)
+    /// <param name="applications">A list of <see cref="ManifestApplication"/> objects, each representing an application to be started..</param>
+    internal static void StartApplications(List<ManifestApplication> applications)
     {
-        foreach (DvnManifestApplication app in applications)
+        foreach (ManifestApplication app in applications)
         {
             if (string.IsNullOrEmpty(app.FileName))
             {

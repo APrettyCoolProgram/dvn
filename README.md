@@ -28,9 +28,9 @@ You *could* do all of the above steps manually, *or* you could let **dvn** do it
 
 Typing `dvn myproject` will:
 
-* Data will be backed up
-* Your Visual Studio solutions and workspaces will start
-* GitHub Desktop will start
+* Backup specified data
+* Start Visual Studio solutions and workspaces
+* Start GitHub Desktop
 
 ## Pre-requisites
 
@@ -45,13 +45,13 @@ Typing `dvn myproject` will:
 
 1. Download the [latest release]()
 2. Extract the contents of the downloaded file to a folder of your choice
-3. Open a terminal in the that folder
 
 You'll notice that the folder contains a single item: `dvn.exe`
 
 ## Creating the **dvn** framework
 
-Using the terminal window you opened, type: `~$ dvn`
+1. Open a terminal in the the folder that contains `dvn.exe`
+2. Type: `~$ dvn`
 
 Since this is the first time you are executing **dvn**, you will see a message letting you know that the *framework* - the files and folders **dvn** needs - will be created.
 

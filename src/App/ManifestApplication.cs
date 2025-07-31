@@ -3,9 +3,9 @@
  * u250731_documentation
  */
 
-namespace dvn.App.Manifest;
+namespace dvn.App;
 
-internal class DvnManifestApplication
+internal class ManifestApplication
 {
     public string Name { get; set; }
     public string Description { get; set; }
