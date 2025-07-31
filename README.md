@@ -12,9 +12,9 @@
 
 </div>
 
-# About `dvn`
+# About **dvn**
 
-`dvn` is a command-line utility that starts the components of a development environment.
+**dvn** is a command-line utility for managing development environments.
 
 Let's say you are working on a project named "MyProject", and that project requires:
 
@@ -24,35 +24,70 @@ Let's say you are working on a project named "MyProject", and that project requi
 * GitHub Desktop
 * Specific data to be backed up
 
-You *could* do all of the above steps manually, *or* you could let `dvn` do it for you.
+You *could* do all of the above steps manually, *or* you could let **dvn** do it for you.
 
-When you type `dvn myproject` on a command line:
+When you type "`dvn myproject`" on a command line:
 
 * Data will be backed up
 * Your Visual Studio solutions and workspaces will start
 * GitHub Desktop will start
 
-# Installing
+## Pre-requisites
 
-Installing `dvn` is simple:
+* Windows operating system (MacOS/Linux versions are on the roadmap)
+* [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+
+# Initial setup
+
+## Installing **dvn**
+
+**dvn** is a portable application, so "installing" is simple:
 
 1. Download the [latest release]()
 2. Extract the contents of the downloaded file to a folder of your choice
 3. Open a terminal in the that folder
-4. Type `~$ dvn`
 
-Since this is the first time you are executing dvn, the *framework* needs to be created.
+## Creating the **dvn** framework
 
-# Configuration
+Using the terminal window you opened, type: `~$ dvn`
 
-Configuring `dvn` requires modifying the following files:
+Since this is the first time you are executing **dvn**, you will see a message letting you know that the *framework* - the files and folders **dvn** needs - will be created.
 
-* **devApp.config**
+Now you can start using **dvn**
+
+# Using **dvn**
+
+Once **dvn** is [installed](), use the following syntax to do stuff: `dvn <command> [-option01 -option02 ...]`
+
+For example, typing `dvn help` will display the help screen.
+
+## **dvn** Commands
+
+**dvn** recognizes the following commands:
+
+* `dvn about` - Displays information about dvn  
+
+* `dvn help`  - Displays the dvn help information  
+
+* `dvn list`  - Lists available development environments
 
 
 
 
-The information `dvn` needs to do what it does is contained in [*manifest files*](#the-manifest-file).
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+The information **dvn** needs to do what it does is contained in [*manifest files*](#the-manifest-file).
 
 When **dvn** starts, it loads a manifest file that tells it:
 
@@ -254,3 +289,9 @@ You can launch specific Visual Studio Code workspaces by passing the workspace a
     "WorkingDirectory": "\\path\\to\\VisualStudio"
 }
 ```
+
+The `.\.dvn\configs\dvn.config` file contains the [configuration settings]() for **dvn**, but for now you can leave this file alon
+
+# Configuring **dvn**
+## Basic confituration
+## Advanced configuration
