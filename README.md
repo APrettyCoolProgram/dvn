@@ -87,7 +87,7 @@ Other commands include:
 
 For example, you can get a list of valid commands by typing
 
-```bat
+```csharp
 > dvn help
 ```
 
@@ -103,18 +103,6 @@ Options:
 * Are separated by a space
 
 For example, you can force the data for the myproj environment to be backed up by typing
-
-
-```console
-dvn myproj -b
-```
-```ps
-dvn myproj -b
-```
-
-```cmd
-dvn myproj -b
-```
 
 ```csharp
 dvn myproj -b
