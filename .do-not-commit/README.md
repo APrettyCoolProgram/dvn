@@ -1,1 +1,0 @@
-Data in this folder are not committed to the repository.
