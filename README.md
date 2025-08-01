@@ -1,4 +1,4 @@
-<!-- u250715 -->
+<!-- u250801 -->
 
 <div align="center">
 
@@ -24,13 +24,11 @@ Let's say you are working something called "MyProject", which requires:
 * GitHub Desktop
 * Specific data to be backed up
 
-You *could* do all of the above steps manually, *or* you could let **dvn** do it for you.
+You *could* do all of the above steps manually, *or* you could let **dvn** do it for you by typing
 
-Typing `dvn myproject` will:
-
-* Backup specified data
-* Start Visual Studio solutions and workspaces
-* Start GitHub Desktop
+```bash
+dvn myproject
+```
 
 ## Pre-requisites
 
@@ -51,7 +49,11 @@ You'll notice that the folder contains a single item: `dvn.exe`
 ## Creating the **dvn** framework
 
 1. Open a terminal in the the folder that contains `dvn.exe`
-2. Type: `~$ dvn`
+2. Type
+
+```bash
+dvn
+```
 
 Since this is the first time you are executing **dvn**, you will see a message letting you know that the *framework* - the files and folders **dvn** needs - will be created.
 
@@ -59,8 +61,8 @@ Since this is the first time you are executing **dvn**, you will see a message l
 
 This is the **dvn** syntax:
 
-```csharp
-> dvn <command> [-option01 -option02 ...]
+```bash
+dvn <command> [-option01 -option02 ...]
 ```
 
 ## Commands
@@ -71,14 +73,14 @@ In general, you'll use the `%environment-name%` command, which will start the sp
 
 For example, to start/create the `myproj` environment, you would type
 
-```csharp
-> dvn myproj
+```bash
+dvn myproj
 ```
 
 To get a list of valid commands, type
 
-```csharp
-> dvn help
+```bash
+dvn help
 ```
 
 ## Options
@@ -93,22 +95,22 @@ Options:
 
 For example, you can force the data for the `myproj` environment to be backed up by typing
 
-```csharp
-> dvn myproj -b
+```bash
+dvn myproj -b
 ```
 
 To get a list of valid options, type
 
-```csharp
-> dvn help
+```bash
+dvn help
 ```
 
 # Manifest files
 
 When you start an environment by typing
 
-```csharp
-> dvn myproj
+```bash
+dvn myproj
 ```
 
 **dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
