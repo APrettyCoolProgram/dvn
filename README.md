@@ -44,8 +44,8 @@ dvn myproject
 
 The initial setup of **dvn** will:
 
-1. Install the **dvn** application
-2. Create the **dvn** framework
+1. Install the **dvn application**
+2. Create the **dvn framework**
 
 ## Installing the **dvn** application
 
@@ -83,7 +83,7 @@ dvn <command> [-option01 -option02 ...]
 
 **dvn** *requires* that you pass a valid `command`.
 
-In general, you'll use the `%environment-name%` command, which will start the specified development environment (or create a blank [manifest file](), if one doesn't exist).
+In general, you'll use the `%environment%` command, which will start the specified development environment (or create a blank [manifest file](), if one doesn't exist).
 
 For example, to start/create the `myproj` environment, you would type
 
@@ -121,9 +121,6 @@ dvn help
 
 # Manifest files
 
-> **PLEASE NOTE!**  
-> Any "`\`" characters in the manifest file need to be escaped as "`\\`".
-
 When you start an environment by typing
 
 ```bash
@@ -134,6 +131,8 @@ dvn myproj
 
 If the file does not exist, it is created using the default settings, which you will need to modify.
 
+> **PLEASE NOTE!**  
+> Any "`\`" characters in the manifest file need to be escaped as "`\\`".
 
 ## The default manifest
 
@@ -163,15 +162,12 @@ When a new manifest file is created, it looks like this:
 
 ## Manifest components
 
-> **REMINDER!**  
-> Any `\` characters need to be escaped as `\\`!
-
 Manifest files contain the following components:
 
 * `EnvironmentName`  
 The name of the environment (e.g., "myproj").
 
-* EnvironmentDescription`  
+* `EnvironmentDescription`  
 The description of the environment (e.g., "My project environment").
 
 * `BackupEnabled`  
@@ -183,7 +179,7 @@ Absolute paths to data that will be backed up, if the data backup functionality 
 * `BackupLocation`  
 The absolute path  where backups are created.
 
-* `ManifestApplications`  
+* `EnvironmentApplication`  
 Each application that will be launched by **dvn** has it's own block with the following data:
 
   *  `Name`  
@@ -231,6 +227,11 @@ A completed manifest file looks like this:
   ]
 }
 ```
+
+> **REMINDER!**  
+> Any `\` characters need to be escaped as `\\`!
+
+
 
 The above manifest file will:
 

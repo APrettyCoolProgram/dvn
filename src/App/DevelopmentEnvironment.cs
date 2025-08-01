@@ -1,6 +1,6 @@
 ﻿/* dvn.App.DevelopmentEnvironment.cs
  * u250801_code
- * u250731_documentation
+ * u250801_documentation
  */
 
 using System.Diagnostics;
@@ -10,8 +10,44 @@ using dvn.Du;
 namespace dvn.App;
 
 /// <summary>Logic for development environments.</summary>
-internal static class DevelopmentEnvironment
+internal class DevelopmentEnvironment
 {
+    /// <summary>The environment name.</summary>
+    public string Name { get; set; }
+
+    /// <summary>The environment description.</summary>
+    public string Description { get; set; }
+
+    /// <summary>Indicates if data should be backed up.</summary>
+    public bool BackupEnabled { get; set; }
+
+    /// <summary>A dictionary mapping source paths to target paths.</summary>
+    public List<string> BackupSources { get; set; }
+
+    public string BackupLocation { get; set; }
+
+    /// <summary>
+    /// Creates a new instance of the <see cref="DevelopmentEnvironment"/> class with default settings.
+    /// </summary>
+    /// <param name="name">The name to assign to the development environment.</param>
+    /// <returns>A <see cref="DevelopmentEnvironment"/> instance initialized with the specified name,  default description, and
+    /// backup settings.</returns>
+    internal static DevelopmentEnvironment New(string name)
+    {
+        return new DevelopmentEnvironment
+        {
+            Name = name,
+            Description = "Default development environment",
+            BackupEnabled = false,
+            BackupSources =
+            [
+                "\\Path\\To\\Source1",
+                "\\Path\\To\\Source2"
+            ],
+            BackupLocation = "\\Path\\To\\Backup"
+        };
+    }
+
     /// <summary>Get the details for the available development environments.</summary>
     /// <remarks>
     ///     The details we are interested in are:
@@ -32,7 +68,7 @@ internal static class DevelopmentEnvironment
         {
             Manifest manifest = DuJson.ImportFromFile<Manifest>(manifestFile);
 
-            environmentDetails[manifest.EnvironmentName] = manifest.EnvironmentDescription;
+            environmentDetails[manifest.DevelopmentEnvironment.Name] = manifest.DevelopmentEnvironment.Description;
         }
 
         return environmentDetails;
@@ -83,49 +119,19 @@ internal static class DevelopmentEnvironment
     {
         Manifest dvnManifest = DuJson.ImportFromFile<Manifest>($@"{manifestFolder}\{manifestName}{manifestExtension}");
 
-        Console.WriteLine($"{Environment.NewLine}  Launching environment: {dvnManifest.EnvironmentDescription}");
+        Console.WriteLine($"{Environment.NewLine}  Launching environment: {dvnManifest.DevelopmentEnvironment.Description}");
 
-        if (Archiver.BackupData.IsBackupEnabled(dvnManifest.BackupEnabled, dvnOptions))
+        if (Archiver.BackupData.IsBackupEnabled(dvnManifest.DevelopmentEnvironment.BackupEnabled, dvnOptions))
         {
-            Archiver.BackupData.BackupFolders(dvnManifest.BackupSources, dvnManifest.BackupLocation, stagingPath, excludedFiles, excludedFolders);
+            Archiver.BackupData.BackupFolders(dvnManifest.DevelopmentEnvironment.BackupSources, dvnManifest.DevelopmentEnvironment.BackupLocation, stagingPath, excludedFiles, excludedFolders);
         }
         else
         {
             Console.WriteLine("  Data backup functionality is disabled.");
         }
 
-        StartApplications(dvnManifest.ManifestApplications);
+        EnvironmentApplication.StartApplications(dvnManifest.EnvironmentApplications);
     }
 
-    /// <summary>Starts a list of applications.</summary>
-    /// <remarks>Currently this functionality only works on Windows systems.</remarks>
-    /// <param name="applications">A list of <see cref="ManifestApplication"/> objects, each representing an application to be started..</param>
-    internal static void StartApplications(List<ManifestApplication> applications)
-    {
-        foreach (ManifestApplication app in applications)
-        {
-            if (string.IsNullOrEmpty(app.FileName))
-            {
-                Console.WriteLine($"  No applications found.");
 
-                Session.Stop(UserMessage.msg_ExitDvn());
-            }
-
-            Console.WriteLine($"  Starting application: {app.Name}");
-
-            var process = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName         = app.FileName,
-                    Arguments        = app.Arguments,
-                    WorkingDirectory = app.WorkingDirectory,
-                    UseShellExecute  = true,
-                    CreateNoWindow   = false
-                }
-            };
-
-            _=process.Start();
-        }
-    }
 }

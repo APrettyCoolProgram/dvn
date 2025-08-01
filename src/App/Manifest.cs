@@ -1,6 +1,6 @@
 ﻿/* dvn.App.Manifest.DvnManifest.cs
- * u250731_code
- * u250731_documentation
+ * u250801_code
+ * u250801_documentation
  */
 
 using dvn.Blueprint;
@@ -11,21 +11,10 @@ namespace dvn.App;
 internal class Manifest
 {
     /// <summary>The environment name.</summary>
-    public string EnvironmentName { get; set; }
-
-    /// <summary>The environment description.</summary>
-    public string EnvironmentDescription { get; set; }
-
-    /// <summary>Indicates if data should be backed up.</summary>
-    public bool BackupEnabled { get; set; }
-
-    /// <summary>A dictionary mapping source paths to target paths.</summary>
-    public List<string> BackupSources { get; set; }
-
-    public string BackupLocation { get; set; }
+    public DevelopmentEnvironment DevelopmentEnvironment { get; set; }
 
     /// <summary>A list of applications associated with the environment.</summary>
-    public List<ManifestApplication> ManifestApplications { get; set; }
+    public List<EnvironmentApplication> EnvironmentApplications { get; set; }
 
     /// <summary>Creates a default instance of the <see cref="Manifest"/> class.</summary>
     /// <param name="fileName">The name of the environment file.</param>
@@ -34,18 +23,10 @@ internal class Manifest
     {
         var dvnManifest = new Manifest()
         {
-            EnvironmentName        = manifestName,
-            EnvironmentDescription = "Environment description",
-            BackupEnabled = false,
-            BackupSources =
+            DevelopmentEnvironment  = DevelopmentEnvironment.New(manifestName),
+            EnvironmentApplications =
             [
-                "\\Path\\To\\Source1",
-                "\\Path\\To\\Source2"
-            ],
-            BackupLocation = "\\Path\\To\\Backup",
-            ManifestApplications  =
-            [
-                new ManifestApplication()
+                new EnvironmentApplication()
             ]
         };
 

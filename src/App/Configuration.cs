@@ -1,6 +1,6 @@
 ﻿/* dvn.App.Configuration.cs
- * u250731_code
- * u250731_documentation
+ * u250801_code
+ * u250801_documentation
  */
 
 using System.Text.Json;
