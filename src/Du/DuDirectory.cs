@@ -1,7 +1,16 @@
-﻿namespace dvn.Du;
+﻿/* DuDirectory.cs
+ * Does stuff with directories.
+ * b250801
+ * A Pretty Cool Program
+ * https://
+ */
 
+namespace dvn.Du;
+
+/// <summary>Does stuff with directories.</summary>
 internal static class DuDirectory
 {
+    // [250801]
     /// <summary>If the directory does not exist, create it.</summary>
     /// <param name="path">The directory path.</param>
     public static void ForceExist(string path)
@@ -12,6 +21,7 @@ internal static class DuDirectory
         }
     }
 
+    // [250801]
     /// <summary>If the directory exists, delete it, then recreate it.</summary>
     /// <param name="path">The directory path.</param>
     public static void Reset(string path)
@@ -24,6 +34,7 @@ internal static class DuDirectory
         _=Directory.CreateDirectory(path);
     }
 
+    // [250801]
     /// <summary>Verify a parent directory of a file exists.</summary>
     /// <param name="fullPath">The full path of a file.</param>
     public static void VerifyParent(string fullPath)
@@ -36,6 +47,7 @@ internal static class DuDirectory
         }
     }
 
+    // [250801]
     /// <summary>Copies the contents of a source directory to a target directory.</summary>
     /// <remarks>
     ///     This method copies all files from the <paramref name="source"/> directory to the
@@ -72,6 +84,7 @@ internal static class DuDirectory
         }
     }
 
+    // [250801]
     /// <summary>Copies contents from the source directory to the target directory, excluding specified files and directories.</summary>
     /// <remarks>This method ensures that the <paramref name="target"/> directory exists before
     /// copying. Files and directories specified in <paramref name="excludeFiles"/> and <paramref

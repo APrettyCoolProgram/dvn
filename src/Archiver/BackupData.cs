@@ -35,8 +35,6 @@ internal static class BackupData
     /// <param name="staging">The staging location.</param>
     internal static void BackupFolders(List<string> backupSources, string target, string staging, List<string> excludeFiles, List<string> excludeDirs)
     {
-        //Console.WriteLine($"  Backup enabled.");
-
         CopyToStaging(backupSources, staging, excludeFiles, excludeDirs);
 
         foreach (var subDirectory in Directory.GetDirectories(staging))

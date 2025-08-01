@@ -3,7 +3,6 @@
  * u250801_documentation
  */
 
-using System.Diagnostics;
 using dvn.Blueprint;
 using dvn.Du;
 
@@ -26,18 +25,15 @@ internal class DevelopmentEnvironment
 
     public string BackupLocation { get; set; }
 
-    /// <summary>
-    /// Creates a new instance of the <see cref="DevelopmentEnvironment"/> class with default settings.
-    /// </summary>
-    /// <param name="name">The name to assign to the development environment.</param>
-    /// <returns>A <see cref="DevelopmentEnvironment"/> instance initialized with the specified name,  default description, and
-    /// backup settings.</returns>
-    internal static DevelopmentEnvironment New(string name)
+    /// <summary>Creates a new instance of the <see cref="DevelopmentEnvironment"/> class.</summary>
+    /// <param name="environmentName">The name of the development environment.</param>
+    /// <returns>A <see cref="DevelopmentEnvironment"/> instance</returns>
+    internal static DevelopmentEnvironment New(string environmentName)
     {
         return new DevelopmentEnvironment
         {
-            Name = name,
-            Description = "Default development environment",
+            Name          = environmentName,
+            Description   = "Default development environment",
             BackupEnabled = false,
             BackupSources =
             [
@@ -88,9 +84,9 @@ internal class DevelopmentEnvironment
         }
     }
 
-    ///// <summary>Loads an environment manifest file.</summary>
-    ///// <remarks>If the specified manifest file does not exist, a new manifest file is created.</remarks>
-    ///// <param name="dvnSession">The session instance.</param>
+    /// <summary>Loads an environment manifest file.</summary>
+    /// <remarks>If the specified manifest file does not exist, a new manifest file is created.</remarks>
+    /// <param name="dvnSession">The session instance.</param>
     internal static void LoadFromManifest(Session dvnSession)
     {
         if (File.Exists($@"{dvnSession.Framework.Folders["Manifests"]}\{dvnSession.CommandLine.Command}{dvnSession.Configuration.ManifestExtension}"))
@@ -107,7 +103,7 @@ internal class DevelopmentEnvironment
         }
     }
 
-    /// <summary>Launches an environment.</summary>
+    /// <summary>Launches a development environment.</summary>
     /// <param name="manifestFolder">The folder path where the manifest file is located.</param>
     /// <param name="manifestName">The name of the manifest file without extension.</param>
     /// <param name="manifestExtension">The file extension of the manifest.</param>
@@ -132,6 +128,4 @@ internal class DevelopmentEnvironment
 
         EnvironmentApplication.StartApplications(dvnManifest.EnvironmentApplications);
     }
-
-
 }

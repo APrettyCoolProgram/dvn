@@ -3,9 +3,6 @@
  * u250801_documentation
  */
 
-using System.Text.Json;
-using System.Text.Json.Nodes;
-
 namespace dvn.App;
 
 /// <summary>Logic for dvn configuration settings.</summary>

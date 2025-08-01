@@ -140,15 +140,17 @@ When a new manifest file is created, it looks like this:
 
 ```json
 {
-  "EnvironmentName": "myproj",
-  "EnvironmentDescription": "Environment description",
-  "BackupEnabled": false,
-  "BackupSources": [
-    "\\Path\\To\\Source1",
-    "\\Path\\To\\Source2"
-  ],
-  "BackupLocation": "\\Path\\To\\Backup",
-  "ManifestApplications": [
+  "DevelopmentEnvironment": {
+    "Name": "%environment%",
+    "Description": "Default development environment",
+    "BackupEnabled": false,
+    "BackupSources": [
+      "\\Path\\To\\Source1",
+      "\\Path\\To\\Source2"
+    ],
+    "BackupLocation": "\\Path\\To\\Backup"
+  },
+  "EnvironmentApplications": [
     {
       "Name": null,
       "Description": null,
@@ -164,10 +166,10 @@ When a new manifest file is created, it looks like this:
 
 Manifest files contain the following components:
 
-* `EnvironmentName`  
+* `Name`  
 The name of the environment (e.g., "myproj").
 
-* `EnvironmentDescription`  
+* `Description`  
 The description of the environment (e.g., "My project environment").
 
 * `BackupEnabled`  
@@ -177,12 +179,12 @@ Determines if the data backup functionality is *enabled* ("true"), or *disabled*
 Absolute paths to data that will be backed up, if the data backup functionality is enabled.  
 
 * `BackupLocation`  
-The absolute path  where backups are created.
+The absolute path where backups are created.
 
 * `EnvironmentApplication`  
 Each application that will be launched by **dvn** has it's own block with the following data:
 
-  *  `Name`  
+  * `Name`  
   The name of the application
 
   * `Description`  
@@ -201,29 +203,45 @@ A completed manifest file looks like this:
 
 ```json
 {
-  "EnvironmentName": "myproj",
-  "EnvironmentDescription": "My project environment",
-  "BackupEnabled": true,
-  "BackupSources": [
-    "C:\\repositories\\MyRepository",
-    "C:\\data\\reports"
-  ],
-  "BackupLocation": "C:\\backups",
-  "ManifestApplications": [
+  "DevelopmentEnvironment": {
+    "Name": "myproj",
+    "Description": "My project environment",
+    "BackupEnabled": true,
+    "BackupSources": [
+      "C:\\repositories\\MyProject",
+      "C:\\data\\reports"
+    ],
+    "BackupLocation": "C:\\backups",
+  },
+  "EnvironmentApplications": [
+    {
+      "Name": "Visual Studio - MyProject",
+      "Description": "MyProject solution",
+      "FileName": "MyProject.sln",
+      "Arguments": null,
+      "WorkingDirectory": "C:\\repositories\\MyProject\\src"
+    },
+    {
+    "Name": "Visual Studio Code - MyProject documentation",
+    "Description": "MyProject documentation",
+    "FileName": "Code.exe",
+    "Arguments": "MyProject-documentation.code-workspace | exit /b",
+    "WorkingDirectory": "\\path\\to\\VisualStudioCode"
+    },
+    {
+    "Name": "Visual Studio Code - Other documentation",
+    "Description": "Other documentation",
+    "FileName": "Code.exe",
+    "Arguments": "Other-documentation.code-workspace | exit /b",
+    "WorkingDirectory": "\\path\\to\\VisualStudioCode"
+    },
     {
       "Name": "GitHub Desktop",
       "Description": "GitHub Desktop",
       "FileName": "GitHubDesktop.exe",
       "Arguments": null,
       "WorkingDirectory": "C:\\Users\\JaneSmith\\AppData\\Local\\GitHubDesktop"
-    },
-    {
-    "Name": "Visual Studio Code",
-    "Description": "Visual Studio Code IDE",
-    "FileName": "Code.exe",
-    "Arguments": "Project-documentation.code-workspace | exit /b",
-    "WorkingDirectory": "\\path\\to\\VisualStudio"
-}
+    }
   ]
 }
 ```
@@ -231,98 +249,17 @@ A completed manifest file looks like this:
 > **REMINDER!**  
 > Any `\` characters need to be escaped as `\\`!
 
-
-
 The above manifest file will:
 
 1. Start the "**myproj**" development environment
-2. Backup the "**C:\repositories\MyRepository**" and "**C:\data\reports**" to "**C:\backups**"
+2. Backup the "**C:\repositories\MyProject**" and "**C:\data\reports**" to "**C:\backups**"
+3. Start the "**MyProject**" solution in Visual Studio
+4. Start the "**MyProject-Documentation**" workspace in Visual Studio Code
+4. Start the "**Other-Documentation**" workspace in Visual Studio Code
 3. Start the "**GitHub Desktop**" application
-4. Start "**Visual Studio Code**", using the "**Project-Documentation**" workspace
 
 # Configuring **dvn**
 
-## Ignored data
+The `.\.dvn\configs\dvn.config` file contains the [configuration settings]() for **dvn**.
 
-While any directory can be backed up, this feature is intended to be used to backup source code repositories. As such, the following data is ignored so file sizes are kept to a minimum:
-
-```text
-Files:
-".DS_Store",
-"Thumbs.db",
-"desktop.ini",
-"package-lock.json",
-"yarn.lock",
-"pnpm-lock.yaml",
-"npm-shrinkwrap.json"
-
-Folders:
-"node_modules",
-"bin",
-"obj",
-".git",
-".vs",
-".vscode",
-".idea",
-"packages"
-```
-
-## BackupTarget
-
-All [`BackupSources`](#backupsources) are compressed into timestamped .zip files, and placed in the `BackupTarget` location.
-
-## Applications
-
-**dvn** can start most applications.
-
-Each application needs to have its own `Application` component, which has its own sub components.
-
-### Name
-
-The application name. This is currently not used.
-
-### Description 
-
-The application description. This is currently not used.
-
-### FileName
-
-The file name (executable) that is used to launch the application.
-
-### Arguments
-
-Any arguments that you want to pass to the application.
-
-### WorkingDirectory
-
-The path where the application executable is located.
-
-For example, to launch Visual Studio Code:
-
-```json
-{
-    "Name": "Visual Studio Code",
-    "Description": "Visual Studio Code IDE",
-    "FileName": "Code.exe",
-    "Arguments": "",
-    "WorkingDirectory": "\\path\\to\\VisualStudio"
-}
-```
-
-You can launch specific Visual Studio Code workspaces by passing the workspace as an argument:
-
-```json
-{
-    "Name": "Visual Studio Code",
-    "Description": "Visual Studio Code IDE",
-    "FileName": "Code.exe",
-    "Arguments": "Project-documentation.code-workspace | exit /b",
-    "WorkingDirectory": "\\path\\to\\VisualStudio"
-}
-```
-
-The `.\.dvn\configs\dvn.config` file contains the [configuration settings]() for **dvn**, but for now you can leave this file alon
-
-# Configuring **dvn**
-## Basic confituration
-## Advanced configuration
+Currently this file only contains a list of files and folders that are ignored when the data backup functionality is enabled (to keep file sizes are kept to a minimum), so their isn't much to configure...yet.
