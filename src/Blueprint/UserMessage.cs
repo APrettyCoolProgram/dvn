@@ -1,6 +1,6 @@
 ﻿/* dvn.Blueprint.UserMessage.cs
- * u250731_code
- * u250731_documentation
+ * u250801_code
+ * u250801_documentation
  */
 
 using System.Reflection;
@@ -10,7 +10,7 @@ namespace dvn.Blueprint;
 /// <summary>Provides predefined user messages.</summary>
 internal static class UserMessage
 {
-    /// <summary>The message that is displayed every time dvn is executed.</summary>
+    /// <summary>The dvn start message.</summary>
     internal static string msg_StartDvn =>
         """
         =======
@@ -63,12 +63,13 @@ internal static class UserMessage
     /// <returns>The new manifest message.</returns>
     public static string msg_CreateManifest(string environmentName) =>
         $"""
-           A "{environmentName}.dvn.manifest" did not exist, so it was created.
+           A "{environmentName}.dvn.manifest" file did not exist, so one was created.
 
            You will need to edit the "{environmentName}.dvn.manifest" file manually.
 
            For more detailed information, please refer to the dvn documentation:
-               https://github.com/APrettyCoolProgram/dvn
+             https://github.com/APrettyCoolProgram/dvn
+           {msg_ExitDvn()}
          """;
 
     /// <summary>The help message.</summary>
@@ -82,14 +83,14 @@ internal static class UserMessage
 
           Commands:
 
-            %manifest%   Start/create a development environment manifest
-            help         Display the dvn help screen
-            about        Display information about dvn
-            list         Display the available development environments
+            %environment%   Start/create a development environment manifest
+            help            Display the dvn help screen
+            about           Display information about dvn
+            list            Display the available development environments
 
           Options:
 
-            -b           Force data backups
+            -b              Force data backups
 
           Examples:
 

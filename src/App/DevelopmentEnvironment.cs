@@ -1,5 +1,5 @@
 ﻿/* dvn.App.DevelopmentEnvironment.cs
- * u250731_code
+ * u250801_code
  * u250731_documentation
  */
 
@@ -91,7 +91,7 @@ internal static class DevelopmentEnvironment
         }
         else
         {
-            Console.WriteLine("  Backup disabled.");
+            Console.WriteLine("  Data backup functionality is disabled.");
         }
 
         StartApplications(dvnManifest.ManifestApplications);
@@ -106,7 +106,7 @@ internal static class DevelopmentEnvironment
         {
             if (string.IsNullOrEmpty(app.FileName))
             {
-                Console.WriteLine($"  There aren't any applications defined.");
+                Console.WriteLine($"  No applications found");
 
                 Session.Stop(UserMessage.msg_ExitDvn());
             }
