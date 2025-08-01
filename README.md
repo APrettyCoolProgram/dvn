@@ -35,18 +35,32 @@ dvn myproject
 * Windows operating system (MacOS/Linux versions are on the roadmap)
 * [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
+## Additional information
+
+* [Changelog]()
+* [Roadmap]()
+
 # Initial setup
 
-## Installing **dvn**
+The initial setup of **dvn** will:
+
+1. Install the **dvn** application
+2. Create the **dvn** framework
+
+## Installing the **dvn** application
 
 **dvn** is a portable application, so "installing" is simple:
 
 1. Download the [latest release]()
 2. Extract the contents of the downloaded file to a folder of your choice
 
-You'll notice that the folder contains a single item: `dvn.exe`
+You'll notice that the folder you extracted to contains a single item: `dvn.exe`
 
 ## Creating the **dvn** framework
+
+The **dvn framework** are the files and folders that are required by **dvn**. This framework doesn't exist yet, so we need to create it.
+
+To create the **dvn** framework:
 
 1. Open a terminal in the the folder that contains `dvn.exe`
 2. Type
@@ -55,7 +69,7 @@ You'll notice that the folder contains a single item: `dvn.exe`
 dvn
 ```
 
-Since this is the first time you are executing **dvn**, you will see a message letting you know that the *framework* - the files and folders **dvn** needs - will be created.
+Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
 
 # Using **dvn**
 
@@ -106,6 +120,9 @@ dvn help
 ```
 
 # Manifest files
+
+> **PLEASE NOTE!**  
+> Any "`\`" characters in the manifest file need to be escaped as "`\\`".
 
 When you start an environment by typing
 
