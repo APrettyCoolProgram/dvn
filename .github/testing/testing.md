@@ -49,7 +49,7 @@
 
 ### 01: Framework creation
 
--[ ] Confirm the dvn framework does not exist
+-[X] Confirm the dvn framework does not exist
 2. Type `dvn about` at the command line
 3. Verify the "Welcome to dvn" message is displayed
 4. Verify dvn exits gracefully
