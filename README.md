@@ -35,11 +35,6 @@ dvn myproject
 * Windows operating system (MacOS/Linux versions are on the roadmap)
 * [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
 
-## Additional information
-
-* [Changelog]()
-* [Roadmap]()
-
 # Initial setup
 
 The initial setup of **dvn** will:
