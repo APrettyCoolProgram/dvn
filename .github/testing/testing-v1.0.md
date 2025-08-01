@@ -25,7 +25,7 @@
 
 ## Setup
 
-- [x] Copy `dvn.exe` to a test location
+- [X] Copy `dvn.exe` to a test location
 - [ ] Open a terminal window at that location
 - [ ] Confirm that the only file at that location is `dvn.exe`
 
