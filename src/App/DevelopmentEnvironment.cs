@@ -106,7 +106,7 @@ internal static class DevelopmentEnvironment
         {
             if (string.IsNullOrEmpty(app.FileName))
             {
-                Console.WriteLine($"  No applications found");
+                Console.WriteLine($"  No applications found.");
 
                 Session.Stop(UserMessage.msg_ExitDvn());
             }
