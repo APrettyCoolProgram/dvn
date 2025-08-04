@@ -1,5 +1,7 @@
 # APCP ROADMAP: dvn
 
+* Remame "App" to "Core"
+
 # Common
 
 * Install apps
