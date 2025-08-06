@@ -1,29 +1,35 @@
-[b1110]
-* Added the ability to open web pages in Edge and/or Firefox
+
+# v1.1-development+250806
+
+## [b1110]
+
+### New functionality
+
+* Web pages can now be opened with Chrome, Firefox, and Edge
+
+### Modified
+
 * The default template is now created with null values, instead of examples (the README.md will explain how they should be setup)
-* Renamed the following (to keep path names from getting too long):
-  - .\.dvn\backups => .\.dvn\bckp
-  - .\.dvn\configs => .\.dvn\cnfg
-  - .\.dvn\Manifests => .\.dvn\mnfst
-  - .\.dvn\Staging => .\.dvn\stg
-  - .\.dvn\Temporary => .\.dvn\tmp
-  - .\.dvn\Trash => .\.dvn\trsh
-  - .\.dvn\Repositories => .\.dvn\repo
-* Removed:
-  - App.Manifest.DvnEnvironment.New()
-* Renamed:
-  - App.Manifest.DvnManifest.CreateNew() => App.Manifest.DvnManifest.CreateDefault()
+* Renamed some of the framework directories to keep paths short
+* Renamed a few methods so their names were more descriptive
+
+### Removed
+
+* Some of the .New() methods, since the default template is created with null values
+
+### Other
+
+* Code/comment cleanup/refactoring
 
 ***
 
-[b0719]
-* Renamed the following:
-  - DevelopmentEnvironment.cs => DvnEnvironment.cs
-  - EnvironmentApplication.cs => DvnApplication.cs
-  - Manifest.cs => DvnManifest.cs
-* Created dvn.Manifest namespace
-* Moved the following from the dvn.App namespace to the dvn.Manifest namespace:
-  - DvnEnvironment.cs
-  - DvnApplication.cs
-  - DvnManifest.cs
-* Created dvn.Manifest.DvnWebBrowser.cs
+## [b0719]
+
+### Added
+
+* The dvn.Manifest namespace, and moved associated files
+* Foundational stuff for the upcoming web browser functionality
+
+### Modified
+
+* Renamed a few classes so their names were more descriptive
