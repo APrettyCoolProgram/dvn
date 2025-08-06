@@ -4,8 +4,6 @@
  */
 
 using System.Diagnostics;
-using dvn.App;
-using dvn.Blueprint;
 
 namespace dvn.Manifest;
 
@@ -37,24 +35,25 @@ internal class DvnApplication
             {
                 Console.WriteLine($"  No applications found.");
 
-                Session.Stop(UserMessage.msg_ExitDvn());
             }
-
-            Console.WriteLine($"  Starting application: {app.Name}");
-
-            var process = new Process
+            else
             {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName         = app.FileName,
-                    Arguments        = app.Arguments,
-                    WorkingDirectory = app.WorkingDirectory,
-                    UseShellExecute  = true,
-                    CreateNoWindow   = false
-                }
-            };
+                Console.WriteLine($"  Starting application: {app.Name}");
 
-            _=process.Start();
+                var process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName         = app.FileName,
+                        Arguments        = app.Arguments,
+                        WorkingDirectory = app.WorkingDirectory,
+                        UseShellExecute  = true,
+                        CreateNoWindow   = false
+                    }
+                };
+
+                _=process.Start();
+            }
         }
     }
 }

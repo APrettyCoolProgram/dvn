@@ -26,25 +26,6 @@ internal class DvnEnvironment
 
     public string BackupLocation { get; set; }
 
-    /// <summary>Creates a new instance of the <see cref="DvnEnvironment"/> class.</summary>
-    /// <param name="environmentName">The name of the development environment.</param>
-    /// <returns>A <see cref="DvnEnvironment"/> instance</returns>
-    internal static DvnEnvironment New(string environmentName)
-    {
-        return new DvnEnvironment
-        {
-            Name          = environmentName,
-            Description   = "Default development environment",
-            BackupEnabled = false,
-            BackupSources =
-            [
-                "\\Path\\To\\Source1",
-                "\\Path\\To\\Source2"
-            ],
-            BackupLocation = "\\Path\\To\\Backup"
-        };
-    }
-
     /// <summary>Get the details for the available development environments.</summary>
     /// <remarks>
     ///     The details we are interested in are:
@@ -98,7 +79,7 @@ internal class DvnEnvironment
         }
         else
         {
-            DvnManifest.CreateNew(dvnSession.Framework.Folders["Manifests"], dvnSession.CommandLine.Command, dvnSession.Configuration.ManifestExtension);
+            DvnManifest.CreateDefault(dvnSession.Framework.Folders["Manifests"], dvnSession.CommandLine.Command, dvnSession.Configuration.ManifestExtension);
 
             Session.Stop();
         }
@@ -128,5 +109,8 @@ internal class DvnEnvironment
         }
 
         DvnApplication.StartApplications(dvnManifest.EnvironmentApplications);
+        DvnWebBrowser.OpenPages(dvnManifest.WebBrowser.BrowserPages);
+
+        Session.Stop(UserMessage.msg_ExitDvn());
     }
 }

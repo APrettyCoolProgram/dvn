@@ -4,65 +4,37 @@
  */
 
 using System.Diagnostics;
-using dvn.App;
-using dvn.Blueprint;
 
 namespace dvn.Manifest;
 internal class DvnWebBrowser
 {
-    public Dictionary<string,string> Firefox { get; set; }
+    /// <summary>A dictionary containing browser names and their associated pages.</summary>
+    /// <remarks>
+    ///     The keys are the browser names (e.g., "IExplore", "Firefox"), and the values are dictionaries
+    ///     where the keys are page titles and the values are URLs.
+    /// </remarks>
+    public Dictionary<string, Dictionary<string, string>> BrowserPages { get; set; }
 
-    /// <summary>Starts a list of applications.</summary>
-    /// <remarks>Currently this functionality only works on Windows systems.</remarks>
-    /// <param name="applications">A list of <see cref="DvnApplication"> applications</see>.</param>
-    internal static void StartFirefox(Dictionary<string, string> webpages)
+    /// <summary>Opens the specified pages in their respective browsers.</summary>
+    /// <param name="browserPages">A dictionary containing browser names and their associated pages.</param>
+    internal static void OpenPages(Dictionary<string, Dictionary<string, string>> browserPages)
     {
-        if (webpages.Count == 0)
+        foreach (var browser in browserPages)
         {
-            Console.WriteLine($"  No Firefox pages found.");
-
-            Session.Stop(UserMessage.msg_ExitDvn());
-        }
-        else
-        {
-            foreach (var page in webpages)
+            if (browser.Value.Count == 0)
             {
-                Console.WriteLine($"  Opening: {page.Key}");
-
-                var process = new Process
-                {
-                    StartInfo = new ProcessStartInfo
-                    {
-                        FileName         = "start firefox",
-                        Arguments        = page.Value,
-                        UseShellExecute  = true,
-                        CreateNoWindow   = false
-                    }
-                };
-
-                _=process.Start();
+                Console.WriteLine($"  No pages found for {browser.Key}.");
             }
+            else
+            {
+                Console.WriteLine($"  Opening pages in {browser.Key}:");
 
-            //foreach (string webpage in webpages)
-            //{
-            //    Console.WriteLine($"  Opening: {app.Name}");
-
-            //    var process = new Process
-            //    {
-            //        StartInfo = new ProcessStartInfo
-            //        {
-            //            FileName         = app.FileName,
-            //            Arguments        = app.Arguments,
-            //            WorkingDirectory = app.WorkingDirectory,
-            //            UseShellExecute  = true,
-            //            CreateNoWindow   = false
-            //        }
-            //    };
-
-            //    _=process.Start();
-            //}
+                foreach (var page in browser.Value)
+                {
+                    Console.WriteLine($"    Opening: {page.Key}");
+                    Process.Start(new ProcessStartInfo("cmd", $"/c start {browser.Key.ToLower()} {page.Value}"));
+                }
+            }
         }
-
-
     }
 }

@@ -136,14 +136,11 @@ When a new manifest file is created, it looks like this:
 ```json
 {
   "DevelopmentEnvironment": {
-    "Name": "%environment%",
-    "Description": "Default development environment",
+    "Name": "test",
+    "Description": "Default environment description.",
     "BackupEnabled": false,
-    "BackupSources": [
-      "\\Path\\To\\Source1",
-      "\\Path\\To\\Source2"
-    ],
-    "BackupLocation": "\\Path\\To\\Backup"
+    "BackupSources": null,
+    "BackupLocation": null
   },
   "EnvironmentApplications": [
     {
@@ -153,7 +150,13 @@ When a new manifest file is created, it looks like this:
       "Arguments": null,
       "WorkingDirectory": null
     }
-  ]
+  ],
+  "WebBrowser": {
+    "BrowserPages": {
+      "IExplore": {},
+      "Firefox": {}
+    }
+  }
 }
 ```
 

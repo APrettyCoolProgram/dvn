@@ -22,17 +22,32 @@ internal class DvnManifest
     /// <summary>Creates a default instance of the <see cref="DvnManifest"/> class.</summary>
     /// <param name="fileName">The name of the environment file.</param>
     /// <returns>A new instance of the <see cref="DevnEnv"/> class initialized with default values.</returns>
-    internal static void CreateNew(string manifestFolder, string manifestName, string manifestExtension)
+    internal static void CreateDefault(string manifestFolder, string manifestName, string manifestExtension)
     {
         var dvnManifest = new DvnManifest()
         {
-            DevelopmentEnvironment  = DvnEnvironment.New(manifestName),
+            DevelopmentEnvironment = new DvnEnvironment
+            {
+                Name          = manifestName,
+                Description   = "Default environment description.",
+                BackupEnabled = false,
+            },
             EnvironmentApplications =
             [
                 new DvnApplication()
             ],
             WebBrowser = new DvnWebBrowser()
+            {
+                BrowserPages = new Dictionary<string, Dictionary<string, string>>()
+                {
+                    { "Chrome",  new Dictionary<string, string>() },
+                    { "Firefox",  new Dictionary<string, string>() },
+                    { "IExplore", new Dictionary<string, string>() }
+                }
+            }
         };
+
+        //TODO Split this out into a separate method.
 
         DuJson.ExportToFile(dvnManifest, $@"{manifestFolder}\{manifestName}{manifestExtension}");
 
