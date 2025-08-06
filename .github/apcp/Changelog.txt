@@ -1,0 +1,11 @@
+[b0719]
+* Renamed the following:
+  - DevelopmentEnvironment.cs => DvnEnvironment.cs
+  - EnvironmentApplication.cs => DvnApplication.cs
+  - Manifest.cs => DvnManifest.cs
+* Created dvn.Manifest namespace
+* Moved the following from the dvn.App namespace to the dvn.Manifest namespace:
+  - DvnEnvironment.cs
+  - DvnApplication.cs
+  - DvnManifest.cs
+* Created dvn.Manifest.DvnWebBrowser.cs

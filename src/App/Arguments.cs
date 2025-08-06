@@ -4,6 +4,7 @@
  */
 
 using dvn.Blueprint;
+using dvn.Manifest;
 
 namespace dvn.App;
 
@@ -51,11 +52,11 @@ internal static class Arguments
                 break;
 
             case "list":
-                DevelopmentEnvironment.DisplayAvailable(dvnSession.AvailableEnvironments);
+                DvnEnvironment.DisplayAvailable(dvnSession.AvailableEnvironments);
                 break;
 
             default:
-                DevelopmentEnvironment.LoadFromManifest(dvnSession);
+                DvnEnvironment.LoadFromManifest(dvnSession);
                 break;
         }
     }

@@ -1,33 +1,37 @@
-﻿/* dvn.App.Manifest.DvnManifest.cs
- * u250801_code
- * u250801_documentation
+﻿/* dvn.Manifest.DvnManifest.cs
+ * u250806_code
+ * u250806_documentation
  */
 
+using dvn.App;
 using dvn.Blueprint;
 using dvn.Du;
 
-namespace dvn.App;
+namespace dvn.Manifest;
 
-internal class Manifest
+internal class DvnManifest
 {
     /// <summary>The environment name.</summary>
-    public DevelopmentEnvironment DevelopmentEnvironment { get; set; }
+    public DvnEnvironment DevelopmentEnvironment { get; set; }
 
     /// <summary>A list of applications associated with the environment.</summary>
-    public List<EnvironmentApplication> EnvironmentApplications { get; set; }
+    public List<DvnApplication> EnvironmentApplications { get; set; }
 
-    /// <summary>Creates a default instance of the <see cref="Manifest"/> class.</summary>
+    public DvnWebBrowser WebBrowser { get; set; }
+
+    /// <summary>Creates a default instance of the <see cref="DvnManifest"/> class.</summary>
     /// <param name="fileName">The name of the environment file.</param>
     /// <returns>A new instance of the <see cref="DevnEnv"/> class initialized with default values.</returns>
     internal static void CreateNew(string manifestFolder, string manifestName, string manifestExtension)
     {
-        var dvnManifest = new Manifest()
+        var dvnManifest = new DvnManifest()
         {
-            DevelopmentEnvironment  = DevelopmentEnvironment.New(manifestName),
+            DevelopmentEnvironment  = DvnEnvironment.New(manifestName),
             EnvironmentApplications =
             [
-                new EnvironmentApplication()
-            ]
+                new DvnApplication()
+            ],
+            WebBrowser = new DvnWebBrowser()
         };
 
         DuJson.ExportToFile(dvnManifest, $@"{manifestFolder}\{manifestName}{manifestExtension}");

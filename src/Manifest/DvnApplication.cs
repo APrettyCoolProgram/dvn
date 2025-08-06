@@ -1,14 +1,15 @@
-﻿/* dvn.App.EnvironmentApplication.cs
- * u250801_code
- * u250801_documentation
+﻿/* dvn.Manifest.DvnApplication.cs
+ * u250806_code
+ * u250806_documentation
  */
 
 using System.Diagnostics;
+using dvn.App;
 using dvn.Blueprint;
 
-namespace dvn.App;
+namespace dvn.Manifest;
 
-internal class EnvironmentApplication
+internal class DvnApplication
 {
     ///<summary>The application name.</summary>
     public string Name { get; set; }
@@ -27,10 +28,10 @@ internal class EnvironmentApplication
 
     /// <summary>Starts a list of applications.</summary>
     /// <remarks>Currently this functionality only works on Windows systems.</remarks>
-    /// <param name="applications">A list of <see cref="EnvironmentApplication"> applications</see>.</param>
-    internal static void StartApplications(List<EnvironmentApplication> applications)
+    /// <param name="applications">A list of <see cref="DvnApplication"> applications</see>.</param>
+    internal static void StartApplications(List<DvnApplication> applications)
     {
-        foreach (EnvironmentApplication app in applications)
+        foreach (DvnApplication app in applications)
         {
             if (string.IsNullOrEmpty(app.FileName))
             {

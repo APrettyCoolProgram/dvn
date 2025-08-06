@@ -4,6 +4,7 @@
  */
 
 using dvn.Blueprint;
+using dvn.Manifest;
 
 namespace dvn.App;
 
@@ -17,7 +18,7 @@ namespace dvn.App;
 ///         <item>The dvn <see cref="App.Configuration">configuration</see></item>
 ///         <item>The <see cref="App.CommandLine">arguments</see> passed to dvn</item>
 ///         <item>The dvn <see cref="App.Framework">framework</see> information</item>
-///         <item>The list of available <see cref="DevelopmentEnvironment">environments</see></item>
+///         <item>The list of available <see cref="DvnEnvironment">environments</see></item>
 ///     </list>
 ///     <br/>
 ///     When dvn is closed, the <i>Session instance</i> is disposed of.
@@ -68,7 +69,7 @@ internal class Session
         };
 
         dvnSession.Configuration         = Configuration.LoadFromFile(dvnSession.Framework.Files["ConfigFile"]);
-        dvnSession.AvailableEnvironments = DevelopmentEnvironment.GetEnvironmentDetails(dvnSession.Framework.Folders["Manifests"], dvnSession.Configuration.ManifestExtension);
+        dvnSession.AvailableEnvironments = DvnEnvironment.GetEnvironmentDetails(dvnSession.Framework.Folders["Manifests"], dvnSession.Configuration.ManifestExtension);
 
         Framework.Validate(dvnSession.Framework);
 
