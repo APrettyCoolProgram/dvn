@@ -48,7 +48,7 @@ internal class Configuration
     {
         var config = new Configuration()
         {
-            ManifestExtension = ".dvn.manifest",
+            ManifestExtension = ".mnfst",
             ExcludedFiles     = Blueprint.Catalog.IgnoredFiles(),
             ExcludedFolders   = Blueprint.Catalog.IgnoredFolders()
         };

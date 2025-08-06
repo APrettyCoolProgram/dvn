@@ -1,6 +1,6 @@
 ﻿/* dvn.App.Framework.cs
- * u250801_code
- * u250801_documentation
+ * u250806_code
+ * u250806_documentation
  */
 
 using dvn.Blueprint;
@@ -70,13 +70,13 @@ internal class Framework
         {
             { "Root"         , @".\" },
             { "WinApps"      , @".\apps\win" },
-            { "Backups"      , @".\.dvn\backups" },
-            { "Configs"      , @".\.dvn\configs" },
-            { "Manifests"    , @".\.dvn\manifests" },
-            { "Staging"      , @".\.dvn\staging" },
-            { "Temporary"    , @".\.dvn\temporary" },
-            { "Trash"        , @".\.dvn\trash" },
-            { "Repositories" , @".\data\repositories" }
+            { "Backups"      , @".\.dvn\bckp" },
+            { "Configs"      , @".\.dvn\cnfg" },
+            { "Manifests"    , @".\.dvn\mnfst" },
+            { "Staging"      , @".\.dvn\stg" },
+            { "Temporary"    , @".\.dvn\tmp" },
+            { "Trash"        , @".\.dvn\trsh" },
+            { "Repositories" , @".\data\repo" }
         };
     }
 
@@ -88,7 +88,7 @@ internal class Framework
     internal static Dictionary<string, string> BuildFileDictionary(Dictionary<string, string> folders) =>
         new Dictionary<string, string>
         {
-            { "ConfigFile", $@"{folders["Configs"]}\dvn.config" }
+            { "ConfigFile", $@"{folders["Configs"]}\dvn.cnfg" }
         };
 
     /// <summary>Validates the dvn framework.</summary>

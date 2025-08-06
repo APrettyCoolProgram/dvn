@@ -1,15 +1,16 @@
-﻿/* dvn.App.DevelopmentEnvironment.cs
- * u250801_code
- * u250801_documentation
+﻿/* dvn.Manifest.DvnEnvironment.cs
+ * u250806_code
+ * u250806_documentation
  */
 
+using dvn.App;
 using dvn.Blueprint;
 using dvn.Du;
 
-namespace dvn.App;
+namespace dvn.Manifest;
 
 /// <summary>Logic for development environments.</summary>
-internal class DevelopmentEnvironment
+internal class DvnEnvironment
 {
     /// <summary>The environment name.</summary>
     public string Name { get; set; }
@@ -25,31 +26,12 @@ internal class DevelopmentEnvironment
 
     public string BackupLocation { get; set; }
 
-    /// <summary>Creates a new instance of the <see cref="DevelopmentEnvironment"/> class.</summary>
-    /// <param name="environmentName">The name of the development environment.</param>
-    /// <returns>A <see cref="DevelopmentEnvironment"/> instance</returns>
-    internal static DevelopmentEnvironment New(string environmentName)
-    {
-        return new DevelopmentEnvironment
-        {
-            Name          = environmentName,
-            Description   = "Default development environment",
-            BackupEnabled = false,
-            BackupSources =
-            [
-                "\\Path\\To\\Source1",
-                "\\Path\\To\\Source2"
-            ],
-            BackupLocation = "\\Path\\To\\Backup"
-        };
-    }
-
     /// <summary>Get the details for the available development environments.</summary>
     /// <remarks>
     ///     The details we are interested in are:
     ///     <list type="bullet">
-    ///         <item>The environment <see cref="Manifest.EnvironmentName">name</see></item>
-    ///         <item>The environment <see cref="Manifest.EnvironmentDescription">description</see></item>
+    ///         <item>The environment <see cref="DvnManifest.EnvironmentName">name</see></item>
+    ///         <item>The environment <see cref="DvnManifest.EnvironmentDescription">description</see></item>
     ///     </list>
     /// </remarks>
     /// <param name="manifestFolder">The folder that contains the dvn manifest files.</param>
@@ -62,7 +44,7 @@ internal class DevelopmentEnvironment
 
         foreach (var manifestFile in manifestFiles)
         {
-            Manifest manifest = DuJson.ImportFromFile<Manifest>(manifestFile);
+            DvnManifest manifest = DuJson.ImportFromFile<DvnManifest>(manifestFile);
 
             environmentDetails[manifest.DevelopmentEnvironment.Name] = manifest.DevelopmentEnvironment.Description;
         }
@@ -97,7 +79,7 @@ internal class DevelopmentEnvironment
         }
         else
         {
-            Manifest.CreateNew(dvnSession.Framework.Folders["Manifests"], dvnSession.CommandLine.Command, dvnSession.Configuration.ManifestExtension);
+            DvnManifest.CreateDefault(dvnSession.Framework.Folders["Manifests"], dvnSession.CommandLine.Command, dvnSession.Configuration.ManifestExtension);
 
             Session.Stop();
         }
@@ -113,7 +95,7 @@ internal class DevelopmentEnvironment
     /// <param name="excludedFolders">A list of folder names to exclude from backup operations.</param>
     internal static void Launch(string manifestFolder, string manifestName, string manifestExtension, string stagingPath, List<string> dvnOptions, List<string> excludedFiles, List<string> excludedFolders)
     {
-        Manifest dvnManifest = DuJson.ImportFromFile<Manifest>($@"{manifestFolder}\{manifestName}{manifestExtension}");
+        DvnManifest dvnManifest = DuJson.ImportFromFile<DvnManifest>($@"{manifestFolder}\{manifestName}{manifestExtension}");
 
         Console.WriteLine($"{Environment.NewLine}  Launching environment: {dvnManifest.DevelopmentEnvironment.Description}");
 
@@ -126,6 +108,9 @@ internal class DevelopmentEnvironment
             Console.WriteLine("  Data backup functionality is disabled.");
         }
 
-        EnvironmentApplication.StartApplications(dvnManifest.EnvironmentApplications);
+        DvnApplication.StartApplications(dvnManifest.EnvironmentApplications);
+        DvnWebBrowser.OpenPages(dvnManifest.WebBrowser.BrowserPages);
+
+        Session.Stop(UserMessage.msg_ExitDvn());
     }
 }

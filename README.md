@@ -1,10 +1,10 @@
-<!-- u250801 -->
+<!-- u250806 -->
 
 <div align="center">
 
   ![](./.github/repo-resource/image/logo/dvn-logo.png)
 
-  ![Release](https://img.shields.io/badge/release-1.0-teal)&nbsp;&nbsp;
+  ![Release](https://img.shields.io/badge/release-1.1-teal)&nbsp;&nbsp;
   [![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#)&nbsp;&nbsp;
   [![.NET](https://img.shields.io/badge/.NET-9-512BD4?)](#)&nbsp;&nbsp;
   [![C#](https://custom-icon-badges.demolab.com/badge/C%23-%23239120.svg?logo=cshrp&logoColor=white)](#)&nbsp;&nbsp;
@@ -22,6 +22,7 @@ Let's say you are working something called "MyProject", which requires:
 * A Visual Studio Code workspace named "*MyProject-Documentation*"
 * A Visual Studio Code workspace named "*Other-Documentation*"
 * GitHub Desktop
+* A webpage containing API documentation
 * Specific data to be backed up
 
 You *could* do all of the above steps manually, *or* you could let **dvn** do it for you by typing
@@ -29,6 +30,10 @@ You *could* do all of the above steps manually, *or* you could let **dvn** do it
 ```bash
 dvn myproject
 ```
+
+## What's new in v1.1
+
+**dvn** can now open web pages in Chrome, Firefox, and Edge (IExplore).
 
 ## Pre-requisites
 
@@ -136,14 +141,11 @@ When a new manifest file is created, it looks like this:
 ```json
 {
   "DevelopmentEnvironment": {
-    "Name": "%environment%",
-    "Description": "Default development environment",
+    "Name": "test2",
+    "Description": "Default environment description.",
     "BackupEnabled": false,
-    "BackupSources": [
-      "\\Path\\To\\Source1",
-      "\\Path\\To\\Source2"
-    ],
-    "BackupLocation": "\\Path\\To\\Backup"
+    "BackupSources": null,
+    "BackupLocation": null
   },
   "EnvironmentApplications": [
     {
@@ -153,7 +155,14 @@ When a new manifest file is created, it looks like this:
       "Arguments": null,
       "WorkingDirectory": null
     }
-  ]
+  ],
+  "WebBrowser": {
+    "BrowserPages": {
+      "Chrome": {},
+      "IExplore": {},
+      "Firefox": {}
+    }
+  }
 }
 ```
 
@@ -193,6 +202,9 @@ Each application that will be launched by **dvn** has it's own block with the fo
 
   * `WorkingDirectory`  
   The application working directory
+
+* `WebBrowser`  
+A list of webpages to be opened in specific web browsers
 
 A completed manifest file looks like this:
 
@@ -237,7 +249,28 @@ A completed manifest file looks like this:
       "Arguments": null,
       "WorkingDirectory": "C:\\Users\\JaneSmith\\AppData\\Local\\GitHubDesktop"
     }
-  ]
+  ],
+  "WebBrowser":
+  {
+    "BrowserPages":
+    {
+	  "Chrome":
+      {
+        "Wikipedia": "https://www.google.com",
+        "Weather.com": "https://www.weather.com"
+      },
+	  "Firefox":
+      {
+	      "Firefox": "https://www.firefox.com",
+        "Wikipedia": "https://www.wikipedia.com"
+      },
+      "IExplore":
+      {
+        "Microsoft": "https://www.microsoft.com",
+		    "Xbox": "https://xbox.com"
+      }
+    }
+  }
 }
 ```
 
@@ -250,8 +283,9 @@ The above manifest file will:
 2. Backup the "**C:\repositories\MyProject**" and "**C:\data\reports**" to "**C:\backups**"
 3. Start the "**MyProject**" solution in Visual Studio
 4. Start the "**MyProject-Documentation**" workspace in Visual Studio Code
-4. Start the "**Other-Documentation**" workspace in Visual Studio Code
-3. Start the "**GitHub Desktop**" application
+5. Start the "**Other-Documentation**" workspace in Visual Studio Code
+6. Start the "**GitHub Desktop**" application
+7. Open various web pages in various web browsers
 
 # Configuring **dvn**
 
