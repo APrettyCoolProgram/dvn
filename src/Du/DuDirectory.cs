@@ -129,5 +129,7 @@ internal static class DuDirectory
                 CopyExclude(subDir, destSubDir, excludeFiles, excludeDirs, true);
             }
         }
+
+        var test = 0;
     }
 }

@@ -39,7 +39,9 @@ internal static class BackupData
 
         foreach (var subDirectory in Directory.GetDirectories(staging))
         {
-            Console.WriteLine($"  Backing up {subDirectory}...please wait...");
+            var subname = Path.GetFileName(subDirectory);
+
+            Console.WriteLine($"  Backing up {subname}...please wait...");
             var subDirectoryName = Path.GetFileName(subDirectory);
             var dateTimeStamp    = DateTime.Now.ToString("yyyyMMdd-HHmmss");
             var backupLocation   = Path.Combine(target, $"{subDirectoryName}_{dateTimeStamp}.zip");
