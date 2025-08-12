@@ -2,6 +2,8 @@
 
 # Common
 
+* make sure all "\" are "\\"
+
 * Install apps
 * Update apps
 * Auto update dvn
