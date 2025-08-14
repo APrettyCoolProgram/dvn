@@ -4,11 +4,7 @@
 
   ![](/.github/readme-resource/dvn-changelog-306x407.png)
 
-  ![Release](https://img.shields.io/badge/release-1.1-teal)&nbsp;&nbsp;
-  [![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#)&nbsp;&nbsp;
-  [![.NET](https://img.shields.io/badge/.NET-9-512BD4?)](#)&nbsp;&nbsp;
-  [![C#](https://custom-icon-badges.demolab.com/badge/C%23-%23239120.svg?logo=cshrp&logoColor=white)](#)&nbsp;&nbsp;
-  ![License](https://img.shields.io/badge/license-apache-blue)
+  ![version](https://img.shields.io/badge/version-1.1-teal)&nbsp;&nbsp;
 
 </div>
 
