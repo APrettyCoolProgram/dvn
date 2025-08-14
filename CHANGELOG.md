@@ -23,8 +23,6 @@
 
 ***
 
-<br>
-
 # v1.0
 
 No notes, sorry!
