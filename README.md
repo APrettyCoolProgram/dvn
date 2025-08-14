@@ -2,7 +2,7 @@
 
 <div align="center">
 
-  ![logo](/.github/rprs/img/logo/dvn-306x407.png)
+  ![logo](/.github/img/logo/dvn-306x407.png)
 
   ![Release](https://img.shields.io/badge/release-1.1-teal)&nbsp;&nbsp;
   [![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#)&nbsp;&nbsp;
