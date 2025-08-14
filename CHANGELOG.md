@@ -19,8 +19,6 @@
 * Removed some of the .New() methods, since the default template is created with null values
 * Code/comment cleanup/refactoring
 
-<br>
-
 ***
 
 # Version 1.0
