@@ -6,10 +6,10 @@
 using System.IO.Compression;
 using dvn.Du;
 
-namespace dvn.Archiver;
+namespace dvn.Core;
 
 /// <summary>Logic related to backing up data.</summary>
-internal static class BackupData
+internal static class Archiver
 {
     /// <summary>Determines if the data backup functionality is enabled.</summary>
     /// <remarks>

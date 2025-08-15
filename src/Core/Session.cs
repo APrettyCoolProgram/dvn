@@ -6,7 +6,7 @@
 using dvn.Blueprint;
 using dvn.Manifest;
 
-namespace dvn.App;
+namespace dvn.Core;
 
 /// <summary>Session logic.</summary>
 /// <remarks>
@@ -15,9 +15,9 @@ namespace dvn.App;
 ///     When dvn is executed, a <i>Session instance</i> is created, which contains all the necessary<br/>
 ///     components that dvn needs to do its job, including:
 ///     <list type="bullet">
-///         <item>The dvn <see cref="App.Configuration">configuration</see></item>
-///         <item>The <see cref="App.CommandLine">arguments</see> passed to dvn</item>
-///         <item>The dvn <see cref="App.Framework">framework</see> information</item>
+///         <item>The dvn <see cref="Core.Configuration">configuration</see></item>
+///         <item>The <see cref="Core.CommandLine">arguments</see> passed to dvn</item>
+///         <item>The dvn <see cref="Core.Framework">framework</see> information</item>
 ///         <item>The list of available <see cref="DvnEnvironment">environments</see></item>
 ///     </list>
 ///     <br/>
@@ -25,13 +25,13 @@ namespace dvn.App;
 /// </remarks>
 internal class Session
 {
-    /// <summary>The <see cref="App.Configuration"/> instance.</summary>
+    /// <summary>The <see cref="Core.Configuration"/> instance.</summary>
     internal Configuration Configuration { get; set; }
 
-    /// <summary>The <see cref="App.CommandLine"/> component.</summary>
-    internal CommandLine CommandLine { get; set; }
+    /// <summary>The <see cref="Core.CommandLine"/> component.</summary>
+    internal Argument Arguments { get; set; }
 
-    /// <summary>The <see cref="App.Framework"/> component.</summary>
+    /// <summary>The <see cref="Core.Framework"/> component.</summary>
     internal Framework Framework { get; set; }
 
     /// <summary>A list of the available environment names and descriptions.</summary>
@@ -44,33 +44,33 @@ internal class Session
     {
         Console.Clear();
 
-        var operatingSystem = Du.DuOperatingSystem.GetOS();
+        /* FUTURE FUNCTIONALITY */
+        //var operatingSystem = Du.DuOperatingSystem.GetOS();
 
-        Console.WriteLine(UserMessage.msg_StartDvn);
+        //Console.WriteLine(UserMessage.msg_StartDvn);
 
-        if (operatingSystem == "Windows)")
-        {
-            Console.WriteLine("Operating System: " + operatingSystem);
-            Framework.VerifyExists(@".\.dvn");
+        //if (operatingSystem == "Windows)")
+        //{
+        //    Console.WriteLine("Operating System: " + operatingSystem);
+        //    Framework.VerifyExists(@".\.dvn");
 
-        }
-        else if (operatingSystem == "macOS" || operatingSystem == "Linux")
-        {
-            Console.WriteLine("Operating System: " + operatingSystem);
-            Framework.VerifyExists(@"./.dvn");
+        //}
+        //else if (operatingSystem == "macOS" || operatingSystem == "Linux")
+        //{
+        //    Console.WriteLine("Operating System: " + operatingSystem);
+        //    Framework.VerifyExists(@"./.dvn");
 
             
-        }
+        //}
+       
 
-        
-
-        if (Arguments.DoExist(passedArguments))
+        if (Argument.DoExist(passedArguments))
         {
             InitializeNew(passedArguments);
         }
         else
         {
-            Stop(UserMessage.msg_MissingArguments);
+            Stop(UserMessage.usrmsg_MissingArguments);
         }
     }
 
@@ -80,7 +80,7 @@ internal class Session
     {
         var dvnSession = new Session
         {
-            CommandLine = CommandLine.GetComponents(passedArguments),
+            Arguments = Argument.GetComponents(passedArguments), 
             Framework   = Framework.BuildNew()
         };
 
@@ -89,7 +89,7 @@ internal class Session
 
         Framework.Validate(dvnSession.Framework);
 
-        Arguments.ParseCommand(dvnSession);
+        Argument.ParseCommand(dvnSession);
     }
 
     /// <summary>Terminates the application with an optional exit message.</summary>

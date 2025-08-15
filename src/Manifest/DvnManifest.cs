@@ -3,7 +3,7 @@
  * u250806_documentation
  */
 
-using dvn.App;
+using dvn.Core;
 using dvn.Blueprint;
 using dvn.Du;
 

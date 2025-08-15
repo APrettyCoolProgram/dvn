@@ -3,7 +3,7 @@
  * u250806_documentation
  */
 
-using dvn.App;
+using dvn.Core;
 using dvn.Blueprint;
 using dvn.Du;
 
@@ -58,11 +58,11 @@ internal class DvnEnvironment
     {
         if (availableEnvironments.Count == 0)
         {
-            Session.Stop(UserMessage.msg_EnvList("No environments found."));
+            Session.Stop(UserMessage.usrmsg_EnvList("No environments found."));
         }
         else
         {
-            Console.WriteLine(UserMessage.msg_EnvList(DuDictionary.ConvertToString(availableEnvironments, "    ", "")));
+            Console.WriteLine(UserMessage.usrmsg_EnvList(DuDictionary.ConvertToString(availableEnvironments, "    ", "")));
         }
     }
 
@@ -71,15 +71,15 @@ internal class DvnEnvironment
     /// <param name="dvnSession">The session instance.</param>
     internal static void LoadFromManifest(Session dvnSession)
     {
-        if (File.Exists($@"{dvnSession.Framework.Folders["Manifests"]}\{dvnSession.CommandLine.Command}{dvnSession.Configuration.ManifestExtension}"))
+        if (File.Exists($@"{dvnSession.Framework.Folders["Manifests"]}\{dvnSession.Arguments.Command}{dvnSession.Configuration.ManifestExtension}"))
         {
-            Launch(dvnSession.Framework.Folders["Manifests"], dvnSession.CommandLine.Command, dvnSession.Configuration.ManifestExtension,
-                   dvnSession.Framework.Folders["Staging"], dvnSession.CommandLine.Options, dvnSession.Configuration.ExcludedFiles,
+            Launch(dvnSession.Framework.Folders["Manifests"], dvnSession.Arguments.Command, dvnSession.Configuration.ManifestExtension,
+                   dvnSession.Framework.Folders["Staging"], dvnSession.Arguments.Options, dvnSession.Configuration.ExcludedFiles,
                    dvnSession.Configuration.ExcludedFolders);
         }
         else
         {
-            DvnManifest.CreateDefault(dvnSession.Framework.Folders["Manifests"], dvnSession.CommandLine.Command, dvnSession.Configuration.ManifestExtension);
+            DvnManifest.CreateDefault(dvnSession.Framework.Folders["Manifests"], dvnSession.Arguments.Command, dvnSession.Configuration.ManifestExtension);
 
             Session.Stop();
         }
@@ -99,9 +99,9 @@ internal class DvnEnvironment
 
         Console.WriteLine($"{Environment.NewLine}  Launching environment: {dvnManifest.DevelopmentEnvironment.Description}");
 
-        if (Archiver.BackupData.IsBackupEnabled(dvnManifest.DevelopmentEnvironment.BackupEnabled, dvnOptions))
+        if (Archiver.IsBackupEnabled(dvnManifest.DevelopmentEnvironment.BackupEnabled, dvnOptions))
         {
-            Archiver.BackupData.BackupFolders(dvnManifest.DevelopmentEnvironment.BackupSources, dvnManifest.DevelopmentEnvironment.BackupLocation, stagingPath, excludedFiles, excludedFolders);
+            Archiver.BackupFolders(dvnManifest.DevelopmentEnvironment.BackupSources, dvnManifest.DevelopmentEnvironment.BackupLocation, stagingPath, excludedFiles, excludedFolders);
         }
         else
         {
@@ -111,6 +111,6 @@ internal class DvnEnvironment
         DvnApplication.StartApplications(dvnManifest.EnvironmentApplications);
         DvnWebBrowser.OpenPages(dvnManifest.WebBrowser.BrowserPages);
 
-        Session.Stop(UserMessage.msg_ExitDvn());
+        Session.Stop(UserMessage.usrmsg_ExitDvn());
     }
 }

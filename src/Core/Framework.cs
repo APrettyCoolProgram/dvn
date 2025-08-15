@@ -5,7 +5,7 @@
 
 using dvn.Blueprint;
 
-namespace dvn.App;
+namespace dvn.Core;
 
 /// <summary>Logic for the dvn framework.</summary>
 /// <remarks>
@@ -30,7 +30,7 @@ internal class Framework
     {
         if (!Directory.Exists(frameworkBase))
         {
-            Console.WriteLine(UserMessage.msg_WelcomeToDvn);
+            Console.WriteLine(UserMessage.usrmsg_WelcomeToDvn);
 
             var dvnFramework = BuildNew();
 

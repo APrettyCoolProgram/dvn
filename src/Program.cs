@@ -3,7 +3,7 @@
  * u250801_documentation
  */
 
-using dvn.App;
+using dvn.Core;
 
 namespace dvn;
 

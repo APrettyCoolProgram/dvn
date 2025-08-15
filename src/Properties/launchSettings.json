@@ -2,7 +2,7 @@
   "profiles": {
     "dvn": {
       "commandName": "Project",
-      "commandLineArgs": "dvn -b"
+      "commandLineArgs": "dvn -b -caa -vwtw werrr"
     }
   }
 }

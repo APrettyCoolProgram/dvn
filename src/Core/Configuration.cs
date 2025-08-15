@@ -3,7 +3,7 @@
  * u250801_documentation
  */
 
-namespace dvn.App;
+namespace dvn.Core;
 
 /// <summary>Logic for dvn configuration settings.</summary>
 /// <remarks>
@@ -18,6 +18,8 @@ internal class Configuration
 {
     /// <summary>The file extension used for manifest files.</summary>
     public string ManifestExtension { get; set; }
+
+    public Dictionary<string, string> InstallableApps { get; set; }
 
     /// <summary>The list of files that are excluded when backing up data.</summary>
     public List<string> ExcludedFiles { get; set; }
@@ -49,8 +51,9 @@ internal class Configuration
         var config = new Configuration()
         {
             ManifestExtension = ".mnfst",
-            ExcludedFiles     = Blueprint.Catalog.IgnoredFiles(),
-            ExcludedFolders   = Blueprint.Catalog.IgnoredFolders()
+            InstallableApps   = Blueprint.Catalog.cat_InstallableApps(),
+            ExcludedFiles     = Blueprint.Catalog.cat_IgnoredFiles(),
+            ExcludedFolders   = Blueprint.Catalog.cat_IgnoredFolders()
         };
 
         Du.DuJson.ExportToFile<Configuration>(config, $@"{dvnConfigPath}");

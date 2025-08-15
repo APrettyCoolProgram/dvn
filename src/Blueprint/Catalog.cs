@@ -38,20 +38,30 @@ internal static class Catalog
         "packages"
     ];
 
+    /// <summary>A list of repository folders that should be ignored when copying.</summary>
+    internal static Dictionary<string, string> cat_InstallableApps()
+    {
+        return new Dictionary<string, string>
+        {
+            { "ahk", "https://www.autohotkey.com/download/ahk-v2.zip" }
+        };
+    }
+
+
     /// <summary>A list of other folders that should be ignored when copying.</summary>
     internal static List<string> cat_OtherIgnoredolders =>
     [
     ];
 
     /// <summary>A list of files that should be ignored when copying.</summary>
-    internal static List<string> IgnoredFiles() =>
+    internal static List<string> cat_IgnoredFiles() =>
     [.. cat_RepositoryIgnoredFiles
         .Concat(cat_OtherIgnoredFiles)
         .Distinct()
     ];
 
     /// <summary>A list of folders that should be ignored when copying.</summary>
-    internal static List<string> IgnoredFolders() =>
+    internal static List<string> cat_IgnoredFolders() =>
     [.. cat_RepositoryIgnoredFolders
         .Concat(cat_OtherIgnoredolders)
         .Distinct()

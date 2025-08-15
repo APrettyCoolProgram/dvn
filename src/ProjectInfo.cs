@@ -1,6 +1,6 @@
 ﻿/* dvn
  * A command line utility for managing development environments.
- * v1.2.0 (b250808)
+ * v1.2.0 (b250815)
  *
  * https://github.com/APrettyCoolProgram/dvn
  * Copyright (c) A Pretty Cool Program. All rights reserved.
@@ -11,5 +11,7 @@ namespace dvn;
 
 internal class ProjectInfo
 {
-    // This class is only used for informational purposes.
+    /* CHANGELOG: https://github.com/APrettyCoolProgram/dvn/blob/development/CHANGELOG.md
+     *   ROADMAP: ---
+     */
 }
