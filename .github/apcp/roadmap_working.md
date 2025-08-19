@@ -1,5 +1,9 @@
 # APCP ROADMAP: dvn
 
+* Fix the "line" spelling mistake in the info display
+* Open remote sessions
+
+
 # Common
 
 * make sure all "\" are "\\"
