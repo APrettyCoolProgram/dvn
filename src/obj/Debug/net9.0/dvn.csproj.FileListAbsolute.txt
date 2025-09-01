@@ -1,0 +1,13 @@
+G:\dvn\data\repo\apcp\dvn\src\bin\Debug\net9.0\dvn.exe
+G:\dvn\data\repo\apcp\dvn\src\bin\Debug\net9.0\dvn.deps.json
+G:\dvn\data\repo\apcp\dvn\src\bin\Debug\net9.0\dvn.runtimeconfig.json
+G:\dvn\data\repo\apcp\dvn\src\bin\Debug\net9.0\dvn.dll
+G:\dvn\data\repo\apcp\dvn\src\obj\Debug\net9.0\dvn.GeneratedMSBuildEditorConfig.editorconfig
+G:\dvn\data\repo\apcp\dvn\src\obj\Debug\net9.0\dvn.AssemblyInfoInputs.cache
+G:\dvn\data\repo\apcp\dvn\src\obj\Debug\net9.0\dvn.AssemblyInfo.cs
+G:\dvn\data\repo\apcp\dvn\src\obj\Debug\net9.0\dvn.csproj.CoreCompileInputs.cache
+G:\dvn\data\repo\apcp\dvn\src\obj\Debug\net9.0\dvn.sourcelink.json
+G:\dvn\data\repo\apcp\dvn\src\obj\Debug\net9.0\dvn.dll
+G:\dvn\data\repo\apcp\dvn\src\obj\Debug\net9.0\refint\dvn.dll
+G:\dvn\data\repo\apcp\dvn\src\obj\Debug\net9.0\dvn.genruntimeconfig.cache
+G:\dvn\data\repo\apcp\dvn\src\obj\Debug\net9.0\ref\dvn.dll

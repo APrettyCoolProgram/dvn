@@ -1,0 +1,42 @@
+{
+  "DevelopmentEnvironment": {
+    "Name": "test",
+    "Description": "Testing environment.",
+    "BackupEnabled": false,
+    "BackupSources":
+	[
+		"G:\\dvn\\data\\repo\\apcp\\cooke",
+		"G:\\dvn\\data\\repo\\apcp\\my-gists"
+	],
+    "BackupLocation": "G:\\.working"
+  },
+  "EnvironmentApplications":
+  [
+    {
+    "Name": "GitHub Desktop",
+    "Description": "GitHub Desktop",
+    "FileName": "GitHubDesktop.exe",
+    "Arguments": null,
+    "WorkingDirectory": "C:\\Users\\cbanw\\AppData\\Local\\GitHubDesktop"
+    }
+  ],
+  "WebBrowser":
+  {
+    "BrowserPages":
+    {
+	  "Chrome":
+      {
+      },
+	  "Firefox":
+      {
+	    "Firefox": "https://www.firefox.com",
+        "Wikipedia": "https://www.wikipedia.com"
+      },
+      "IExplore":
+      {
+        "Microsoft": "https://www.microsoft.com",
+		"Xbox": "https://xbox.com"
+      }
+    }
+  }
+}

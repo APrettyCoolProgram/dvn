@@ -1,0 +1,22 @@
+{
+  "ManifestExtension": ".mnfst",
+  "ExcludedFiles": [
+    ".DS_Store",
+    "Thumbs.db",
+    "desktop.ini",
+    "package-lock.json",
+    "yarn.lock",
+    "pnpm-lock.yaml",
+    "npm-shrinkwrap.json"
+  ],
+  "ExcludedFolders": [
+    "node_modules",
+    "bin",
+    "obj",
+    ".git",
+    ".vs",
+    ".vscode",
+    ".idea",
+    "packages"
+  ]
+}
