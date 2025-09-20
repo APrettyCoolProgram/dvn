@@ -3,64 +3,16 @@
   "WorkspaceRootPath": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\core\\argument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:core\\argument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\manifest\\dvnwebbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:manifest\\dvnwebbrowser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\core\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:core\\session.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\manifest\\dvnmanifest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:manifest\\dvnmanifest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\blueprint\\usermessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:blueprint\\usermessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\core\\helpinformer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:core\\helpinformer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\core\\lister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:core\\lister.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\core\\installer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:core\\installer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\blueprint\\catalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:blueprint\\catalog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\core\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:core\\configuration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\dvn.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:dvn.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\core\\archiver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:core\\archiver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\du\\duinternet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:du\\duinternet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\core\\framework.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:core\\framework.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\projectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:projectinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\du\\duoperatingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:du\\duoperatingsystem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|g:\\dvn\\data\\repo\\apcp\\dvn\\src\\manifest\\dvnenvironment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{17233D54-1707-4087-985F-B2E18A8D2775}|dvn.csproj|solutionrelative:manifest\\dvnenvironment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,200 +22,45 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "HelpInformer.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\HelpInformer.cs",
-              "RelativeDocumentMoniker": "Core\\HelpInformer.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\HelpInformer.cs",
-              "RelativeToolTip": "Core\\HelpInformer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAANAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "DvnManifest.cs",
+              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Manifest\\DvnManifest.cs",
+              "RelativeDocumentMoniker": "Manifest\\DvnManifest.cs",
+              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Manifest\\DvnManifest.cs",
+              "RelativeToolTip": "Manifest\\DvnManifest.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAwwCsAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T13:14:21.465Z",
+              "WhenOpened": "2025-09-20T22:31:34.255Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "UserMessage.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Blueprint\\UserMessage.cs",
-              "RelativeDocumentMoniker": "Blueprint\\UserMessage.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Blueprint\\UserMessage.cs",
-              "RelativeToolTip": "Blueprint\\UserMessage.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAAwIoAAAA9AAAAAAAAAA==",
+              "Title": "DvnEnvironment.cs",
+              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Manifest\\DvnEnvironment.cs",
+              "RelativeDocumentMoniker": "Manifest\\DvnEnvironment.cs",
+              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Manifest\\DvnEnvironment.cs",
+              "RelativeToolTip": "Manifest\\DvnEnvironment.cs",
+              "ViewState": "AgIAAFUAAAAAAAAAAAAmwHQAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T12:51:38.924Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Catalog.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Blueprint\\Catalog.cs",
-              "RelativeDocumentMoniker": "Blueprint\\Catalog.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Blueprint\\Catalog.cs",
-              "RelativeToolTip": "Blueprint\\Catalog.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAcwDgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T12:49:29.667Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Configuration.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Configuration.cs",
-              "RelativeDocumentMoniker": "Core\\Configuration.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Configuration.cs",
-              "RelativeToolTip": "Core\\Configuration.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAiwCoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T12:37:30.965Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Installer.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Installer.cs",
-              "RelativeDocumentMoniker": "Core\\Installer.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Installer.cs",
-              "RelativeToolTip": "Core\\Installer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T12:36:35.346Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "DuInternet.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Du\\DuInternet.cs",
-              "RelativeDocumentMoniker": "Du\\DuInternet.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Du\\DuInternet.cs",
-              "RelativeToolTip": "Du\\DuInternet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-15T12:35:14.908Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "DuOperatingSystem.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Du\\DuOperatingSystem.cs",
-              "RelativeDocumentMoniker": "Du\\DuOperatingSystem.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Du\\DuOperatingSystem.cs",
-              "RelativeToolTip": "Du\\DuOperatingSystem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T13:39:20.113Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "dvn",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\dvn.csproj",
-              "RelativeDocumentMoniker": "dvn.csproj",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\dvn.csproj",
-              "RelativeToolTip": "dvn.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-14T13:39:01.155Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Session.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Session.cs",
-              "RelativeDocumentMoniker": "Core\\Session.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Session.cs",
-              "RelativeToolTip": "Core\\Session.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAIwEMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T13:34:01.347Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Lister.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Lister.cs",
-              "RelativeDocumentMoniker": "Core\\Lister.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Lister.cs",
-              "RelativeToolTip": "Core\\Lister.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T13:31:45.893Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Archiver.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Archiver.cs",
-              "RelativeDocumentMoniker": "Core\\Archiver.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Archiver.cs",
-              "RelativeToolTip": "Core\\Archiver.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T13:25:53.697Z",
+              "WhenOpened": "2025-09-20T22:31:20.947Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Argument.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Argument.cs",
-              "RelativeDocumentMoniker": "Core\\Argument.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Argument.cs",
-              "RelativeToolTip": "Core\\Argument.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAIwJIAAAAiAAAAAAAAAA==",
+              "Title": "DvnWebBrowser.cs",
+              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Manifest\\DvnWebBrowser.cs",
+              "RelativeDocumentMoniker": "Manifest\\DvnWebBrowser.cs",
+              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Manifest\\DvnWebBrowser.cs",
+              "RelativeToolTip": "Manifest\\DvnWebBrowser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T13:19:23.424Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Program.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T13:18:26.555Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "ProjectInfo.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\ProjectInfo.cs",
-              "RelativeDocumentMoniker": "ProjectInfo.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\ProjectInfo.cs",
-              "RelativeToolTip": "ProjectInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T13:15:33.879Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Framework.cs",
-              "DocumentMoniker": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Framework.cs",
-              "RelativeDocumentMoniker": "Core\\Framework.cs",
-              "ToolTip": "G:\\dvn\\data\\repo\\apcp\\dvn\\src\\Core\\Framework.cs",
-              "RelativeToolTip": "Core\\Framework.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T12:21:17.658Z",
+              "WhenOpened": "2025-09-20T22:30:08.918Z",
               "EditorCaption": ""
             }
           ]

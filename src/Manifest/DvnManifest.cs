@@ -1,7 +1,12 @@
-﻿/* dvn.Manifest.DvnManifest.cs
- * u250806_code
- * u250806_documentation
- */
+﻿// =============================================================================
+// dvn.Manifest.DvnManifest.cs
+// https://github.com/aprettycoolprogram/dvn
+// Copyright (c) A Pretty Cool Program. All rights reserved.
+// Licensed under the Apache 2.0 license.
+// -----------------------------------------------------------------------------
+// u250920_code
+// u250920_documentation
+// =============================================================================
 
 using dvn.Core;
 using dvn.Blueprint;
@@ -9,6 +14,7 @@ using dvn.Du;
 
 namespace dvn.Manifest;
 
+/// <summary>Manifest logic.</summary>
 internal class DvnManifest
 {
     /// <summary>The environment name.</summary>
@@ -38,7 +44,7 @@ internal class DvnManifest
             ],
             WebBrowser = new DvnWebBrowser()
             {
-                BrowserPages = new Dictionary<string, Dictionary<string, string>>()
+                PagesToOpen = new Dictionary<string, Dictionary<string, string>>()
                 {
                     { "Chrome",  new Dictionary<string, string>() },
                     { "Firefox",  new Dictionary<string, string>() },

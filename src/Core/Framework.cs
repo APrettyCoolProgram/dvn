@@ -1,7 +1,12 @@
-﻿/* dvn.App.Framework.cs
- * u250806_code
- * u250806_documentation
- */
+﻿// =============================================================================
+// dvn.Core.Framework.cs
+// https://github.com/aprettycoolprogram/dvn
+// Copyright (c) A Pretty Cool Program. All rights reserved.
+// Licensed under the Apache 2.0 license.
+// -----------------------------------------------------------------------------
+// u250920_code
+// u250920_documentation
+// =============================================================================
 
 using dvn.Blueprint;
 

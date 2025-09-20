@@ -1,7 +1,12 @@
-﻿/* dvn.Manifest.DvnEnvironment.cs
- * u250806_code
- * u250806_documentation
- */
+﻿// =============================================================================
+// dvn.Manifest.DvnEnvironment.cs
+// https://github.com/aprettycoolprogram/dvn
+// Copyright (c) A Pretty Cool Program. All rights reserved.
+// Licensed under the Apache 2.0 license.
+// -----------------------------------------------------------------------------
+// u250920_code
+// u250920_documentation
+// =============================================================================
 
 using dvn.Core;
 using dvn.Blueprint;
@@ -109,7 +114,7 @@ internal class DvnEnvironment
         }
 
         DvnApplication.StartApplications(dvnManifest.EnvironmentApplications);
-        DvnWebBrowser.OpenPages(dvnManifest.WebBrowser.BrowserPages);
+        DvnWebBrowser.OpenPages(dvnManifest.WebBrowser.PagesToOpen);
 
         Session.Stop(UserMessage.usrmsg_ExitDvn());
     }

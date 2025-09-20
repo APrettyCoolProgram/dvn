@@ -1,7 +1,12 @@
-﻿/* dvn.Blueprint.UserMessage.cs
- * u250815_code
- * u250815_documentation
- */
+﻿// =============================================================================
+// dvn.Blueprint.UserMessage.cs
+// https://github.com/aprettycoolprogram/dvn
+// Copyright (c) A Pretty Cool Program. All rights reserved.
+// Licensed under the Apache 2.0 license.
+// -----------------------------------------------------------------------------
+// u250920_code
+// u250920_documentation
+// =============================================================================
 
 using System.Reflection;
 
