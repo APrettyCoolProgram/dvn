@@ -8,7 +8,7 @@
 
 # Version 1.2
 
-* `NEW` The `Request` command-line argument
+* `NEW` The **Request** command-line argument
 
 <!-- In development
 * `NEW` The ability to install applications using the `install` command
@@ -16,42 +16,46 @@
 * `MODIFIED` Both `help` and `list` are now `Options`, and are more robust
 -->
 
+<!--
 <details>
   <summary>Development notes</summary>
+-->
 
 <br>
 
 > Version 1.2 makes a few  major changes to **dvn**, including:  
-> ⤇ The `install` command  
-> ⤇ The `Request` command-line component  
+> ⤇ The **Install** command  
+> ⤇ The **Request** command-line component  
 > ⤇ How the command-line components are set  
-> ⤇ A rework of the `help` and `list` functionality
+> ⤇ A rework of the **Help** and **List** functionality
 
-**The `install` command**
-* The `install` command allows a small list of applications to be installed.
-* Added `Core.Installer.cs` to handle the new `install` command functionality
-* Added the `install` command to Arguments.ParseCommand()
+The **Install** command
+* The ***install*** command allows a small list of applications to be installed.
+* Added `Core.Installer.cs` to handle the new install command functionality
+* Added the install command to Arguments.ParseCommand()
 * Added [AutoHotKey]() as an installable application
 
-**The `Request` command-line component**  
-* The `install` command makes it necessary to have an additional non-command, non-option component to the command-line parameters, so the `Request` command-line component was created.
+The **Request** command-line component
+* The install command makes it necessary to have an additional non-command, non-option component to the command-line parameters, so the ***Request*** command-line component was created.
 
-**Modifications to how the command-line components are set**  
-* The contents of Core.CommandLine.cs have been moved to Core.Argument.cs
-* The way the command-line components are set is significantly more complex
-
-**Modifications to the `help` and `list` functionality**  
-* Both `help` and `list` are now `Options`
+Optional **Options**
+* The **help** and **list** commands are depreciated, and their functionality is now included in the ***Options*** functionality
 * Both options covers more stuff, so they broken down into separate components
 * Added `Core.HelpInformer.cs` and `Core.Lister.cs` to handle the new functionality
 
-**Other changes**
+Modifications to how the command-line components are set
+* The contents of Core.CommandLine.cs have been moved to Core.Argument.cs
+* The way the command-line components are set is significantly more complex
+
+Other changes
 * Renamed the `App` namespace => `Core`, to match other APCP projects
 * Data backup functionality moved to `Core` namespace, and renamed to `Core.Archiver.cs`
 * Setup the foundations for determining Operating System, which is disabled for now
 * Code refactors and comment cleanup
 
+<!--
 </details>
+-->
 
 <br>
 

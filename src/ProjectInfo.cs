@@ -14,6 +14,6 @@ namespace dvn;
 internal class ProjectInfo
 {
     /* CHANGELOG: https://github.com/APrettyCoolProgram/dvn/blob/development/CHANGELOG.md
-     *   ROADMAP: -https://github.com/APrettyCoolProgram/dvn/blob/development/ROADMAP.md
+     *   ROADMAP: https://github.com/APrettyCoolProgram/dvn/blob/development/ROADMAP.md
      */
 }
