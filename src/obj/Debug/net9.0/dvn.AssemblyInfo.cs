@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dvn")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.0+e869858b0c4a57ce61e9a6c7bb0fe73ceee78b66")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.2.0+8e5c5ac62271ab5719355a570743a4d826c9ee0b")]
 [assembly: System.Reflection.AssemblyProductAttribute("dvn")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dvn")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.2.0.0")]
