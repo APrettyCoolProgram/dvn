@@ -1,19 +1,23 @@
 ##### =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 ##### .gitignore
 ##### For use with A Pretty Cool Program projects
-##### u250803
+##### 260404_code
+##### 260404_documentation
 ##### =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+#### Don't commit anything in this directory
+
+*.do-not-commit/
+[Pp]ublishProfiles/
+
+#### These directories may contain sensitive data during development.
+*/AppData/Import/*
+*/AppData/Export/*
+*/AppData/Database/*
 
 #### =======================================================
 #### Operating Systems
 #### =======================================================
-
-### ------------------------------------
-### Don't commit anything in this folder
-### ------------------------------------
-
-*.do-not-commit/
-[Pp]ublishProfiles/
 
 ### ------------------------------------
 ### MacOS
@@ -21,7 +25,7 @@
 *DS_Store
 
 #### =======================================================
-#### IDE
+#### IDEs
 #### =======================================================
 
 ### ------------------------------------
@@ -50,8 +54,8 @@ x86/
 bld/
 [Bb]in/
 [Oo]bj/
-#[Ll]og/
-#[Ll]ogs/
+*.[Ll]og/
+[Ll]ogs/
 [Pp]ublish/
 
 ## NuGet Packages

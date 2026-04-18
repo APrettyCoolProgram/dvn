@@ -1,294 +1,321 @@
-<!-- u250806 -->
+<!--
+  README.md template for source code repositories.
+  R26.4.0.0-171330
+  260417_code
+  260417_documentation
+-->
+
+<!-- [PROJECT WARNING] =========================================================
+* Project warning
+---------------------------------------------------------------------------- -->
+
+> [!WARNING]  
+> This is a warning everyone should see, or remove this section entirely.
+
+<!--
+This divider separates the this section from the rest of the README. If you are
+not using the this section, comment this divider out.
+--->
+---
+
+<!-- ===================================================== [PROJECT WARNING] -->
+
+<!-- [PROJECT INTRO] ===========================================================
+* Project logo
+  There are references for both a "light" and "dark" images. The dark image
+  should have a background of HEX #0d1117, to match the dark mode of GitHub.
+  The light image is the fallback.
+* Project title
+* Project catchphrase!
+* Project badges
+---------------------------------------------------------------------------- -->
 
 <div align="center">
 
-  ![](/.github/readme-resource/dvn-readme-306x407.png)
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/repository/logo/repository-logo-dark.jpg">
+    <source media="(prefers-color-scheme: light)" srcset=".github/repository/logo/repository-logo-light.jpg">
+    <img alt="Fallback image description" src=".github/repository/logo/repository-logo-light.jpg">
+  </picture>
 
-  ![version](https://img.shields.io/badge/version-1.1-teal)&nbsp;&nbsp;
-  [![windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#)&nbsp;&nbsp;
-  [![.net](https://img.shields.io/badge/.NET-9-512BD4?)](#)&nbsp;&nbsp;
-  [![c#](https://custom-icon-badges.demolab.com/badge/C%23-%23239120.svg?logo=cshrp&logoColor=white)](#)&nbsp;&nbsp;
-  ![license](https://img.shields.io/badge/license-apache-blue)
+  <h1>Source Code Repository README.md Template</h1>
+
+  Catchphrase!
+
+  ![RELEASE](https://img.shields.io/badge/Release\/Version-25.0.0.0-teal)&nbsp;
+  ![STAGE](https://img.shields.io/badge/ALPHA/BETA-red)&nbsp; <!-- Alpha = Red, Beta = Yellow, Stable = Green -->
+  ![LICENSE](https://img.shields.io/badge/license-apache-blue)&nbsp;
+  ![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
+  ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)&nbsp;
 
 </div>
 
-# About **dvn**
+---
+
+<!-- ======================================================= [PROJECT INTRO] -->
+
+<!-- [PROJECT DETAIL] ==========================================================
+* Project screenshot
+  There are references for both a "light" and "dark" images. The dark image
+  should have a background of HEX #0d1117, to match the dark mode of GitHub.
+  The light image is the fallback.
+---------------------------------------------------------------------------- -->
+
+<div align="center">
+
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset=".github/repository/readme/screenshot01-dark.jpg">
+    <source media="(prefers-color-scheme: light)" srcset=".github/repository/readme/screenshot01-light.jpg">
+    <img alt="Fallback image description" src=".github/repository/readme/screenshot01-light.jpg">
+  </picture>
+  <h6>The Screenshot</h6>
+
+</div>
+
+<!--
+This divider separates the this section from the rest of the README. If you are
+not using the this section, comment this divider out.
+--->
+---
+
+<!-- [HORIZONTAL MENU] =========================================================
+* Horizontal menu (top)
+  Contains components that aren't in/don't belong in the table of contents.
+---------------------------------------------------------------------------- -->
+
+<h6 align="center">
+
+  [WEBSITE](URL)&nbsp;&bull;&nbsp;[DEMO](URL)&nbsp;&bull;&nbsp;[MANUAL](docs/man/README.md)&nbsp;&bull;&nbsp;[CHANGELOG](docs/CHANGELOG.md)&nbsp;&bull;&nbsp;[ROADMAP](docs/ROADMAP.md)&nbsp;&bull;&nbsp;[KNOWN ISSUES](docs/KNOWN-ISSUES.md)
+  
+</h6>
 
-**dvn** is a command-line utility for managing development environments.
+<!--
+This divider separates the this section from the rest of the README. If you are
+not using the this section, comment this divider out.
+--->
+---
 
-Let's say you are working something called "MyProject", which requires:
+<!-- ===================================================== [HORIZONTAL MENU] -->
+
+<!-- [TABLE OF CONTENTS] =======================================================
+* The Table of Contents
+  The Table of Contents contains components that aren't in/don't belong in the
+  horizontal menu.
+---------------------------------------------------------------------------- -->
 
-* A Visual Studio 2022 solution named "*MyProject*"
-* A Visual Studio Code workspace named "*MyProject-Documentation*"
-* A Visual Studio Code workspace named "*Other-Documentation*"
-* GitHub Desktop
-* A webpage containing API documentation
-* Specific data to be backed up
+### CONTENTS
 
-You *could* do all of the above steps manually, *or* you could let **dvn** do it for you by typing
+* [About %ProjectName%](#about)<br>
+* [How It Works](#how-it-works)<br>
+* [Getting Started](#getting-started)<br>
+* [Installing](#installing)<br>
+* [Usage](#usage)<br>
+* [Acknowledgements](#acknowledgements)<br>
+* [Related Projects](#related-projects)<br>
+* [License](#license)<br>
 
-```bash
-dvn myproject
-```
+<!--
+This divider separates the this section from the rest of the README. If you are
+not using the this section, comment this divider out.
+--->
+---
 
-## What's new in v1.1
+<!-- =================================================== [TABLE OF CONTENTS] -->
 
-**dvn** can now open web pages in Chrome, Firefox, and Edge (IExplore).
+<!-- [PROJECT MESSAGE] =========================================================
+* Project message
+  Use for time-sensitive notices, deprecation warnings, or anything critical
+  that every visitor should see. Remove this section if not needed.
+============================================================================ -->
 
-## Pre-requisites
+> [!IMPORTANT]
+> Replace this with a message everyone should see, or remove this section entirely.
 
-* Windows operating system (MacOS/Linux versions are on the roadmap)
-* [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+<!--
+This divider separates the this section from the rest of the README. If you are
+not using the this section, comment this divider out.
+--->
+---
 
-# Initial setup
+<!-- ===================================================== [PROJECT MESSAGE] -->
 
-The initial setup of **dvn** will:
+<!-- [ABOUT] ===================================================================
+* About %ProjectName%
+  Describes the project in a few sentences
+* Features
+  List of project features
+* What's new
+  A summary of what's new in the latest release
+* Built With
+  List of technologies and/or frameworks used
+---------------------------------------------------------------------------- -->
 
-1. Install the **dvn application**
-2. Create the **dvn framework**
+## About %ProjectName%
 
-## Installing the **dvn** application
+A brief description of the project, what it does, and who it's for. This should
+be a concise summary that gives readers a clear understanding of the project's
+purpose and value proposition.
 
-**dvn** is a portable application, so "installing" is simple:
+### Features
 
-1. Download the [latest release]()
-2. Extract the contents of the downloaded file to a folder of your choice
+* Feature — What it does and why it matters.
+* Feature — What it does and why it matters.
+* Feature — What it does and why it matters.
 
-You'll notice that the folder you extracted to contains a single item: `dvn.exe`
+### What's New
 
-## Creating the **dvn** framework
+* New feature — A brief description of the new feature and its benefits.
+* Improvement — A brief description of the improvement and its benefits.
+* Bug fix — A brief description of the bug fix and its impact.
 
-The **dvn framework** are the files and folders that are required by **dvn**. This framework doesn't exist yet, so we need to create it.
+### Built With
 
-To create the **dvn** framework:
+* [Technology or framework](URL)  - Role it plays in the project.
+* [Technology or framework](URL)  - Role it plays in the project.
+* [Technology or framework](URL)  - Role it plays in the project.
 
-1. Open a terminal in the the folder that contains `dvn.exe`
-2. Type
+<!-- =============================================================== [ABOUT] -->
 
-```bash
-dvn
-```
+<!-- [HOW IT WORKS] ============================================================
+* How it works
+  A high-level overview of how the project works.
+============================================================================= -->
 
-Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
+## How It Works
 
-# Using **dvn**
+A blurb describing how the project works at a high level.
 
-This is the **dvn** syntax:
+<!-- ========================================================= [HOW IT WORKS] -->
 
-```bash
-dvn <command> [-option01 -option02 ...]
-```
+<!-- [GETTING STARTED] =========================================================
+* Before you begin
+  Any prerequisites, assumptions, or other information a user should know before
+  getting started.
+* Prerequisites
+  List of software, hardware, or other requirements.
 
-## Commands
+  If this section is only comprised of prerequisites, it can be merged with the
+  About section.
+============================================================================ -->
 
-**dvn** *requires* that you pass a valid `command`.
+## Getting Started
 
-In general, you'll use the `%environment%` command, which will start the specified development environment (or create a blank [manifest file](), if one doesn't exist).
+A quick overview of how to get started with the project.
 
-For example, to start/create the `myproj` environment, you would type
+### Before you begin
 
-```bash
-dvn myproj
-```
+Any assumptions, or other information a user should know before
 
-To get a list of valid commands, type
+### Requirements
 
-```bash
-dvn help
-```
+| Requirement | Minimum version | Notes |
+|-------------|-----------------|-------|
+| [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) | 10.0 | Required to build and run. |
+| Requirement | | |
+| Requirement | | |
 
-## Options
+<!-- [INSTALLING] =========================================================
+* Installing
+  Step-by-step instructions for installing the project on supported platforms.
 
-**dvn** also accepts `options`, which are...optional
+  This section may contain the Prerequisites.
 
-Options:
+  In general, this should be a quick overview of the installation process,
+  with a link to docs/man/README.md.
+============================================================================ -->
 
-* Must be a single character
-* Start with the `-` (dash) character
-* Are separated by a space
+## Installing
 
-For example, you can force the data for the `myproj` environment to be backed up by typing
+Quick summary of installation instructions, or link to the Installing documentation.
 
-```bash
-dvn myproj -b
-```
+<!-- ========================================================== [INSTALLING] -->
 
-To get a list of valid options, type
+<!-- [USAGE] ===================================================================
+* Usage
+  Step-by-step instructions for using the project on supported platforms.
+  Remove OS sections that are not supported.
 
-```bash
-dvn help
-```
+  In general, this should be a quick overview of the usage process,
+  with a link to docs/man/README.md.
+============================================================================ -->
 
-# Manifest files
+<!-- [SETUP] ===================================================================
+* Setup
+  Step-by-step instructions for setting up the project on supported platforms.
+  Remove OS sections that are not supported.
 
-When you start an environment by typing
-
-```bash
-dvn myproj
-```
-
-**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
-
-If the file does not exist, it is created using the default settings, which you will need to modify.
-
-> **PLEASE NOTE!**  
-> Any "`\`" characters in the manifest file need to be escaped as "`\\`".
-
-## The default manifest
-
-When a new manifest file is created, it looks like this:
-
-```json
-{
-  "DevelopmentEnvironment": {
-    "Name": "test2",
-    "Description": "Default environment description.",
-    "BackupEnabled": false,
-    "BackupSources": null,
-    "BackupLocation": null
-  },
-  "EnvironmentApplications": [
-    {
-      "Name": null,
-      "Description": null,
-      "FileName": null,
-      "Arguments": null,
-      "WorkingDirectory": null
-    }
-  ],
-  "WebBrowser": {
-    "BrowserPages": {
-      "Chrome": {},
-      "IExplore": {},
-      "Firefox": {}
-    }
-  }
-}
-```
-
-## Manifest components
-
-Manifest files contain the following components:
-
-* `Name`  
-The name of the environment (e.g., "myproj").
-
-* `Description`  
-The description of the environment (e.g., "My project environment").
-
-* `BackupEnabled`  
-Determines if the data backup functionality is *enabled* ("true"), or *disabled* ("false").
-
-* `BackupSources`  
-Absolute paths to data that will be backed up, if the data backup functionality is enabled.  
-
-* `BackupLocation`  
-The absolute path where backups are created.
-
-* `EnvironmentApplication`  
-Each application that will be launched by **dvn** has it's own block with the following data:
-
-  * `Name`  
-  The name of the application
-
-  * `Description`  
-  Description of the application
-
-  * `FileName`  
-  The application file name
-
-  * `Arguments`  
-  Any command-line arguments
-
-  * `WorkingDirectory`  
-  The application working directory
-
-* `WebBrowser`  
-A list of webpages to be opened in specific web browsers
-
-A completed manifest file looks like this:
-
-```json
-{
-  "DevelopmentEnvironment": {
-    "Name": "myproj",
-    "Description": "My project environment",
-    "BackupEnabled": true,
-    "BackupSources": [
-      "C:\\repositories\\MyProject",
-      "C:\\data\\reports"
-    ],
-    "BackupLocation": "C:\\backups",
-  },
-  "EnvironmentApplications": [
-    {
-      "Name": "Visual Studio - MyProject",
-      "Description": "MyProject solution",
-      "FileName": "MyProject.sln",
-      "Arguments": null,
-      "WorkingDirectory": "C:\\repositories\\MyProject\\src"
-    },
-    {
-    "Name": "Visual Studio Code - MyProject documentation",
-    "Description": "MyProject documentation",
-    "FileName": "Code.exe",
-    "Arguments": "MyProject-documentation.code-workspace | exit /b",
-    "WorkingDirectory": "\\path\\to\\VisualStudioCode"
-    },
-    {
-    "Name": "Visual Studio Code - Other documentation",
-    "Description": "Other documentation",
-    "FileName": "Code.exe",
-    "Arguments": "Other-documentation.code-workspace | exit /b",
-    "WorkingDirectory": "\\path\\to\\VisualStudioCode"
-    },
-    {
-      "Name": "GitHub Desktop",
-      "Description": "GitHub Desktop",
-      "FileName": "GitHubDesktop.exe",
-      "Arguments": null,
-      "WorkingDirectory": "C:\\Users\\JaneSmith\\AppData\\Local\\GitHubDesktop"
-    }
-  ],
-  "WebBrowser":
-  {
-    "BrowserPages":
-    {
-	  "Chrome":
-      {
-        "Wikipedia": "https://www.google.com",
-        "Weather.com": "https://www.weather.com"
-      },
-	  "Firefox":
-      {
-	      "Firefox": "https://www.firefox.com",
-        "Wikipedia": "https://www.wikipedia.com"
-      },
-      "IExplore":
-      {
-        "Microsoft": "https://www.microsoft.com",
-		    "Xbox": "https://xbox.com"
-      }
-    }
-  }
-}
-```
-
-> **REMINDER!**  
-> Any `\` characters need to be escaped as `\\`!
-
-The above manifest file will:
-
-1. Start the "**myproj**" development environment
-2. Backup the "**C:\repositories\MyProject**" and "**C:\data\reports**" to "**C:\backups**"
-3. Start the "**MyProject**" solution in Visual Studio
-4. Start the "**MyProject-Documentation**" workspace in Visual Studio Code
-5. Start the "**Other-Documentation**" workspace in Visual Studio Code
-6. Start the "**GitHub Desktop**" application
-7. Open various web pages in various web browsers
-
-# Configuring **dvn**
-
-The `.\.dvn\configs\dvn.config` file contains the [configuration settings]() for **dvn**.
-
-Currently this file only contains a list of files and folders that are ignored when the data backup functionality is enabled (to keep file sizes are kept to a minimum), so their isn't much to configure...yet.
+  In general, this should be a quick overview of the setup process,
+  with a link to docs/man/README.md.
+============================================================================ -->
+
+<!-- =============================================================== [SETUP] -->
+
+## Usage
+
+Step-by-step instructions for using the project on supported platforms.
+
+<!-- =============================================================== [USAGE] -->
+
+<!-- [DOCUMENTATION] ===========================================================
+* Documentation
+  A quick overview of the documentation.
+============================================================================ -->
+
+## Documentation
+
+Documentation is available.
+
+<!-- ======================================================= [DOCUMENTATION] -->
+
+<!-- [ACKNOWLEDGEMENTS] ========================================================
+* Acknowledgements
+  List of acknowledgements, or remove this section if there are none.
+============================================================================ -->
+
+## Acknowledgements
+
+None.
+
+<!-- ==================================================== [ACKNOWLEDGEMENTS] -->
+
+<!-- [RELATED PROJECTS] ========================================================
+* Related projects
+  List of related projects, or remove this section if there are none.
+============================================================================ -->
+
+## Related projects
+
+None.
+
+<!-- ==================================================== [RELATED PROJECTS] -->
+
+<!-- [LICENSE] =================================================================
+* License
+  The license under which the project is distributed.
+============================================================================ -->
+
+## License
+
+Distributed under the [Apache 2.0 License](LICENSE).  
+Copyright &copy; 2026 %Owner%
+
+<!-- ============================================================= [LICENSE] -->
+
+---
+
+<!-- [HORIZONTAL MENU] =========================================================
+* Horizontal menu (bottom)
+  Contains components that aren't in/don't belong in the table of contents.
+---------------------------------------------------------------------------- -->
+
+<h6 align="center">
+
+  [FAQ](docs/FAQ.md)&nbsp;&bull;&nbsp;[DEVELOPMENT](docs/DEVELOPMENT.md)&nbsp;&bull;&nbsp;[API](docs/api/README.md)&nbsp;&bull;&nbsp;[TESTING](docs/TESTING.md)&nbsp;&bull;&nbsp;[SUPPORT](docs/SUPPORT.md)&nbsp;&bull;&nbsp;[NOTICES](docs/NOTICES.md)
+  
+</h6>
+
+<!-- ===================================================== [HORIZONTAL MENU] -->
+
+---
+
+<sub>Last updated: 260417</sub>
