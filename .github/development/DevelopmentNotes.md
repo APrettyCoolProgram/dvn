@@ -15,59 +15,7 @@
 
 # Notes
 
-# dvn Changelog
-
-## 1.2.0
-
-
-
-
-
-***
-
-<sub>Last updated: 260417</sub>
-
-* `NEW` The **Install** command
-* `NEW` The **Request** command
-
-
-
-
-
-
-
-
-
-
-<!-- u250815 -->
-
-<div align="center">
-
-  ![](/.github/readme-resource/dvn-changelog-306x407.png)
-
-</div>
-
-# Version 1.2
-
-
-<!-- In development
-* `NEW` The ability to install applications using the `install` command
-
-* `MODIFIED` Both `help` and `list` are now `Options`, and are more robust
--->
-
-<!--
-<details>
-  <summary>Development notes</summary>
--->
-
-<br>
-
-> Version 1.2 makes a few  major changes to **dvn**, including:  
-> ⤇ The **Install** command  
-> ⤇ The **Request** command-line component  
-> ⤇ How the command-line components are set  
-> ⤇ A rework of the **Help** and **List** functionality
+## From previous CHANGELOG.md file
 
 The **Install** command
 * The ***install*** command allows a small list of applications to be installed.
@@ -93,21 +41,6 @@ Other changes
 * Setup the foundations for determining Operating System, which is disabled for now
 * Code refactors and comment cleanup
 
-<!--
-</details>
--->
-
-<br>
-
-***
-
-# Version 1.1
-
-* `NEW` Web pages can now be opened with Chrome, Firefox, and Edge
-
-<details>
-  <summary>Development notes</summary>
-
 * The default template is now created with null values, instead of examples
 * Created the dvn.Manifest namespace, and moved associated files
 * Renamed some of the framework directories to keep paths short
@@ -115,21 +48,38 @@ Other changes
 * Removed some of the .New() methods, since the default template is created with null values
 * Code/comment cleanup/refactoring
 
-</details>
-
-<br>
-
-***
-
-# Version 1.0
-
-No notes, sorry!
-
-
-
 ***
 
 # Roadmap
+
+* Fix the "line" spelling mistake in the info display
+* Open remote sessions
+
+# Common
+
+* `NEW` The ability to install applications using the `install` command
+
+* `MODIFIED` Both `help` and `list` are now `Options`, and are more robust
+* make sure all "\" are "\\"
+
+* Install apps
+* Update apps
+* Auto update dvn
+* data/encrypted
+* data/bins
+
+# Windows
+
+* Virtual Machines
+* WSL
+
+# MacOS
+
+* Main functionality
+
+# Linux
+
+* Main functionality
 
 ***
 
