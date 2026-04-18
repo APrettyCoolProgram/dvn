@@ -1,3 +1,44 @@
+<div align="center">
+
+  <h1>Repository: Development Notes</h1>
+
+</div>
+
+#### CONTENTS
+
+* [Notes](#notes)
+* [Roadmap](#roadmap)
+* [Known Issues](#known-issues)
+* [Version History](#version-history)
+
+***
+
+# Notes
+
+# dvn Changelog
+
+## 1.2.0
+
+
+
+
+
+***
+
+<sub>Last updated: 260417</sub>
+
+* `NEW` The **Install** command
+* `NEW` The **Request** command
+
+
+
+
+
+
+
+
+
+
 <!-- u250815 -->
 
 <div align="center">
@@ -8,7 +49,6 @@
 
 # Version 1.2
 
-* `NEW` The **Request** command-line argument
 
 <!-- In development
 * `NEW` The ability to install applications using the `install` command
@@ -84,3 +124,23 @@ Other changes
 # Version 1.0
 
 No notes, sorry!
+
+
+
+***
+
+# Roadmap
+
+***
+
+# Known Issues
+
+***
+
+# Version History
+
+***
+
+<br>
+
+<sub>Last updated: 260416</sub>
