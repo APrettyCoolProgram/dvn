@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "0GkeogXRdqY=",
+  "dgSpecHash": "Hmdtz42PzXE=",
   "success": true,
   "projectFilePath": "D:\\Repositories\\GitHub\\APrettyCoolProgram\\dvn\\src\\dvn.csproj",
   "expectedPackageFiles": [
@@ -14,13 +14,11 @@
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.11.0\\microsoft.codeanalysis.analyzers.3.11.0.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.codeanalysis.common\\5.0.0\\microsoft.codeanalysis.common.5.0.0.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.codeanalysis.csharp\\5.0.0\\microsoft.codeanalysis.csharp.5.0.0.nupkg.sha512",
-    "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.dotnet.ilcompiler\\10.0.6\\microsoft.dotnet.ilcompiler.10.0.6.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.extensions.objectpool\\10.0.5\\microsoft.extensions.objectpool.10.0.5.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.management.infrastructure\\3.0.0\\microsoft.management.infrastructure.3.0.0.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.management.infrastructure.cimcmdlets\\7.6.0\\microsoft.management.infrastructure.cimcmdlets.7.6.0.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.management.infrastructure.runtime.unix\\3.0.0\\microsoft.management.infrastructure.runtime.unix.3.0.0.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.management.infrastructure.runtime.win\\3.0.0\\microsoft.management.infrastructure.runtime.win.3.0.0.nupkg.sha512",
-    "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.net.illink.tasks\\10.0.6\\microsoft.net.illink.tasks.10.0.6.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.powershell.commands.diagnostics\\7.6.0\\microsoft.powershell.commands.diagnostics.7.6.0.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.powershell.commands.management\\7.6.0\\microsoft.powershell.commands.management.7.6.0.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.powershell.commands.utility\\7.6.0\\microsoft.powershell.commands.utility.7.6.0.nupkg.sha512",
@@ -56,7 +54,6 @@
     "C:\\Users\\cbanw\\.nuget\\packages\\runtime.osx-arm64.runtime.native.system.io.ports\\10.0.5\\runtime.osx-arm64.runtime.native.system.io.ports.10.0.5.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\runtime.osx-x64.runtime.native.system.io.ports\\10.0.5\\runtime.osx-x64.runtime.native.system.io.ports.10.0.5.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
-    "C:\\Users\\cbanw\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\10.0.6\\runtime.win-x64.microsoft.dotnet.ilcompiler.10.0.6.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\runtime.win-x86.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x86.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\system.codedom\\10.0.5\\system.codedom.10.0.5.nupkg.sha512",
@@ -91,12 +88,7 @@
     "C:\\Users\\cbanw\\.nuget\\packages\\system.serviceprocess.servicecontroller\\10.0.5\\system.serviceprocess.servicecontroller.10.0.5.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\system.speech\\10.0.5\\system.speech.10.0.5.nupkg.sha512",
     "C:\\Users\\cbanw\\.nuget\\packages\\system.web.services.description\\8.1.2\\system.web.services.description.8.1.2.nupkg.sha512",
-    "C:\\Users\\cbanw\\.nuget\\packages\\system.windows.extensions\\10.0.5\\system.windows.extensions.10.0.5.nupkg.sha512",
-    "C:\\Users\\cbanw\\.nuget\\packages\\runtime.win-x64.microsoft.dotnet.ilcompiler\\10.0.6\\runtime.win-x64.microsoft.dotnet.ilcompiler.10.0.6.nupkg.sha512",
-    "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\10.0.6\\microsoft.aspnetcore.app.runtime.win-x64.10.0.6.nupkg.sha512",
-    "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\10.0.6\\microsoft.windowsdesktop.app.runtime.win-x64.10.0.6.nupkg.sha512",
-    "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\10.0.6\\microsoft.netcore.app.runtime.win-x64.10.0.6.nupkg.sha512",
-    "C:\\Users\\cbanw\\.nuget\\packages\\microsoft.netcore.app.runtime.nativeaot.win-x64\\10.0.6\\microsoft.netcore.app.runtime.nativeaot.win-x64.10.0.6.nupkg.sha512"
+    "C:\\Users\\cbanw\\.nuget\\packages\\system.windows.extensions\\10.0.5\\system.windows.extensions.10.0.5.nupkg.sha512"
   ],
   "logs": [
     {
@@ -108,8 +100,7 @@
       "filePath": "D:\\Repositories\\GitHub\\APrettyCoolProgram\\dvn\\src\\dvn.csproj",
       "libraryId": "System.Security.Cryptography.Xml",
       "targetGraphs": [
-        "net10.0",
-        "net10.0/win-x64"
+        "net10.0"
       ]
     },
     {
@@ -121,8 +112,7 @@
       "filePath": "D:\\Repositories\\GitHub\\APrettyCoolProgram\\dvn\\src\\dvn.csproj",
       "libraryId": "System.Security.Cryptography.Xml",
       "targetGraphs": [
-        "net10.0",
-        "net10.0/win-x64"
+        "net10.0"
       ]
     }
   ]

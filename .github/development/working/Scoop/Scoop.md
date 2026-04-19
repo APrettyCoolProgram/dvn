@@ -6,23 +6,32 @@ Scoop must be installed on an NTFS-formatted drive.
 
 ## Installing Scoop
 
-Open PowerShell in Administrator mode, and run the following command:
+### Scoop prerequisites
+
+> This command must be run before using dvn, in an elevated PowerShell terminal (Administrator mode).
 
 The first command makes your device allow running the installation and management scripts. This is necessary because Windows 10 client devices restrict execution of any PowerShell scripts by default.
 
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
 
-Since we want to install Scoop to a custom location, we need to download the installer.
+### Downloading the Scoop installer
 
-This command will download the installer to the current directory (default: `Windows\system32`). You can change the path if you want to save it somewhere else.
+Since we want to install Scoop to a custom location, we need to download the installer so we can run it with the appropriate parameters.
 
-`irm get.scoop.sh -outfile 'install.ps1'`
+This command will download the installer to the root of the drive you want to install Scoop on (e.g. `V:\install.ps1`):
 
-Next, open PowerShell in non-Administrator mode, and navigate to the directory where you downloaded the installer:
+`$@"irm get.scoop.sh -outfile '{drive}:\install.ps1'"`
+
+### Installing Scoop
+
+> The current version of dvn does not use global installs.
 
 Install Scoop by running the installer:
 
-`.\install.ps1 -ScoopDir 'V:\Scoop\Apps' -ScoopGlobalDir 'V:\Scoop\GlobalApps' -NoProxy`
+`$@"{drive}:\install.ps1 -ScoopDir '{drive}:\Scoop\' -NoProxy"`
+
+
+
 
 Make sure the required buckets are added::
 

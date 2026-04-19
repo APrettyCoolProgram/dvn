@@ -4,6 +4,13 @@
 
 </div>
 
+## Notes from v2.0
+
+
+
+
+## Notes from v1.2
+
 The **Install** command
 * The ***install*** command allows a small list of applications to be installed.
 * Added `Core.Installer.cs` to handle the new install command functionality
