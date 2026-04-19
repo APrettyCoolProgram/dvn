@@ -1,21 +1,8 @@
 <div align="center">
 
-  <h1>Repository: Development Notes</h1>
+  <h1>dvn: Development - Notes</h1>
 
 </div>
-
-#### CONTENTS
-
-* [Notes](#notes)
-* [Roadmap](#roadmap)
-* [Known Issues](#known-issues)
-* [Version History](#version-history)
-
-***
-
-# Notes
-
-## From previous CHANGELOG.md file
 
 The **Install** command
 * The ***install*** command allows a small list of applications to be installed.
@@ -47,47 +34,6 @@ Other changes
 * Renamed a few methods so their names were more descriptive
 * Removed some of the .New() methods, since the default template is created with null values
 * Code/comment cleanup/refactoring
-
-***
-
-# Roadmap
-
-* Fix the "line" spelling mistake in the info display
-* Open remote sessions
-
-# Common
-
-* `NEW` The ability to install applications using the `install` command
-
-* `MODIFIED` Both `help` and `list` are now `Options`, and are more robust
-* make sure all "\" are "\\"
-
-* Install apps
-* Update apps
-* Auto update dvn
-* data/encrypted
-* data/bins
-
-# Windows
-
-* Virtual Machines
-* WSL
-
-# MacOS
-
-* Main functionality
-
-# Linux
-
-* Main functionality
-
-***
-
-# Known Issues
-
-***
-
-# Version History
 
 ***
 
