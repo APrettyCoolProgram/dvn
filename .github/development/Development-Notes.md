@@ -42,6 +42,16 @@ Other changes
 * Removed some of the .New() methods, since the default template is created with null values
 * Code/comment cleanup/refactoring
 
+## Error codes
+
+### Used
+
+66210 - Missing command
+
+### Available
+
+97415 80386 52335 93889 06784 16341 21547 00466 21863 32642 25331 23123 51546 57167 44410 02844 78239 50283 30238 38626 52401 11952 79948 29018 39342 00523 56948 20823 82802 73315 62862 46322 80175 03398 49508 92525 55950 82129 27532
+
 ***
 
 <br>

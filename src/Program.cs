@@ -1,17 +1,27 @@
-﻿// 260419_code
-// 260419_documentation
+﻿// 260423_code
+// 260423_documentation
+
+using System.Reflection;
+using dvn.Du;
 
 namespace dvn;
 
-internal class Program
+internal static class Program
 {
-    static void Main(string[] args)
+
+
+    private static readonly Version _applicationVersion = Assembly.GetExecutingAssembly().GetName().Version;
+
+
+    internal static void Main(string[] args)
     {
-        Console.WriteLine("Starting...");
+        Console.WriteLine("Starting dvn...");
+        InitializeDvn();
 
         if (args.Length == 0)
         {
-            Console.WriteLine("Please provide a command: 'du' or 'scoop'.");
+            DuLog.ErrorLog(".dvn/Log/error.log", "Missing command", "66210", "top");
+            Console.WriteLine("Missing command. Please type \"dvn -help\" for more information");
             return;
         }
 
@@ -30,5 +40,11 @@ internal class Program
                 Scooper.Install.Scoop();
             }
         }
+    }
+
+    internal static void InitializeDvn()
+    {
+        Console.WriteLine("Initializing...");
+        Core.Framework.InitializeFramework();
     }
 }

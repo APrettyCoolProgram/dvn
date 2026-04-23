@@ -1,6 +1,4 @@
 <!--
-  README.md template for source code repositories.
-  R26.4.0.0-171330
   260417_code
   260417_documentation
 -->
@@ -33,9 +31,9 @@ not using the this section, comment this divider out.
 <div align="center">
 
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset=".github/repository/logo/repository-logo-dark.jpg">
-    <source media="(prefers-color-scheme: light)" srcset=".github/repository/logo/repository-logo-light.jpg">
-    <img alt="Fallback image description" src=".github/repository/logo/repository-logo-light.jpg">
+    <source media="(prefers-color-scheme: dark)" srcset="/.github/readme-resource/dvn-readme-306x407.png">
+    <source media="(prefers-color-scheme: light)" srcset="/.github/readme-resource/dvn-readme-306x407.png">
+    <img alt="Fallback image description" src="/.github/readme-resource/dvn-readme-306x407.png">
   </picture>
 
   <h1>Source Code Repository README.md Template</h1>

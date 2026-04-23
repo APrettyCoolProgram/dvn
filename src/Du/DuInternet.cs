@@ -1,19 +1,23 @@
-﻿// 260419_code
-// 260419_documentation
+﻿// 260423_code
+// 260423_documentation
 
-using System.Net;
+// Classes in ns:Du are public, since they may be used in other projects.
 
 namespace dvn.Du;
 
-internal class DuInternet
+public class DuInternet
 {
-    /// <summary>Downloads a file from the specified URL and saves it to the specified local path.</summary>
-    /// <remarks>The file at <paramref name="filePath"/> is created or overwritten with the downloaded content.</remarks>
-    /// <param name="downloadUrl">The URL of the file to download.</param>
-    /// <param name="filePath">The local path where the downloaded file will be saved.</param>
-    internal static void DownloadFileFromUrl(string downloadUrl, string filePath)
+    private static readonly HttpClient httpClient = new();
+
+    // 260422.221513
+
+
+    public static async Task DownloadFileFromUrlAsync(string downloadUrl, string filePath)
     {
-        var client = new WebClient();
-        client.DownloadFile(downloadUrl, filePath);
+        var response = await httpClient.GetAsync(downloadUrl);
+        response.EnsureSuccessStatusCode();
+
+        var content = await response.Content.ReadAsByteArrayAsync();
+        await File.WriteAllBytesAsync(filePath, content);
     }
 }
