@@ -9,5 +9,4 @@ internal class Framework
     {
         Du.DuDirectory.CreateListOf(Catalog.FrameworkDirectories());
     }
-
 }

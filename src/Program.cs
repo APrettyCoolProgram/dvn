@@ -24,14 +24,9 @@ internal static class Program
         Framework.InitializeFramework();
         Config config = Config.Load(_configPath); // Up top?
 
-
         DuConsole.DisplayLine(Blueprint.Starter(_dvnVersion.ToString()), "teT");
 
         //Console.WriteLine(Blueprint.Starter(_dvnVersion.ToString()));
-
-
-
-
 
         InitializeDvn(config);
 

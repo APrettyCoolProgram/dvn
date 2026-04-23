@@ -11,7 +11,6 @@ public class DuInternet
 
     // 260422.221513
 
-
     public static async Task DownloadFileFromUrlAsync(string downloadUrl, string filePath)
     {
         var response = await httpClient.GetAsync(downloadUrl);
