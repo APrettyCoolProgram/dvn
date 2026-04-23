@@ -2,25 +2,27 @@
 // 260423_documentation
 
 using System.Reflection;
+using dvn.Core;
 using dvn.Du;
 
 namespace dvn;
 
 internal static class Program
 {
-
+    private static string _errLogPath { get; set; }
 
     private static readonly Version _applicationVersion = Assembly.GetExecutingAssembly().GetName().Version;
-
 
     internal static void Main(string[] args)
     {
         Console.WriteLine("Starting dvn...");
-        InitializeDvn();
+
+        var config = Config.Load();
+        InitializeDvn(config);
 
         if (args.Length == 0)
         {
-            DuLog.ErrorLog(".dvn/Log/error.log", "Missing command", "66210", "top");
+            DuLog.ErrorLog(_errLogPath, "Missing command", "66210", "top");
             Console.WriteLine("Missing command. Please type \"dvn -help\" for more information");
             return;
         }
@@ -42,9 +44,12 @@ internal static class Program
         }
     }
 
-    internal static void InitializeDvn()
+    internal static void InitializeDvn(Config config)
     {
         Console.WriteLine("Initializing...");
-        Core.Framework.InitializeFramework();
+        Framework.InitializeFramework();
+
+        _errLogPath = Path.Combine(config.LogDirectory, "error.log");
+
     }
 }

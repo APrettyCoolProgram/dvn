@@ -3,23 +3,19 @@
 
 // Classes in ns:Du are public, since they may be used in other projects.
 
-using Microsoft.CodeAnalysis.Operations;
-
 namespace dvn.Du;
 
 /// <summary>Logging functionality.</summary>
-/// <example>
-/// <code>
-/// DuLog.StandardLog(".dvn/Log/app.log", "Application started");
-/// DuLog.ErrorLog(".dvn/Log/error.log", "Something failed", "12345", "top");
-/// </code>
-/// </example>
 public static class DuLog
 {
     private static readonly string _dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-    // 260422.221513
-    /// <summary>Formatted log message, with the option for an error code.</summary>
+    /* LogMsg() will be expanded to handle different log levels (e.g., INFO, WARNING, etc.) and to include
+     * additional context.
+     */
+
+    // 260423.231013
+    /// <summary>Build the log message.</summary>
     /// <remarks>If <paramref name="code"/> is provided, the message includes an <c>[ERROR-{code}]</c> prefix.</remarks>
     /// <example>
     /// <code>
@@ -37,28 +33,42 @@ public static class DuLog
             : $"{_dateTime} [ERROR-{code}] {msg}";
     }
 
-    // 260422.221513
-    /// <summary>Writes a formatted error log entry to the specified file.</summary>
+    // 260423.231013
+    /// <summary>Create an error log file.</summary>
     /// <remarks>
-    /// The file must already exist. If <paramref name="append"/> is <c>"top"</c>, the entry is prepended;
-    /// any other non-empty value appends to the end; otherwise the file is overwritten.
+    /// <list type="bullet">
+    /// <item>The specified log directory must exist in order for a log file to be created.</item>
+    /// <item>The <c>code</c> parameter is optional; if provided, it will be included in the log entry as an error code.</item>
+    /// <item>The <c>append</c> parameter is optional; if provided, it controls how the log entry is written to the file:</item>
+    /// <list type="bullet">
+    /// <item>If <paramref name="append"/> is <c>"top"</c>, the entry is prepended</item>
+    /// <item>Any other non-empty value appends to the end</item>
+    /// <item>If <paramref name="append"/> is empty/null, the file is overwritten.</item>
+    /// </list>
+    /// </list>
     /// </remarks>
     /// <example>
     /// <code>
     /// // Overwrite the log file with a new error entry.
+    /// DuLog.ErrorLog(".dvn/Log/error.log", "Connection timed out");
+    ///
+    /// // Overwrite the log file with a new error entry, and include an error code.
     /// DuLog.ErrorLog(".dvn/Log/error.log", "Connection timed out", "50001");
     ///
-    /// // Prepend an error entry to the top of the log file.
+    /// // Append an error entry, without an error code, to the log file.
+    /// DuLog.ErrorLog(".dvn/Log/error.log", "Connection timed out", null, "bottom");
+    ///
+    /// // Prepend an error entry, with an error code, to the top of the log file.
     /// DuLog.ErrorLog(".dvn/Log/error.log", "Connection timed out", "50001", "top");
     /// </code>
     /// </example>
     /// <param name="path">The path to the log file.</param>
-    /// <param name="msg">The error message to log.</param>
+    /// <param name="msg">The message to log.</param>
     /// <param name="code">An optional error code to include in the log entry.</param>
     /// <param name="append">Controls write behavior: <c>"top"</c> to prepend, any other value to append, or <c>null</c> to overwrite.</param>
     public static void ErrorLog(string path, string msg, string code = null, string append = null)
     {
-        if (File.Exists(path))
+        if (Directory.Exists(Path.GetDirectoryName(path)))
         {
             var errMsg = LogMsg(msg, code);
 
@@ -73,9 +83,55 @@ public static class DuLog
         }
     }
 
-    // 260422.221513
+    // 260423.231013
+    /// <summary>Create a standard log file.</summary>
+    /// <remarks>
+    /// The <c>append</c> parameter is optional; if provided, it controls how the log entry is written to the file:
+    /// <list type="bullet">
+    /// <item>If <paramref name="append"/> is <c>"top"</c>, the entry is prepended</item>
+    /// <item>Any other non-empty value appends to the end</item>
+    /// <item>If <paramref name="append"/> is empty/null, the file is overwritten.</item>
+    /// </list>
+    /// </remarks>
+    /// <example>
+    /// <code>
+    /// // Overwrite the log file with a new entry.
+    /// DuLog.StandardLog(".dvn/Log/app.log", "Application started");
+    ///
+    /// // Append a new entry to the bottom of the log file.
+    /// DuLog.StandardLog(".dvn/Log/app.log", "Step completed", "bottom");
+    /// 
+    /// // Prepend a new entry to the top of the log file.
+    /// DuLog.StandardLog(".dvn/Log/app.log", "Step completed", "top");
+    /// </code>
+    /// </example>
+    /// <param name="path">The path to the log file.</param>
+    /// <param name="msg">The message to write.</param>
+    /// <param name="append">Controls write behavior: <c>"top"</c> to prepend, any other value to append, or <c>null</c> to overwrite.</param>
+    public static void StandardLog(string path, string msg, string append = null)
+    {
+        if (Directory.Exists(Path.GetDirectoryName(path)))
+        {
+            if (string.IsNullOrEmpty(append))
+            {
+                File.WriteAllText(path, msg);
+            }
+            else
+            {
+                AppendLog(path, msg, append);
+            }
+        }
+    }
+
+    // 260423.231013
     /// <summary>Appends or prepends a log entry to the specified file.</summary>
-    /// <remarks>If <paramref name="append"/> equals <c>"top"</c> (case-insensitive), the entry is prepended; otherwise it is appended.</remarks>
+    /// <remarks>
+    /// The <paramref name="append"/> value can be:
+    /// <list type="bullet">    
+    /// <item><c>"top"</c> - Prepend the entry to the top of the file.</item>
+    /// <item>Any other non-empty value - Append the entry to the end of the file.</item>   
+    /// </list>
+    /// </remarks>
     /// <param name="path">The path to the log file.</param>
     /// <param name="msg">The formatted log message to write.</param>
     /// <param name="append">Determines placement: <c>"top"</c> to prepend, any other value to append.</param>
@@ -90,39 +146,6 @@ public static class DuLog
         else
         {
             File.AppendAllText(path, $"{msg}{Environment.NewLine}");
-        }
-    }
-
-    // 260422.221513
-    /// <summary>Writes a log entry to the specified file if the parent directory exists.</summary>
-    /// <remarks>
-    /// If <paramref name="append"/> is <c>"top"</c>, the entry is prepended; any other non-empty value appends
-    /// to the end; otherwise the file is overwritten.
-    /// </remarks>
-    /// <example>
-    /// <code>
-    /// // Overwrite the log file with a new entry.
-    /// DuLog.StandardLog(".dvn/Log/app.log", "Application started");
-    ///
-    /// // Append a new entry to the bottom of the log file.
-    /// DuLog.StandardLog(".dvn/Log/app.log", "Step completed", "bottom");
-    /// </code>
-    /// </example>
-    /// <param name="path">The path to the log file.</param>
-    /// <param name="msg">The message to write.</param>
-    /// <param name="append">Controls write behavior: <c>"top"</c> to prepend, any other value to append, or <c>null</c> to overwrite.</param>
-    public static void StandardLog(string path, string msg, string append = null)
-        {
-        if (Directory.Exists(Path.GetDirectoryName(path)))
-        {
-            if (string.IsNullOrEmpty(append))
-            {
-                File.WriteAllText(path, msg);
-            }
-            else
-            {
-                AppendLog(path, msg, append);
-            }
         }
     }
 }
