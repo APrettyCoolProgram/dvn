@@ -68,7 +68,8 @@ public static class DuLog
     /// <param name="append">Controls write behavior: <c>"top"</c> to prepend, any other value to append, or <c>null</c> to overwrite.</param>
     public static void ErrorLog(string path, string msg, string code = null, string append = null)
     {
-        if (Directory.Exists(Path.GetDirectoryName(path)))
+        //if (Directory.Exists(Path.GetDirectoryName(path)))
+        if (File.Exists(path))
         {
             var errMsg = LogMsg(msg, code);
 

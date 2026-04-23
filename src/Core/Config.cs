@@ -1,20 +1,28 @@
 ﻿// 260423_code
 // 260423_documentation
 
+using System.Text.Json;
+using dvn.Du;
+
 namespace dvn.Core;
 
 internal class Config
 {
-    public string LogDirectory { get; set; }
+    public string LogDirectory   = @".dvn\Log";
+    public string ErrorLogPath => Path.Combine(LogDirectory, "error.log");
+    public string SessionLogPath => Path.Combine(LogDirectory, "session.log");
 
-    internal static Config Load()
+    internal static Config Load(string configPath)
     {
-        Config config = new Config();
+        if (!File.Exists(configPath))
+        {
+            Config config = new Config();
 
-        config.LogDirectory = @".dvn\Log";
+            DuJson.ExportToFile<Config>(config, configPath);
+        }
 
-        // Placeholder for loading configuration from a file or environment variables.
-        // For now, it returns a default configuration instance.
-        return config;
+        string json = File.ReadAllText(configPath);
+
+        return JsonSerializer.Deserialize<Config>(json) ?? new Config();
     }
 }

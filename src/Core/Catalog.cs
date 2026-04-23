@@ -12,6 +12,7 @@ internal class Catalog
         ".dvn/Archive",
         ".dvn/Backup",
         ".dvn/Cache",
+        ".dvn/Config",
         ".dvn/Log",
         ".dvn/Release",
         ".dvn/Scoop",
