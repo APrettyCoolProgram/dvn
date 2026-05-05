@@ -1,7 +1,7 @@
 ##### =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 ##### .gitignore
 ##### For use with A Pretty Cool Program projects
-##### 260404_code
+##### 260505_code
 ##### 260404_documentation
 ##### =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
@@ -114,9 +114,6 @@ artifacts/
 *.vsp
 *.vspx
 *.sap
-
-# Click-Once directory
-publish/
 
 ## Visual Studio cache files
 # files ending in .cache can be ignored
