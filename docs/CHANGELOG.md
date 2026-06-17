@@ -18,8 +18,12 @@
 
 > Please see the [release notes](rel/V1.1-release-notes.md) for more details.
 
+* Can now open web pages in Chrome, Firefox, and Edge.
+
 ***
 
 ## Version 1.0 (YYYY-MM-DD)
 
 > Please see the [release notes](rel/V1.0-release-notes.md) for more details.
+
+* Initial release of dvn.
