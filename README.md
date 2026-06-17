@@ -11,6 +11,7 @@
   </picture>
 
   <br/>
+  <br/>
 
   ![RELEASE](https://img.shields.io/badge/version-1.2-teal)&nbsp;
   ![STAGE](https://img.shields.io/badge/stable-green)&nbsp; <!-- Alpha = Red, Beta = Yellow, Stable = Green -->
