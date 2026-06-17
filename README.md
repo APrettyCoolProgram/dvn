@@ -104,7 +104,11 @@ The **dvn framework** is comprised of the files and folders that are required by
 To create the **dvn** framework:
 
 1. Open a terminal in the the folder that contains `dvn.exe`
-2. Type `"dvn"`
+2. Type
+
+```bash
+dvn
+```
 
 Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
 
@@ -116,7 +120,13 @@ Currently this file only contains a list of files and folders that are ignored w
 
 ## MANIFEST FILES
 
-When you start an environment by typing "`dvn myproj`", **dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
+When you start an environment by typing...
+
+```bash
+dvn myproj
+```
+
+...**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
 
 If the file does not exist, it is created using the default settings, which you will need to modify.
 
