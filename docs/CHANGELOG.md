@@ -6,7 +6,7 @@
 
 ## Version 1.2 (YYYY-MM-DD)
 
-> Please see the [release notes](release-notes/V1.2-release-notes.md) for more details.
+> Please see the [release notes](rel/V1.2-release-notes.md) for more details.
 
 * Updated to .NET 10
 * Updated XML documentation
@@ -16,10 +16,10 @@
 
 ## Version 1.1 (YYYY-MM-DD)
 
-> Please see the [release notes](release-notes/V1.1-release-notes.md) for more details.
+> Please see the [release notes](rel/V1.1-release-notes.md) for more details.
 
 ***
 
 ## Version 1.0 (YYYY-MM-DD)
 
-> Please see the [release notes](release-notes/V1.0-release-notes.md) for more details.
+> Please see the [release notes](rel/V1.0-release-notes.md) for more details.

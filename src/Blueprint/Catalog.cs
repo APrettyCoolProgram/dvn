@@ -7,7 +7,7 @@ namespace dvn.Blueprint;
 internal static class Catalog
 {
     /// <summary>A list of repository files that should be ignored when copying.</summary>
-    internal static List<string> cat_RepositoryIgnoredFiles =>
+    internal static List<string> lst_RepositoryIgnoredFiles =>
     [
         ".DS_Store",
         "Thumbs.db",
@@ -19,12 +19,12 @@ internal static class Catalog
     ];
 
     /// <summary>A list of other files that should be ignored when copying.</summary>
-    internal static List<string> cat_OtherIgnoredFiles =>
+    internal static List<string> lst_OtherIgnoredFiles =>
         [
         ];
 
     /// <summary>A list of repository folders that should be ignored when copying.</summary>
-    internal static List<string> cat_RepositoryIgnoredFolders =>
+    internal static List<string> lst_RepositoryIgnoredFolders =>
     [
         "node_modules",
         "bin",
@@ -37,23 +37,23 @@ internal static class Catalog
     ];
 
     /// <summary>A list of other folders that should be ignored when copying.</summary>
-    internal static List<string> cat_OtherIgnoredolders =>
+    internal static List<string> lst_OtherIgnoredolders =>
     [
     ];
 
     /// <summary>Combines the configured file ignore lists.</summary>
     /// <returns>A list of file names that should be ignored when copying.</returns>
-    internal static List<string> IgnoredFiles() =>
-    [.. cat_RepositoryIgnoredFiles
-        .Concat(cat_OtherIgnoredFiles)
+    internal static List<string> lst_IgnoredFiles() =>
+    [.. lst_RepositoryIgnoredFiles
+        .Concat(lst_OtherIgnoredFiles)
         .Distinct()
     ];
 
     /// <summary>Combines the configured folder ignore lists.</summary>
     /// <returns>A list of folder names that should be ignored when copying.</returns>
-    internal static List<string> IgnoredFolders() =>
-    [.. cat_RepositoryIgnoredFolders
-        .Concat(cat_OtherIgnoredolders)
+    internal static List<string> lst_IgnoredFolders() =>
+    [.. lst_RepositoryIgnoredFolders
+        .Concat(lst_OtherIgnoredolders)
         .Distinct()
     ];
 }

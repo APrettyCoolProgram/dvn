@@ -67,14 +67,12 @@ internal class Framework
         return new Dictionary<string, string>
         {
             { "Root"         , @".\" },
-            { "WinApps"      , @".\apps\win" },
             { "Backups"      , @".\.dvn\bckp" },
             { "Configs"      , @".\.dvn\cnfg" },
             { "Manifests"    , @".\.dvn\mnfst" },
             { "Staging"      , @".\.dvn\stg" },
             { "Temporary"    , @".\.dvn\tmp" },
             { "Trash"        , @".\.dvn\trsh" },
-            { "Repositories" , @".\data\repo" }
         };
     }
 

@@ -48,8 +48,8 @@ internal class Configuration
         var config = new Configuration()
         {
             ManifestExtension = ".mnfst",
-            ExcludedFiles     = Blueprint.Catalog.IgnoredFiles(),
-            ExcludedFolders   = Blueprint.Catalog.IgnoredFolders()
+            ExcludedFiles     = Blueprint.Catalog.lst_IgnoredFiles(),
+            ExcludedFolders   = Blueprint.Catalog.lst_IgnoredFolders()
         };
 
         Du.DuJson.ExportToFile<Configuration>(config, $@"{dvnConfigPath}");
