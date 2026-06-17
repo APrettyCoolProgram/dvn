@@ -10,44 +10,15 @@
     <img alt="Fallback image description" src="/.github/repository/logo/dvn-306x407.png">
   </picture>
 
-  <h1>Source Code Repository README.md Template</h1>
+  Development Environment Manager
 
-  Catchphrase!
-
-  ![RELEASE](https://img.shields.io/badge/Release\/Version-25.0.0.0-teal)&nbsp;
-  ![STAGE](https://img.shields.io/badge/ALPHA/BETA-red)&nbsp; <!-- Alpha = Red, Beta = Yellow, Stable = Green -->
+  ![RELEASE](https://img.shields.io/badge/Version-2.0-teal)&nbsp;
+  ![STAGE](https://img.shields.io/badge/stable-green)&nbsp; <!-- Alpha = Red, Beta = Yellow, Stable = Green -->
   ![LICENSE](https://img.shields.io/badge/license-apache-blue)&nbsp;
-  ![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
   ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)&nbsp;
 
 </div>
 
----
-
-<!-- ======================================================= [PROJECT INTRO] -->
-
-<!-- [PROJECT DETAIL] ==========================================================
-* Project screenshot
-  There are references for both a "light" and "dark" images. The dark image
-  should have a background of HEX #0d1117, to match the dark mode of GitHub.
-  The light image is the fallback.
----------------------------------------------------------------------------- -->
-
-<div align="center">
-
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset=".github/repository/readme/screenshot01-dark.jpg">
-    <source media="(prefers-color-scheme: light)" srcset=".github/repository/readme/screenshot01-light.jpg">
-    <img alt="Fallback image description" src=".github/repository/readme/screenshot01-light.jpg">
-  </picture>
-  <h6>The Screenshot</h6>
-
-</div>
-
-<!--
-This divider separates the this section from the rest of the README. If you are
-not using the this section, comment this divider out.
---->
 ---
 
 <!-- [HORIZONTAL MENU] =========================================================
