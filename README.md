@@ -10,8 +10,6 @@
     <img alt="Fallback image description" src="/.github/repository/logo/dvn-306x407.png">
   </picture>
 
-  Development Environment Manager
-
   ![RELEASE](https://img.shields.io/badge/Version-2.0-teal)&nbsp;
   ![STAGE](https://img.shields.io/badge/stable-green)&nbsp; <!-- Alpha = Red, Beta = Yellow, Stable = Green -->
   ![LICENSE](https://img.shields.io/badge/license-apache-blue)&nbsp;
@@ -21,63 +19,29 @@
 
 ---
 
-<!-- [HORIZONTAL MENU] =========================================================
-* Horizontal menu (top)
-  Contains components that aren't in/don't belong in the table of contents.
----------------------------------------------------------------------------- -->
-
 <h6 align="center">
 
-  [WEBSITE](URL)&nbsp;&bull;&nbsp;[DEMO](URL)&nbsp;&bull;&nbsp;[MANUAL](docs/man/README.md)&nbsp;&bull;&nbsp;[CHANGELOG](docs/CHANGELOG.md)&nbsp;&bull;&nbsp;[ROADMAP](docs/ROADMAP.md)&nbsp;&bull;&nbsp;[KNOWN ISSUES](docs/KNOWN-ISSUES.md)
-  
+  [MANUAL](docs/man/README.md)&nbsp;&bull;&nbsp;[CHANGELOG](docs/CHANGELOG.md)&nbsp;&bull;&nbsp;[ROADMAP](docs/ROADMAP.md)&nbsp;&bull;&nbsp;[KNOWN ISSUES](docs/KNOWN-ISSUES.md)
+
 </h6>
 
-<!--
-This divider separates the this section from the rest of the README. If you are
-not using the this section, comment this divider out.
---->
 ---
-
-<!-- ===================================================== [HORIZONTAL MENU] -->
-
-<!-- [TABLE OF CONTENTS] =======================================================
-* The Table of Contents
-  The Table of Contents contains components that aren't in/don't belong in the
-  horizontal menu.
----------------------------------------------------------------------------- -->
 
 ### CONTENTS
 
-* [About %ProjectName%](#about)<br>
-* [How It Works](#how-it-works)<br>
-* [Getting Started](#getting-started)<br>
-* [Installing](#installing)<br>
-* [Usage](#usage)<br>
-* [Acknowledgements](#acknowledgements)<br>
-* [Related Projects](#related-projects)<br>
-* [License](#license)<br>
+| CONTENTS                                    |
+|---------------------------------------------|
+| [ABOUT dnv](#about-dnv) |
+| [HOW IT WORKS](#how-it-works)               |
+| [GETTING STARTED](#getting-started)         |
+| [INSTALLING](#installing)                   |
+| [USAGE](#usage)                             |
+| [ACKNOWLEDGEMENTS](#acknowledgements)       |
+| [RELATED PROJECTS](#related-projects)       |
+| [LICENSE](#license)                         |
 
-<!--
-This divider separates the this section from the rest of the README. If you are
-not using the this section, comment this divider out.
---->
 ---
 
-<!-- =================================================== [TABLE OF CONTENTS] -->
-
-<!-- [PROJECT MESSAGE] =========================================================
-* Project message
-  Use for time-sensitive notices, deprecation warnings, or anything critical
-  that every visitor should see. Remove this section if not needed.
-============================================================================ -->
-
-> [!IMPORTANT]
-> Replace this with a message everyone should see, or remove this section entirely.
-
-<!--
-This divider separates the this section from the rest of the README. If you are
-not using the this section, comment this divider out.
---->
 ---
 
 <!-- ===================================================== [PROJECT MESSAGE] -->
@@ -93,11 +57,24 @@ not using the this section, comment this divider out.
   List of technologies and/or frameworks used
 ---------------------------------------------------------------------------- -->
 
-## About %ProjectName%
+## ABOUT dvn
 
-A brief description of the project, what it does, and who it's for. This should
-be a concise summary that gives readers a clear understanding of the project's
-purpose and value proposition.
+**dvn** is a command-line utility for managing development environments.
+
+Let's say you are working something called "MyProject", which requires:
+
+* A Visual Studio 2022 solution named "*MyProject*"
+* A Visual Studio Code workspace named "*MyProject-Documentation*"
+* A Visual Studio Code workspace named "*Other-Documentation*"
+* GitHub Desktop
+* A webpage containing API documentation
+* Specific data to be backed up
+
+You *could* do all of the above steps manually, *or* you could let **dvn** do it for you by typing
+
+```bash
+dvn myproject
+```
 
 ### Features
 
@@ -107,39 +84,28 @@ purpose and value proposition.
 
 ### What's New
 
+**v2.0**  
+
 * New feature — A brief description of the new feature and its benefits.
 * Improvement — A brief description of the improvement and its benefits.
 * Bug fix — A brief description of the bug fix and its impact.
 
+<!--
 ### Built With
 
 * [Technology or framework](URL)  - Role it plays in the project.
 * [Technology or framework](URL)  - Role it plays in the project.
 * [Technology or framework](URL)  - Role it plays in the project.
 
-<!-- =============================================================== [ABOUT] -->
+-->
 
-<!-- [HOW IT WORKS] ============================================================
-* How it works
-  A high-level overview of how the project works.
-============================================================================= -->
+<!--
 
 ## How It Works
 
 A blurb describing how the project works at a high level.
 
-<!-- ========================================================= [HOW IT WORKS] -->
-
-<!-- [GETTING STARTED] =========================================================
-* Before you begin
-  Any prerequisites, assumptions, or other information a user should know before
-  getting started.
-* Prerequisites
-  List of software, hardware, or other requirements.
-
-  If this section is only comprised of prerequisites, it can be merged with the
-  About section.
-============================================================================ -->
+-->
 
 ## Getting Started
 
@@ -157,107 +123,35 @@ Any assumptions, or other information a user should know before
 | Requirement | | |
 | Requirement | | |
 
-<!-- [INSTALLING] =========================================================
-* Installing
-  Step-by-step instructions for installing the project on supported platforms.
-
-  This section may contain the Prerequisites.
-
-  In general, this should be a quick overview of the installation process,
-  with a link to docs/man/README.md.
-============================================================================ -->
-
 ## Installing
 
 Quick summary of installation instructions, or link to the Installing documentation.
-
-<!-- ========================================================== [INSTALLING] -->
-
-<!-- [USAGE] ===================================================================
-* Usage
-  Step-by-step instructions for using the project on supported platforms.
-  Remove OS sections that are not supported.
-
-  In general, this should be a quick overview of the usage process,
-  with a link to docs/man/README.md.
-============================================================================ -->
-
-<!-- [SETUP] ===================================================================
-* Setup
-  Step-by-step instructions for setting up the project on supported platforms.
-  Remove OS sections that are not supported.
-
-  In general, this should be a quick overview of the setup process,
-  with a link to docs/man/README.md.
-============================================================================ -->
-
-<!-- =============================================================== [SETUP] -->
 
 ## Usage
 
 Step-by-step instructions for using the project on supported platforms.
 
-<!-- =============================================================== [USAGE] -->
-
-<!-- [DOCUMENTATION] ===========================================================
-* Documentation
-  A quick overview of the documentation.
-============================================================================ -->
-
 ## Documentation
 
 Documentation is available.
 
-<!-- ======================================================= [DOCUMENTATION] -->
-
-<!-- [ACKNOWLEDGEMENTS] ========================================================
-* Acknowledgements
-  List of acknowledgements, or remove this section if there are none.
-============================================================================ -->
-
 ## Acknowledgements
 
-None.
-
-<!-- ==================================================== [ACKNOWLEDGEMENTS] -->
-
-<!-- [RELATED PROJECTS] ========================================================
-* Related projects
-  List of related projects, or remove this section if there are none.
-============================================================================ -->
 
 ## Related projects
-
-None.
-
-<!-- ==================================================== [RELATED PROJECTS] -->
-
-<!-- [LICENSE] =================================================================
-* License
-  The license under which the project is distributed.
-============================================================================ -->
 
 ## License
 
 Distributed under the [Apache 2.0 License](LICENSE).  
-Copyright &copy; 2026 %Owner%
-
-<!-- ============================================================= [LICENSE] -->
+Copyright &copy; 2026 [A Pretty Cool Program](https://github.com/APrettyCoolProgram)
 
 ---
-
-<!-- [HORIZONTAL MENU] =========================================================
-* Horizontal menu (bottom)
-  Contains components that aren't in/don't belong in the table of contents.
----------------------------------------------------------------------------- -->
 
 <h6 align="center">
 
   [FAQ](docs/FAQ.md)&nbsp;&bull;&nbsp;[DEVELOPMENT](docs/DEVELOPMENT.md)&nbsp;&bull;&nbsp;[API](docs/api/README.md)&nbsp;&bull;&nbsp;[TESTING](docs/TESTING.md)&nbsp;&bull;&nbsp;[SUPPORT](docs/SUPPORT.md)&nbsp;&bull;&nbsp;[NOTICES](docs/NOTICES.md)
   
 </h6>
-
-<!-- ===================================================== [HORIZONTAL MENU] -->
 
 ---
 

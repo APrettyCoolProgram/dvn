@@ -3,5 +3,8 @@
 		{
 			"path": "../.."
 		}
-	]
+	],
+	"settings": {
+		"workbench.colorTheme": "Winter is Coming (Dark Blue)"
+	}
 }
