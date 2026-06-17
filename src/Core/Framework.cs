@@ -1,5 +1,5 @@
-﻿//// u250920_code
-// u250920_documentation
+﻿// u250920_code
+// u260617_documentation
 
 using dvn.Blueprint;
 
@@ -7,18 +7,20 @@ namespace dvn.Core;
 
 /// <summary>Logic for the dvn framework.</summary>
 /// <remarks>
-///     The <see cref="Framework"/> class contains the definitions for:<br/>
-///     <list type="bullet">
-///         <item>A list of <see cref="Files">files</see> required by dvn.</item>
-///         <item>A list of <see cref="Folders">folders</see> required by dvn.</item>
-///     </list>
+/// The <see cref="Framework"/> class contains the definitions for:<br/>
+/// <list type="bullet">
+/// <item>A list of <see cref="Files"/> required by dvn.</item>
+/// <item>A list of <see cref="Folders"/> required by dvn.</item>
+/// </list>
 /// </remarks>
 internal class Framework
 {
     /// <summary>Files required by dvn.</summary>
+    /// <value>The required file paths.</value>
     internal Dictionary<string, string> Files { get; set; }
 
     /// <summary>Folders required by dvn.</summary>
+    /// <value>The required folder paths.</value>
     internal Dictionary<string, string> Folders { get; set; }
 
     /// <summary>Verifies that the dvn framework exists.</summary>
@@ -40,11 +42,11 @@ internal class Framework
 
     /// <summary>Constructs and returns a new instance of the <see cref="Framework"/> class.</summary>
     /// <remarks>
-    ///     The <see cref="Framework"/> instance contains:<br/>
-    ///     <list type="bullet">
-    ///         <item>The list of <see cref="Files">files</see> required by dvn.</item>
-    ///         <item>The list of <see cref="Folders">folders</see> required by dvn.</item>
-    ///     </list>
+    /// The <see cref="Framework"/> instance contains:<br/>
+    /// <list type="bullet">
+    /// <item>The list of <see cref="Files"/> required by dvn.</item>
+    /// <item>The list of <see cref="Folders"/> required by dvn.</item>
+    /// </list>
     /// </remarks>
     /// <returns>A <see cref="Framework"/> object.</returns>
     internal static Framework BuildNew()
@@ -61,7 +63,7 @@ internal class Framework
 
     /// <summary>Builds a dictionary of folder details required by dvn.</summary>
     /// <remarks>The dictionary key represents the folder identifier, and the value is the full path to the folder.</remarks>
-    /// <returns>A <see cref="Dictionary{TKey, TValue}"/> of folder identifiers/paths.</returns>
+    /// <returns>A <see cref="Dictionary{TKey, TValue}"/> of folder identifiers and paths.</returns>
     internal static Dictionary<string, string> BuildFolderDictionary()
     {
         return new Dictionary<string, string>
@@ -78,11 +80,10 @@ internal class Framework
         };
     }
 
-    /// <summary>Builds a dictionary of file details required by dvn.</summary>>
+    /// <summary>Builds a dictionary of file details required by dvn.</summary>
     /// <remarks>The dictionary key represents the file identifier, and the value is the full path to the file.</remarks>
-    /// <param name="folders">A dictionary containing dvn file paths.</param>
-    /// <returns>A <see cref="Dictionary{TKey, TValue}"/> of file identifiers/paths.</returns>
-
+    /// <param name="folders">A dictionary containing dvn folder paths.</param>
+    /// <returns>A <see cref="Dictionary{TKey, TValue}"/> of file identifiers and paths.</returns>
     internal static Dictionary<string, string> BuildFileDictionary(Dictionary<string, string> folders) =>
         new Dictionary<string, string>
         {

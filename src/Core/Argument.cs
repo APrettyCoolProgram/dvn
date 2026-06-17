@@ -1,67 +1,67 @@
 ﻿// u250920_code
-// u250920_documentation
+// u260617_documentation
 
 using dvn.Blueprint;
 
 namespace dvn.Core;
 
-/// <summary>Methods for handling and processing arguments passed via the <see cref="CommandLine"/>.</summary>
-/// <remarks>To get a list of available commands/requests/options, run "<c>dvn ---help</c>.<br/>"</remarks>
+/// <summary>Methods for handling and processing command-line arguments.</summary>
+/// <remarks>To get a list of available commands, requests, and options, run <c>dvn ---help</c>.</remarks>
 internal class Argument
 {
     /// <summary>The dvn <c>command</c>.</summary>
     /// <remarks>
-    ///    There can only be one command.<br/>
-    ///    <br/>
-    ///    The command:
-    ///     <list type="bullet">
-    ///         <item>Should be the <i>first</i> argument passed to dvn</item>
-    ///         <item>Cannot contain a space</item>
-    ///         <item><b>Cannot start</b> with the "<c>-</c>" character (e.g., "<c>dvn install</c>")</item>
-    ///     </list>
+    /// There can only be one command.<br/>
+    /// <br/>
+    /// The command:
+    /// <list type="bullet">
+    /// <item>Should be the <i>first</i> argument passed to dvn</item>
+    /// <item>Cannot contain a space</item>
+    /// <item><b>Cannot start</b> with the <c>-</c> character (e.g., <c>dvn install</c>)</item>
+    /// </list>
     /// </remarks>
+    /// <value>The parsed command, or <c>no-command-passed</c> when no command was supplied.</value>
     internal string Command { get; set; }
 
-    /// <summary>
-    /// Gets or sets the list of valid commands that can be processed.
-    /// </summary>
+    /// <summary>Gets or sets the valid commands that can be processed.</summary>
+    /// <value>The commands that are considered valid.</value>
     internal List<string> ValidCommands { get; set; }
 
     /// <summary>The dvn <c>request</c>.</summary>
     /// <remarks>
-    ///    There can only be one request.<br/>
-    ///     <br/>
-    ///    That request:
-    ///     <list type="bullet">
-    ///         <item>Should be the <i>second</i> argument passed to dvn</item>
-    ///         <item>Cannot contain a space</item>
-    ///         <item><b>Cannot start</b> with the "<c>-</c>" character (e.g., "<c>dvn install ahk</c>")</item>
-    ///     </list>
+    /// There can only be one request.<br/>
+    /// <br/>
+    /// That request:
+    /// <list type="bullet">
+    /// <item>Should be the <i>second</i> argument passed to dvn</item>
+    /// <item>Cannot contain a space</item>
+    /// <item><b>Cannot start</b> with the <c>-</c> character (e.g., <c>dvn install ahk</c>)</item>
+    /// </list>
     /// </remarks>
+    /// <value>The parsed request, or <c>no-request-passed</c> when no request was supplied.</value>
     internal string Request { get; set; }
 
-    /// <summary>
-    /// Gets or sets the list of valid requests that can be processed.
-    /// </summary>
+    /// <summary>Gets or sets the valid requests that can be processed.</summary>
+    /// <value>The requests that are considered valid.</value>
     internal List<string> ValidRequests { get; set; }
 
 
     /// <summary>The dvn <c>options</c>.</summary>
     /// <remarks>
-    ///     There can be any number of options, only those that are valid will be processed.<br/>
-    ///     <br/>
-    ///     Options:
-    ///     <list type="bullet">
-    ///         <item>Should <i>follow</i> the <c>command</c> and/or <c>request</c></item>
-    ///         <item>Must be separated by a space</item>
-    ///         <item><b>Must start</b> with the "<c>-</c>" character (e.g., "<c>dvn install ahk -b</c>", "<c>dvn install ahk --backup</c>")</item>
-    ///     </list>
+    /// There can be any number of options, only those that are valid will be processed.<br/>
+    /// <br/>
+    /// Options:
+    /// <list type="bullet">
+    /// <item>Should <i>follow</i> the <c>command</c> and/or <c>request</c></item>
+    /// <item>Must be separated by a space</item>
+    /// <item><b>Must start</b> with the <c>-</c> character (e.g., <c>dvn install ahk -b</c>, <c>dvn install ahk --backup</c>)</item>
+    /// </list>
     /// </remarks>
+    /// <value>The parsed options.</value>
     internal List<string> Options { get; set; }
 
-    /// <summary>
-    /// Gets or sets the list of valid options that can be processed.
-    /// </summary>
+    /// <summary>Gets or sets the valid options that can be processed.</summary>
+    /// <value>The options that are considered valid.</value>
     internal List<string> ValidOptions { get; set; }
 
     /// <summary>Determines whether any arguments were passed via the command-line.</summary>
@@ -70,9 +70,9 @@ internal class Argument
     internal static bool DoExist(string[] passedArguments) =>
         passedArguments != null && passedArguments.Length != 0;
 
-    /// <summary>Parses the specified command-line arguments into a <see cref="CommandLine"/> object.</summary>
+    /// <summary>Parses the specified command-line arguments into an <see cref="Argument"/> object.</summary>
     /// <param name="passedArguments">The arguments passed via the command-line.</param>
-    /// <returns>A <see cref="CommandLine"/> object containing the parsed command and, potentially, options.</returns>
+    /// <returns>An <see cref="Argument"/> object containing the parsed command and, potentially, options.</returns>
     internal static Argument GetComponents(string[] passedArguments)
     {
         Argument arguments = new Argument();
@@ -152,13 +152,13 @@ internal class Argument
 
     /// <summary>Parses the command component of the arguments passed via the command-line.</summary>
     /// <remarks>
-    ///     Entering a command that does not match any of the case statements will either:
-    ///     <list type="bullet">
-    ///         <item>Start the <c>&lt;command&gt;</c> environment, if a <c>&lt;command&gt;.dvn.manifest</c> file exists.</item>
-    ///         <item>If a <c>&lt;command&gt;.dvn.manifest</c> does not exist, create a new file with default values.</item>
-    ///     </list>
+    /// Entering a command that does not match any of the case statements will either:
+    /// <list type="bullet">
+    /// <item>Start the <c>&lt;command&gt;</c> environment, if a <c>&lt;command&gt;.dvn.manifest</c> file exists.</item>
+    /// <item>If a <c>&lt;command&gt;.dvn.manifest</c> does not exist, create a new file with default values.</item>
+    /// </list>
     /// </remarks>
-    /// <param name="dvnSession">The <see cref="Core.Session"/> instance.</param>
+    /// <param name="dvnSession">The <see cref="Session"/> instance.</param>
     internal static void ParseCommand(Session dvnSession)
     {
         var command = dvnSession.Arguments.Command;
