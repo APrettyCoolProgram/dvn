@@ -11,6 +11,7 @@
   </picture>
 
   <br/>
+  <br/>
 
   ![RELEASE](https://img.shields.io/badge/version-1.2-teal)&nbsp;
   ![STAGE](https://img.shields.io/badge/stable-green)&nbsp; <!-- Alpha = Red, Beta = Yellow, Stable = Green -->
@@ -50,14 +51,14 @@
 
 Let's say you are working something called "MyProject", which requires:
 
-* A Visual Studio 2022 solution named "*MyProject*"
+* A Visual Studio 2022/2026 solution named "*MyProject*"
 * A Visual Studio Code workspace named "*MyProject-Documentation*"
 * A Visual Studio Code workspace named "*Other-Documentation*"
 * GitHub Desktop
 * A webpage containing API documentation
 * Specific data to be backed up
 
-You *could* do all of the above steps manually, *or* you could let **dvn** do it for you by typing
+You *could* do all of the above steps manually, *or* you could let **dvn** do it for you by typing:
 
 ```bash
 dvn myproject
