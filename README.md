@@ -117,24 +117,22 @@ The `.\.dvn\configs\dvn.config` file contains the configuration settings for **d
 
 Currently this file only contains a list of files and folders that are ignored when the data backup functionality is enabled (to keep file sizes are kept to a minimum), so their isn't much to configure.
 
-### MANIFEST FILES
+## MANIFEST FILES
 
-# Manifest files
-
-When you start an environment by typing
+When you start an environment by typing...
 
 ```bash
 dvn myproj
 ```
 
-**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
+...**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
 
 If the file does not exist, it is created using the default settings, which you will need to modify.
 
-> **PLEASE NOTE!**  
-> Any "`\`" characters in the manifest file need to be escaped as "`\\`".
+> [!IMPORTANT]
+> Any `\` characters need to be escaped as `\\`!
 
-## The default manifest
+### The default manifest
 
 When a new manifest file is created, it looks like this:
 
@@ -166,7 +164,7 @@ When a new manifest file is created, it looks like this:
 }
 ```
 
-## Manifest components
+### Manifest components
 
 Manifest files contain the following components:
 
@@ -206,7 +204,9 @@ Each application that will be launched by **dvn** has it's own block with the fo
 * `WebBrowser`  
 A list of webpages to be opened in specific web browsers
 
-A completed manifest file looks like this:
+### A completed manifest file
+
+This is what a completed manifest file looks like:
 
 ```json
 {
@@ -274,9 +274,6 @@ A completed manifest file looks like this:
 }
 ```
 
-> **REMINDER!**  
-> Any `\` characters need to be escaped as `\\`!
-
 The above manifest file will:
 
 1. Start the "**myproj**" development environment
@@ -286,7 +283,6 @@ The above manifest file will:
 5. Start the "**Other-Documentation**" workspace in Visual Studio Code
 6. Start the "**GitHub Desktop**" application
 7. Open various web pages in various web browsers
-
 
 ## USAGE
 
