@@ -1,18 +1,9 @@
-# dvn Changelog
+<div align="center">
 
-## 1.2.0.0
+  <h1>Repository: Changelog</h1>
 
-* `NEW` **Install** command
-* `NEW` **Request** command
+</div>
 
-## 1.1.0.0
+## RYY.MM (YYYY-MM-DD)
 
-* `NEW` Web pages can now be opened with Chrome, Firefox, and Edge
-
-## 1.0.0.0
-
-* Initial release
-
-***
-
-<sub>Last updated: 260418</sub>
+> Please see the [release notes](release-notes/RXX-release-notes.md) for more details.

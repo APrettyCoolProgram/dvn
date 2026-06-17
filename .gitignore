@@ -5,6 +5,10 @@
 ##### 260404_documentation
 ##### =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
+### Agents
+
+AGENTS.override.md
+
 #### Don't commit anything in this directory
 
 *.do-not-commit/
