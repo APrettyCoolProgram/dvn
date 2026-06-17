@@ -1,14 +1,18 @@
 <div align="center">
 
-  <h1>Repository: Development - Version History</h1>
+  <h1>dvn: Development - Version History</h1>
 
 </div>
 
-> This documents the development of dvn 2.0.
 
-## R26.4.0.0.0-development+231428
+## v1.2
 
-* `Added` Microsoft.PowerShell.SDK, allowin us to run PowerShell scripts and commands from our C# code.
+
+## v1.1
+
+
+## v1.0
+
 
 
 ***

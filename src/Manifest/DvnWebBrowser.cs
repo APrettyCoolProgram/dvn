@@ -1,19 +1,22 @@
-﻿// 250920_code
+﻿// 250806_code
 // 260617_documentation
 
 using System.Diagnostics;
 
 namespace dvn.Manifest;
 
-/// <summary>Represents browser launch configuration for a manifest.</summary>
+/// <summary>Represents browser page configuration for a dvn manifest.</summary>
 internal class DvnWebBrowser
 {
-    /// <summary>The pages to open per browser.</summary>
-    /// <value>A dictionary keyed by browser name with page titles and URLs.</value>
-    public Dictionary<string, Dictionary<string, string>> PagesToOpen { get; set; }
+    /// <summary>A dictionary containing browser names and their associated pages.</summary>
+    /// <remarks>
+    ///     The keys are the browser names (for example, <c>IExplore</c> or <c>Firefox</c>), and the values are dictionaries
+    ///     where the keys are page titles and the values are URLs.
+    /// </remarks>
+    public Dictionary<string, Dictionary<string, string>> BrowserPages { get; set; }
 
     /// <summary>Opens the specified pages in their respective browsers.</summary>
-    /// <param name="browserPages">The browser-to-pages mapping to open.</param>
+    /// <param name="browserPages">A dictionary containing browser names and their associated pages.</param>
     internal static void OpenPages(Dictionary<string, Dictionary<string, string>> browserPages)
     {
         foreach (var browser in browserPages)

@@ -12,7 +12,7 @@
 
   <br/>
 
-  ![RELEASE](https://img.shields.io/badge/Version-2.0-teal)&nbsp;
+  ![RELEASE](https://img.shields.io/badge/version-1.2-teal)&nbsp;
   ![STAGE](https://img.shields.io/badge/stable-green)&nbsp; <!-- Alpha = Red, Beta = Yellow, Stable = Green -->
   ![LICENSE](https://img.shields.io/badge/license-apache-blue)&nbsp;
   ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)&nbsp;
@@ -73,11 +73,13 @@ dvn myproject
 
 ### What's New
 
-**v2.0**  
+**v1.2**  
 
-* New feature — A brief description of the new feature and its benefits.
-* Improvement — A brief description of the improvement and its benefits.
-* Bug fix — A brief description of the bug fix and its impact.
+* Updated to .NET 10
+* Updated XML documentation
+* General code cleanup and refactoring
+
+See the [CHANGELOG](docs/CHANGELOG.md) for more details.
 
 <!--
 ### Built With
@@ -96,27 +98,20 @@ A blurb describing how the project works at a high level.
 
 -->
 
-## Getting Started
-
-A quick overview of how to get started with the project.
-
-### Before you begin
-
-Any assumptions, or other information a user should know before
-
 ### Requirements
 
-| Requirement | Minimum version | Notes |
-|-------------|-----------------|-------|
-| [.NET SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0) | 10.0 | Required to build and run. |
-| Requirement | | |
-| Requirement | | |
+* [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
 
-## Installing
+## INSTALLING
 
-Quick summary of installation instructions, or link to the Installing documentation.
+**dvn** is a portable application, so "installing" is simple:
 
-## Usage
+1. Download the [latest release]()
+2. Extract the contents of the downloaded file to a folder of your choice
+
+You'll notice that the folder you extracted to contains a single item: `dvn.exe`
+
+## USAGE
 
 Step-by-step instructions for using the project on supported platforms.
 

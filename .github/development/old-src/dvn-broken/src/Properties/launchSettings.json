@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "dvn": {
+      "commandName": "Project",
+      "commandLineArgs": "dvn -b -caa -vwtw werrr"
+    }
+  }
+}

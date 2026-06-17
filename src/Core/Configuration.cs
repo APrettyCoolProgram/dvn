@@ -1,43 +1,36 @@
-﻿// 250920_code
+﻿// 250801_code
 // 260617_documentation
 
 namespace dvn.Core;
 
-/// <summary>Logic for dvn configuration settings.</summary>
+/// <summary>Provides logic for <c>dvn</c> configuration settings.</summary>
 /// <remarks>
-/// The <see cref="Configuration"/> class contains the definition of the dvn configuration file, which defines:<br/>
+/// The <see cref="Configuration"/> class defines the structure of the <c>dvn</c> configuration file.
+/// It includes:
 /// <list type="bullet">
-/// <item>The <see cref="ManifestExtension"/> extension used for dvn manifest files.</item>
-/// <item>The list of <see cref="InstallableApps"/> that can be installed.</item>
-/// <item>The list of <see cref="ExcludedFiles"/> that are excluded when backing up data.</item>
-/// <item>The list of <see cref="ExcludedFolders"/> that are excluded when backing up data.</item>
+/// <item><see cref="ManifestExtension"/> used for <c>dvn</c> manifest files.</item>
+/// <item><see cref="ExcludedFiles"/> excluded during backup operations.</item>
+/// <item><see cref="ExcludedFolders"/> excluded during backup operations.</item>
 /// </list>
 /// </remarks>
 internal class Configuration
 {
     /// <summary>The file extension used for manifest files.</summary>
-    /// <value>The manifest file extension.</value>
     public string ManifestExtension { get; set; }
 
-    /// <summary>The installable applications that dvn can manage.</summary>
-    /// <value>The available installable applications.</value>
-    public Dictionary<string, string> InstallableApps { get; set; }
-
     /// <summary>The list of files that are excluded when backing up data.</summary>
-    /// <value>The excluded file names.</value>
     public List<string> ExcludedFiles { get; set; }
 
     /// <summary>The list of folders that are excluded when backing up data.</summary>
-    /// <value>The excluded folder names.</value>
     public List<string> ExcludedFolders { get; set; }
 
-    /// <summary>Loads the dvn configuration from a local file.</summary>
+    /// <summary>Loads the <c>dvn</c> configuration from a local file.</summary>
     /// <remarks>
-    /// If the specified configuration file does not exist, a new configuration file is created with default values. That newly<br/>
-    /// created file will then be loaded.
+    /// If the specified configuration file does not exist, a new configuration file is created with default values.
+    /// The newly created file is then loaded.
     /// </remarks>
-    /// <param name="dvnConfigPath">The path to the dvn configuration file.</param>
-    /// <returns>A <see cref="Configuration"/> object representing the dvn configuration.</returns>
+    /// <param name="dvnConfigPath">The path to the <c>dvn</c> configuration file.</param>
+    /// <returns>A <see cref="Configuration"/> object representing the <c>dvn</c> configuration.</returns>
     internal static Configuration LoadFromFile(string dvnConfigPath)
     {
         if (!File.Exists(dvnConfigPath))
@@ -55,9 +48,8 @@ internal class Configuration
         var config = new Configuration()
         {
             ManifestExtension = ".mnfst",
-            InstallableApps   = Blueprint.Catalog.cat_InstallableApps(),
-            ExcludedFiles     = Blueprint.Catalog.cat_IgnoredFiles(),
-            ExcludedFolders   = Blueprint.Catalog.cat_IgnoredFolders()
+            ExcludedFiles     = Blueprint.Catalog.IgnoredFiles(),
+            ExcludedFolders   = Blueprint.Catalog.IgnoredFolders()
         };
 
         Du.DuJson.ExportToFile<Configuration>(config, $@"{dvnConfigPath}");

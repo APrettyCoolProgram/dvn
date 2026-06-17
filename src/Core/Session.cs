@@ -1,59 +1,70 @@
-﻿// 250920_code
+﻿// 250801_code
 // 260617_documentation
 
 using dvn.Blueprint;
+using dvn.App;
 using dvn.Manifest;
 
 namespace dvn.Core;
 
-/// <summary>Represents a dvn session.</summary>
+/// <summary>Session logic.</summary>
 /// <remarks>
-/// A session contains the configuration, arguments, framework data, and available environments used by dvn.<br/>
-/// When dvn exits, the session is disposed of.
+///     A <c>session</c> is a single instance of dvn.<br/>
+///     <br/>
+///     When dvn is executed, a <i>Session instance</i> is created, which contains all the necessary
+///     components that dvn needs to do its job, including:
+///     <list type="bullet">
+///         <item>The dvn <see cref="App.Configuration">configuration</see></item>
+///         <item>The <see cref="App.CommandLine">arguments</see> passed to dvn</item>
+///         <item>The dvn <see cref="App.Framework">framework</see> information</item>
+///         <item>The list of available <see cref="DvnEnvironment">environments</see></item>
+///     </list>
+///     <br/>
+///     When dvn is closed, the <i>Session instance</i> is disposed of.
 /// </remarks>
 internal class Session
 {
-    /// <summary>The <see cref="Configuration"/> instance.</summary>
-    /// <value>The loaded dvn configuration.</value>
+    /// <summary>The <see cref="App.Configuration"/> instance.</summary>
     internal Configuration Configuration { get; set; }
 
-    /// <summary>The parsed command-line arguments.</summary>
-    /// <value>The arguments supplied to dvn.</value>
-    internal Argument Arguments { get; set; }
+    /// <summary>The <see cref="App.CommandLine"/> component.</summary>
+    internal CommandLine CommandLine { get; set; }
 
-    /// <summary>The <see cref="Framework"/> instance.</summary>
-    /// <value>The initialized dvn framework.</value>
+    /// <summary>The <see cref="App.Framework"/> component.</summary>
     internal Framework Framework { get; set; }
 
-    /// <summary>The available environment names and descriptions.</summary>
-    /// <value>The discovered environments.</value>
+    /// <summary>A list of the available environment names and descriptions.</summary>
     internal Dictionary<string, string> AvailableEnvironments { get; set; }
 
     /// <summary>Starts a new dvn session.</summary>
-    /// <remarks>The <c>".\.dvn"</c> folder is hard-coded here because the framework has not been initialized yet.</remarks>
-    /// <param name="passedArguments">The command-line arguments passed to dvn.</param>
+    /// <remarks>The <c>".\.dvn"</c> folder is hard-coded here, since the dvn framework hasn't been initialized yet.</remarks>
+    /// <param name="passedArguments">The dvn <see cref="CommandLine.CommandLine"/> arguments passed to dvn.</param>
     internal static void Start(string[] passedArguments)
     {
         Console.Clear();
 
-        if (Argument.DoExist(passedArguments))
+        Console.WriteLine(UserMessage.msg_StartDvn);
+
+        Framework.VerifyExists(@".\.dvn");
+
+        if (Arguments.DoExist(passedArguments))
         {
             InitializeNew(passedArguments);
         }
         else
         {
-            Stop(UserMessage.usrmsg_MissingArguments);
+            Stop(UserMessage.msg_MissingArguments);
         }
     }
 
     /// <summary>Initializes a new dvn session.</summary>
-    /// <param name="passedArguments">The command-line arguments passed to dvn.</param>
+    /// <param name="passedArguments">The dvn <see cref="CommandLine.CommandLine"/> arguments passed to dvn.</param>
     internal static void InitializeNew(string[] passedArguments)
     {
         var dvnSession = new Session
         {
-            Arguments = Argument.GetComponents(passedArguments),
-            Framework = Framework.BuildNew()
+            CommandLine = CommandLine.GetComponents(passedArguments),
+            Framework   = Framework.BuildNew()
         };
 
         dvnSession.Configuration         = Configuration.LoadFromFile(dvnSession.Framework.Files["ConfigFile"]);
@@ -61,7 +72,7 @@ internal class Session
 
         Framework.Validate(dvnSession.Framework);
 
-        Argument.ParseCommand(dvnSession);
+        Arguments.ParseCommand(dvnSession);
     }
 
     /// <summary>Terminates the application with an optional exit message.</summary>

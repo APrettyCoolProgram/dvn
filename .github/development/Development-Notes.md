@@ -4,7 +4,7 @@
 
 </div>
 
-## Notes from v2.0
+## Notes from v1.2
 
 
 
@@ -56,4 +56,4 @@ Other changes
 
 <br>
 
-<sub>Last updated: 260416</sub>
+<sub>Last updated:260617</sub>

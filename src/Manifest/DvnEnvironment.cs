@@ -1,9 +1,9 @@
-﻿// 250920_code
+﻿// 250806_code
 // 260617_documentation
 
 using dvn.Blueprint;
-using dvn.Core;
 using dvn.Du;
+using dvn.Core;
 
 namespace dvn.Manifest;
 
@@ -11,32 +11,31 @@ namespace dvn.Manifest;
 internal class DvnEnvironment
 {
     /// <summary>The environment name.</summary>
-    /// <value>The environment name.</value>
     public string Name { get; set; }
 
     /// <summary>The environment description.</summary>
-    /// <value>The environment description.</value>
     public string Description { get; set; }
 
     /// <summary>Indicates whether data should be backed up.</summary>
-    /// <value><see langword="true"/> when backups are enabled; otherwise, <see langword="false"/>.</value>
     public bool BackupEnabled { get; set; }
 
-    /// <summary>The backup source directories.</summary>
-    /// <value>The directories that will be copied during backup.</value>
+    /// <summary>The source directories to back up.</summary>
     public List<string> BackupSources { get; set; }
 
-    /// <summary>The backup destination path.</summary>
-    /// <value>The directory where backup archives are stored.</value>
+    /// <summary>The destination path for backups.</summary>
     public string BackupLocation { get; set; }
 
-    /// <summary>Gets the available development environment details.</summary>
+    /// <summary>Gets the details for the available development environments.</summary>
     /// <remarks>
-    /// The returned dictionary contains environment names as keys and environment descriptions as values.
+    ///     The details we are interested in are:
+    ///     <list type="bullet">
+    ///         <item>The environment <see cref="DvnManifest.EnvironmentName">name</see></item>
+    ///         <item>The environment <see cref="DvnManifest.EnvironmentDescription">description</see></item>
+    ///     </list>
     /// </remarks>
     /// <param name="manifestFolder">The folder that contains the dvn manifest files.</param>
-    /// <param name="manifestExtension">The file extension used by dvn manifest files.</param>
-    /// <returns>A dictionary containing the available environment names and descriptions.</returns>
+    /// <param name="manifestExtension">The file extension used for manifest files.</param>
+    /// <returns>The names and descriptions of available environments.</returns>
     internal static Dictionary<string, string> GetEnvironmentDetails(string manifestFolder, string manifestExtension)
     {
         var manifestFiles = Directory.GetFiles(manifestFolder, $"*{manifestExtension}", SearchOption.AllDirectories);
@@ -59,11 +58,11 @@ internal class DvnEnvironment
     {
         if (availableEnvironments.Count == 0)
         {
-            Session.Stop(UserMessage.usrmsg_EnvList("No environments found."));
+            Session.Stop(UserMessage.msg_EnvList("No environments found."));
         }
         else
         {
-            Console.WriteLine(UserMessage.usrmsg_EnvList(DuDictionary.ConvertToString(availableEnvironments, "    ", "")));
+            Console.WriteLine(UserMessage.msg_EnvList(DuDictionary.ConvertToString(availableEnvironments, "    ", "")));
         }
     }
 
@@ -72,15 +71,15 @@ internal class DvnEnvironment
     /// <param name="dvnSession">The session instance.</param>
     internal static void LoadFromManifest(Session dvnSession)
     {
-        if (File.Exists($@"{dvnSession.Framework.Folders["Manifests"]}\{dvnSession.Arguments.Command}{dvnSession.Configuration.ManifestExtension}"))
+        if (File.Exists($@"{dvnSession.Framework.Folders["Manifests"]}\{dvnSession.CommandLine.Command}{dvnSession.Configuration.ManifestExtension}"))
         {
-            Launch(dvnSession.Framework.Folders["Manifests"], dvnSession.Arguments.Command, dvnSession.Configuration.ManifestExtension,
-                   dvnSession.Framework.Folders["Staging"], dvnSession.Arguments.Options, dvnSession.Configuration.ExcludedFiles,
+            Launch(dvnSession.Framework.Folders["Manifests"], dvnSession.CommandLine.Command, dvnSession.Configuration.ManifestExtension,
+                   dvnSession.Framework.Folders["Staging"], dvnSession.CommandLine.Options, dvnSession.Configuration.ExcludedFiles,
                    dvnSession.Configuration.ExcludedFolders);
         }
         else
         {
-            DvnManifest.CreateDefault(dvnSession.Framework.Folders["Manifests"], dvnSession.Arguments.Command, dvnSession.Configuration.ManifestExtension);
+            DvnManifest.CreateDefault(dvnSession.Framework.Folders["Manifests"], dvnSession.CommandLine.Command, dvnSession.Configuration.ManifestExtension);
 
             Session.Stop();
         }
@@ -100,9 +99,9 @@ internal class DvnEnvironment
 
         Console.WriteLine($"{Environment.NewLine}  Launching environment: {dvnManifest.DevelopmentEnvironment.Description}");
 
-        if (Archiver.IsBackupEnabled(dvnManifest.DevelopmentEnvironment.BackupEnabled, dvnOptions))
+        if (Archiver.BackupData.IsBackupEnabled(dvnManifest.DevelopmentEnvironment.BackupEnabled, dvnOptions))
         {
-            Archiver.BackupFolders(dvnManifest.DevelopmentEnvironment.BackupSources, dvnManifest.DevelopmentEnvironment.BackupLocation, stagingPath, excludedFiles, excludedFolders);
+            Archiver.BackupData.BackupFolders(dvnManifest.DevelopmentEnvironment.BackupSources, dvnManifest.DevelopmentEnvironment.BackupLocation, stagingPath, excludedFiles, excludedFolders);
         }
         else
         {
@@ -110,8 +109,8 @@ internal class DvnEnvironment
         }
 
         DvnApplication.StartApplications(dvnManifest.EnvironmentApplications);
-        DvnWebBrowser.OpenPages(dvnManifest.WebBrowser.PagesToOpen);
+        DvnWebBrowser.OpenPages(dvnManifest.WebBrowser.BrowserPages);
 
-        Session.Stop(UserMessage.usrmsg_ExitDvn());
+        Session.Stop(UserMessage.msg_ExitDvn());
     }
 }

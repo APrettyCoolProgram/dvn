@@ -12,6 +12,5 @@ namespace dvn;
 
 internal class ProjectInfo
 {
-    /* For informational purposes only.
-     */
+    // This class is only used for informational purposes.
 }
