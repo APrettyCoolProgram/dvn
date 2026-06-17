@@ -11,29 +11,32 @@ namespace dvn.Manifest;
 internal class DvnEnvironment
 {
     /// <summary>The environment name.</summary>
+    /// <value>The environment name.</value>
     public string Name { get; set; }
 
     /// <summary>The environment description.</summary>
+    /// <value>The environment description.</value>
     public string Description { get; set; }
 
-    /// <summary>Indicates if data should be backed up.</summary>
+    /// <summary>Indicates whether data should be backed up.</summary>
+    /// <value><see langword="true"/> when backups are enabled; otherwise, <see langword="false"/>.</value>
     public bool BackupEnabled { get; set; }
 
-    /// <summary>A dictionary mapping source paths to target paths.</summary>
+    /// <summary>The backup source directories.</summary>
+    /// <value>The directories that will be copied during backup.</value>
     public List<string> BackupSources { get; set; }
 
+    /// <summary>The backup destination path.</summary>
+    /// <value>The directory where backup archives are stored.</value>
     public string BackupLocation { get; set; }
 
-    /// <summary>Get the details for the available development environments.</summary>
+    /// <summary>Gets the available development environment details.</summary>
     /// <remarks>
-    ///     The details we are interested in are:
-    ///     <list type="bullet">
-    ///         <item>The environment <see cref="DvnManifest.EnvironmentName">name</see></item>
-    ///         <item>The environment <see cref="DvnManifest.EnvironmentDescription">description</see></item>
-    ///     </list>
+    /// The returned dictionary contains environment names as keys and environment descriptions as values.
     /// </remarks>
     /// <param name="manifestFolder">The folder that contains the dvn manifest files.</param>
-    /// <returns>The names and descriptions of available environments.</returns>
+    /// <param name="manifestExtension">The file extension used by dvn manifest files.</param>
+    /// <returns>A dictionary containing the available environment names and descriptions.</returns>
     internal static Dictionary<string, string> GetEnvironmentDetails(string manifestFolder, string manifestExtension)
     {
         var manifestFiles = Directory.GetFiles(manifestFolder, $"*{manifestExtension}", SearchOption.AllDirectories);
@@ -50,7 +53,7 @@ internal class DvnEnvironment
         return environmentDetails;
     }
 
-    /// <summary>Display a list of available environments to the console.</summary>
+    /// <summary>Displays a list of available environments to the console.</summary>
     /// <param name="availableEnvironments">A dictionary containing environment names and descriptions.</param>
     internal static void DisplayAvailable(Dictionary<string, string> availableEnvironments)
     {

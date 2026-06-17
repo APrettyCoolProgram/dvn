@@ -5,26 +5,31 @@ using System.Diagnostics;
 
 namespace dvn.Manifest;
 
+/// <summary>Represents a development environment application.</summary>
 internal class DvnApplication
 {
-    ///<summary>The application name.</summary>
+    /// <summary>The application name.</summary>
+    /// <value>The display name of the application.</value>
     public string Name { get; set; }
 
-    ///<summary>The application description.</summary>
+    /// <summary>The application description.</summary>
+    /// <value>The description of the application.</value>
     public string Description { get; set; }
 
-    ///<summary>The application file name.</summary>
+    /// <summary>The application file name.</summary>
+    /// <value>The executable file name or path.</value>
     public string FileName { get; set; }
 
-    ///<summary>The application arguments.</summary>
+    /// <summary>The application arguments.</summary>
+    /// <value>The command-line arguments passed to the application.</value>
     public string Arguments { get; set; }
 
-    ///<summary>The working directory for the application.</summary>
+    /// <summary>The working directory for the application.</summary>
+    /// <value>The working directory used when starting the application.</value>
     public string WorkingDirectory { get; set; }
 
-    /// <summary>Starts a list of applications.</summary>
-    /// <remarks>Currently this functionality only works on Windows systems.</remarks>
-    /// <param name="applications">A list of <see cref="DvnApplication"> applications</see>.</param>
+    /// <summary>Starts the specified applications.</summary>
+    /// <param name="applications">The applications to start.</param>
     internal static void StartApplications(List<DvnApplication> applications)
     {
         foreach (DvnApplication app in applications)

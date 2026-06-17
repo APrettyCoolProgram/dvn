@@ -5,21 +5,15 @@ using System.Diagnostics;
 
 namespace dvn.Manifest;
 
-/// <summary>Web browser-related logic.</summary>
+/// <summary>Represents browser launch configuration for a manifest.</summary>
 internal class DvnWebBrowser
 {
-    /// <summary>A dictionary containing browser names and their associated pages.</summary>
-    /// <remarks>
-    ///     The keys are the browser names (e.g., "IExplore", "Firefox"), and the values are dictionaries
-    ///     where the keys are page titles and the values are URLs.
-    ///
-    ///     For example: <<"IExplore">, <"Project Documentation", "http://the-url.com">>
-    ///
-    /// </remarks>
+    /// <summary>The pages to open per browser.</summary>
+    /// <value>A dictionary keyed by browser name with page titles and URLs.</value>
     public Dictionary<string, Dictionary<string, string>> PagesToOpen { get; set; }
 
     /// <summary>Opens the specified pages in their respective browsers.</summary>
-    /// <param name="browserPages">A dictionary containing browser names and their associated pages.</param>
+    /// <param name="browserPages">The browser-to-pages mapping to open.</param>
     internal static void OpenPages(Dictionary<string, Dictionary<string, string>> browserPages)
     {
         foreach (var browser in browserPages)

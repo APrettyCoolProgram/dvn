@@ -10,17 +10,25 @@ namespace dvn.Manifest;
 /// <summary>Manifest logic.</summary>
 internal class DvnManifest
 {
-    /// <summary>The environment name.</summary>
+    /// <summary>The development environment.</summary>
+    /// <value>The environment settings defined by the manifest.</value>
     public DvnEnvironment DevelopmentEnvironment { get; set; }
 
-    /// <summary>A list of applications associated with the environment.</summary>
+    /// <summary>The applications associated with the environment.</summary>
+    /// <value>The applications that will be started for the environment.</value>
     public List<DvnApplication> EnvironmentApplications { get; set; }
 
+    /// <summary>The web browser configuration.</summary>
+    /// <value>The pages that will be opened in each browser.</value>
     public DvnWebBrowser WebBrowser { get; set; }
 
-    /// <summary>Creates a default instance of the <see cref="DvnManifest"/> class.</summary>
-    /// <param name="fileName">The name of the environment file.</param>
-    /// <returns>A new instance of the <see cref="DevnEnv"/> class initialized with default values.</returns>
+    /// <summary>Creates a default dvn manifest file.</summary>
+    /// <remarks>
+    /// The manifest is created with a default environment, a placeholder application list, and default browser pages.
+    /// </remarks>
+    /// <param name="manifestFolder">The folder where the manifest file will be created.</param>
+    /// <param name="manifestName">The name of the manifest file without extension.</param>
+    /// <param name="manifestExtension">The manifest file extension.</param>
     internal static void CreateDefault(string manifestFolder, string manifestName, string manifestExtension)
     {
         var dvnManifest = new DvnManifest()
