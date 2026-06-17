@@ -1,11 +1,9 @@
-﻿/* dvn.Manifest.DvnEnvironment.cs
- * u250806_code
- * u250806_documentation
- */
+﻿// 250806_code
+// 260617_documentation
 
-using dvn.App;
 using dvn.Blueprint;
 using dvn.Du;
+using dvn.Core;
 
 namespace dvn.Manifest;
 
@@ -18,15 +16,16 @@ internal class DvnEnvironment
     /// <summary>The environment description.</summary>
     public string Description { get; set; }
 
-    /// <summary>Indicates if data should be backed up.</summary>
+    /// <summary>Indicates whether data should be backed up.</summary>
     public bool BackupEnabled { get; set; }
 
-    /// <summary>A dictionary mapping source paths to target paths.</summary>
+    /// <summary>The source directories to back up.</summary>
     public List<string> BackupSources { get; set; }
 
+    /// <summary>The destination path for backups.</summary>
     public string BackupLocation { get; set; }
 
-    /// <summary>Get the details for the available development environments.</summary>
+    /// <summary>Gets the details for the available development environments.</summary>
     /// <remarks>
     ///     The details we are interested in are:
     ///     <list type="bullet">
@@ -35,6 +34,7 @@ internal class DvnEnvironment
     ///     </list>
     /// </remarks>
     /// <param name="manifestFolder">The folder that contains the dvn manifest files.</param>
+    /// <param name="manifestExtension">The file extension used for manifest files.</param>
     /// <returns>The names and descriptions of available environments.</returns>
     internal static Dictionary<string, string> GetEnvironmentDetails(string manifestFolder, string manifestExtension)
     {
@@ -52,7 +52,7 @@ internal class DvnEnvironment
         return environmentDetails;
     }
 
-    /// <summary>Display a list of available environments to the console.</summary>
+    /// <summary>Displays a list of available environments to the console.</summary>
     /// <param name="availableEnvironments">A dictionary containing environment names and descriptions.</param>
     internal static void DisplayAvailable(Dictionary<string, string> availableEnvironments)
     {

@@ -1,7 +1,5 @@
-﻿/* dvn.Blueprint.UserMessage.cs
- * u250801_code
- * u250801_documentation
- */
+﻿// 250801_code
+// 260617_documentation
 
 using System.Reflection;
 
@@ -19,7 +17,7 @@ internal static class UserMessage
 
         """;
 
-    /// <summary>The message that is displayed when dvn is executed for the first time.</summary>
+    /// <summary>The message displayed when dvn is executed for the first time.</summary>
     internal static string msg_WelcomeToDvn =>
         $"""
           -------------------
@@ -38,16 +36,16 @@ internal static class UserMessage
           {msg_ExitDvn()}
         """;
 
-    /// <summary>The message that is displayed when there are missing command line arguments.</summary>
+    /// <summary>The message displayed when command-line arguments are missing.</summary>
     internal static string msg_MissingArguments =>
         $"""
           ERROR: Missing arguments.
           {msg_ExitDvn()}
         """;
 
-    /// <summary>The message that is displayed when dvn exits.</summary>
+    /// <summary>The exit message template for dvn.</summary>
     /// <param name="exitMessage">A customizable exit message.</param>
-    /// <returns>The exit message.</returns>
+    /// <returns>The formatted exit message.</returns>
     internal static string msg_ExitDvn(string exitMessage = "Exiting dvn...") =>
         $"""
 
@@ -58,7 +56,7 @@ internal static class UserMessage
         """;
 
     // TODO pass extension
-    /// <summary>The message that is displayed when creating a new dvn manifest.</summary>
+    /// <summary>The message displayed when creating a new dvn manifest.</summary>
     /// <param name="environmentName">The name of the environment.</param>
     /// <returns>The new manifest message.</returns>
     public static string msg_CreateManifest(string environmentName) =>

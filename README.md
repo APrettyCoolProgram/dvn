@@ -1,18 +1,50 @@
-<!-- u250806 -->
-
+<!--
+  260617_code
+  260617_documentation
+-->
 <div align="center">
 
-  ![](./.github/repo-resource/image/logo/dvn-logo.png)
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="/.github/repository/logo/dvn-306x407.png">
+    <source media="(prefers-color-scheme: light)" srcset="/.github/repository/logo/dvn-306x407.png">
+    <img alt="Fallback image description" src="/.github/repository/logo/dvn-306x407.png">
+  </picture>
 
-  ![Release](https://img.shields.io/badge/release-1.1-teal)&nbsp;&nbsp;
-  [![Windows](https://custom-icon-badges.demolab.com/badge/Windows-0078D6?logo=windows11&logoColor=white)](#)&nbsp;&nbsp;
-  [![.NET](https://img.shields.io/badge/.NET-9-512BD4?)](#)&nbsp;&nbsp;
-  [![C#](https://custom-icon-badges.demolab.com/badge/C%23-%23239120.svg?logo=cshrp&logoColor=white)](#)&nbsp;&nbsp;
-  ![License](https://img.shields.io/badge/license-apache-blue)
+  <br/>
+
+  ![RELEASE](https://img.shields.io/badge/version-1.2-teal)&nbsp;
+  ![STAGE](https://img.shields.io/badge/stable-green)&nbsp; <!-- Alpha = Red, Beta = Yellow, Stable = Green -->
+  ![LICENSE](https://img.shields.io/badge/license-apache-blue)&nbsp;
+  ![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)&nbsp;
 
 </div>
 
-# About **dvn**
+---
+
+<h6 align="center">
+
+  [MANUAL](docs/man/README.md)&nbsp;&bull;&nbsp;[CHANGELOG](docs/CHANGELOG.md)&nbsp;&bull;&nbsp;[ROADMAP](docs/ROADMAP.md)&nbsp;&bull;&nbsp;[KNOWN ISSUES](docs/KNOWN-ISSUES.md)
+
+</h6>
+
+---
+
+### CONTENTS
+
+| CONTENTS                                    |
+|---------------------------------------------|
+| [ABOUT DVN](#about-dvn)                     |
+| [HOW IT WORKS](#how-it-works)               |
+| [GETTING STARTED](#getting-started)         |
+| [INSTALLING](#installing)                   |
+| [USAGE](#usage)                             |
+| [ACKNOWLEDGEMENTS](#acknowledgements)       |
+| [RELATED PROJECTS](#related-projects)       |
+| [LICENSE](#license)                         |
+
+---
+
+## ABOUT DVN
 
 **dvn** is a command-line utility for managing development environments.
 
@@ -31,23 +63,36 @@ You *could* do all of the above steps manually, *or* you could let **dvn** do it
 dvn myproject
 ```
 
-## What's new in v1.1
+<!--
+### Features
 
-**dvn** can now open web pages in Chrome, Firefox, and Edge (IExplore).
+* Feature — What it does and why it matters.
+* Feature — What it does and why it matters.
+* Feature — What it does and why it matters.
+-->
 
-## Pre-requisites
+<!--
+### Built With
 
-* Windows operating system (MacOS/Linux versions are on the roadmap)
-* [.NET 9](https://dotnet.microsoft.com/en-us/download/dotnet/9.0)
+* [Technology or framework](URL)  - Role it plays in the project.
+* [Technology or framework](URL)  - Role it plays in the project.
+* [Technology or framework](URL)  - Role it plays in the project.
 
-# Initial setup
+-->
 
-The initial setup of **dvn** will:
+<!--
 
-1. Install the **dvn application**
-2. Create the **dvn framework**
+## How It Works
 
-## Installing the **dvn** application
+A blurb describing how the project works at a high level.
+
+-->
+
+### Requirements
+
+* [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
+
+## INSTALLING
 
 **dvn** is a portable application, so "installing" is simple:
 
@@ -56,9 +101,9 @@ The initial setup of **dvn** will:
 
 You'll notice that the folder you extracted to contains a single item: `dvn.exe`
 
-## Creating the **dvn** framework
+## CREATING THE DVN FRAMEWORK
 
-The **dvn framework** are the files and folders that are required by **dvn**. This framework doesn't exist yet, so we need to create it.
+The **dvn framework** is comprised of the files and folders that are required by **dvn**. This framework doesn't exist yet, so we need to create it.
 
 To create the **dvn** framework:
 
@@ -71,70 +116,28 @@ dvn
 
 Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
 
-# Using **dvn**
+## CONFIGURING DVN
 
-This is the **dvn** syntax:
+The `.\.dvn\configs\dvn.config` file contains the configuration settings for **dvn**.
 
-```bash
-dvn <command> [-option01 -option02 ...]
-```
+Currently this file only contains a list of files and folders that are ignored when the data backup functionality is enabled (to keep file sizes are kept to a minimum), so their isn't much to configure.
 
-## Commands
+## MANIFEST FILES
 
-**dvn** *requires* that you pass a valid `command`.
-
-In general, you'll use the `%environment%` command, which will start the specified development environment (or create a blank [manifest file](), if one doesn't exist).
-
-For example, to start/create the `myproj` environment, you would type
+When you start an environment by typing...
 
 ```bash
 dvn myproj
 ```
 
-To get a list of valid commands, type
-
-```bash
-dvn help
-```
-
-## Options
-
-**dvn** also accepts `options`, which are...optional
-
-Options:
-
-* Must be a single character
-* Start with the `-` (dash) character
-* Are separated by a space
-
-For example, you can force the data for the `myproj` environment to be backed up by typing
-
-```bash
-dvn myproj -b
-```
-
-To get a list of valid options, type
-
-```bash
-dvn help
-```
-
-# Manifest files
-
-When you start an environment by typing
-
-```bash
-dvn myproj
-```
-
-**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
+...**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
 
 If the file does not exist, it is created using the default settings, which you will need to modify.
 
-> **PLEASE NOTE!**  
-> Any "`\`" characters in the manifest file need to be escaped as "`\\`".
+> [!IMPORTANT]
+> Any `\` characters need to be escaped as `\\`!
 
-## The default manifest
+### The default manifest
 
 When a new manifest file is created, it looks like this:
 
@@ -166,7 +169,7 @@ When a new manifest file is created, it looks like this:
 }
 ```
 
-## Manifest components
+### Manifest components
 
 Manifest files contain the following components:
 
@@ -206,7 +209,9 @@ Each application that will be launched by **dvn** has it's own block with the fo
 * `WebBrowser`  
 A list of webpages to be opened in specific web browsers
 
-A completed manifest file looks like this:
+### A completed manifest file
+
+This is what a completed manifest file looks like:
 
 ```json
 {
@@ -274,9 +279,6 @@ A completed manifest file looks like this:
 }
 ```
 
-> **REMINDER!**  
-> Any `\` characters need to be escaped as `\\`!
-
 The above manifest file will:
 
 1. Start the "**myproj**" development environment
@@ -287,8 +289,71 @@ The above manifest file will:
 6. Start the "**GitHub Desktop**" application
 7. Open various web pages in various web browsers
 
-# Configuring **dvn**
+## USAGE
 
-The `.\.dvn\configs\dvn.config` file contains the [configuration settings]() for **dvn**.
+This is the **dvn** syntax:
 
-Currently this file only contains a list of files and folders that are ignored when the data backup functionality is enabled (to keep file sizes are kept to a minimum), so their isn't much to configure...yet.
+```bash
+dvn <command> [-option01 -option02 ...]
+```
+
+### Commands
+
+**dvn** *requires* that you pass a valid `command`.
+
+In general, you'll use the `%environment%` command, which will start the specified development environment (or create a blank [manifest file](), if one doesn't exist).
+
+For example, to start/create the `myproj` environment, you would type
+
+```bash
+dvn myproj
+```
+
+To get a list of valid commands, type
+
+```bash
+dvn help
+```
+
+### Options
+
+**dvn** also accepts `options`, which are...optional
+
+Options:
+
+* Must be a single character
+* Start with the `-` (dash) character
+* Are separated by a space
+
+For example, you can force the data for the `myproj` environment to be backed up by typing
+
+```bash
+dvn myproj -b
+```
+
+To get a list of valid options, type
+
+```bash
+dvn help
+```
+
+## Documentation
+
+Coming soon.
+
+## License
+
+Distributed under the [Apache 2.0 License](LICENSE).  
+Copyright &copy; 2026 [A Pretty Cool Program](https://github.com/APrettyCoolProgram)
+
+---
+
+<h6 align="center">
+
+  [FAQ](docs/FAQ.md)&nbsp;&bull;&nbsp;[DEVELOPMENT](docs/DEVELOPMENT.md)&nbsp;&bull;&nbsp;[API](docs/api/README.md)&nbsp;&bull;&nbsp;[TESTING](docs/TESTING.md)&nbsp;&bull;&nbsp;[SUPPORT](docs/SUPPORT.md)&nbsp;&bull;&nbsp;[NOTICES](docs/NOTICES.md)
+  
+</h6>
+
+---
+
+<sub>Last updated: 260419</sub>

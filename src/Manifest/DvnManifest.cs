@@ -1,27 +1,28 @@
-﻿/* dvn.Manifest.DvnManifest.cs
- * u250806_code
- * u250806_documentation
- */
+﻿// 250806_code
+// 260617_documentation
 
-using dvn.App;
 using dvn.Blueprint;
 using dvn.Du;
+using dvn.Core;
 
 namespace dvn.Manifest;
 
+/// <summary>Represents a dvn manifest file.</summary>
 internal class DvnManifest
 {
-    /// <summary>The environment name.</summary>
+    /// <summary>The development environment definition.</summary>
     public DvnEnvironment DevelopmentEnvironment { get; set; }
 
-    /// <summary>A list of applications associated with the environment.</summary>
+    /// <summary>The applications associated with the environment.</summary>
     public List<DvnApplication> EnvironmentApplications { get; set; }
 
+    /// <summary>The web browser configuration for the environment.</summary>
     public DvnWebBrowser WebBrowser { get; set; }
 
     /// <summary>Creates a default instance of the <see cref="DvnManifest"/> class.</summary>
-    /// <param name="fileName">The name of the environment file.</param>
-    /// <returns>A new instance of the <see cref="DevnEnv"/> class initialized with default values.</returns>
+    /// <param name="manifestFolder">The folder where the manifest file will be created.</param>
+    /// <param name="manifestName">The name of the environment file.</param>
+    /// <param name="manifestExtension">The file extension used for manifest files.</param>
     internal static void CreateDefault(string manifestFolder, string manifestName, string manifestExtension)
     {
         var dvnManifest = new DvnManifest()

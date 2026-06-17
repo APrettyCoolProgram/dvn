@@ -1,32 +1,31 @@
-﻿/* dvn.Manifest.DvnApplication.cs
- * u250806_code
- * u250806_documentation
- */
+﻿// 250806_code
+// 260617_documentation
 
 using System.Diagnostics;
 
 namespace dvn.Manifest;
 
+/// <summary>Represents an application defined in a dvn manifest.</summary>
 internal class DvnApplication
 {
-    ///<summary>The application name.</summary>
+    /// <summary>The application name.</summary>
     public string Name { get; set; }
 
-    ///<summary>The application description.</summary>
+    /// <summary>The application description.</summary>
     public string Description { get; set; }
 
-    ///<summary>The application file name.</summary>
+    /// <summary>The application file name.</summary>
     public string FileName { get; set; }
 
-    ///<summary>The application arguments.</summary>
+    /// <summary>The application arguments.</summary>
     public string Arguments { get; set; }
 
-    ///<summary>The working directory for the application.</summary>
+    /// <summary>The working directory for the application.</summary>
     public string WorkingDirectory { get; set; }
 
-    /// <summary>Starts a list of applications.</summary>
+    /// <summary>Starts each application in the supplied list.</summary>
     /// <remarks>Currently this functionality only works on Windows systems.</remarks>
-    /// <param name="applications">A list of <see cref="DvnApplication"> applications</see>.</param>
+    /// <param name="applications">A list of <see cref="DvnApplication"/> instances.</param>
     internal static void StartApplications(List<DvnApplication> applications)
     {
         foreach (DvnApplication app in applications)

@@ -1,19 +1,15 @@
-﻿/* DuJson.cs
- * Does stuff with JSON data.
- * b250801
- * A Pretty Cool Program
- * https://
- */
+﻿// 250801_code
+// 260617_documentation
 
 using System.Text.Json;
 
 namespace dvn.Du;
 
-/// <summary>Does stuff with JSON data.</summary>
+/// <summary>Utility methods for working with JSON data.</summary>
 public static class DuJson
 {
     // [250801]
-    /// <summary>Export JSON data to an external file. [250108]</summary>
+    /// <summary>Exports JSON data to an external file.</summary>
     /// <typeparam name="JsonObject">The JSON object type.</typeparam>
     /// <param name="jsonObject">The JSON object.</param>
     /// <param name="filePath">The export file path.</param>
@@ -48,7 +44,7 @@ public static class DuJson
     }
 
     // [250801]
-    /// <summary>Import JSON data from an external file. [250108]</summary>
+    /// <summary>Imports JSON data from an external file.</summary>
     /// <typeparam name="JsonObject">The JSON object type.</typeparam>
     /// <param name="filePath">The import file path.</param>
     /// <remarks>

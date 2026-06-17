@@ -1,16 +1,16 @@
-﻿/* dvn.Manifest.DvnWebBrowser.cs
- * u250806_code
- * u250806_documentation
- */
+﻿// 250806_code
+// 260617_documentation
 
 using System.Diagnostics;
 
 namespace dvn.Manifest;
+
+/// <summary>Represents browser page configuration for a dvn manifest.</summary>
 internal class DvnWebBrowser
 {
     /// <summary>A dictionary containing browser names and their associated pages.</summary>
     /// <remarks>
-    ///     The keys are the browser names (e.g., "IExplore", "Firefox"), and the values are dictionaries
+    ///     The keys are the browser names (for example, <c>IExplore</c> or <c>Firefox</c>), and the values are dictionaries
     ///     where the keys are page titles and the values are URLs.
     /// </remarks>
     public Dictionary<string, Dictionary<string, string>> BrowserPages { get; set; }
