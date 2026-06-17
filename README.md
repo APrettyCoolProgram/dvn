@@ -58,11 +58,7 @@ Let's say you are working something called "MyProject", which requires:
 * A webpage containing API documentation
 * Specific data to be backed up
 
-You *could* do all of the above steps manually, *or* you could let **dvn** do it for you by typing:
-
-```bash
-dvn myproject
-```
+You *could* do all of the above steps manually, *or* you could let **dvn** do it for you by typing: `dvn myproject`
 
 <!--
 ### Features
