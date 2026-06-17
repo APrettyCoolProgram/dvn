@@ -36,23 +36,6 @@ internal class Session
     {
         Console.Clear();
 
-        /* FUTURE FUNCTIONALITY */
-        //var operatingSystem = Du.DuOperatingSystem.GetOS();
-
-        //Console.WriteLine(UserMessage.msg_StartDvn);
-
-        //if (operatingSystem == "Windows)")
-        //{
-        //    Console.WriteLine("Operating System: " + operatingSystem);
-        //    Framework.VerifyExists(@".\.dvn");
-
-        //}
-        //else if (operatingSystem == "macOS" || operatingSystem == "Linux")
-        //{
-        //    Console.WriteLine("Operating System: " + operatingSystem);
-        //    Framework.VerifyExists(@"./.dvn");
-        //}
-
         if (Argument.DoExist(passedArguments))
         {
             InitializeNew(passedArguments);
@@ -70,7 +53,7 @@ internal class Session
         var dvnSession = new Session
         {
             Arguments = Argument.GetComponents(passedArguments),
-            Framework   = Framework.BuildNew()
+            Framework = Framework.BuildNew()
         };
 
         dvnSession.Configuration         = Configuration.LoadFromFile(dvnSession.Framework.Files["ConfigFile"]);
