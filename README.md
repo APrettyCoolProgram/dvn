@@ -104,7 +104,7 @@ The **dvn framework** is comprised of the files and folders that are required by
 To create the **dvn** framework:
 
 1. Open a terminal in the the folder that contains `dvn.exe`
-2. Type `dvn`
+2. Type `"dvn"`
 
 Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
 
