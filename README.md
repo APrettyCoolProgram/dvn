@@ -111,6 +111,183 @@ A blurb describing how the project works at a high level.
 
 You'll notice that the folder you extracted to contains a single item: `dvn.exe`
 
+## CONFIGURING
+
+The `.\.dvn\configs\dvn.config` file contains the configuration settings for **dvn**.
+
+Currently this file only contains a list of files and folders that are ignored when the data backup functionality is enabled (to keep file sizes are kept to a minimum), so their isn't much to configure.
+
+### MANIFEST FILES
+
+# Manifest files
+
+When you start an environment by typing
+
+```bash
+dvn myproj
+```
+
+**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
+
+If the file does not exist, it is created using the default settings, which you will need to modify.
+
+> **PLEASE NOTE!**  
+> Any "`\`" characters in the manifest file need to be escaped as "`\\`".
+
+## The default manifest
+
+When a new manifest file is created, it looks like this:
+
+```json
+{
+  "DevelopmentEnvironment": {
+    "Name": "test2",
+    "Description": "Default environment description.",
+    "BackupEnabled": false,
+    "BackupSources": null,
+    "BackupLocation": null
+  },
+  "EnvironmentApplications": [
+    {
+      "Name": null,
+      "Description": null,
+      "FileName": null,
+      "Arguments": null,
+      "WorkingDirectory": null
+    }
+  ],
+  "WebBrowser": {
+    "BrowserPages": {
+      "Chrome": {},
+      "IExplore": {},
+      "Firefox": {}
+    }
+  }
+}
+```
+
+## Manifest components
+
+Manifest files contain the following components:
+
+* `Name`  
+The name of the environment (e.g., "myproj").
+
+* `Description`  
+The description of the environment (e.g., "My project environment").
+
+* `BackupEnabled`  
+Determines if the data backup functionality is *enabled* ("true"), or *disabled* ("false").
+
+* `BackupSources`  
+Absolute paths to data that will be backed up, if the data backup functionality is enabled.  
+
+* `BackupLocation`  
+The absolute path where backups are created.
+
+* `EnvironmentApplication`  
+Each application that will be launched by **dvn** has it's own block with the following data:
+
+  * `Name`  
+  The name of the application
+
+  * `Description`  
+  Description of the application
+
+  * `FileName`  
+  The application file name
+
+  * `Arguments`  
+  Any command-line arguments
+
+  * `WorkingDirectory`  
+  The application working directory
+
+* `WebBrowser`  
+A list of webpages to be opened in specific web browsers
+
+A completed manifest file looks like this:
+
+```json
+{
+  "DevelopmentEnvironment": {
+    "Name": "myproj",
+    "Description": "My project environment",
+    "BackupEnabled": true,
+    "BackupSources": [
+      "C:\\repositories\\MyProject",
+      "C:\\data\\reports"
+    ],
+    "BackupLocation": "C:\\backups",
+  },
+  "EnvironmentApplications": [
+    {
+      "Name": "Visual Studio - MyProject",
+      "Description": "MyProject solution",
+      "FileName": "MyProject.sln",
+      "Arguments": null,
+      "WorkingDirectory": "C:\\repositories\\MyProject\\src"
+    },
+    {
+    "Name": "Visual Studio Code - MyProject documentation",
+    "Description": "MyProject documentation",
+    "FileName": "Code.exe",
+    "Arguments": "MyProject-documentation.code-workspace | exit /b",
+    "WorkingDirectory": "\\path\\to\\VisualStudioCode"
+    },
+    {
+    "Name": "Visual Studio Code - Other documentation",
+    "Description": "Other documentation",
+    "FileName": "Code.exe",
+    "Arguments": "Other-documentation.code-workspace | exit /b",
+    "WorkingDirectory": "\\path\\to\\VisualStudioCode"
+    },
+    {
+      "Name": "GitHub Desktop",
+      "Description": "GitHub Desktop",
+      "FileName": "GitHubDesktop.exe",
+      "Arguments": null,
+      "WorkingDirectory": "C:\\Users\\JaneSmith\\AppData\\Local\\GitHubDesktop"
+    }
+  ],
+  "WebBrowser":
+  {
+    "BrowserPages":
+    {
+	  "Chrome":
+      {
+        "Wikipedia": "https://www.google.com",
+        "Weather.com": "https://www.weather.com"
+      },
+	  "Firefox":
+      {
+	      "Firefox": "https://www.firefox.com",
+        "Wikipedia": "https://www.wikipedia.com"
+      },
+      "IExplore":
+      {
+        "Microsoft": "https://www.microsoft.com",
+		    "Xbox": "https://xbox.com"
+      }
+    }
+  }
+}
+```
+
+> **REMINDER!**  
+> Any `\` characters need to be escaped as `\\`!
+
+The above manifest file will:
+
+1. Start the "**myproj**" development environment
+2. Backup the "**C:\repositories\MyProject**" and "**C:\data\reports**" to "**C:\backups**"
+3. Start the "**MyProject**" solution in Visual Studio
+4. Start the "**MyProject-Documentation**" workspace in Visual Studio Code
+5. Start the "**Other-Documentation**" workspace in Visual Studio Code
+6. Start the "**GitHub Desktop**" application
+7. Open various web pages in various web browsers
+
+
 ## USAGE
 
 ### Creating the dvn framework
@@ -127,6 +304,34 @@ dvn
 ```
 
 Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### The dvn syntax
 
@@ -176,18 +381,9 @@ To get a list of valid options, type
 dvn help
 ```
 
-
-
-Step-by-step instructions for using the project on supported platforms.
-
 ## Documentation
 
-Documentation is available.
-
-## Acknowledgements
-
-
-## Related projects
+Coming soon.
 
 ## License
 
