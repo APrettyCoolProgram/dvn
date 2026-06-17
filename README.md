@@ -111,7 +111,22 @@ A blurb describing how the project works at a high level.
 
 You'll notice that the folder you extracted to contains a single item: `dvn.exe`
 
-## CONFIGURING
+## CREATING THE DVN FRAMEWORK
+
+The **dvn framework** is comprised of the files and folders that are required by **dvn**. This framework doesn't exist yet, so we need to create it.
+
+To create the **dvn** framework:
+
+1. Open a terminal in the the folder that contains `dvn.exe`
+2. Type
+
+```bash
+dvn
+```
+
+Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
+
+## CONFIGURING DVN
 
 The `.\.dvn\configs\dvn.config` file contains the configuration settings for **dvn**.
 
@@ -286,58 +301,13 @@ The above manifest file will:
 
 ## USAGE
 
-### Creating the dvn framework
-
-The **dvn framework** is comprised of the files and folders that are required by **dvn**. This framework doesn't exist yet, so we need to create it.
-
-To create the **dvn** framework:
-
-1. Open a terminal in the the folder that contains `dvn.exe`
-2. Type
-
-```bash
-dvn
-```
-
-Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### The dvn syntax
-
 This is the **dvn** syntax:
 
 ```bash
 dvn <command> [-option01 -option02 ...]
 ```
 
-## Commands
+### Commands
 
 **dvn** *requires* that you pass a valid `command`.
 
@@ -355,7 +325,7 @@ To get a list of valid commands, type
 dvn help
 ```
 
-## Options
+### Options
 
 **dvn** also accepts `options`, which are...optional
 
