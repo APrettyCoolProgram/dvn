@@ -1,12 +1,5 @@
-﻿// =============================================================================
-// dvn.Core.Framework.cs
-// https://github.com/aprettycoolprogram/dvn
-// Copyright (c) A Pretty Cool Program. All rights reserved.
-// Licensed under the Apache 2.0 license.
-// -----------------------------------------------------------------------------
-// u250920_code
+﻿//// u250920_code
 // u250920_documentation
-// =============================================================================
 
 using dvn.Blueprint;
 
@@ -23,7 +16,7 @@ namespace dvn.Core;
 internal class Framework
 {
     /// <summary>Files required by dvn.</summary>
-    internal Dictionary<string,string> Files { get; set; }
+    internal Dictionary<string, string> Files { get; set; }
 
     /// <summary>Folders required by dvn.</summary>
     internal Dictionary<string, string> Folders { get; set; }

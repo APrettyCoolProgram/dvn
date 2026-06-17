@@ -1,12 +1,5 @@
-﻿// =============================================================================
-// dvn.Core.Archiver.cs
-// https://github.com/aprettycoolprogram/dvn
-// Copyright (c) A Pretty Cool Program. All rights reserved.
-// Licensed under the Apache 2.0 license.
-// -----------------------------------------------------------------------------
-// u250920_code
+﻿// u250920_code
 // u250920_documentation
-// =============================================================================
 
 using System.IO.Compression;
 using dvn.Du;
@@ -32,7 +25,7 @@ internal static class Archiver
     /// <param name="manifest">The data backup flag in the manifest file.</param>
     /// <param name="dvnOptions">The data backup flag in the command line arguments.</param>
     /// <returns><c>true</c> if data backups are enabled, and <c>false</c> if they are not.</returns>
-    internal static bool IsBackupEnabled(bool manifest, List<string> dvnOptions) =>  manifest || dvnOptions.Contains("-b");
+    internal static bool IsBackupEnabled(bool manifest, List<string> dvnOptions) => manifest || dvnOptions.Contains("-b");
 
     /// <summary>Backup repository data.</summary>
     /// <param name="backupSources">The repository sources to backup.</param>

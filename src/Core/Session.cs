@@ -1,12 +1,5 @@
-﻿// =============================================================================
-// dvn.Core.Session.cs
-// https://github.com/aprettycoolprogram/dvn
-// Copyright (c) A Pretty Cool Program. All rights reserved.
-// Licensed under the Apache 2.0 license.
-// -----------------------------------------------------------------------------
-// u250920_code
+﻿// u250920_code
 // u250920_documentation
-// =============================================================================
 
 using dvn.Blueprint;
 using dvn.Manifest;
@@ -65,9 +58,9 @@ internal class Session
         //    Console.WriteLine("Operating System: " + operatingSystem);
         //    Framework.VerifyExists(@"./.dvn");
 
-            
+
         //}
-       
+
 
         if (Argument.DoExist(passedArguments))
         {
@@ -85,7 +78,7 @@ internal class Session
     {
         var dvnSession = new Session
         {
-            Arguments = Argument.GetComponents(passedArguments), 
+            Arguments = Argument.GetComponents(passedArguments),
             Framework   = Framework.BuildNew()
         };
 
