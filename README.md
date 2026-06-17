@@ -107,7 +107,7 @@ To create the **dvn** framework:
 2. Type
 
 ```bash
-dvn
+$ dvn
 ```
 
 Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
@@ -123,7 +123,7 @@ Currently this file only contains a list of files and folders that are ignored w
 When you start an environment by typing...
 
 ```bash
-dvn myproj
+$ dvn myproj
 ```
 
 ...**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
@@ -302,13 +302,13 @@ In general, you'll use the `%environment%` command, which will start the specifi
 For example, to start/create the `myproj` environment, you would type
 
 ```bash
-dvn myproj
+$ dvn myproj
 ```
 
 To get a list of valid commands, type
 
 ```bash
-dvn help
+$ dvn help
 ```
 
 ### Options
@@ -324,13 +324,13 @@ Options:
 For example, you can force the data for the `myproj` environment to be backed up by typing
 
 ```bash
-dvn myproj -b
+$ dvn myproj -b
 ```
 
 To get a list of valid options, type
 
 ```bash
-dvn help
+$ dvn help
 ```
 
 ## Documentation
