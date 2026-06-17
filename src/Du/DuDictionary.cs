@@ -1,9 +1,5 @@
-﻿/* DuDictionary.cs
- * Does stuff with Dictionary objects.
- * b250801
- * A Pretty Cool Program
- * https://
- */
+﻿// 250801_code
+// 250801_documentation
 
 using System.Text;
 

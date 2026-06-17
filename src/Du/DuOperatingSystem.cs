@@ -1,11 +1,5 @@
-/* DuOperatingSystem.cs
- * Does stuff with JSON data.
- * b250808
- * A Pretty Cool Program
- * https://
- */
-
-using System.Text.Json;
+// 250808_code
+// 250808_documentation
 
 namespace dvn.Du;
 

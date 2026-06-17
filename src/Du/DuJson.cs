@@ -1,9 +1,5 @@
-﻿/* DuJson.cs
- * Does stuff with JSON data.
- * b250801
- * A Pretty Cool Program
- * https://
- */
+﻿// 250801_code
+// 250801_documentation
 
 using System.Text.Json;
 

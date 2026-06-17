@@ -1,9 +1,5 @@
-﻿/* DuDirectory.cs
- * Does stuff with directories.
- * b250801
- * A Pretty Cool Program
- * https://
- */
+﻿// 250801_code
+// 250801_documentation
 
 namespace dvn.Du;
 

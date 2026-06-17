@@ -1,9 +1,5 @@
-﻿/* DuInternet.cs
- * Does stuff with the internet.
- * b250815
- * A Pretty Cool Program
- * https://
- */
+﻿// 250815_code
+// 250815_documentation
 
 using System.Net;
 
