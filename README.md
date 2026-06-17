@@ -116,13 +116,7 @@ Currently this file only contains a list of files and folders that are ignored w
 
 ## MANIFEST FILES
 
-When you start an environment by typing...
-
-```bash
-dvn myproj
-```
-
-...**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
+When you start an environment by typing `dvn myproj`, **dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
 
 If the file does not exist, it is created using the default settings, which you will need to modify.
 
