@@ -113,6 +113,71 @@ You'll notice that the folder you extracted to contains a single item: `dvn.exe`
 
 ## USAGE
 
+### Creating the dvn framework
+
+The **dvn framework** is comprised of the files and folders that are required by **dvn**. This framework doesn't exist yet, so we need to create it.
+
+To create the **dvn** framework:
+
+1. Open a terminal in the the folder that contains `dvn.exe`
+2. Type
+
+```bash
+dvn
+```
+
+Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
+
+### The dvn syntax
+
+This is the **dvn** syntax:
+
+```bash
+dvn <command> [-option01 -option02 ...]
+```
+
+## Commands
+
+**dvn** *requires* that you pass a valid `command`.
+
+In general, you'll use the `%environment%` command, which will start the specified development environment (or create a blank [manifest file](), if one doesn't exist).
+
+For example, to start/create the `myproj` environment, you would type
+
+```bash
+dvn myproj
+```
+
+To get a list of valid commands, type
+
+```bash
+dvn help
+```
+
+## Options
+
+**dvn** also accepts `options`, which are...optional
+
+Options:
+
+* Must be a single character
+* Start with the `-` (dash) character
+* Are separated by a space
+
+For example, you can force the data for the `myproj` environment to be backed up by typing
+
+```bash
+dvn myproj -b
+```
+
+To get a list of valid options, type
+
+```bash
+dvn help
+```
+
+
+
 Step-by-step instructions for using the project on supported platforms.
 
 ## Documentation
