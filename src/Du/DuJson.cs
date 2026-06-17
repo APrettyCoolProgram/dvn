@@ -5,32 +5,23 @@ using System.Text.Json;
 
 namespace dvn.Du;
 
-/// <summary>Does stuff with JSON data.</summary>
+/// <summary>Provides helpers for reading and writing JSON data.</summary>
 public static class DuJson
 {
     // [250801]
-    /// <summary>Export JSON data to an external file. [250108]</summary>
+    /// <summary>Exports JSON data to a file.</summary>
     /// <typeparam name="JsonObject">The JSON object type.</typeparam>
-    /// <param name="jsonObject">The JSON object.</param>
+    /// <param name="jsonObject">The JSON object to serialize.</param>
     /// <param name="filePath">The export file path.</param>
     /// <remarks>
-    ///  <para>
-    ///   <example>
-    ///    To export a nicely-formatted JSON object:
-    ///    <code>
-    ///     TheObject theObject = new TheObject();
-    ///     DuJson.ExportToLocalFile&lt;TheObject&gt;(theObject, "/Path/To/Export/File");
-    ///    </code>
-    ///   </example>
-    ///   <example>
-    ///    To export an unformatted JSON object:
-    ///    <code>
-    ///     TheObject theObject = new TheObject();
-    ///     DuJson.ExportToLocalFile&lt;TheObject&gt;(theObject, "/Path/To/Export/File", false);
-    ///    </code>
-    ///   </example>
-    ///  </para>
+    /// Use this method to write a JSON object to disk with indented formatting.
     /// </remarks>
+    /// <example>
+    /// <code>
+    /// TheObject theObject = new TheObject();
+    /// DuJson.ExportToFile&lt;TheObject&gt;(theObject, "/Path/To/Export/File");
+    /// </code>
+    /// </example>
     public static void ExportToFile<JsonObject>(JsonObject jsonObject, string filePath)
     {
         var jsonFormat = new JsonSerializerOptions
@@ -44,20 +35,18 @@ public static class DuJson
     }
 
     // [250801]
-    /// <summary>Import JSON data from an external file. [250108]</summary>
+    /// <summary>Imports JSON data from a file.</summary>
     /// <typeparam name="JsonObject">The JSON object type.</typeparam>
     /// <param name="filePath">The import file path.</param>
     /// <remarks>
-    ///  <para>
-    ///   <example>
-    ///    To import a JSON object from a local file:
-    ///    <code>
-    ///      TheObject theObject = DuJson.ImportFromLocalFile&lt;TheObject&gt;("/Path/To/Import/File");
-    ///    </code>
-    ///   </example>
-    ///  </para>
+    /// Use this method to read JSON data from disk and deserialize it into an object.
     /// </remarks>
-    /// <returns>The contents of the file as a JSON object.</returns>
+    /// <returns>The deserialized JSON object.</returns>
+    /// <example>
+    /// <code>
+    /// TheObject theObject = DuJson.ImportFromFile&lt;TheObject&gt;("/Path/To/Import/File");
+    /// </code>
+    /// </example>
     public static JsonObject ImportFromFile<JsonObject>(string filePath)
     {
         var fileContents = File.ReadAllText(filePath);

@@ -5,8 +5,15 @@ using dvn.Manifest;
 
 namespace dvn.Core;
 
+/// <summary>Handles list-related commands.</summary>
 internal class Lister
 {
+    /// <summary>Processes the list command output.</summary>
+    /// <remarks>
+    /// When no options are supplied, available environments are displayed.<br/>
+    /// Otherwise, the method evaluates list-specific options.
+    /// </remarks>
+    /// <param name="dvnSession">The current dvn session.</param>
     internal static void Parse(Session dvnSession)
     {
         if (dvnSession.Arguments.Options.Count == 0)

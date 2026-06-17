@@ -1,43 +1,37 @@
 ﻿// u250920_code
-// u250920_documentation
+// u260617_documentation
 
 using dvn.Blueprint;
 using dvn.Manifest;
 
 namespace dvn.Core;
 
-/// <summary>Session logic.</summary>
+/// <summary>Represents a dvn session.</summary>
 /// <remarks>
-///     A "<c>session</c>" is a single instance of dvn.<br/>
-///     <br/>
-///     When dvn is executed, a <i>Session instance</i> is created, which contains all the necessary<br/>
-///     components that dvn needs to do its job, including:
-///     <list type="bullet">
-///         <item>The dvn <see cref="Core.Configuration">configuration</see></item>
-///         <item>The <see cref="Core.CommandLine">arguments</see> passed to dvn</item>
-///         <item>The dvn <see cref="Core.Framework">framework</see> information</item>
-///         <item>The list of available <see cref="DvnEnvironment">environments</see></item>
-///     </list>
-///     <br/>
-///     When dvn is closed, the <i>Session instance</i> is disposed of.
+/// A session contains the configuration, arguments, framework data, and available environments used by dvn.<br/>
+/// When dvn exits, the session is disposed of.
 /// </remarks>
 internal class Session
 {
-    /// <summary>The <see cref="Core.Configuration"/> instance.</summary>
+    /// <summary>The <see cref="Configuration"/> instance.</summary>
+    /// <value>The loaded dvn configuration.</value>
     internal Configuration Configuration { get; set; }
 
-    /// <summary>The <see cref="Core.CommandLine"/> component.</summary>
+    /// <summary>The parsed command-line arguments.</summary>
+    /// <value>The arguments supplied to dvn.</value>
     internal Argument Arguments { get; set; }
 
-    /// <summary>The <see cref="Core.Framework"/> component.</summary>
+    /// <summary>The <see cref="Framework"/> instance.</summary>
+    /// <value>The initialized dvn framework.</value>
     internal Framework Framework { get; set; }
 
-    /// <summary>A list of the available environment names and descriptions.</summary>
+    /// <summary>The available environment names and descriptions.</summary>
+    /// <value>The discovered environments.</value>
     internal Dictionary<string, string> AvailableEnvironments { get; set; }
 
     /// <summary>Starts a new dvn session.</summary>
-    /// <remarks>The <c>".\.dvn"</c> folder is hard-coded here, since the dvn framework hasn't been initialized yet.</remarks>
-    /// <param name="passedArguments">The dvn <see cref="CommandLine.CommandLine"/> arguments passed to dvn.</param>
+    /// <remarks>The <c>".\.dvn"</c> folder is hard-coded here because the framework has not been initialized yet.</remarks>
+    /// <param name="passedArguments">The command-line arguments passed to dvn.</param>
     internal static void Start(string[] passedArguments)
     {
         Console.Clear();
@@ -72,8 +66,8 @@ internal class Session
         }
     }
 
-    /// <summary>Initialize a new dvn session.</summary>
-    /// <param name="dvnArguments">The dvn <see cref="CommandLine.Arguments">arguments</see> passed to dvn.</param>
+    /// <summary>Initializes a new dvn session.</summary>
+    /// <param name="passedArguments">The command-line arguments passed to dvn.</param>
     internal static void InitializeNew(string[] passedArguments)
     {
         var dvnSession = new Session

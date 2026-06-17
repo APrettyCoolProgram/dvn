@@ -3,6 +3,7 @@
 
 namespace dvn.Du;
 
+/// <summary>Provides operating system-related helpers.</summary>
 public static class DuOperatingSystem
 {
     /* FUTURE FUNCTIONALITY */
