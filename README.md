@@ -10,6 +10,8 @@
     <img alt="Fallback image description" src="/.github/repository/logo/dvn-306x407.png">
   </picture>
 
+  <br/>
+
   ![RELEASE](https://img.shields.io/badge/Version-2.0-teal)&nbsp;
   ![STAGE](https://img.shields.io/badge/stable-green)&nbsp; <!-- Alpha = Red, Beta = Yellow, Stable = Green -->
   ![LICENSE](https://img.shields.io/badge/license-apache-blue)&nbsp;
@@ -31,7 +33,7 @@
 
 | CONTENTS                                    |
 |---------------------------------------------|
-| [ABOUT dnv](#about-dnv) |
+| [ABOUT DVN](#about-dvn)                     |
 | [HOW IT WORKS](#how-it-works)               |
 | [GETTING STARTED](#getting-started)         |
 | [INSTALLING](#installing)                   |
@@ -42,22 +44,7 @@
 
 ---
 
----
-
-<!-- ===================================================== [PROJECT MESSAGE] -->
-
-<!-- [ABOUT] ===================================================================
-* About %ProjectName%
-  Describes the project in a few sentences
-* Features
-  List of project features
-* What's new
-  A summary of what's new in the latest release
-* Built With
-  List of technologies and/or frameworks used
----------------------------------------------------------------------------- -->
-
-## ABOUT dvn
+## ABOUT DVN
 
 **dvn** is a command-line utility for managing development environments.
 
@@ -76,11 +63,13 @@ You *could* do all of the above steps manually, *or* you could let **dvn** do it
 dvn myproject
 ```
 
+<!--
 ### Features
 
 * Feature — What it does and why it matters.
 * Feature — What it does and why it matters.
 * Feature — What it does and why it matters.
+-->
 
 ### What's New
 
