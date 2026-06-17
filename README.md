@@ -11,6 +11,7 @@
   </picture>
 
   <br/>
+  <br/>
 
   ![RELEASE](https://img.shields.io/badge/version-1.2-teal)&nbsp;
   ![STAGE](https://img.shields.io/badge/stable-green)&nbsp; <!-- Alpha = Red, Beta = Yellow, Stable = Green -->
@@ -50,18 +51,14 @@
 
 Let's say you are working something called "MyProject", which requires:
 
-* A Visual Studio 2022 solution named "*MyProject*"
-* A Visual Studio Code workspace named "*MyProject-Documentation*"
-* A Visual Studio Code workspace named "*Other-Documentation*"
+* A Visual Studio 2022/2026 solution named "**MyProject**"
+* A Visual Studio Code workspace named "**MyProject-Documentation**"
+* A Visual Studio Code workspace named "**Other-Documentation**"
 * GitHub Desktop
 * A webpage containing API documentation
-* Specific data to be backed up
+* Additional project-related specific data that should be backed up
 
-You *could* do all of the above steps manually, *or* you could let **dvn** do it for you by typing
-
-```bash
-dvn myproject
-```
+You could do all of the above steps manually, ***or*** you could let **dvn** do it for you by typing: `dvn myproject`
 
 <!--
 ### Features
@@ -88,11 +85,10 @@ A blurb describing how the project works at a high level.
 
 -->
 
-### Requirements
-
-* [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
-
 ## INSTALLING
+
+> [!IMPORTANT]
+> dvn requires the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)!
 
 **dvn** is a portable application, so "installing" is simple:
 
@@ -111,7 +107,7 @@ To create the **dvn** framework:
 2. Type
 
 ```bash
-dvn
+$ dvn
 ```
 
 Since this is the first time you are executing **dvn**, you will see a message letting you know that the **dvn framework** will be created.
@@ -127,7 +123,7 @@ Currently this file only contains a list of files and folders that are ignored w
 When you start an environment by typing...
 
 ```bash
-dvn myproj
+$ dvn myproj
 ```
 
 ...**dvn** looks for a manifest file named `.\.dvn\manifests\myproj.dvn.manifest`, which contains all of the information **dvn** needs to start the environment.
@@ -306,13 +302,13 @@ In general, you'll use the `%environment%` command, which will start the specifi
 For example, to start/create the `myproj` environment, you would type
 
 ```bash
-dvn myproj
+$ dvn myproj
 ```
 
 To get a list of valid commands, type
 
 ```bash
-dvn help
+$ dvn help
 ```
 
 ### Options
@@ -328,13 +324,13 @@ Options:
 For example, you can force the data for the `myproj` environment to be backed up by typing
 
 ```bash
-dvn myproj -b
+$ dvn myproj -b
 ```
 
 To get a list of valid options, type
 
 ```bash
-dvn help
+$ dvn help
 ```
 
 ## Documentation
