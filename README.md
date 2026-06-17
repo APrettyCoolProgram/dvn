@@ -51,14 +51,14 @@
 
 Let's say you are working something called "MyProject", which requires:
 
-* A Visual Studio 2022/2026 solution named "*MyProject*"
-* A Visual Studio Code workspace named "*MyProject-Documentation*"
-* A Visual Studio Code workspace named "*Other-Documentation*"
+* A Visual Studio 2022/2026 solution named "**MyProject**"
+* A Visual Studio Code workspace named "**MyProject-Documentation**"
+* A Visual Studio Code workspace named "**Other-Documentation**"
 * GitHub Desktop
 * A webpage containing API documentation
-* Specific data to be backed up
+* Additional project-related specific data that should be backed up
 
-You *could* do all of the above steps manually, *or* you could let **dvn** do it for you by typing: `dvn myproject`
+You could do all of the above steps manually, ***or*** you could let **dvn** do it for you by typing: `dvn myproject`
 
 <!--
 ### Features
@@ -85,11 +85,10 @@ A blurb describing how the project works at a high level.
 
 -->
 
-### Requirements
-
-* [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)
-
 ## INSTALLING
+
+> [!IMPORTANT]
+> dvn requires the [.NET 10 SDK](https://dotnet.microsoft.com/en-us/download/dotnet/10.0)!
 
 **dvn** is a portable application, so "installing" is simple:
 
