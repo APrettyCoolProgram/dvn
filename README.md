@@ -71,16 +71,6 @@ dvn myproject
 * Feature — What it does and why it matters.
 -->
 
-### What's New
-
-**v1.2**  
-
-* Updated to .NET 10
-* Updated XML documentation
-* General code cleanup and refactoring
-
-See the [CHANGELOG](docs/CHANGELOG.md) for more details.
-
 <!--
 ### Built With
 
@@ -366,4 +356,4 @@ Copyright &copy; 2026 [A Pretty Cool Program](https://github.com/APrettyCoolProg
 
 ---
 
-<sub>Last updated: 260417</sub>
+<sub>Last updated: 260419</sub>
